@@ -39,16 +39,15 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
-        default_connection:   default
+        default_connection: default
         connections:
             default:
-                driver:   %database_driver%
-                host:     %database_host%
-                port:     %database_port%
+                driver:   'pdo_mysql'
                 dbname:   %database_name%
                 user:     %database_user%
+                host:     %database_host%
                 password: %database_password%
-                charset:  UTF8
+                unix_socket: /tmp/mysql.sock
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'

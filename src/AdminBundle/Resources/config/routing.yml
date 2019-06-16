@@ -1,0 +1,3 @@
+admin_homepage:
+    path:     /admin
+    defaults: { _controller: AdminBundle:Default:index }

@@ -42,12 +42,12 @@ doctrine:
         default_connection: default
         connections:
             default:
-                driver:   %database_driver%
-                dbname:   %database_name%
-                user:     %database_user%
-                host:     %database_host%
-                password: %database_password%
-                unix_socket: /tmp/mysql.sock
+                driver:   '%database_driver%'
+                dbname:   '%database_name%'
+                user:     '%database_user%'
+                host:     '%database_host%'
+                password: '%database_password%'
+                unix_socket: '/tmp/mysql.sock'
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'

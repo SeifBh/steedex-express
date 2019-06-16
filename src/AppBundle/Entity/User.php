@@ -47,7 +47,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="addr", type="string", length=255)
+     * @ORM\Column(name="tel", type="string", length=255)
      */
     private $tel ;
 

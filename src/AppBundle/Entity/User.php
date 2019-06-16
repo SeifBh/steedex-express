@@ -20,37 +20,6 @@ class User extends BaseUser
     protected $id;
 
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=255)
-     */
-    private $nom ;
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom", type="string", length=255)
-     */
-    private $prenom ;
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="addr", type="string", length=255)
-     */
-    private $addr ;
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="tel", type="string", length=255)
-     */
-    private $tel ;
-
 
 
 

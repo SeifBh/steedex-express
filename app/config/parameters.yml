@@ -1,4 +1,4 @@
-# This file is auto-generated during the composer installm
+# This file is auto-generated during the composer install
 parameters:
     database_host: u0zbt18wwjva9e0v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
     database_port: 3306

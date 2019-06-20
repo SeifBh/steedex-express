@@ -1,6 +1,6 @@
-admin:
+admin_bundle:
     resource: "@AdminBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin/
 
 app:
     resource: '@AppBundle/Controller/'

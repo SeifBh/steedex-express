@@ -1,1 +1,30 @@
-Hello users
+{% extends 'Template.html.twig' %}
+{% block body %}
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Liste des utilisateurs</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body no-padding">
+            <table class="table table-condensed">
+                <tbody><tr>
+                    <th>Id</th>
+                    <th>User</th>
+                    <th>Email</th>
+                </tr>
+
+                {% for c in users %}
+                    <tr>
+                        <td>{{ c.id }}</td>
+                        <td>{{ c.username }}</td>
+                        <td>{{ c.email }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+{% endblock  %}

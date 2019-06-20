@@ -2,6 +2,7 @@
 
 namespace AdminBundle\Controller;
 
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
@@ -11,11 +12,8 @@ class DefaultController extends Controller
         return $this->render('./default/test.html.twig', []);
     }
 
-    /**
-     * @Route("/users", name="test")
-     */
 
-    public function afficherUserAction(){
+    public function afficherAction(){
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository(User::class)->findAll();
         return $this->render('@Admin/Default/show.html.twig',array('users'=>$users) );

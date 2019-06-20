@@ -6,9 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use UserBundle\Entity\User;
 use UserBundle\Form\UserType;
+use AdminBundle\Controller\DefaultController as D;
 use Symfony\Component\HttpFoundation\Response;
 
-class DefaultController extends Controller
+class DefaultController extends D
 {
     public function indexAction()
     {
@@ -17,6 +18,7 @@ class DefaultController extends Controller
         return $this->render('@User/Default/index.html.twig',array('users'=>$users) );
 
     }
+
     public function createAction(Request $request){
         $user = new User();
 
@@ -110,6 +112,7 @@ class DefaultController extends Controller
 
 
     }
+
 
     public function sendToAdminAction($id){
 

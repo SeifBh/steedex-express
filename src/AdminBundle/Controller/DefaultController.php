@@ -9,12 +9,15 @@ use UserBundle\UserBundle;
 
 class DefaultController extends Controller
 {
+
     public function templateAction()
     {
         $em=$this->getDoctrine()->getManager();
-        $nb_users = $em->getRepository(UserRepository::class,new User())->findAll();
-        return $this->render('::Template.html.twig', array("nb"=>$nb_users));
+        $nb_users = $em->getRepository("UserBundle:User")->countAllUsers();
+        return $this->render('Template.html.twig', array("nb_users"=>$nb_users));
     }
+
+
 
     public function indexAction()
     {

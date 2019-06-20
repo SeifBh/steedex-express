@@ -33,7 +33,7 @@
                         <td>{{ c.tel }}</td>
                         <td>{{ c.addresse }}</td>
                         <td>{{ c.email }}</td>
-                        <td>{{ c.roles|join }}</td>
+                        <td>{{ c.roles|join('  ') }}</td>
                         <td>{{ c.lastLogin | date }}</td>
                         <td><a href="{{ path('_update_user',{'id':c.id}) }}">editer</a></td>
                         <td><a href="{{ path('_remove_user',{'id':c.id}) }}">supprimer</a></td>

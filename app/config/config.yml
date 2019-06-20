@@ -36,7 +36,6 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -71,7 +70,7 @@ swiftmailer:
         verify_peer_name: false
 sensio_framework_extra:
    router:
-        annotations: false
+        annotations: true
 # app/config/config.yml
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'

@@ -66,7 +66,7 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="{{ asset('steedex_styles_ADMIN/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                                                <img src="{{ asset('steedex_styles_ADMIN/dist/img/user-icon.png') }}" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 Support Team
@@ -79,7 +79,7 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="{{ asset('steedex_styles_ADMIN/dist/img/user3-128x128.jp')}}" class="img-circle" alt="User Image">
+                                                <img src="{{ asset('steedex_styles_ADMIN/dist/img/user-icon.png')}}" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 AdminLTE Design Team
@@ -252,17 +252,17 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('steedex_styles_ADMIN/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <img src="{{ asset('steedex_styles_ADMIN/dist/img/user-icon.png')}}" class="user-image" alt="User Image">
+                            <span class="hidden-xs">{{ app.user.nom }} {{ app.user.prenom }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="{{ asset('steedex_styles_ADMIN/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                                <img src="{{ asset('steedex_styles_ADMIN/dist/img/user-icon.png')}}" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    {{ app.user.nom }} {{ app.user.prenom }} - {{ app.user.roles | join('//') }}
+                                    <small>Derniére connexion {{ app.user.lastLogin | date }}</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
@@ -306,10 +306,10 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{ asset('steedex_styles_ADMIN/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                    <img src="{{ asset('steedex_styles_ADMIN/dist/img/user-icon.png')}}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p>{{ app.user.username }}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -392,27 +392,25 @@
 
 
 
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-files-o"></i>
-                        <span>Personnel</span>
-                        <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Afficher tous les personnel</a></li>
-                        <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Ajout Personnel</a></li>
-                    </ul>
-                </li>
+
 
 
                 <li class="treeview">
                     <a href="{{ path('_list_users') }}"><i class="fa fa-user"></i>
-                        <span>Utilistaurs</span>
+                        <span>Utilistaurs
+                        <span class="label label-primary ">
+
+ {{ render(controller(
+ 'AppBundle:Default:nbUsers',
+ { 'max': 100 }
+ )) }}
+
+              </span>
+                        </span>
                         <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
+              <i class="fa fa-angle-left pull-right"></i>
             </span>
+
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{ path('_list_users') }}"><i class="fa fa-circle-o"></i> Afficher</a></li>
@@ -438,8 +436,17 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Espace Administrateur
-                <small>Tableau de bord</small>
+                Tableau de brod
+                <small>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        Espace Administrateur
+                    {% else %}
+                        Espace Utilisateur
+                    {% endif %}
+
+
+
+                </small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -449,9 +456,9 @@
 
         <!-- Main content -->
         <section class="content">
-        {%  block body %}
+            {%  block body %}
 
-        {% endblock %}
+            {% endblock %}
         </section>
         <!-- /.content -->
     </div>
@@ -461,7 +468,7 @@
             <b>Version</b> 0.1
         </div>
         <strong>Copyright 2019 All rights
-        reserved.
+            reserved.
     </footer>
 
     <!-- Control Sidebar -->

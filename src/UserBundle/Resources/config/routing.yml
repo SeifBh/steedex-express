@@ -1,0 +1,6 @@
+_list_users:
+    path:     /list
+    defaults: { _controller: UserBundle:Default:index }
+_create_user:
+    path:     /create
+    defaults: { _controller: UserBundle:Default:create }

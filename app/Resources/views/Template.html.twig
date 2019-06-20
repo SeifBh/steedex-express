@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>Steedex  | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -37,11 +37,11 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="{{ path('admin_homepage') }}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>A</b>LT</span>
+            <span class="logo-mini"><b>S</b>TDX</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Admin</b>LTE</span>
+            <span class="logo-lg"><b>Stee</b>dex</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -392,16 +392,37 @@
 
 
 
-
-                <li>
-
-                    <a href="{{ path('_admin_users') }}"><i class="fa fa-book"></i>
-
-                        <span>Documentation</span>
-
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-files-o"></i>
+                        <span>Personnel</span>
+                        <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
                     </a>
-
+                    <ul class="treeview-menu">
+                        <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Afficher tous les personnel</a></li>
+                        <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Ajout Personnel</a></li>
+                    </ul>
                 </li>
+
+
+                <li class="treeview">
+                    <a href="{{ path('_list_users') }}"><i class="fa fa-user"></i>
+                        <span>Utilistaurs</span>
+                        <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ path('_list_users') }}"><i class="fa fa-circle-o"></i> Afficher</a></li>
+                        <li><a href="{{ path('_create_user') }}"><i class="fa fa-circle-o"></i> Ajout</a></li>
+                    </ul>
+                </li>
+
+
+
+
 
 
 

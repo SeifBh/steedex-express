@@ -20,13 +20,6 @@ class DefaultController extends Controller
     }
 
 
-    /**
-     * @Route("/test", name="test")
-     */
-    public function testAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/test.html.twig', []);
-    }
+
 
 }

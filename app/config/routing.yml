@@ -1,6 +1,12 @@
+_user_bundle:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /dashboard/users/
+
+
 admin_bundle:
     resource: "@AdminBundle/Resources/config/routing.yml"
-    prefix:   /admin/
+    prefix:   /dashboard/
+
 
 app:
     resource: '@AppBundle/Controller/'

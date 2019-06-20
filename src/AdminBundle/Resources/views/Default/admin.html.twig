@@ -1,0 +1,17 @@
+{% extends 'Template.html.twig' %}
+{% block body %}
+
+    <h1>Bonjour</h1>
+
+
+    {% if is_granted('ROLE_CLIENT') == true %}
+        NOT CLIENT
+    {% endif %}
+
+    {% if is_granted('ROLE_LIVREUR') == true %}
+        NOT LIVREUR
+    {% endif %}
+
+
+
+{% endblock %}

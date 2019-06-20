@@ -2,6 +2,11 @@ admin_homepage:
     path:     /index
     defaults: { _controller: AdminBundle:Default:admin }
 
+index_admin_template:
+    path:     /acc/
+    defaults: { _controller: AdminBundle:Default:template }
+
 _admin_users:
     path:     /users
     defaults: { _controller: AdminBundle:Default:afficher }
+

@@ -21,6 +21,8 @@
                     <th>Last Login</th>
                     <th>Edit</th>
                     <th>Delete</th>
+                    <th>To User</th>
+                    <th>To Admin</th>
 
                 </tr>
 
@@ -35,6 +37,8 @@
                         <td>{{ c.lastLogin | date }}</td>
                         <td><a href="{{ path('_update_user',{'id':c.id}) }}">editer</a></td>
                         <td><a href="{{ path('_remove_user',{'id':c.id}) }}">supprimer</a></td>
+                        <td><a href="{{ path('_send_mail_to_user',{'id':c.id}) }}">envoyer </a></td>
+                        <td><a href="{{ path('_send_mail_to_admin',{'id':c.id}) }}">envoyer</a></td>
 
                     </tr>
                 {% endfor %}

@@ -53,7 +53,7 @@ class User extends  BaseUser
      *
      * @ORM\Column(name="tel", type="string", length=255)
      */
-    private $tel ;
+    public $tel ;
 
     /**
      * @return string

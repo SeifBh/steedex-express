@@ -15,8 +15,18 @@ _remove_user:
     defaults: { _controller: UserBundle:Default:remove }
 
 
+_send_mail_to_user:
+    path:     /send_to_user/{id}
+    defaults: { _controller: UserBundle:Default:sendToUser }
+
+_send_mail_to_admin:
+    path:     /send_to_admin/{id}
+    defaults: { _controller: UserBundle:Default:sendToAdmin }
+
+
 _test_mail:
     path:     /test_mail/
     defaults: { _controller: UserBundle:Default:testMail }
+
 
 

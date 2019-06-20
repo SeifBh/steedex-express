@@ -70,4 +70,18 @@ class DefaultController extends Controller
     }
 
 
+    public function testMailAction()
+    {
+        $message = (new \Swift_Message('Demande prête'))
+            ->setFrom('belhadjali.seif@gmail.com')
+            ->setTo('belhadjali.seif@gmail.com')
+            ->setBody(
+                "Votre demande est prête. Vous pouvez venir la récupérer"
+            );
+        $this->get('mailer')->send($message);
+        return $this->redirectToRoute('_list_users');
+    }
+
+
+
 }

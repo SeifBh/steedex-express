@@ -59,8 +59,8 @@ doctrine:
 swiftmailer:
     transport: %mailer_transport%
     encryption: tls
-    auth_mode:  %mailer_auth_mode%
-    host:      %mailer_host%
+    auth_mode:  login
+    host:       smtp.gmail.com
     username:  %mailer_username%
     password:  %mailer_password%
     spool:     { type: memory }
@@ -73,6 +73,19 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
     user_class: UserBundle\Entity\User
+    registration:
+        confirmation:
+            enabled: true
+            template:   '@FOSUser/Registration/email.txt.twig'
+            from_email:
+                address:        belhadjali.seif@gmail.com
+                sender_name:    Demo Registration
+
+    resetting:
+        email:
+            from_email:
+                address:        belhadjali.seif@gmail.com
+                sender_name:    Demo Resetting
     service:                               # this lines
         mailer: fos_user.mailer.twig_swift # this lines
     from_email:

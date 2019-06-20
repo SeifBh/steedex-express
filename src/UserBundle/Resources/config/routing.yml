@@ -14,3 +14,9 @@ _remove_user:
     path:     /remove/{id}
     defaults: { _controller: UserBundle:Default:remove }
 
+
+_test_mail:
+    path:     /test_mail/
+    defaults: { _controller: UserBundle:Default:testMail }
+
+

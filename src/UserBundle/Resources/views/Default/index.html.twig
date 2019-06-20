@@ -3,29 +3,38 @@
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">Liste des utilisateurs</h3>
-        </div>
+            <div class="box-tools">
+                <a href="{{ path('_create_user') }}" type="button" class="btn btn-block btn-primary btn-lg">Ajouter</a>
+            </div><br>
+        </div><br>
+
         <!-- /.box-header -->
         <div class="box-body no-padding">
             <table class="table table-condensed">
                 <tbody><tr>
+                    <th>Username</th>
                     <th>Nom & Prenom</th>
                     <th>Tél</th>
                     <th>Addresse</th>
                     <th>Email</th>
-                    <th>Password</th>
+                    <th>Role</th>
                     <th>Last Login</th>
-
+                    <th>Edit</th>
+                    <th>Delete</th>
 
                 </tr>
 
                 {% for c in users %}
                     <tr>
+                        <td>{{ c.username }}</td>
                         <td>{{ c.nom }} {{ c.prenom }}</td>
                         <td>{{ c.tel }}</td>
                         <td>{{ c.addresse }}</td>
                         <td>{{ c.email }}</td>
-                        <td>{{ c.password }}</td>
+                        <td>{{ c.roles|join }}</td>
                         <td>{{ c.lastLogin | date }}</td>
+                        <td><a href="{{ path('_update_user',{'id':c.id}) }}">editer</a></td>
+                        <td><a href="{{ path('_remove_user',{'id':c.id}) }}">supprimer</a></td>
 
                     </tr>
                 {% endfor %}

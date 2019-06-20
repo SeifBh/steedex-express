@@ -1,0 +1,15 @@
+{% extends "Template.html.twig" %}
+{% block title %}Update User{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+        <input type="submit" value="Update">
+
+        {{ form_end(form) }}
+
+    </table>
+{% endblock %}

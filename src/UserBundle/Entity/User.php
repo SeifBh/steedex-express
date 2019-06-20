@@ -27,7 +27,7 @@ class User extends  BaseUser
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom ;
+    public $nom ;
 
 
     /**

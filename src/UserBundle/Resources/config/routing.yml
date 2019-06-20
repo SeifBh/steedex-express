@@ -4,3 +4,13 @@ _list_users:
 _create_user:
     path:     /create
     defaults: { _controller: UserBundle:Default:create }
+
+_update_user:
+    path:     /update/{id}
+    defaults: { _controller: UserBundle:Default:update }
+
+
+_remove_user:
+    path:     /remove/{id}
+    defaults: { _controller: UserBundle:Default:remove }
+

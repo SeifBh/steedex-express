@@ -1,3 +1,7 @@
 admin_homepage:
     path:     /admin
     defaults: { _controller: AdminBundle:Default:index }
+
+users:
+    path:     /users
+    defaults: { _controller: AdminBundle:Default:afficherUser }

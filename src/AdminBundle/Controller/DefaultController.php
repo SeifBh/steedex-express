@@ -10,4 +10,12 @@ class DefaultController extends Controller
     {
         return $this->render('./default/test.html.twig', []);
     }
+
+    public function afficherUserAction(){
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository(User::class)->findAll();
+        return $this->render('@Admin/Default/show.html.twig',array('users'=>$users) );
+    }
+
+
 }

@@ -11,6 +11,10 @@ class DefaultController extends Controller
         return $this->render('./default/test.html.twig', []);
     }
 
+    /**
+     * @Route("/users", name="test")
+     */
+
     public function afficherUserAction(){
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository(User::class)->findAll();

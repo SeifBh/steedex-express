@@ -192,7 +192,16 @@ class DefaultController extends Controller
     {
 
         $html2pdf = new Html2Pdf();
-        $html2pdf->writeHTML('<h1>HelloWorld</h1>This is my first test');
+        $ecole = "Esprti";
+        $html = $this->render('@Admin/Default/pdf.html.twig',array('ecole'=>$ecole));
+
+        $html2pdf->writeHTML($html);
+
+
         $html2pdf->output();
+
+
+
+
     }
 }

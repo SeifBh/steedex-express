@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use UserBundle\Entity\User;
+use Spipu\Html2Pdf\Html2Pdf;
 
 
 // Include Dompdf required namespaces
@@ -189,30 +190,9 @@ class DefaultController extends Controller
 
     public function generatepdfAction()
     {
-        // Configure Dompdf according to your needs
-        $pdfOptions = new Options();
-        $pdfOptions->set('defaultFont', 'Arial');
 
-        // Instantiate Dompdf with our options
-        $dompdf = new Dompdf($pdfOptions);
-
-        // Retrieve the HTML generated in our twig file
-        $html = $this->renderView('@Admin/Default/pdf.html.twig', [
-            'title' => "Welcome to our PDF Test"
-        ]);
-
-        // Load HTML to Dompdf
-        $dompdf->loadHtml($html);
-
-        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
-       // $dompdf->setPaper('A4', 'portrait');
-
-        // Render the HTML as PDF
-        //$dompdf->render();
-
-        // Output the generated PDF to Browser (force download)
-        $dompdf->stream("mypdf299.pdf", [
-            "Attachment" => true
-        ]);
+        $html2pdf = new Html2Pdf();
+        $html2pdf->writeHTML('<h1>HelloWorld</h1>This is my first test');
+        $html2pdf->output();
     }
 }

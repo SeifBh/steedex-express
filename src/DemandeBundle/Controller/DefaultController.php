@@ -190,8 +190,8 @@ class DefaultController extends Controller
     public function generatepdfAction()
     {
         // Configure Dompdf according to your needs
-      $pdfOptions = new Options();
-       // $pdfOptions->set('defaultFont', 'Arial');
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
 
         // Instantiate Dompdf with our options
         $dompdf = new Dompdf($pdfOptions);
@@ -205,14 +205,14 @@ class DefaultController extends Controller
         $dompdf->loadHtml($html);
 
         // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
-       // $dompdf->setPaper('A4', 'portrait');
+        $dompdf->setPaper('A4', 'portrait');
 
         // Render the HTML as PDF
         $dompdf->render();
 
         // Output the generated PDF to Browser (force download)
-        $dompdf->stream("mypdf2.pdf", [
-            "Attachment" => false
+        $dompdf->stream("mypdf299.pdf", [
+            "Attachment" => true
         ]);
     }
 }

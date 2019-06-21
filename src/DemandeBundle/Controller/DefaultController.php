@@ -10,6 +10,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use UserBundle\Entity\User;
 
+
+// Include Dompdf required namespaces
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 class DefaultController extends Controller
 {
 
@@ -184,17 +189,30 @@ class DefaultController extends Controller
 
     public function generatepdfAction()
     {
-        $html = $this->renderView('Template.html.twig');
+        // Configure Dompdf according to your needs
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
 
-        $filename = sprintf('test-%s.pdf', date('Y-m-d'));
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
 
-        return new Response(
-            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
-            200,
-            [
-                'Content-Type'        => 'application/pdf',
-                'Content-Disposition' => sprintf('attachment; filename="%s"', $filename),
-            ]
-        );
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('@Admin/Default/pdf.html.twig', [
+            'title' => "Welcome to our PDF Test"
+        ]);
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => true
+        ]);
     }
 }

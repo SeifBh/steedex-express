@@ -30,6 +30,6 @@ _valide_demande:
     defaults: { _controller: DemandeBundle:Default:valideDemande }
 
 _generate_url:
-    path:     /generate_url
+    path:     /pdf
     defaults: { _controller: DemandeBundle:Default:generatepdf }
 

@@ -5,10 +5,10 @@ parameters:
     database_name: ci3u8la72tgwyian
     database_user: fqkxv305ofb9js8w
     database_password: op2mltht5bv1aeeb
-    mailer_transport:  smtp
+    mailer_transport: smtp
     mailer_encryption: tls
-    mailer_auth_mode:  login
-    mailer_host:       smtp.gmail.com
+    mailer_auth_mode: login
+    mailer_host: smtp.gmail.com
     mailer_username: belhadjali.seif@gmail.com
     mailer_password: ultraS18
     secret: ThisTokenIsNotSoSecretChangeIt

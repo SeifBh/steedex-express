@@ -15,15 +15,15 @@ class DefaultController extends Controller
 
     public function listAction()
     {
-        $user   = $this->getUser();
+        $user = $this->getUser();
         $userId = $user->getId();
         $em = $this->getDoctrine()->getManager();
-       /* if ($this->isGranted('ROLE_ADMIN')) {
-            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findAll();
-        } else {
-            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('id_client'=>$userId));
-        }
-*/
+        /* if ($this->isGranted('ROLE_ADMIN')) {
+             $listDemandes = $em->getRepository('DemandeBundle:Demande')->findAll();
+         } else {
+             $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('id_client'=>$userId));
+         }
+ */
         $listDemandes = $em->getRepository('DemandeBundle:Demande')->findAll();
 
 
@@ -33,9 +33,10 @@ class DefaultController extends Controller
 
     }
 
-    public function createAction(Request $request){
+    public function createAction(Request $request)
+    {
 
-        $user   = $this->getUser();
+        $user = $this->getUser();
         $userId = $user->getId();
         $demande = new Demande();
 
@@ -51,12 +52,11 @@ class DefaultController extends Controller
                 $em->flush();
 
                 return $this->redirectToRoute("_list_demande");
-            }
-            else{
+            } else {
                 $errors = $this->get('validator')->validate($demande);
 
                 return $this->render('@Demande/Default/create.html.twig', array(
-                    'errrs',$errors,
+                    'errrs', $errors,
                     'form' => $form->createView()
                 ));
 
@@ -69,36 +69,36 @@ class DefaultController extends Controller
         ));
 
 
-
     }
 
 
-    public function updateAction(Request $request,$id){
+    public function updateAction(Request $request, $id)
+    {
 
-        $em=$this->getDoctrine()->getManager();
-        $demande=$em->getRepository("DemandeBundle:Demande")->find($id);
-        $form=$this->createForm(DemandeType::class,$demande);
+        $em = $this->getDoctrine()->getManager();
+        $demande = $em->getRepository("DemandeBundle:Demande")->find($id);
+        $form = $this->createForm(DemandeType::class, $demande);
         $form->handleRequest($request);
 
-        if($form->isValid())
-        {
+        if ($form->isValid()) {
             $em->persist($demande);
             $em->flush();
             return $this->redirectToRoute('_list_demande');
         }
 
 
-        return $this->render("@User/Default/update.html.twig",array(
-            'form'=>$form->createView()
+        return $this->render("@User/Default/update.html.twig", array(
+            'form' => $form->createView()
         ));
 
     }
 
-    public function removeAction(Request $request,$id){
+    public function removeAction(Request $request, $id)
+    {
 
-        $em=$this->getDoctrine()->getManager();
-        $demande=$em->getRepository("DemandeBundle:Demande")->find($id);
-        if ($demande!=null){
+        $em = $this->getDoctrine()->getManager();
+        $demande = $em->getRepository("DemandeBundle:Demande")->find($id);
+        if ($demande != null) {
             $em->remove($demande);
             $em->flush();
         }
@@ -107,18 +107,18 @@ class DefaultController extends Controller
     }
 
 
-
-    public function affecterAction(Request $request,$id_demande){
+    public function affecterAction(Request $request, $id_demande)
+    {
         $demande = new Demande();
 
         $form = $this->createForm(AssignType::class, $demande);
         $form->handleRequest($request); /*creation d'une session pr stocker les valeurs de l'input*/
-        if ($form->isSubmitted()){
+        if ($form->isSubmitted()) {
             $id_liveur = $request->get('id_livreur');
             return new Response($id_liveur);
         }
 
-        $user   = $this->getUser();
+        $user = $this->getUser();
         $userId = $user->getId();
         $em = $this->getDoctrine()->getManager();
         /* if ($this->isGranted('ROLE_ADMIN')) {
@@ -128,28 +128,28 @@ class DefaultController extends Controller
          }
  */
         $listusers_livreur = $em->getRepository('UserBundle:User')->findByRole('ROLE_LIVREUR');
-        $demande = $em->getRepository("DemandeBundle:Demande",$demande)->findBy(['id' => $id_demande]);
+        $demande = $em->getRepository("DemandeBundle:Demande", $demande)->findBy(['id' => $id_demande]);
 
 
         return $this->render('@Demande/Default/assign.html.twig', array(
             'form' => $form->createView(),
-            'demande'=>$demande,
-            'id_demande'=>$id_demande,
+            'demande' => $demande,
+            'id_demande' => $id_demande,
             'listusers_livreur' => $listusers_livreur
         ));
     }
 
 
-
-    public function confirmAssignAction(Request $request,$id_demande,$id_livreur){
+    public function confirmAssignAction(Request $request, $id_demande, $id_livreur)
+    {
 
         $id_liveur = $request->get('id_livreur');
         $id_demande = $request->get('id_demande');
         $livreur = new User();
         $demande = new Demande();
         $em = $this->getDoctrine()->getManager();
-        $livreur = $em->getRepository('UserBundle:User')->findOneBy(array('id'=>$id_livreur));
-        $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id'=>$id_demande));
+        $livreur = $em->getRepository('UserBundle:User')->findOneBy(array('id' => $id_livreur));
+        $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id' => $id_demande));
 
         $demande->setIdLivreur($livreur);
 
@@ -160,21 +160,17 @@ class DefaultController extends Controller
         return $this->redirectToRoute("_list_demande");
 
 
-
-
-
-
     }
 
-    public function valideDemandeAction(Request $request,$id_demande){
+    public function valideDemandeAction(Request $request, $id_demande)
+    {
 
 
         $id_demande = $request->get('id_demande');
         //return new Response($id_demande);
         $demande = new Demande();
         $em = $this->getDoctrine()->getManager();
-        $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id'=>$id_demande));
-
+        $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id' => $id_demande));
 
 
         $demande->setEtat(true);
@@ -185,4 +181,21 @@ class DefaultController extends Controller
 
     }
 
+
+    public function generatepdfAction()
+    {
+        $snappy = $this->get('knp_snappy.pdf');
+        $filename = 'myFirstSnappyPDF';
+        $url = 'http://ourcodeworld.com';
+
+
+        return new Response(
+            $snappy->getOutput($url),
+            200,
+            array(
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename="' . $filename . '.pdf"'
+            )
+        );
+    }
 }

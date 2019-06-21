@@ -28,3 +28,8 @@ confirm_demande:
 _valide_demande:
     path:     /assign_final/{id_demande}
     defaults: { _controller: DemandeBundle:Default:valideDemande }
+
+_generate_url:
+    path:     /generate_url
+    defaults: { _controller: DemandeBundle:Default:generatepdf }
+

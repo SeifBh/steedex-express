@@ -95,3 +95,17 @@ fos_user:
     from_email:
         address: "belhadjali.seif@gmail.com"
         sender_name: "Seif Bh"
+
+# Windows configuration
+knp_snappy:
+    pdf:
+        enabled:    true
+        # If you have wkhtmltopdf as an environment variable you don't need to provide the
+        # full path to the executable, use it in the same way as you use in the console
+        #binary:  "wkhtmltopdf"
+        binary:     "\"D:\\Programmes\\wamp64\\www\\steedex-dev\\steedex\\web\\pdf\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options:
+            no-outline: true
+            page-size: LETTER
+            # Recommended to set UTF-8 as default encoding :)
+            encoding: UTF-8

@@ -211,7 +211,7 @@ class DefaultController extends Controller
         $dompdf->render();
 
         // Output the generated PDF to Browser (force download)
-        $dompdf->stream("mypdf.pdf", [
+        $dompdf->stream("mypdf2.pdf", [
             "Attachment" => true
         ]);
     }

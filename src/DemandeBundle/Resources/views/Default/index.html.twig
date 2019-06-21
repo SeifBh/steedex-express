@@ -82,9 +82,18 @@
                             </td>
                             <td><a href="{{ path('_update_demande',{'id':d.id}) }}">Modifier</a></td>
                             <td><a href="{{ path('_remove_demande',{'id':d.id}) }}">Supprimer</a></td>
-                            <td><a href="{{ path('_valide_demande', {'id_demande': d.id}) }}">
+                            <td>
 
-                                    Confirmer</a>
+
+                                {% if d.idLivreur != null and d.etat == true %}
+                                    -
+                            {% else %}
+                                <a href="{{ path('_valide_demande', {'id_demande': d.id}) }}"> Confirmer</a>
+
+                                {% endif %}
+
+
+
                             </td>
 
 

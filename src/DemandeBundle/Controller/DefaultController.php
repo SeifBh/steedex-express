@@ -185,7 +185,7 @@ class DefaultController extends Controller
     public function generatepdfAction()
     {
         $snappy = $this->get('knp_snappy.pdf');
-        $filename = 'myFirstSnappyPDF';
+        $filename = 'myFirstSnappyPDF5';
         $url = 'http://ourcodeworld.com';
 
 

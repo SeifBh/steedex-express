@@ -184,18 +184,17 @@ class DefaultController extends Controller
 
     public function generatepdfAction()
     {
-        $snappy = $this->get('knp_snappy.pdf');
-        $filename = 'myFirstSnappyPDF5';
-        $url = 'http://ourcodeworld.com';
+        $html = $this->renderView('Template.html.twig');
 
+        $filename = sprintf('test-%s.pdf', date('Y-m-d'));
 
         return new Response(
-            $snappy->getOutput($url),
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
             200,
-            array(
-                'Content-Type' => 'application/pdf',
-                'Content-Disposition' => 'inline; filename="' . $filename . '.pdf"'
-            )
+            [
+                'Content-Type'        => 'application/pdf',
+                'Content-Disposition' => sprintf('attachment; filename="%s"', $filename),
+            ]
         );
     }
 }

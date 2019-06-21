@@ -16,3 +16,4 @@
 /vendor/
 /web/bundles/
 !/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php
+!/vendor/h4cc/*

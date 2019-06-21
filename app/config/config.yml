@@ -103,7 +103,7 @@ knp_snappy:
         # If you have wkhtmltopdf as an environment variable you don't need to provide the
         # full path to the executable, use it in the same way as you use in the console
         #binary:  "wkhtmltopdf"
-        binary:     "wkhtmltopdf"
+        binary:     %kernel.root_dir%/../vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64
         options:
             no-outline: true
             page-size: LETTER

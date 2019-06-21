@@ -24,3 +24,7 @@ _assign_demande:
 confirm_demande:
     path:     /assign/{id_demande}/{id_livreur}
     defaults: { _controller: DemandeBundle:Default:confirmAssign }
+
+_valide_demande:
+    path:     /assign_final/{id_demande}
+    defaults: { _controller: DemandeBundle:Default:valideDemande }

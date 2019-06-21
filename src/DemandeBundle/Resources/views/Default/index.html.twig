@@ -4,7 +4,7 @@
         <div class="box-header">
             <h3 class="box-title">Liste des demandes</h3>
             <div class="box-tools">
-                <a href="{{ path('_create_demande') }}" type="button" class="btn btn-block btn-primary btn-lg">Creer une demande</a>
+                <a href="{{ path('_create_demande') }}" type="button" class="btn btn-block btn-primary btn-lg">Créer une demande</a>
             </div><br>
         </div><br>
 
@@ -22,6 +22,7 @@
                     <th>#Aff</th>
                     <th>#Mod</th>
                     <th>#Supp</th>
+                    <th>#Conf</th>
 
                 </tr>
 
@@ -64,7 +65,7 @@
                             <td>
 
                                 {% if d.idLivreur != null %}
-                                    {{ d.idLivreur.nom }} {{ d.idLivreur.prenom }}
+                                  {{ d.idLivreur.nom }} {{ d.idLivreur.prenom }}
                                 {% else %}
                                     -
                                 {% endif %}
@@ -81,6 +82,10 @@
                             </td>
                             <td><a href="{{ path('_update_demande',{'id':d.id}) }}">Modifier</a></td>
                             <td><a href="{{ path('_remove_demande',{'id':d.id}) }}">Supprimer</a></td>
+                            <td><a href="{{ path('_valide_demande', {'id_demande': d.id}) }}">
+
+                                    Confirmer</a>
+                            </td>
 
 
                         </tr>

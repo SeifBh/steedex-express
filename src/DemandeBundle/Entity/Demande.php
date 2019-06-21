@@ -100,7 +100,7 @@ class Demande
 
     /**
      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="id_livreur",referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_livreur",referencedColumnName="id",onDelete="SET NULL")
      */
     private $id_livreur;
 

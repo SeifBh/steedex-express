@@ -127,7 +127,7 @@ class DefaultController extends Controller
              $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('id_client'=>$userId));
          }
  */
-        $listusers_livreur = $em->getRepository('UserBundle:User')->findByRole('ROLE_ADMIN');
+        $listusers_livreur = $em->getRepository('UserBundle:User')->findByRole('ROLE_LIVREUR');
         $demande = $em->getRepository("DemandeBundle:Demande",$demande)->findBy(['id' => $id_demande]);
 
 
@@ -166,6 +166,23 @@ class DefaultController extends Controller
 
     }
 
+    public function valideDemandeAction(Request $request,$id_demande){
 
+
+        $id_demande = $request->get('id_demande');
+        //return new Response($id_demande);
+        $demande = new Demande();
+        $em = $this->getDoctrine()->getManager();
+        $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id'=>$id_demande));
+
+
+
+        $demande->setEtat(true);
+        $em->persist($demande);
+        $em->flush();
+
+        return $this->redirectToRoute("_list_demande");
+
+    }
 
 }

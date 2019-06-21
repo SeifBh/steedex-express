@@ -1,0 +1,11 @@
+{% extends 'Template.html.twig' %}
+{% block body %}
+
+{{ form_start(form, {'method': 'post', 'action': path('_create_demande'), 'attr': {'class': ''}}) }}
+
+{{ form_errors(form) }}
+
+    {{ form_rest(form) }}
+    <input type="submit" value="send">
+    {{ form_end(form) }}
+{% endblock %}

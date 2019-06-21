@@ -1,0 +1,51 @@
+{% extends 'Template.html.twig' %}
+{% block body %}
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Liste des demandes</h3>
+            <div class="box-tools">
+                <a href="{{ path('_create_demande') }}" type="button" class="btn btn-block btn-primary btn-lg">Creer une demande</a>
+            </div><br>
+        </div><br>
+
+        <!-- /.box-header -->
+        <div class="box-body no-padding">
+            <table class="table table-condensed">
+                <tbody><tr>
+                    <th>Titre</th>
+                    <th>Emetteur</th>
+                    <th>Destinataire</th>
+                    <th>Addresse</th>
+                    <th>Tel</th>
+                    <th>Etat</th>
+                    <th>supp</th>
+
+                </tr>
+
+                {% if listDemandes is empty %}
+                    <tr><th> Aucun demande enregistré</th></tr>
+                {% else %}
+                    {% for d in listDemandes %}
+                        <tr>
+                            <td>{{ d.titre }}</td>
+                            <td>{{ d.idClient.nom }} {{ d.idClient.prenom }}</td>
+                            <td>{{ d.nomPrenomRecept }}</td>
+                            <td>{{ d.addresseRecept }} </td>
+                            <td>{{ d.telephoneRecept }}</td>
+                            <td>{{ d.etat ? '<span class="label label-success">Validé</span>':'<span class="label label-warning">Encours</span>' }}</td>
+                            <td><a href="{{ path('_remove_demande',{'id':d.id}) }}">supprimer</a></td>
+
+
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+
+
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+{% endblock %}

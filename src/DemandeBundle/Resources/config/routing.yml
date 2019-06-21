@@ -1,0 +1,14 @@
+_list_demande:
+    path:     /list
+    defaults: { _controller: DemandeBundle:Default:list }
+
+_create_demande:
+    path:     /create
+    defaults: { _controller: DemandeBundle:Default:create }
+
+
+_remove_demande:
+    path:     /remove/{id}
+    defaults: { _controller: DemandeBundle:Default:remove }
+
+

@@ -1,3 +1,7 @@
+_demande_bundle:
+    resource: "@DemandeBundle/Resources/config/routing.yml"
+    prefix:   /dashboard/demandes/
+
 _user_bundle:
     resource: "@UserBundle/Resources/config/routing.yml"
     prefix:   /dashboard/users/

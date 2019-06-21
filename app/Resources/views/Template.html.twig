@@ -316,7 +316,7 @@
                 <li class="header">Menu</li>
 
                 <li class="treeview">
-                    <a href="#">
+                    <a href="{{ path('_list_demande') }}">
                         <i class="fa fa-files-o"></i>
                         <span>Demandes</span>
                         <span class="pull-right-container">
@@ -324,8 +324,8 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Afficher demandes</a></li>
-                        <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Ajout demande</a></li>
+                        <li><a href="{{ path('_list_demande') }}"><i class="fa fa-circle-o"></i> Afficher demandes</a></li>
+                        <li><a href="{{ path('_create_demande') }}"><i class="fa fa-circle-o"></i> Ajout demande</a></li>
                     </ul>
                 </li>
 
@@ -384,7 +384,15 @@
 
                 <li class="active treeview menu-open">
                     <a href="{{ path('_list_users') }}">
-                        <i class="fa fa-user"></i> <span>Utilisateurs</span>
+                        <i class="fa fa-user"></i> <span>Utilisateurs
+                            <span class="label label-primary">
+                            {{ render(controller(
+                            'AppBundle:Default:nbUsers',
+                            { 'max': 3 }
+                            )) }}
+                            </span>
+
+                        </span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

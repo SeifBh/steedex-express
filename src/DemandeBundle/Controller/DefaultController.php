@@ -3,9 +3,12 @@
 namespace DemandeBundle\Controller;
 
 use DemandeBundle\Entity\Demande;
+use DemandeBundle\Form\AssignType;
 use DemandeBundle\Form\DemandeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use UserBundle\Entity\User;
 
 class DefaultController extends Controller
 {
@@ -69,6 +72,28 @@ class DefaultController extends Controller
 
     }
 
+
+    public function updateAction(Request $request,$id){
+
+        $em=$this->getDoctrine()->getManager();
+        $demande=$em->getRepository("DemandeBundle:Demande")->find($id);
+        $form=$this->createForm(DemandeType::class,$demande);
+        $form->handleRequest($request);
+
+        if($form->isValid())
+        {
+            $em->persist($demande);
+            $em->flush();
+            return $this->redirectToRoute('_list_demande');
+        }
+
+
+        return $this->render("@User/Default/update.html.twig",array(
+            'form'=>$form->createView()
+        ));
+
+    }
+
     public function removeAction(Request $request,$id){
 
         $em=$this->getDoctrine()->getManager();
@@ -80,4 +105,67 @@ class DefaultController extends Controller
 
         return $this->redirectToRoute("_list_demande");
     }
+
+
+
+    public function affecterAction(Request $request,$id_demande){
+        $demande = new Demande();
+
+        $form = $this->createForm(AssignType::class, $demande);
+        $form->handleRequest($request); /*creation d'une session pr stocker les valeurs de l'input*/
+        if ($form->isSubmitted()){
+            $id_liveur = $request->get('id_livreur');
+            return new Response($id_liveur);
+        }
+
+        $user   = $this->getUser();
+        $userId = $user->getId();
+        $em = $this->getDoctrine()->getManager();
+        /* if ($this->isGranted('ROLE_ADMIN')) {
+             $listDemandes = $em->getRepository('DemandeBundle:Demande')->findAll();
+         } else {
+             $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('id_client'=>$userId));
+         }
+ */
+        $listusers_livreur = $em->getRepository('UserBundle:User')->findByRole('ROLE_ADMIN');
+        $demande = $em->getRepository("DemandeBundle:Demande",$demande)->findBy(['id' => $id_demande]);
+
+
+        return $this->render('@Demande/Default/assign.html.twig', array(
+            'form' => $form->createView(),
+            'demande'=>$demande,
+            'id_demande'=>$id_demande,
+            'listusers_livreur' => $listusers_livreur
+        ));
+    }
+
+
+
+    public function confirmAssignAction(Request $request,$id_demande,$id_livreur){
+
+        $id_liveur = $request->get('id_livreur');
+        $id_demande = $request->get('id_demande');
+        $livreur = new User();
+        $demande = new Demande();
+        $em = $this->getDoctrine()->getManager();
+        $livreur = $em->getRepository('UserBundle:User')->findOneBy(array('id'=>$id_livreur));
+        $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id'=>$id_demande));
+
+        $demande->setIdLivreur($livreur);
+
+        //$demande->setEtat(true);
+        $em->persist($demande);
+        $em->flush();
+
+        return $this->redirectToRoute("_list_demande");
+
+
+
+
+
+
+    }
+
+
+
 }

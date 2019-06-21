@@ -7,8 +7,20 @@ _create_demande:
     defaults: { _controller: DemandeBundle:Default:create }
 
 
+_update_demande:
+    path:     /update/{id}
+    defaults: { _controller: DemandeBundle:Default:update }
+
+
 _remove_demande:
     path:     /remove/{id}
     defaults: { _controller: DemandeBundle:Default:remove }
 
 
+_assign_demande:
+    path:     /assign/{id_demande}
+    defaults: { _controller: DemandeBundle:Default:affecter }
+
+confirm_demande:
+    path:     /assign/{id_demande}/{id_livreur}
+    defaults: { _controller: DemandeBundle:Default:confirmAssign }

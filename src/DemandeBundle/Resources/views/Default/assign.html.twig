@@ -1,0 +1,108 @@
+{% extends 'Template.html.twig' %}
+{% block body %}
+
+
+
+    <div class="col-md-6">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Demande </h3>
+                <div class="box-tools">
+                </div><br>
+            </div><br>
+
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+                <table class="table table-condensed">
+                    <tbody><tr>
+                        <th>Titre</th>
+                        <th>Emetteur</th>
+                        <th>Destinataire</th>
+                        <th>Addresse</th>
+                        <th>Tel</th>
+                        <th>Etat</th>
+
+                    </tr>
+
+                    {% if demande is empty %}
+                        <tr><th> Aucun demande enregistré</th></tr>
+                    {% else %}
+                        {% for d in demande %}
+
+                            <tr>
+                                <td>{{ d.titre }}</td>
+                                <td>{{ d.idClient.nom }} {{ d.idClient.prenom }}</td>
+                                <td>{{ d.nomPrenomRecept }}</td>
+                                <td>{{ d.addresseRecept }} </td>
+                                <td>{{ d.telephoneRecept }}</td>
+                                <td>{{ d.etat ? '<span class="label label-success">Validé</span>':'<span class="label label-warning">Encours</span>' }}</td>
+
+
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+
+
+                    </tbody>
+
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+
+
+    </div>
+    <div class="col-md-6">
+
+
+
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Liste des Livreurs</h3>
+                <div class="box-tools">
+                </div><br>
+            </div><br>
+
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+                <table class="table table-condensed">
+                    <tbody><tr>
+                        <th>ID</th>
+                        <th>Nom & Prenom</th>
+                        <th>Tél</th>
+                        <th></th>
+
+
+                    </tr>
+
+                    {% for c in listusers_livreur %}
+                        <tr>
+                            <td>{{ c.id }}</td>
+
+                            <td>{{ c.nom }} {{ c.prenom }}</td>
+                            <td>{{ c.tel }}</td>
+                            <td>
+                            <td>
+
+                                <a href="{{ path('confirm_demande', {'id_demande': id_demande,'id_livreur': c.id}) }}">Affecter</a>
+
+
+
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+
+
+    </div>
+
+{% endblock  %}

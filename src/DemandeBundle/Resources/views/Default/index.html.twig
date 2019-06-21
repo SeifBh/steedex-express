@@ -18,7 +18,10 @@
                     <th>Addresse</th>
                     <th>Tel</th>
                     <th>Etat</th>
-                    <th>supp</th>
+                    <th>Livreur</th>
+                    <th>#Aff</th>
+                    <th>#Mod</th>
+                    <th>#Supp</th>
 
                 </tr>
 
@@ -32,8 +35,52 @@
                             <td>{{ d.nomPrenomRecept }}</td>
                             <td>{{ d.addresseRecept }} </td>
                             <td>{{ d.telephoneRecept }}</td>
-                            <td>{{ d.etat ? '<span class="label label-success">Validé</span>':'<span class="label label-warning">Encours</span>' }}</td>
-                            <td><a href="{{ path('_remove_demande',{'id':d.id}) }}">supprimer</a></td>
+
+                            <td>
+
+
+
+
+
+
+                                {% if (d.etat == false) and (d.idLivreur == null)  %}
+                                    <span class="label label-info">En Traitement</span>
+                                    {% elseif (d.etat ==null) and (d.idLivreur != null) %}
+                                        <span class="label label-warning">Encours</span>
+                                    {% else %}
+                                    <span class="label label-success">Validé</span>
+
+                                {% endif %}
+
+
+
+
+
+
+
+
+
+                            </td>
+                            <td>
+
+                                {% if d.idLivreur != null %}
+                                    {{ d.idLivreur.nom }} {{ d.idLivreur.prenom }}
+                                {% else %}
+                                    -
+                                {% endif %}
+
+
+                            </td>
+
+                            <td>
+                                {% if d.etat == false %}
+                                <a href="{{ path('_assign_demande',{'id_demande':d.id}) }}">Affecter</a>
+                                    {% else %}
+                                    -
+                                {% endif %}
+                            </td>
+                            <td><a href="{{ path('_update_demande',{'id':d.id}) }}">Modifier</a></td>
+                            <td><a href="{{ path('_remove_demande',{'id':d.id}) }}">Supprimer</a></td>
 
 
                         </tr>

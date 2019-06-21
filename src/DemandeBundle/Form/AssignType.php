@@ -6,24 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class DemandeType extends AbstractType
+class AssignType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('titre')
-            ->add('nom_prenom_recept')
-            ->add('addresse_recept')
-            ->add('telephone_recept')
-            ->add('montant')
-            ->add('etat')
-            ->add('idLivreur')
-            ->add('note')
 
-        ;
     }/**
      * {@inheritdoc}
      */

@@ -1,156 +1,242 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-  <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css"/>
+    <meta charset="utf-8">
+    <title>A simple, clean, and responsive HTML invoice template</title>
 
-    <meta charset="UTF-8">
-    <title>Title of the PDF 55</title>
+    <style>
+        .invoice-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            font-size: 16px;
+            line-height: 24px;
+            color: black;
+        }
+
+        .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+        }
+
+        .invoice-box table td {
+            padding: 5px;
+            vertical-align: top;
+        }
+
+        .invoice-box table tr td:nth-child(2) {
+            text-align: right;
+        }
+
+        .invoice-box table tr.top table td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.top table td.title {
+            font-size: 45px;
+            line-height: 45px;
+            color: #333;
+        }
+
+        .invoice-box table tr.information table td {
+            padding-bottom: 40px;
+        }
+
+        .invoice-box table tr.heading td {
+            background: #eee;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .invoice-box table tr.details td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.item td{
+            border-bottom: 1px solid #eee;
+        }
+
+        .invoice-box table tr.item.last td {
+            border-bottom: none;
+        }
+
+        .invoice-box table tr.total td:nth-child(2) {
+            border-top: 2px solid #eee;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .invoice-box table tr.top table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+
+            .invoice-box table tr.information table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        /** RTL **/
+        .rtl {
+            direction: rtl;
+        }
+
+        .rtl table {
+            text-align: right;
+        }
+
+        .rtl table tr td:nth-child(2) {
+            text-align: left;
+        }
+        @page {
+            @bottom-center { content: element(footer) }
+        }
+
+    </style>
 </head>
+
 <body>
-<div class="invoice">
-    <!-- title row -->
-    <div class="row">
-        <div class="col-xs-12">
-            <h2 class="page-header">
-                <i class="fa fa-globe"></i> AdminLTE, Inc.
-                <small class="pull-right">Date: 2/10/2014</small>
-            </h2>
-        </div>
-        <!-- /.col -->
-    </div>
-    <!-- info row -->
-    <div class="row invoice-info">
-        <div class="col-sm-4 invoice-col" style="float: right !important;">
-            From
-            <address>
-                <strong>Admin, Inc.</strong><br>
-                795 Folsom Ave, Suite 600<br>
-                San Francisco, CA 94107<br>
-                Phone: (804) 123-5432<br>
-                Email: <a href="mailto:info@almasaeedstudio.com">info@almasaeedstudio.com</a>
-            </address>
-        </div>
-        <!-- /.col -->
-        <div class="col-sm-4 invoice-col">
-            To
-            <address>
-                <strong>John Doe</strong><br>
-                795 Folsom Ave, Suite 600<br>
-                San Francisco, CA 94107<br>
-                Phone: (555) 539-1037<br>
-                Email: <a href="mailto:john.doe@example.com">john.doe@example.com</a>
-            </address>
-        </div>
-        <!-- /.col -->
-        <div class="col-sm-4 invoice-col">
-            <b>Invoice #007612</b><br>
-            <br>
-            <b>Order ID:</b> 4F3S8J<br>
-            <b>Payment Due:</b> 2/22/2014<br>
-            <b>Account:</b> 968-34567
-        </div>
-        <!-- /.col -->
-    </div>
-    <!-- /.row -->
+<div class="partie1 partie2">
+    <table border="0" cellpadding="5" cellspacing="0" style="  border: 1px solid black;
+            border-collapse: collapse;" >
+        <tr>
+            <th width="300" style="padding: 10px;">
+                <img style="width: 100px; height: 100px" src="D:\Programmes\wamp64\www\steedex-dev\steedex\web\images\logo.jpg" width="200" height="100">
 
-    <!-- Table row -->
-    <div class="row">
-        <div class="col-xs-12 table-responsive">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Qty</th>
-                    <th>Product</th>
-                    <th>Serial #</th>
-                    <th>Description</th>
-                    <th>Subtotal</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Call of Duty</td>
-                    <td>455-981-221</td>
-                    <td>El snort testosterone trophy driving gloves handsome</td>
-                    <td>$64.50</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Need for Speed IV</td>
-                    <td>247-925-726</td>
-                    <td>Wes Anderson umami biodiesel</td>
-                    <td>$50.00</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Monsters DVD</td>
-                    <td>735-845-642</td>
-                    <td>Terry Richardson helvetica tousled street art master</td>
-                    <td>$10.70</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Grown Ups Blue Ray</td>
-                    <td>422-568-642</td>
-                    <td>Tousled lomo letterpress</td>
-                    <td>$25.99</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- /.col -->
-    </div>
-    <!-- /.row -->
-
-    <div class="row">
-        <!-- accepted payments column -->
-        <div class="col-xs-6">
-            <p class="lead">Payment Methods:</p>
+            </th>
+            <th width="300" style="padding: 10px;float: right !important;">
 
 
-            <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-                Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg
-                dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
-            </p>
-        </div>
-        <!-- /.col -->
-        <div class="col-xs-6">
-            <p class="lead">Amount Due 2/22/2014</p>
+            </th>
+        </tr>
+    </table>
 
-            <div class="table-responsive">
-                <table class="table">
-                    <tbody><tr>
-                        <th style="width:50%">Subtotal:</th>
-                        <td>$250.30</td>
-                    </tr>
-                    <tr>
-                        <th>Tax (9.3%)</th>
-                        <td>$10.34</td>
-                    </tr>
-                    <tr>
-                        <th>Shipping:</th>
-                        <td>$5.80</td>
-                    </tr>
-                    <tr>
-                        <th>Total:</th>
-                        <td>$265.24</td>
-                    </tr>
-                    </tbody></table>
-            </div>
-        </div>
-        <!-- /.col -->
-    </div>
-    <!-- /.row -->
-
-    <!-- this row will not appear when printing -->
-    <div class="row no-print">
-        <div class="col-xs-12">
-            <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-
-        </div>
-    </div>
 </div>
 
-<p>Lorem Ipsum 00</p>
+<div class="invoice-box">
+
+    <div>
+
+
+
+        
+        <div class="partie1">
+            <table border="1" cellpadding="5" cellspacing="0" style="  border: 1px solid black;
+            border-collapse: collapse;" >
+                <tr style="padding: 7px;">
+                    <th width="300" style="padding: 10px;">Sociéte : 'Obligatoire'</th>
+                    <th width="300" s style="padding:10px;">N° de Bordereau: 'n+1'</th>
+                </tr>
+            </table><br>
+            <table border="0" style="border: 0px solid !important;  border: 1px solid black;
+            border-collapse: collapse; " >
+                <tr>
+                    <td class="tdStyle" width="350"><span style=""><b>Identifiant fiscal</b> : obligatoire</span></td>
+                    <td class="tdStyle" width="300"><span style=""><b>Date de la facture</b> : Obligatoire</span></td>
+                </tr>
+                <tr>
+                    <td class="tdStyle" width="350"><span style=""><b>Adresse</b> : obligatoire</span></td>
+                    <td class="tdStyle" width="300"><span style=""><b>Date d’échéance</b> : Obligatoire</span></td>
+                </tr>
+                <tr>
+                    <td class="tdStyle" width="350"><span style=""><b>Téléphone</b> : Obligatoire</span></td>
+                    <td class="tdStyle" width="300"><span style=""><b>Livraison</b> : à domicile</span></td>
+                </tr>
+                <tr>
+                    <td class="tdStyle" width="300"><span style=""><b>Note</b> : Obligatoire</span></td>
+                </tr>
+
+            </table>
+        </div><br>
+        <div class="partie1 partie2">
+            <table border="1" cellpadding="5" cellspacing="0" style="  border: 1px solid black;
+            border-collapse: collapse;" >
+                <tr>
+                    <th width="300" style="padding: 10px;">Destinateur</th>
+                    <th width="300" style="padding: 10px;">Service de livraison : Steedex</th>
+                </tr>
+            </table>
+
+            <br>
+
+            <table border="0" style="border: 0px solid !important;   border: 1px solid black;
+            border-collapse: collapse;" >
+                <tr>
+                    <td class="tdStyle" width="350"><span style=""><b>Nom du client :</b> : obligatoire</span></td>
+                    <td class="tdStyle" width="300"><span style=""><b>Nom de l’agent</b> : Obligatoire</span></td>
+                </tr>
+                <tr>
+                    <td class="tdStyle" width="350"><span style=""><b>Téléphone</b> : obligatoire</span></td>
+                    <td class="tdStyle" width="300"><span style=""><b>Téléphone</b> : Obligatoire</span></td>
+                </tr>
+                <tr>
+                    <td class="tdStyle" width="350"><span style=""><b>Adresse</b> : Obligatoire</span></td>
+                </tr>
+                <tr>
+                    <td class="tdStyle" width="300"><span style=""><b>Note</b> : Obligatoire</span></td>
+                </tr>
+            </table><br>
+            <br>
+
+
+            <table border="1" cellpadding="5"  class="tdcol" style="  border: 1px solid black;
+            border-collapse: collapse;" >
+                <tr style="border-bottom: 1px solid black !important;">
+                    <th width="300" style="padding: 10px;">Nombre de colis</th>
+                    <th width="300" style="padding: 10px;">Montant Net à payer en TTC</th>
+                </tr>
+                <tbody>
+                <tr >
+                    <td width="350" style="padding: 10px !important;border: 0px solid red !important;"><span>1 Colis</span></td>
+                    <td width="300" style="padding: 10px !important;border: 0px solid red !important;">
+                        <span style="float:left;">sdsd</span>
+                    </td>
+                </tr>
+
+                <tr >
+                    <td width="350" style="padding: 10px !important;border: 0px solid red !important;"><span>1 Colis</span></td>
+                    <td width="300" style="padding: 10px !important;border: 0px solid red !important;">
+                        <span style="float:left;">sdsd</span>
+                    </td>
+                </tr>
+
+
+
+                <tr >
+                    <td width="350" style="padding: 10px !important;border: 0px solid red !important;"><span></span></td>
+                    <td width="300" style="padding: 10px !important;border: 0px solid red !important;">
+                        <span style="float:left;">Total : 70 000 TND</span>
+                    </td>
+                </tr>
+
+
+
+
+
+                </tbody>
+            </table>
+<br>
+            <br>
+            <div class="partie1 partie2">
+                <table border="0" cellpadding="5" cellspacing="0" style="  border: 1px solid black;
+            border-collapse: collapse;" >
+                    <tr>
+                        <th width="300" style="padding: 10px;">Signature & Cachet du vendeur</th>
+                        <th width="300" style="padding: 10px;">Signature & Cachet de livreur</th>
+                    </tr>
+                </table>
+
+
+        </div>
+        </div>
+    </div>
+    <br>
+
+
+</div>
 </body>
 </html>

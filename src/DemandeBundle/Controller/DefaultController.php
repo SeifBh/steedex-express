@@ -198,11 +198,17 @@ class DefaultController extends Controller
     }
 
 
+    public function viewPdfAction(){
+        return $this->render('@Admin/Default/pdf.html.twig', array(
+
+        ));
+    }
     public function generatepdfAction()
     {
 
-        $html2pdf = new Html2Pdf();
-        $ecole = "Esprti";
+        $html2pdf = new Html2Pdf('P','A4','en');
+        $html2pdf->setTestIsImage(true);
+        $ecole ="jj";
         $html = $this->render('@Admin/Default/pdf.html.twig',array('ecole'=>$ecole));
 
         $html2pdf->writeHTML($html);
@@ -289,22 +295,28 @@ class DefaultController extends Controller
 
 
         }*/
+
+
+
+
         if($request->isXmlHttpRequest()) {
 
             foreach ($listedemandes as $offset => $record) {
                 $product = new Demande();
-                $product = $em->getRepository("DemandeBundle:Demande", $demande)->findOneBy(['id' => $record['id']]);
-                $product->setRead(true);
-                $product->setNomPrenomRecept("aaaaaa");
+                $product = $em->getRepository("DemandeBundle:Demande")->findOneBy(['id' => $record->getId()]);
+                $product->setNomPrenomRecept("BB");
                 $em->persist($product);
                 $em->flush();
-                return new JsonResponse("succes update");
+
+
 
             }
+            return new JsonResponse("succes update");
+
         }
 
 
-        return $this->redirectToRoute("_list_demande");
+        return new JsonResponse("succes termine");
 
 
 

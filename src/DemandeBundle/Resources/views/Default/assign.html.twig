@@ -4,51 +4,56 @@
 
 
     <div class="col-md-6">
-        <div class="box">
-            <div class="box-header">
-                <h3 class="box-title">Demande </h3>
-                <div class="box-tools">
-                </div><br>
-            </div><br>
+        <div class="box box-solid">
 
-            <!-- /.box-header -->
-            <div class="box-body no-padding">
-                <table class="table table-condensed">
-                    <tbody><tr>
-                        <th>Titre</th>
-                        <th>Emetteur</th>
-                        <th>Destinataire</th>
-                        <th>Addresse</th>
-                        <th>Tel</th>
-                        <th>Etat</th>
-
-                    </tr>
-
-                    {% if demande is empty %}
-                        <tr><th> Aucun demande enregistré</th></tr>
-                    {% else %}
-                        {% for d in demande %}
-
-                            <tr>
-                                <td>{{ d.titre }}</td>
-                                <td>{{ d.idClient.nom }} {{ d.idClient.prenom }}</td>
-                                <td>{{ d.nomPrenomRecept }}</td>
-                                <td>{{ d.addresseRecept }} </td>
-                                <td>{{ d.telephoneRecept }}</td>
-                                <td>{{ d.etat ? '<span class="label label-success">Validé</span>':'<span class="label label-warning">Encours</span>' }}</td>
+            <div class="box-body">
+    {% for d in demande %}
 
 
-                            </tr>
-                        {% endfor %}
-                    {% endif %}
-
-
-                    </tbody>
-
-                </table>
+                <h4 style="background-color:#f7f7f7; font-size: 18px; text-align: center; padding: 7px 10px; margin-top: 0;">
+                    {{ d.titre }}
+                </h4>
+        <div class="progress progress-sm active">
+            <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                <span class="sr-only">20% Complete</span>
             </div>
-            <!-- /.box-body -->
         </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="https://dashboardpack.com/theme-details/kero-jquery-html-dashboard-pro&amp;utm_source=adminlte&amp;utm_medium=frontpage" class="ad-click-event">
+                            <img src="{{ asset('images/colis.png') }}" width="150" class="img-circle" alt="Colis envoyéé">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <div class="clearfix">
+
+
+                            <h4 style="margin-top: 0">De :{{ d.idClient.nom }} {{ d.idClient.prenom }} </h4>
+
+                            <h4 style="margin-top: 0">Vers :{{ d.nomPrenomRecept }} </h4>
+                            <h4>{{ d.montant }} TND</h4>
+                            <p> Adresse : {{ d.addresseRecept }} </p>
+                            <p> tel : {{ d.telephoneRecept }}</p>
+                            <p style="margin-bottom: 0">
+                                {% if (d.etat == false) and (d.idLivreur == null)  %}
+                                    <span class="label label-info">En Traitement</span>
+                                {% elseif (d.etat ==null) and (d.idLivreur != null) %}
+                                    <span class="label label-warning">Encours</span>
+                                {% else %}
+                                    <span class="label label-success">Validé</span>
+
+                                {% endif %}
+
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+            </div>
+        </div>
+
+
 
 
 

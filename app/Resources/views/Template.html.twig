@@ -326,6 +326,7 @@
                     <ul class="treeview-menu">
                         <li><a href="{{ path('_list_demande') }}"><i class="fa fa-circle-o"></i> Afficher demandes</a></li>
                         <li><a href="{{ path('_create_demande') }}"><i class="fa fa-circle-o"></i> Ajout demande</a></li>
+                        <li><a href="{{ path('_generate_url') }}"><i class="fa fa-circle-o"></i> Test Pdf</a></li>
                     </ul>
                 </li>
 
@@ -368,19 +369,7 @@
 
 
 
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-files-o"></i>
-                        <span>Personnel</span>
-                        <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Afficher tous les personnel</a></li>
-                        <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Ajout Personnel</a></li>
-                    </ul>
-                </li>
+
 
                 <li class="active treeview menu-open">
                     <a href="{{ path('_list_users') }}">
@@ -448,7 +437,7 @@
             <b>Version</b> 0.1
         </div>
         <strong>Copyright 2019 All rights
-            reserved.
+            reserved.</strong>
     </footer>
 
     <!-- Control Sidebar -->

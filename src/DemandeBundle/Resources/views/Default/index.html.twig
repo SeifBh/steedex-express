@@ -19,6 +19,7 @@
                     <th>Tel</th>
                     <th>Etat</th>
                     <th>Livreur</th>
+                    <th>SEEN</th>
                     <th>#Aff</th>
                     <th>#Mod</th>
                     <th>#Supp</th>
@@ -62,6 +63,7 @@
 
 
                             </td>
+
                             <td>
 
                                 {% if d.idLivreur != null %}
@@ -72,7 +74,9 @@
 
 
                             </td>
-
+                            <td>
+                                {% if d.read %}yes{% else %}no{% endif%}
+                            </td>
                             <td>
                                 {% if d.etat == false %}
                                 <a href="{{ path('_assign_demande',{'id_demande':d.id}) }}">Affecter</a>

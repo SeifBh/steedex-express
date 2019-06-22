@@ -172,13 +172,19 @@
                         </ul>
                     </li>
                     <!-- Tasks: style can be found in dropdown.less -->
-                    <li class="dropdown tasks-menu">
+                    <li class="dropdown tasks-menu" id="unread_msgs">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-flag-o"></i>
-                            <span class="label label-danger">9</span>
+                            <span class="label label-danger">
+                             {{ render(controller(
+                             'AppBundle:Default:countUnreadMessages',
+                             { 'max': 3 }
+                             )) }}
+
+                            </span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">You have 9 tasks</li>
+                            <li class="header">Vous avez 0 colis non lues</li>
                             <li>
                                 <!-- inner menu: contains the actual data -->
                                 <ul class="menu">
@@ -674,5 +680,43 @@
 <script src="{{ asset('steedex_styles_ADMIN/dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('steedex_styles_ADMIN/dist/js/demo.js') }}"></script>
+
+
+<script >
+
+
+    $(function(){
+        $("#unread_msgs").click(
+            function(){
+
+                $.ajax({
+
+                    url : '{{ path("_seen_all_demande") }}',
+                    success : function(response){
+                        /*     $('#con1').append(
+                                 "        <img  alt='' src='http://giflat.dceven.fr/wp-content/uploads/2017/04/loader-white.gif' class=''>\n"
+
+                             );
+*/
+
+                        $("#con1").html(
+                            ""
+                        );
+                        $.each(response,function(k,el){
+
+
+
+
+                        })
+
+
+                    },
+                })
+            }
+
+        );
+    });
+
+</script>
 </body>
 </html>

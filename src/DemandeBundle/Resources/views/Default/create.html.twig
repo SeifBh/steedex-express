@@ -1,11 +1,62 @@
 {% extends 'Template.html.twig' %}
 {% block body %}
+    <div class="box box-primary">
 
-{{ form_start(form, {'method': 'post', 'action': path('_create_demande'), 'attr': {'class': ''}}) }}
 
-{{ form_errors(form) }}
+        {{ form_start(form, {'method': 'post', 'action': path('_create_demande'), 'attr': {'class': ''}}) }}
 
-    {{ form_rest(form) }}
-    <input type="submit" value="send">
-    {{ form_end(form) }}
+        {{ form_errors(form) }}
+
+        <div class="box-header with-border">
+            <h3 class="box-title">Ajouter une demande </h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Titre</label>
+                    {{ form_row(form.titre) }}
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nom&Prenom</label>
+                    {{ form_row(form.nom_prenom_recept) }}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Adresse</label>
+                    {{ form_row(form.addresse_recept) }}
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Tel</label>
+                    {{ form_row(form.telephone_recept) }}
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Montant</label>
+                    {{ form_row(form.montant) }}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Notre</label>
+                    {{ form_row(form.note) }}
+                </div>
+
+            </div>
+            <!-- /.box-body -->
+
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+
+
+
+
+
 {% endblock %}

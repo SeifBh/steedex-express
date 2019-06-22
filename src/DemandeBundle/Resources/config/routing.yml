@@ -33,3 +33,9 @@ _generate_url:
     path:     /pdf
     defaults: { _controller: DemandeBundle:Default:generatepdf }
 
+
+_seen_all_demande:
+    path:     /seen
+    defaults: { _controller: DemandeBundle:Default:seen }
+
+

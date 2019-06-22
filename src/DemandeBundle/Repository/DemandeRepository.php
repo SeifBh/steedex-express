@@ -10,4 +10,13 @@ namespace DemandeBundle\Repository;
  */
 class DemandeRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function countUnreadCol(){
+        return $this->createQueryBuilder('d')
+            ->select('COUNT(d)')
+            ->where('d.read = false')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
 }

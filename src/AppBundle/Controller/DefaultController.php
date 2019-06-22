@@ -18,6 +18,11 @@ class DefaultController extends Controller
     }
 
 
-
+    public function countUnreadMessagesAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $nb_unread_msgs = $em->getRepository("DemandeBundle:Demande")->countUnreadCol();
+        return new Response($nb_unread_msgs);
+    }
 
 }

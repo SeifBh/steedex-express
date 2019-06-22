@@ -6,8 +6,11 @@ use DemandeBundle\Entity\Demande;
 use DemandeBundle\Form\AssignType;
 use DemandeBundle\Form\DemandeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 use UserBundle\Entity\User;
 use Spipu\Html2Pdf\Html2Pdf;
 
@@ -18,6 +21,13 @@ use Dompdf\Options;
 
 class DefaultController extends Controller
 {
+
+    public function countNbMsg()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $nb_unread_msgs = $em->getRepository("DemandeBundle:Demande")->countUnreadCol();
+        return new Response($nb_unread_msgs);
+    }
 
     public function listAction()
     {
@@ -199,6 +209,103 @@ class DefaultController extends Controller
 
 
         $html2pdf->output();
+
+
+
+
+    }
+
+
+    public function seenAction(Request $request){
+/*
+        $demande = new Demande();
+        $em = $this->getDoctrine()->getManager();
+        $listedemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('read' => true));
+
+        if($request->isXmlHttpRequest() ){
+
+
+
+                $listspotted=$em->getRepository("DemandeBundle:Demande")->findAll();
+
+
+
+
+            $normalizer = new ObjectNormalizer();
+
+            $normalizer->setCircularReferenceLimit(2);
+            // Add Circular reference handler
+            $normalizer->setCircularReferenceHandler(function ($publication) {
+                return $publication->getId();
+            });
+            $normalizers = array($normalizer);
+            $serialzier = new Serializer(array($normalizer));
+            $v = $serialzier->normalize($listspotted);
+
+
+
+
+            foreach ($listedemandes as $d)
+
+
+            {
+
+
+                $d = new Demande();
+
+
+
+                $d->setRead(true);
+                $d->setNomPrenomRecept("seeeeeeeeeif");
+                $em->persist($d);
+                $em->flush();
+            }
+
+
+
+            return new JsonResponse($v);
+
+        }
+*/
+        $demande = new Demande();
+        $em = $this->getDoctrine()->getManager();
+        $listedemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('read' => true));
+
+
+
+        $em = $this->getDoctrine()->getManager();
+        /*foreach ($listedemandes as $i)
+        {
+            $demande = new Demande();
+            $demande = $em->getRepository('DemandeBundle:Demande')->findBy(array('read' => true));
+
+            $selectedDemande = $em->getRepository(Demande::class)->findOneBy(array(
+                'id' => 6
+            ));
+
+            $selectedDemande->setRead(true);
+            $em->persist($selectedDemande);
+            $em->flush();
+
+
+        }*/
+        if($request->isXmlHttpRequest()) {
+
+            foreach ($listedemandes as $offset => $record) {
+                $product = new Demande();
+                $product = $em->getRepository("DemandeBundle:Demande", $demande)->findOneBy(['id' => $record['id']]);
+                $product->setRead(true);
+                $product->setNomPrenomRecept("aaaaaa");
+                $em->persist($product);
+                $em->flush();
+                return new JsonResponse("succes update");
+
+            }
+        }
+
+
+        return $this->redirectToRoute("_list_demande");
+
 
 
 

@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints\DateTime;
  *
  * @ORM\Table(name="demande")
  * @ORM\Entity(repositoryClass="DemandeBundle\Repository\DemandeRepository")
+ * 
  */
 class Demande
 {
@@ -87,6 +88,19 @@ class Demande
      * @ORM\Column(name="date_reception", type="date", nullable=true)
      */
     private $date_recepetion;
+
+
+
+    /**
+     * @ORM\Column(name="read", type="boolean")
+     */
+    private $read = false;
+
+    /**
+     * @ORM\Column(name="modified", type="boolean")
+     */
+    private $modified = false;
+
 
 
 
@@ -292,6 +306,41 @@ class Demande
     public function setDateRecepetion($date_recepetion)
     {
         $this->date_recepetion = $date_recepetion;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRead()
+    {
+        return $this->read;
+    }
+
+    /**
+     * @param mixed $read
+     */
+    public function setRead($read)
+    {
+        $this->read = $read;
+    }
+
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    /**
+     * @param mixed $modified
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
     }
 
 

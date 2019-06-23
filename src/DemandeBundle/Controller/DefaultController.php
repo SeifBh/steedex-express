@@ -323,4 +323,22 @@ class DefaultController extends Controller
 
 
     }
+
+    public function ajaxListAction(){
+
+        //return new JsonResponse("Hello ");
+        $publications = $this->getDoctrine()->getManager()->getRepository('DemandeBundle:Demande')->findBy(array(),array('id'=>'DESC'));
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setCircularReferenceLimit(1);
+        $normalizer->setCircularReferenceHandler(function ($listp) {
+            return $listp->getId();
+        });
+        $normalizers = array($normalizer);
+        $serialzier = new Serializer($normalizers);
+        $l = $serialzier->normalize($publications);
+        // var_dump($l);
+        return new JsonResponse($l);
+
+    }
+
 }

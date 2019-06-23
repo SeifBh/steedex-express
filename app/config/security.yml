@@ -31,6 +31,3 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: /dashboard/index, role: ROLE_USER }
-        - { path: ^/dashboard/users/, role: ROLE_ADMIN }
-        - { path: ^/dashboard/demandes/, role: ROLE_USER }

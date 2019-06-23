@@ -44,3 +44,9 @@ _seen_all_demande:
     defaults: { _controller: DemandeBundle:Default:seen }
 
 
+_ajax_listt_demande:
+    path:     /api/demandes/list
+    defaults: { _controller: DemandeBundle:Default:ajaxList }
+
+
+

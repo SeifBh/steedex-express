@@ -22,6 +22,8 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
             new DemandeBundle\DemandeBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+
 
         ];
 

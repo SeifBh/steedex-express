@@ -327,7 +327,7 @@ class DefaultController extends Controller
     public function ajaxListAction(){
 
         //return new JsonResponse("Hello ");
-        $publications = $this->getDoctrine()->getManager()->getRepository('DemandeBundle:Demande')->findBy(array(),array('id'=>'DESC'));
+        $publications = $this->getDoctrine()->getManager()->getRepository('UserBundle:User')->findOneBy(array('id'=>23),array('id'=>'DESC'))->getNom();
         $normalizer = new ObjectNormalizer();
         $normalizer->setCircularReferenceLimit(1);
         $normalizer->setCircularReferenceHandler(function ($listp) {
@@ -336,7 +336,7 @@ class DefaultController extends Controller
         $normalizers = array($normalizer);
         $serialzier = new Serializer($normalizers);
         $l = $serialzier->normalize($publications);
-        // var_dump($l);
+      //  var_dump($l);
         return new JsonResponse($l);
 
     }

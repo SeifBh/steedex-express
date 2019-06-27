@@ -19,4 +19,13 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
             ->getSingleScalarResult();
     }
 
+    public function allDemandes(){
+        return $this->createQueryBuilder('d')
+            ->select('COUNT(d)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+
+
 }

@@ -120,6 +120,13 @@ class Demande
     private $taille;
 
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tailleColis", type="string",length=255,nullable=true)
+     */
+    private $tailleColis;
+
 
     /**
      * @ORM\Column(name="fragile", type="boolean",nullable=true)
@@ -448,6 +455,22 @@ class Demande
     public function setFragile($fragile)
     {
         $this->fragile = $fragile;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTailleColis()
+    {
+        return $this->tailleColis;
+    }
+
+    /**
+     * @param mixed $tailleColis
+     */
+    public function setTailleColis($tailleColis)
+    {
+        $this->tailleColis = $tailleColis;
     }
 
 

@@ -371,4 +371,12 @@ class DefaultController extends Controller
 
     }
 
+    public function allDemandeAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $nb_demandes = $em->getRepository("DemandeBundle:Demande")->allDemandes();
+        return new Response($nb_demandes);
+    }
+
+
 }

@@ -2,14 +2,68 @@
 {% block title %}Update User{% endblock %}
 
 {% block body %}
+<div class="box box-warning">
 
-    <table class="table">
         {{ form_start(form) }}
+    <div class="box-header with-border">
+        <h3 class="box-title">Modifier Demande </h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <div class="box-body">
 
-        {{ form_widget(form) }}
+        <div class="form-group">
+            <label for="exampleInputEmail1">Titre</label>
+            {{ form_row(form.titre) }}
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nom&Prenom</label>
+            {{ form_row(form.nom_prenom_recept) }}
+        </div>
+
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Adresse</label>
+            {{ form_row(form.addresse_recept) }}
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Tel</label>
+            {{ form_row(form.telephone_recept) }}
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Montant</label>
+            {{ form_row(form.montant) }}
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Quantite</label>
+            {{ form_row(form.quantite) }}
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Fragile</label>
+            {{ form_row(form.fragile) }}
+        </div>
+
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Note</label>
+            {{ form_row(form.note) }}
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">TailleCOlis</label>
+            {{ form_row(form.tailleColis) }}
+        </div>
+
         <input type="submit" value="Update">
 
         {{ form_end(form) }}
 
-    </table>
+    </div>
+</div>
+    </div>
 {% endblock %}

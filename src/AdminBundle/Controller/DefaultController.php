@@ -14,7 +14,7 @@ class DefaultController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
         $nb_users = $em->getRepository("UserBundle:User")->countAllUsers();
-        return $this->render('Template.html.twig', array("nb_users"=>$nb_users));
+        return $this->render('@Admin/Default/dahboard.html.twig', array("nb_users"=>$nb_users));
     }
 
 

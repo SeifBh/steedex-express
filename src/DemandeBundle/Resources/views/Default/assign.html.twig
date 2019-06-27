@@ -29,7 +29,9 @@
 
 
                             <h4 style="margin-top: 0">De :{{ d.idClient.nom }} {{ d.idClient.prenom }} </h4>
-
+                            <h5>Quantite : {{ d.quantite }}</h5>
+                            <h5>Fragile : {% if d.fragile ==true %} Oui {% else %}Non{% endif %}</h5>
+                            <h5>Taille Colis : {{ d.tailleColis }}</h5>
                             <h4 style="margin-top: 0">Vers :{{ d.nomPrenomRecept }} </h4>
                             <h4>{{ d.montant }} TND</h4>
                             <p> Adresse : {{ d.addresseRecept }} </p>

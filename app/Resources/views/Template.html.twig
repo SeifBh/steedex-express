@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Steedex 55 | Dashboard</title>
+    <title>Steedex | Tableau de bord</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -185,12 +185,26 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">Menu</li>
 
+                    <li>
+
+                        <a href="{{ path('admin_homepage') }}">
+                            <i class="fa fa-dashboard"></i>
+
+                            Tableau de bord</a>
+                    </li>
                 <li class="treeview">
                     <a href="{{ path('_list_demande') }}">
                         <i class="fa fa-files-o"></i>
                         <span>Demandes</span>
                         <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
+              <span class="label label-primary pull-right">
+
+                   {{  render(controller(
+                   'DemandeBundle:Default:allDemande',
+                   { 'max': 3 }
+                   )) }}
+
+              </span>
             </span>
                     </a>
                     <ul class="treeview-menu">
@@ -205,7 +219,11 @@
                         <i class="fa fa-files-o"></i>
                         <span>Clients</span>
                         <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
+              <span class="label label-primary pull-right">
+
+
+                 5
+              </span>
             </span>
                     </a>
                     <ul class="treeview-menu">
@@ -284,8 +302,20 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Espace Administrateur
-                <small>Tableau de bord</small>
+                Tableau de bord
+                <small>
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                        Espace Administrateur
+                    {% elseif is_granted('ROLE_CLIENT') %}
+                        Espace Client
+                    {% elseif is_granted('ROLE_LIVREUR') %}
+                        Espace Livreur
+
+                    {% else %}
+                        Anonymous
+                    {% endif %}
+                </small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

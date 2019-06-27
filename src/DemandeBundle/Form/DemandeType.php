@@ -70,10 +70,21 @@ class DemandeType extends AbstractType
                     'data' => true,
                     'label'=>false
 
-                ]
+                ])
+
+            ->add('tailleColis', ChoiceType::class, [
+                    'choices'  => [
+                        'Grand' => null,
+                        'Moyen' => true,
+                        'Petit' => false,
+                    ],
+                'label'=>false,
+                'attr'=> array('class' => 'form-control','placeholder'=>"Taille Colis")
 
 
-    )
+            ])
+
+
 
 
 

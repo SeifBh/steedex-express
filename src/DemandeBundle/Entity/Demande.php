@@ -60,6 +60,41 @@ class Demande
     private $montant;
 
 
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantite", type="integer",nullable=true)
+     */
+    private $quantite;
+
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pointure", type="integer",nullable=true)
+     */
+    private $pointure;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="taille", type="string",length=255)
+     */
+    private $taille;
+
+
+
+    /**
+     * @ORM\Column(name="fragile", type="boolean")
+     */
+    private $fragile = false;
+
+
+
+
+
     /**
      * @var string
      * @ORM\Column(name="note", type="string", length=255)
@@ -211,6 +246,73 @@ class Demande
     {
         $this->montant = $montant;
     }
+
+    /**
+     * @return int
+     */
+    public function getQuantite()
+    {
+        return $this->quantite;
+    }
+
+    /**
+     * @param int $quantite
+     */
+    public function setQuantite($quantite)
+    {
+        $this->quantite = $quantite;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPointure()
+    {
+        return $this->pointure;
+    }
+
+    /**
+     * @param int $pointure
+     */
+    public function setPointure($pointure)
+    {
+        $this->pointure = $pointure;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTaille()
+    {
+        return $this->taille;
+    }
+
+    /**
+     * @param string $taille
+     */
+    public function setTaille($taille)
+    {
+        $this->taille = $taille;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFragile()
+    {
+        return $this->fragile;
+    }
+
+    /**
+     * @param mixed $fragile
+     */
+    public function setFragile($fragile)
+    {
+        $this->fragile = $fragile;
+    }
+
+
+
 
     /**
      * @return string

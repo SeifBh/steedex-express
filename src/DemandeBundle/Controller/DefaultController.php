@@ -203,13 +203,22 @@ class DefaultController extends Controller
 
         ));
     }
-    public function generatepdfAction()
+    public function generatepdfAction(Request $request)
     {
+
+
+        $id_demande = $request->get('id_demande');
+        //return new Response($id_demande);
+        $demande = new Demande();
+        $em = $this->getDoctrine()->getManager();
+        $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id' => $id_demande));
+        $id_demande = $demande->getId();
+        $client = $demande->getIdClient();
 
         $html2pdf = new Html2Pdf('P','A4','en');
         $html2pdf->setTestIsImage(true);
         $ecole ="jj";
-        $html = $this->render('@Admin/Default/pdf.html.twig',array('ecole'=>$ecole));
+        $html = $this->render('@Admin/Default/pdf.html.twig',array('client'=>$client,'demande'=>$demande));
 
         $html2pdf->writeHTML($html);
 

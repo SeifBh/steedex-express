@@ -128,26 +128,26 @@
             <table border="1" cellpadding="5" cellspacing="0" style="  border: 1px solid black;
             border-collapse: collapse;" >
                 <tr style="padding: 7px;">
-                    <th width="300" style="padding: 10px;">Sociéte : 'Obligatoire'</th>
-                    <th width="300" s style="padding:10px;">N° de Bordereau: 'n+1'</th>
+                    <th width="300" style="padding: 10px;">Sociéte : {{ client.nom }}</th>
+                    <th width="300" s style="padding:10px;">N° de Bordereau: {{ demande.id }}</th>
                 </tr>
             </table><br>
             <table border="0" style="border: 0px solid !important;  border: 1px solid black;
             border-collapse: collapse; " >
                 <tr>
-                    <td class="tdStyle" width="350"><span style=""><b>Identifiant fiscal</b> : obligatoire</span></td>
-                    <td class="tdStyle" width="300"><span style=""><b>Date de la facture</b> : Obligatoire</span></td>
+                    <td class="tdStyle" width="350"><span style=""><b>Identifiant fiscal</b> : 144857669</span></td>
+                    <td class="tdStyle" width="300"><span style=""><b>Date de la facture</b> : {{ demande.dateEmission | date("d/m/Y") }}</span></td>
                 </tr>
                 <tr>
-                    <td class="tdStyle" width="350"><span style=""><b>Adresse</b> : obligatoire</span></td>
-                    <td class="tdStyle" width="300"><span style=""><b>Date d’échéance</b> : Obligatoire</span></td>
+                    <td class="tdStyle" width="350"><span style=""><b>Adresse</b> : {{ client.addresse }}</span></td>
+                    <td class="tdStyle" width="300"><span style=""><b>Date d’échéance</b> : {{ demande.dateRecepetion | date("d/m/Y") }}</span></td>
                 </tr>
                 <tr>
-                    <td class="tdStyle" width="350"><span style=""><b>Téléphone</b> : Obligatoire</span></td>
+                    <td class="tdStyle" width="350"><span style=""><b>Téléphone</b> : {{ client.tel }}</span></td>
                     <td class="tdStyle" width="300"><span style=""><b>Livraison</b> : à domicile</span></td>
                 </tr>
                 <tr>
-                    <td class="tdStyle" width="300"><span style=""><b>Note</b> : Obligatoire</span></td>
+                    <td class="tdStyle" width="300"><span style=""><b>Adresse Mail</b> : {{ client.email }}</span></td>
                 </tr>
 
             </table>
@@ -166,18 +166,18 @@
             <table border="0" style="border: 0px solid !important;   border: 1px solid black;
             border-collapse: collapse;" >
                 <tr>
-                    <td class="tdStyle" width="350"><span style=""><b>Nom du client :</b> : obligatoire</span></td>
-                    <td class="tdStyle" width="300"><span style=""><b>Nom de l’agent</b> : Obligatoire</span></td>
+                    <td class="tdStyle" width="350"><span style=""><b>Nom du client :</b> : {{ demande.nomPrenomRecept }}</span></td>
+                    <td class="tdStyle" width="300"><span style=""><b>Nom de l’agent</b> : {{ demande.idLivreur.nom }} {{ demande.idLivreur.prenom }}</span></td>
                 </tr>
                 <tr>
-                    <td class="tdStyle" width="350"><span style=""><b>Téléphone</b> : obligatoire</span></td>
-                    <td class="tdStyle" width="300"><span style=""><b>Téléphone</b> : Obligatoire</span></td>
+                    <td class="tdStyle" width="350"><span style=""><b>Téléphone</b> : {{ demande.telephoneRecept }}</span></td>
+                    <td class="tdStyle" width="300"><span style=""><b>Téléphone</b> : {{ demande.idLivreur.tel }}</span></td>
                 </tr>
                 <tr>
-                    <td class="tdStyle" width="350"><span style=""><b>Adresse</b> : Obligatoire</span></td>
+                    <td class="tdStyle" width="350"><span style=""><b>Adresse</b> : {{ demande.addresseRecept }}</span></td>
                 </tr>
                 <tr>
-                    <td class="tdStyle" width="300"><span style=""><b>Note</b> : Obligatoire</span></td>
+                    <td class="tdStyle" width="300"><span style=""><b>Note</b> : {{ demande.note }}</span></td>
                 </tr>
             </table><br>
             <br>
@@ -193,23 +193,18 @@
                 <tr >
                     <td width="350" style="padding: 10px !important;border: 0px solid red !important;"><span>1 Colis</span></td>
                     <td width="300" style="padding: 10px !important;border: 0px solid red !important;">
-                        <span style="float:left;">sdsd</span>
+                        <span style="float:left;">{{ demande.titre }}</span>
                     </td>
                 </tr>
 
-                <tr >
-                    <td width="350" style="padding: 10px !important;border: 0px solid red !important;"><span>1 Colis</span></td>
-                    <td width="300" style="padding: 10px !important;border: 0px solid red !important;">
-                        <span style="float:left;">sdsd</span>
-                    </td>
-                </tr>
+
 
 
 
                 <tr >
                     <td width="350" style="padding: 10px !important;border: 0px solid red !important;"><span></span></td>
                     <td width="300" style="padding: 10px !important;border: 0px solid red !important;">
-                        <span style="float:left;">Total : 70 000 TND</span>
+                        <span style="float:left;">Total : {{ demande.montant }} TND</span>
                     </td>
                 </tr>
 

@@ -4298,3 +4298,7 @@ hr {
 		white-space: normal !important
 	}
 }
+
+tr.notRead {
+	background-color: #ffc364 !important;
+}

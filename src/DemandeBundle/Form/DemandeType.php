@@ -2,7 +2,10 @@
 
 namespace DemandeBundle\Form;
 
+use Doctrine\DBAL\Types\BooleanType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -51,6 +54,30 @@ class DemandeType extends AbstractType
                     'label'=>false
                 )
             )
+
+
+            ->add('quantite', TextType::class,array(
+                    'attr'=> array('class' => 'form-control','placeholder'=>"Quantite"),
+
+                    'label'=>false
+                )
+            )
+
+
+            ->add('fragile', ChoiceType::class, [
+                'choices' => ['Oui' => true, 'Non' => false],
+                    'attr'=> array('class' => 'form-control','placeholder'=>"Fragile"),
+                    'data' => true,
+                    'label'=>false
+
+                ]
+
+
+    )
+
+
+
+
 
             ->add('note', TextareaType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Montant en dinars"),

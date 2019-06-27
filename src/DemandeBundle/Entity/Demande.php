@@ -61,51 +61,20 @@ class Demande
 
 
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="quantite", type="integer",nullable=true)
-     */
-    private $quantite;
-
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="pointure", type="integer",nullable=true)
-     */
-    private $pointure;
-
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="taille", type="string",length=255)
-     */
-    private $taille;
-
-
-
-    /**
-     * @ORM\Column(name="fragile", type="boolean")
-     */
-    private $fragile = false;
-
-
-
-
-
-    /**
-     * @var string
-     * @ORM\Column(name="note", type="string", length=255)
+     * @ORM\Column(name="note", type="string", length=255,nullable=true)
      */
     private $note;
 
 
+
+
     /**
-     * @ORM\Column(name="etat", type="boolean")
+     * @ORM\Column(name="etat", type="boolean",nullable=true)
      */
-    private $etat = false;
+    private $etat;
 
 
     /**
@@ -126,22 +95,90 @@ class Demande
 
 
 
-    /**
-     * @ORM\Column(name="read", type="boolean")
-     */
-    private $read = false;
 
     /**
-     * @ORM\Column(name="modified", type="boolean")
+     * @var integer
+     *
+     * @ORM\Column(name="quantite", type="integer",nullable=true)
      */
-    private $modified = false;
+    private $quantite;
+
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="pointure", type="integer",nullable=true)
+     */
+    private $pointure;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="taille", type="string",length=255,nullable=true)
+     */
+    private $taille;
+
+
+
+    /**
+     * @ORM\Column(name="fragile", type="boolean",nullable=true)
+     */
+    private $fragile;
+
+
+
+    /**
+     * @ORM\Column(name="readDemande", type="boolean",nullable=true)
+     */
+    private $readDemande;
+
+    /**
+     * @ORM\Column(name="modifiedDemande", type="boolean",nullable=true)
+     */
+    private $modifiedDemande;
+
+    /**
+     * @return mixed
+     */
+    public function getReadDemande()
+    {
+        return $this->readDemande;
+    }
+
+    /**
+     * @param mixed $readDemande
+     */
+    public function setReadDemande($readDemande)
+    {
+        $this->readDemande = $readDemande;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getModifiedDemande()
+    {
+        return $this->modifiedDemande;
+    }
+
+    /**
+     * @param mixed $modifiedDemande
+     */
+    public function setModifiedDemande($modifiedDemande)
+    {
+        $this->modifiedDemande = $modifiedDemande;
+    }
+
+
+
 
 
 
 
     /**
      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="id_client",referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_client",referencedColumnName="id",nullable=true)
      */
     private $id_client;
 
@@ -149,22 +186,60 @@ class Demande
 
     /**
      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="id_livreur",referencedColumnName="id",onDelete="SET NULL")
+     * @ORM\JoinColumn(name="id_livreur",referencedColumnName="id",onDelete="SET NULL",nullable=true)
      */
     private $id_livreur;
+
+    /**
+     * @return mixed
+     */
+    public function getIdClient()
+    {
+        return $this->id_client;
+    }
+
+    /**
+     * @param mixed $id_client
+     */
+    public function setIdClient($id_client)
+    {
+        $this->id_client = $id_client;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdLivreur()
+    {
+        return $this->id_livreur;
+    }
+
+    /**
+     * @param mixed $id_livreur
+     */
+    public function setIdLivreur($id_livreur)
+    {
+        $this->id_livreur = $id_livreur;
+    }
 
 
 
 
 
     /**
-     * Get id
-     *
      * @return int
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     /**
@@ -248,6 +323,70 @@ class Demande
     }
 
     /**
+     * @return string
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param string $note
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param mixed $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
+
+    /**
+     * @return date
+     */
+    public function getDateEmission()
+    {
+        return $this->date_emission;
+    }
+
+    /**
+     * @param date $date_emission
+     */
+    public function setDateEmission($date_emission)
+    {
+        $this->date_emission = $date_emission;
+    }
+
+    /**
+     * @return date
+     */
+    public function getDateRecepetion()
+    {
+        return $this->date_recepetion;
+    }
+
+    /**
+     * @param date $date_recepetion
+     */
+    public function setDateRecepetion($date_recepetion)
+    {
+        $this->date_recepetion = $date_recepetion;
+    }
+
+    /**
      * @return int
      */
     public function getQuantite()
@@ -311,139 +450,6 @@ class Demande
         $this->fragile = $fragile;
     }
 
-
-
-
-    /**
-     * @return string
-     */
-    public function getNote()
-    {
-        return $this->note;
-    }
-
-    /**
-     * @param string $note
-     */
-    public function setNote($note)
-    {
-        $this->note = $note;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIdClient()
-    {
-        return $this->id_client;
-    }
-
-    /**
-     * @param mixed $id_client
-     */
-    public function setIdClient($id_client)
-    {
-        $this->id_client = $id_client;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIdLivreur()
-    {
-        return $this->id_livreur;
-    }
-
-    /**
-     * @param mixed $id_livreur
-     */
-    public function setIdLivreur($id_livreur)
-    {
-        $this->id_livreur = $id_livreur;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEtat()
-    {
-        return $this->etat;
-    }
-
-    /**
-     * @param mixed $etat
-     */
-    public function setEtat($etat)
-    {
-        $this->etat = $etat;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDateEmission()
-    {
-        return $this->date_emission;
-    }
-
-    /**
-     * @param mixed $date_emission
-     */
-    public function setDateEmission($date_emission)
-    {
-        $this->date_emission = new DateTime();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDateRecepetion()
-    {
-        return $this->date_recepetion;
-    }
-
-    /**
-     * @param mixed $date_recepetion
-     */
-    public function setDateRecepetion($date_recepetion)
-    {
-        $this->date_recepetion = $date_recepetion;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRead()
-    {
-        return $this->read;
-    }
-
-    /**
-     * @param mixed $read
-     */
-    public function setRead($read)
-    {
-        $this->read = $read;
-    }
-
-
-
-
-    /**
-     * @return mixed
-     */
-    public function getModified()
-    {
-        return $this->modified;
-    }
-
-    /**
-     * @param mixed $modified
-     */
-    public function setModified($modified)
-    {
-        $this->modified = $modified;
-    }
 
 
 

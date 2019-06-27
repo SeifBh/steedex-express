@@ -40,7 +40,7 @@ class DefaultController extends Controller
              $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('id_client'=>$userId));
          }
  */
-        $listDemandes = $em->getRepository('DemandeBundle:Demande')->findAll();
+        $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array(), array('id' => 'DESC'));
 
 
         return $this->render('@Demande/Default/index.html.twig', array(
@@ -63,6 +63,7 @@ class DefaultController extends Controller
 
                 $em = $this->getDoctrine()->getManager();
                 $demande->setEtat(false);
+                $demande->setReadDemande(false);
                 $demande->setIdClient($user);
                 $em->persist($demande);
                 $em->flush();
@@ -284,11 +285,8 @@ class DefaultController extends Controller
 */
         $demande = new Demande();
         $em = $this->getDoctrine()->getManager();
-        $listedemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('read' => true));
+        $listedemandes = $em->getRepository('DemandeBundle:Demande')->findAll();
 
-
-
-        $em = $this->getDoctrine()->getManager();
         /*foreach ($listedemandes as $i)
         {
             $demande = new Demande();
@@ -313,14 +311,37 @@ class DefaultController extends Controller
             foreach ($listedemandes as $offset => $record) {
                 $product = new Demande();
                 $product = $em->getRepository("DemandeBundle:Demande")->findOneBy(['id' => $record->getId()]);
-                $product->setNomPrenomRecept("BB");
+                $product->setReadDemande(true);
                 $em->persist($product);
                 $em->flush();
 
 
 
             }
-            return new JsonResponse("succes update");
+            $em=$this->getDoctrine()->getManager();
+            $nb_unread_Col = $em->getRepository("DemandeBundle:Demande")->countUnreadCol();
+
+
+
+            $listspotted=$em->getRepository("DemandeBundle:Demande")->findAll();
+
+
+
+
+            $normalizer = new ObjectNormalizer();
+
+            $normalizer->setCircularReferenceLimit(2);
+            // Add Circular reference handler
+            $normalizer->setCircularReferenceHandler(function ($publication) {
+                return $publication->getId();
+            });
+            $normalizers = array($normalizer);
+            $serialzier = new Serializer(array($normalizer));
+            $v = $serialzier->normalize($listspotted);
+
+
+
+            return new JsonResponse($v);
 
         }
 

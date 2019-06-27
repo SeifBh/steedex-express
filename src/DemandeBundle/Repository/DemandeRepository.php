@@ -14,7 +14,7 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
     public function countUnreadCol(){
         return $this->createQueryBuilder('d')
             ->select('COUNT(d)')
-            ->where('d.read = false')
+            ->where('d.readDemande = false')
             ->getQuery()
             ->getSingleScalarResult();
     }

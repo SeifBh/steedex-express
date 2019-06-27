@@ -58,13 +58,25 @@
                     <li class="dropdown notifications-menu" id="unread_msg">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-bell-o"></i>
-                            <span class="label label-warning">
-                                {{ render(controller(
-                                'AppBundle:Default:countUnreadMessages',
-                                { 'max': 3 }
-                                )) }}
+                            {% set aspx =
+                            render(controller(
+                            'AppBundle:Default:countUnreadMessages',
+                            { 'max': 3 }
+                            )) %}
+                            {% if aspx != 0 %}
+
+                            <span class="label label-warning" id="textunread">
+
+
+
+                                   {{ aspx }}
+
+
+
                             </span>
+                            {% endif %}
                         </a>
+
                         <ul class="dropdown-menu">
                             <li class="header">You have  {{ render(controller(
                                 'AppBundle:Default:countUnreadMessages',
@@ -548,6 +560,7 @@
 
 
                         $("table tr").removeClass("notRead").addClass("read");
+                        $("#textunread").text("");
                         /*     $('#con1').append(
                                  "        <img  alt='' src='http://giflat.dceven.fr/wp-content/uploads/2017/04/loader-white.gif' class=''>\n"
 

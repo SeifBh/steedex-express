@@ -1,0 +1,55 @@
+{% extends 'Template.html.twig' %}
+{% block body %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path('admin_homepage') }}"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
+        <li class="active">
+            <a href="{{ path('_list_reclamation') }}">
+            Reclamations
+            </a>
+        </li>
+        <li class="active">
+            Réponse sur la reclamation : <u>{{ reclamationSelected.sujet }}</u>
+        </li>
+
+    </ol>
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Contenue Reclamation</h3>
+
+
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body no-padding">
+            <div class="mailbox-read-info">
+                <h3>{{ reclamationSelected.sujet }}</h3>
+                <h5>De la part: <a href="mailto:help@example.com">{{ reclamationSelected.idUser.email }}</a>
+                    <span class="mailbox-read-time pull-right">{{ reclamationSelected.dateCreation | date('d/m/Y') }}</span></h5>
+            </div>
+            <!-- /.mailbox-read-info -->
+
+            <!-- /.mailbox-controls -->
+            <div class="mailbox-read-message">
+
+                {{ reclamationSelected.description }}
+            </div>
+            <!-- /.mailbox-read-message -->
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+
+        </div>
+        <!-- /.box-footer -->
+        <div class="box-footer">
+            <div class="pull-right">
+                <button type="button" class="btn btn-default"><i class="fa fa-reply"></i> Répondre</button>
+            </div>
+            <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Supprimer</button>
+            <button type="button" class="btn btn-default"><i class="fa fa-print"></i> Imprimer</button>
+        </div>
+        <!-- /.box-footer -->
+    </div>
+
+
+
+
+{% endblock %}

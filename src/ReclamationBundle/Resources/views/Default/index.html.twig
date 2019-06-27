@@ -1,0 +1,62 @@
+{% extends 'Template.html.twig' %}
+{% block body %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path('admin_homepage') }}"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
+        <li class="active">
+            <a href="{{ path('_list_reclamation') }}">
+                Reclamations
+            </a>
+        </li>
+        <li class="active">
+            Liste Reclamation
+        </li>
+    </ol>
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Liste des Reclamations</h3>
+
+        </div><br>
+
+        <!-- /.box-header -->
+        <div class="box-body no-padding" id="a5">
+            <table class="table table-condensed">
+                <tbody><tr>
+                    <th>De de la part</th>
+                    <th>Sujet</th>
+                    <th>Description</th>
+
+                    <th>#Ouv</th>
+                    <th>#Mod</th>
+                    <th>#Supp</th>
+
+
+                </tr>
+
+                {% if listeReclamations is empty %}
+                    <tr><th> Aucun demande enregistré</th></tr>
+                {% else %}
+                    {% for d in listeReclamations %}
+                        <tr class="{% if d.readReclamation == false %} notRead {% endif %}">
+                            <td>{{ d.idUser.nom }} {{ d.idUser.prenom }}</td>
+                            <td>{{ d.sujet }}</td>
+                            <td>{{ d.description }}</td>
+
+                            <td><a href="{{ path('_ouvrir_reclamation',{'id':d.id}) }}">Ouvrir</a></td>
+                            <td><a href="{{ path('_update_reclamation',{'id':d.id}) }}">Modifier</a></td>
+                            <td><a href="{{ path('_remove_reclamation',{'id':d.id}) }}">Supprimer</a></td>
+
+
+
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+
+
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+{% endblock %}

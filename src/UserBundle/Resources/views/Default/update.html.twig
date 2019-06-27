@@ -1,6 +1,16 @@
 {% extends "Template.html.twig" %}
 {% block title %}Update User{% endblock %}
-
+<ol class="breadcrumb">
+    <li><a href="{{ path('admin_homepage') }}"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
+    <li class="active">
+        <a href="{{ path('_list_users') }}">
+            Utilisateurs
+        </a>
+    </li>
+    <li class="active">
+        Mise à jour utilisateur
+    </li>
+</ol>
 {% block body %}
 <div class="box box-warning">
 

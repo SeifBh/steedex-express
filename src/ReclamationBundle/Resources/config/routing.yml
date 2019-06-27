@@ -1,0 +1,23 @@
+_list_reclamation:
+    path:     /list
+    defaults: { _controller: ReclamationBundle:Default:list }
+
+_create_reclamation:
+    path:     /create
+    defaults: { _controller: ReclamationBundle:Default:create }
+
+
+_update_reclamation:
+    path:     /update/{id}
+    defaults: { _controller: ReclamationBundle:Default:update }
+
+
+_remove_reclamation:
+    path:     /remove/{id}
+    defaults: { _controller: ReclamationBundle:Default:remove }
+
+
+_ouvrir_reclamation:
+    path:     /ouvrir/{id}
+    defaults: { _controller: ReclamationBundle:Default:ouvrir }
+

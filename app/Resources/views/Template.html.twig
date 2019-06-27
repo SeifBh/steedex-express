@@ -183,7 +183,7 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">Menu</li>
+                <li class="header" id="hmenu">Menu</li>
 
                     <li>
 
@@ -197,6 +197,8 @@
                         <i class="fa fa-files-o"></i>
                         <span>Demandes</span>
                         <span class="pull-right-container">
+                                          <i class="fa fa-angle-left pull-right"></i>
+
               <span class="label label-primary pull-right">
 
                    {{  render(controller(
@@ -214,71 +216,55 @@
                     </ul>
                 </li>
 
+
+
                 <li class="treeview">
-                    <a href="#">
+                    <a href="{{ path('_list_reclamation') }}">
                         <i class="fa fa-files-o"></i>
-                        <span>Clients</span>
+                        <span>Reclamations</span>
                         <span class="pull-right-container">
+                                                                      <i class="fa fa-angle-left pull-right"></i>
+
               <span class="label label-primary pull-right">
 
+                  00
 
-                 5
               </span>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Afficher Clients</a></li>
-                        <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Ajout Client</a></li>
+                        <li><a href="{{ path('_list_reclamation') }}"><i class="fa fa-circle-o"></i> Afficher reclamation</a></li>
+                        <li><a href="{{ path('_create_reclamation') }}"><i class="fa fa-circle-o"></i> Ajout reclamation</a></li>
                     </ul>
                 </li>
+
+
+
                 <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-files-o"></i>
-                        <span>Personnel</span>
+                    <a href="{{ path('_list_users') }}">
+                        <i class="fa fa-user"></i>
+                        <span>Utilisateurs</span>
                         <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
+                                                                      <i class="fa fa-angle-left pull-right"></i>
+
+              <span class="label label-primary pull-right">
+
+                  {{ render(controller(
+                  'AppBundle:Default:nbUsers',
+                  { 'max': 3 }
+                  )) }}
+
+              </span>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Afficher tous les personnel</a></li>
-                        <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Ajout Personnel</a></li>
+                        <li><a href="{{ path('_list_users') }}"><i class="fa fa-circle-o"></i> Afficher Users</a></li>
+                        <li><a href="{{ path('_create_user') }}"><i class="fa fa-circle-o"></i> Ajout Utilisateur</a></li>
                     </ul>
                 </li>
 
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-files-o"></i>
-                        <span>Reclamation</span>
-                        <span class="pull-right-container">
-            </span>
-                    </a>
-
-                </li>
 
 
-
-
-
-                <li class="active treeview menu-open">
-                    <a href="{{ path('_list_users') }}">
-                        <i class="fa fa-user"></i> <span>Utilisateurs
-                            <span class="label label-primary">
-                            {{ render(controller(
-                            'AppBundle:Default:nbUsers',
-                            { 'max': 3 }
-                            )) }}
-                            </span>
-
-                        </span>
-                        <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-                    <ul class="treeview-menu" style="">
-                        <li><a href="{{ path('_list_users') }}"><i class="fa fa-circle-o"></i> Afficher</a></li>
-                        <li><a href="{{ path('_create_user') }}"><i class="fa fa-circle-o"></i> Ajout</a></li>
-                    </ul>
-                </li>
 
 
 
@@ -317,10 +303,7 @@
                     {% endif %}
                 </small>
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Dashboard</li>
-            </ol>
+
         </section>
 
         <!-- Main content -->
@@ -578,6 +561,21 @@
 
 <script >
 
+    $(document).ready(function () {
+
+        var url = window.location;
+// for sidebar menu but not for treeview submenu
+        $('ul.sidebar-menu a').filter(function() {
+            return this.href == url;
+        }).parent().siblings().removeClass('active').end().addClass('active');
+// for treeview which is like a submenu
+        $('ul.treeview-menu a').filter(function() {
+            return this.href == url;
+        }).parentsUntil(".sidebar-menu > .treeview-menu").siblings().removeClass('active menu-open').end().addClass('active menu-open');
+
+
+      
+    });
 
     $(function(){
         $("#unread_msg").click(

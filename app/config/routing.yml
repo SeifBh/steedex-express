@@ -1,3 +1,11 @@
+reponse:
+    resource: "@ReponseBundle/Resources/config/routing.yml"
+    prefix:   /
+
+reclamation:
+    resource: "@ReclamationBundle/Resources/config/routing.yml"
+    prefix:   /
+
 _demande_bundle:
     resource: "@DemandeBundle/Resources/config/routing.yml"
     prefix:   /dashboard/demandes/
@@ -10,6 +18,15 @@ _user_bundle:
 admin_bundle:
     resource: "@AdminBundle/Resources/config/routing.yml"
     prefix:   /dashboard/
+
+reclamation_bundle:
+    resource: "@ReclamationBundle/Resources/config/routing.yml"
+    prefix:   /reclamation/
+
+
+reclamation_bundle:
+    resource: "@ReponseBundle/Resources/config/routing.yml"
+    prefix:   /reclamation/reponses/
 
 
 app:

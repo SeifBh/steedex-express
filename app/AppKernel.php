@@ -23,8 +23,8 @@ class AppKernel extends Kernel
             new DemandeBundle\DemandeBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new FOS\RestBundle\FOSRestBundle(),
-
-
+            new ReclamationBundle\ReclamationBundle(),
+            new ReponseBundle\ReponseBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

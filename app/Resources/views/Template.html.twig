@@ -227,7 +227,10 @@
 
               <span class="label label-primary pull-right">
 
-                  00
+                   {{ render(controller(
+                   'ReclamationBundle:Default:allReclamation',
+                   { 'max': 3 }
+                   )) }}
 
               </span>
             </span>
@@ -574,7 +577,7 @@
         }).parentsUntil(".sidebar-menu > .treeview-menu").siblings().removeClass('active menu-open').end().addClass('active menu-open');
 
 
-      
+
     });
 
     $(function(){

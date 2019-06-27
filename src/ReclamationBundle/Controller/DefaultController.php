@@ -147,4 +147,12 @@ public function ouvrirAction(Request $request,$id){
 
 }
 
+    public function allReclamationAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $nb_rec = $em->getRepository("ReclamationBundle:Reclamation")->allRec();
+        return new Response($nb_rec);
+    }
+
+
 }

@@ -10,4 +10,12 @@ namespace ReclamationBundle\Repository;
  */
 class ReclamationRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function allRec(){
+        return $this->createQueryBuilder('d')
+            ->select('COUNT(d)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
 }

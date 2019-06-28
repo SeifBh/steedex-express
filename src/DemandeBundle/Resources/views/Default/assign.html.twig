@@ -36,14 +36,17 @@
                     </div>
                     <div class="media-body">
                         <div class="clearfix">
+                            <span class="label label-success pull-right">
 
+                                Frais de Livraison = {{ d.fraisLivraison }} TND
+                            </span>
 
                             <h4 style="margin-top: 0">De :{{ d.idClient.nom }} {{ d.idClient.prenom }} </h4>
                             <h5>Quantite : {{ d.quantite }}</h5>
                             <h5>Fragile : {% if d.fragile ==true %} Oui {% else %}Non{% endif %}</h5>
                             <h5>Taille Colis : {{ d.tailleColis }}</h5>
                             <h4 style="margin-top: 0">Vers :{{ d.nomPrenomRecept }} </h4>
-                            <h4>{{ d.montant }} TND</h4>
+                            <h4>Montant : {{ d.montant }} TND</h4>
                             <p> Adresse : {{ d.addresseRecept }} </p>
                             <p> tel : {{ d.telephoneRecept }}</p>
                             <p style="margin-bottom: 0">

@@ -7,3 +7,6 @@ _admin_users:
     path:     /users
     defaults: { _controller: AdminBundle:Default:afficher }
 
+_front:
+    path:     /front
+    defaults: { _controller: AdminBundle:Default:front }

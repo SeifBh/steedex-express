@@ -1,10 +1,11 @@
-reponse:
-    resource: "@ReponseBundle/Resources/config/routing.yml"
+index_bundle:
+    resource: "@AdminBundle/Resources/config/routing.yml"
     prefix:   /
 
-reclamation:
-    resource: "@ReclamationBundle/Resources/config/routing.yml"
-    prefix:   /
+_reponse_bundle:
+    resource: "@ReponseBundle/Resources/config/routing.yml"
+    prefix:   /reponses
+
 
 _demande_bundle:
     resource: "@DemandeBundle/Resources/config/routing.yml"

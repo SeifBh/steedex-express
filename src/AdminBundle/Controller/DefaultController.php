@@ -37,7 +37,7 @@ class DefaultController extends Controller
 
     public function indexAction()
     {
-        return $this->render('./default/test.html.twig', []);
+        return new Response("sdfsd");
     }
     public function adminAction()
     {
@@ -69,4 +69,13 @@ class DefaultController extends Controller
         $nb_demande_enTraitement = $em->getRepository("DemandeBundle:Demande")->enTraitement();
         return new Response($nb_demande_enTraitement);
     }
+
+    public function frontAction()
+    {
+
+
+        // replace this example code with whatever you need
+        return $this->render('@Admin/Default/front.html.twig');
+    }
+
 }

@@ -1,7 +1,7 @@
 reponse_homepage:
-    path:     /
+    path:     /repo/list
     defaults: { _controller: ReponseBundle:Default:index }
 
 _create_response:
-    path:     /create
+    path:     /repo/create
     defaults: { _controller: ReponseBundle:Default:create }

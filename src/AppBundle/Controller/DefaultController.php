@@ -10,6 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends Controller
 {
 
+    public function indexAction(){
+        return new Response('sdsd');
+    }
     public function nbUsersAction()
     {
         $em=$this->getDoctrine()->getManager();

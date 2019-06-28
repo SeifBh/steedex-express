@@ -53,11 +53,35 @@ class Demande
     private $telephone_recept;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="montant", type="string", length=255)
+     * @ORM\Column(name="montant", type="integer", nullable=true)
      */
     private $montant;
+
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fraisLivraison", type="integer", nullable=true)
+     */
+    private $fraisLivraison;
+
+    /**
+     * @return int
+     */
+    public function getFraisLivraison()
+    {
+        return $this->fraisLivraison;
+    }
+
+    /**
+     * @param int $fraisLivraison
+     */
+    public function setFraisLivraison($fraisLivraison)
+    {
+        $this->fraisLivraison = $fraisLivraison;
+    }
 
 
 

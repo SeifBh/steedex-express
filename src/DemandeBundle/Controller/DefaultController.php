@@ -36,12 +36,17 @@ class DefaultController extends Controller
         $userId = $user->getId();
 
 
-
         if ($this->isGranted("ROLE_ADMIN"))
         {
             $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array(), array('id' => 'DESC'));
 
         }
+        elseif ($this->isGranted("ROLE_LIVREUR"))
+        {
+            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array("id_livreur"=>$userId), array('id' => 'DESC'));
+
+        }
+
         else{
             $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array("id_client"=>$userId), array('id' => 'DESC'));
 
@@ -70,6 +75,7 @@ class DefaultController extends Controller
                 $demande->setEtat("EnTraitement");
                 $demande->setReadDemande(false);
                 $demande->setIdClient($user);
+                $demande->setFraisLivraison(5);
                 $em->persist($demande);
                 $em->flush();
 
@@ -109,8 +115,9 @@ class DefaultController extends Controller
         }
 
 
-        return $this->render("@User/Default/update.html.twig", array(
+        return $this->render("@Demande/Default/update.html.twig", array(
             'form' => $form->createView()
+
         ));
 
     }

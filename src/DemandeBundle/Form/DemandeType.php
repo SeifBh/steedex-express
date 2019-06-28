@@ -6,6 +6,7 @@ use Doctrine\DBAL\Types\BooleanType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -48,7 +49,7 @@ class DemandeType extends AbstractType
                 )
             )
 
-            ->add('montant', TextType::class,array(
+            ->add('montant', NumberType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Montant en dinars"),
 
                     'label'=>false
@@ -96,6 +97,14 @@ class DemandeType extends AbstractType
                     'label'=>false
                 )
             )
+
+            ->add('fraisLivraison', NumberType::class,array(
+                    'attr'=> array('class' => 'form-control7 form-control','placeholder'=>""),
+
+                    'label'=>false
+                )
+            )
+
 
 
         ;

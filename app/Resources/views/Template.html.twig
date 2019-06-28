@@ -185,13 +185,9 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header" id="hmenu">Menu</li>
 
-                    <li>
 
-                        <a href="{{ path('admin_homepage') }}">
-                            <i class="fa fa-dashboard"></i>
+                <li><a href="{{ path('admin_homepage') }}"><i class="fa fa-circle-o text-red"></i> <span>Tableau de bord</span></a></li>
 
-                            Tableau de bord</a>
-                    </li>
                 <li class="treeview">
                     <a href="{{ path('_list_demande') }}">
                         <i class="fa fa-files-o"></i>
@@ -212,8 +208,8 @@
                     <ul class="treeview-menu">
                         <li><a href="{{ path('_list_demande') }}"><i class="fa fa-circle-o"></i> Afficher demandes</a></li>
                         <li><a href="{{ path('_create_demande') }}"><i class="fa fa-circle-o"></i> Ajout demande</a></li>
-                        <li><a href="{{ path('view_pdf') }}"><i class="fa fa-circle-o"></i> view Pdf</a></li>
-                    </ul>
+
+                        </ul>
                 </li>
 
 
@@ -236,8 +232,8 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{ path('_list_reclamation') }}"><i class="fa fa-circle-o"></i> Afficher reclamation</a></li>
-                        <li><a href="{{ path('_create_reclamation') }}"><i class="fa fa-circle-o"></i> Ajout reclamation</a></li>
+                        <li><a href="{{ path('_list_reclamation') }}"><i class="fa fa-circle-o"></i> Afficher Reclamation</a></li>
+                        <li><a href="{{ path('_create_reclamation') }}"><i class="fa fa-circle-o"></i> Ajout Reclamation</a></li>
                     </ul>
                 </li>
 

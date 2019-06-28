@@ -39,6 +39,12 @@ class UserType extends AbstractType
                 )
             )
 
+            ->add('idFiscale', EmailType::class,array(
+                    'attr'=> array('class' => 'form-control','placeholder'=>"Identifiant Fiscale"),
+
+                    'label'=>false
+                )
+            )
             ->add('addresse', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Adresse"),
 

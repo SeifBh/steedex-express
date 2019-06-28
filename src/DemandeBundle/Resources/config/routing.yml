@@ -16,6 +16,10 @@ _remove_demande:
     path:     /remove/{id}
     defaults: { _controller: DemandeBundle:Default:remove }
 
+_remove_all_demande:
+    path:     /removeAll
+    defaults: { _controller: DemandeBundle:Default:removeAll }
+
 
 _assign_demande:
     path:     /assign/{id_demande}
@@ -34,7 +38,7 @@ _generate_url:
     defaults: { _controller: DemandeBundle:Default:generatepdf }
 
 view_pdf:
-    path:     /view
+    path:     /view/{id_demande}
     defaults: { _controller: DemandeBundle:Default:viewPdf }
 
 

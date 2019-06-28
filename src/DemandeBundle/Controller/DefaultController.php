@@ -31,16 +31,21 @@ class DefaultController extends Controller
 
     public function listAction()
     {
+        $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
         $userId = $user->getId();
-        $em = $this->getDoctrine()->getManager();
-        /* if ($this->isGranted('ROLE_ADMIN')) {
-             $listDemandes = $em->getRepository('DemandeBundle:Demande')->findAll();
-         } else {
-             $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('id_client'=>$userId));
-         }
- */
-        $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array(), array('id' => 'DESC'));
+
+
+
+        if ($this->isGranted("ROLE_ADMIN"))
+        {
+            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array(), array('id' => 'DESC'));
+
+        }
+        else{
+            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array("id_client"=>$userId), array('id' => 'DESC'));
+
+        }
 
 
         return $this->render('@Demande/Default/index.html.twig', array(
@@ -62,7 +67,7 @@ class DefaultController extends Controller
             if ($form->isValid()) {
 
                 $em = $this->getDoctrine()->getManager();
-                $demande->setEtat(false);
+                $demande->setEtat("EnTraitement");
                 $demande->setReadDemande(false);
                 $demande->setIdClient($user);
                 $em->persist($demande);
@@ -146,7 +151,7 @@ class DefaultController extends Controller
  */
         $listusers_livreur = $em->getRepository('UserBundle:User')->findByRole('ROLE_LIVREUR');
         $demande = $em->getRepository("DemandeBundle:Demande", $demande)->findBy(['id' => $id_demande]);
-
+        ;
 
         return $this->render('@Demande/Default/assign.html.twig', array(
             'form' => $form->createView(),
@@ -170,7 +175,7 @@ class DefaultController extends Controller
 
         $demande->setIdLivreur($livreur);
 
-        //$demande->setEtat(true);
+        $demande->setEtat("Encours");
         $em->persist($demande);
         $em->flush();
 
@@ -190,7 +195,7 @@ class DefaultController extends Controller
         $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id' => $id_demande));
 
 
-        $demande->setEtat(true);
+        $demande->setEtat("Valide");
         $em->persist($demande);
         $em->flush();
 
@@ -199,10 +204,21 @@ class DefaultController extends Controller
     }
 
 
-    public function viewPdfAction(){
-        return $this->render('@Admin/Default/pdf.html.twig', array(
+    public function viewPdfAction(Request $request){
+        $id_demande = $request->get('id_demande');
+        //return new Response($id_demande);
+        $demande = new Demande();
+        $em = $this->getDoctrine()->getManager();
+        $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id' => $id_demande));
+        $id_demande = $demande->getId();
+        $client = $demande->getIdClient();
 
-        ));
+        $html2pdf = new Html2Pdf('P','A4','en');
+        $html2pdf->setTestIsImage(true);
+        $ecole ="jj";
+        return $this->render('@Admin/Default/pdf.html.twig',array('client'=>$client,'demande'=>$demande));
+
+
     }
     public function generatepdfAction(Request $request)
     {
@@ -233,75 +249,11 @@ class DefaultController extends Controller
 
 
     public function seenAction(Request $request){
-/*
-        $demande = new Demande();
-        $em = $this->getDoctrine()->getManager();
-        $listedemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('read' => true));
 
-        if($request->isXmlHttpRequest() ){
-
-
-
-                $listspotted=$em->getRepository("DemandeBundle:Demande")->findAll();
-
-
-
-
-            $normalizer = new ObjectNormalizer();
-
-            $normalizer->setCircularReferenceLimit(2);
-            // Add Circular reference handler
-            $normalizer->setCircularReferenceHandler(function ($publication) {
-                return $publication->getId();
-            });
-            $normalizers = array($normalizer);
-            $serialzier = new Serializer(array($normalizer));
-            $v = $serialzier->normalize($listspotted);
-
-
-
-
-            foreach ($listedemandes as $d)
-
-
-            {
-
-
-                $d = new Demande();
-
-
-
-                $d->setRead(true);
-                $d->setNomPrenomRecept("seeeeeeeeeif");
-                $em->persist($d);
-                $em->flush();
-            }
-
-
-
-            return new JsonResponse($v);
-
-        }
-*/
         $demande = new Demande();
         $em = $this->getDoctrine()->getManager();
         $listedemandes = $em->getRepository('DemandeBundle:Demande')->findAll();
 
-        /*foreach ($listedemandes as $i)
-        {
-            $demande = new Demande();
-            $demande = $em->getRepository('DemandeBundle:Demande')->findBy(array('read' => true));
-
-            $selectedDemande = $em->getRepository(Demande::class)->findOneBy(array(
-                'id' => 6
-            ));
-
-            $selectedDemande->setRead(true);
-            $em->persist($selectedDemande);
-            $em->flush();
-
-
-        }*/
 
 
 
@@ -378,5 +330,25 @@ class DefaultController extends Controller
         return new Response($nb_demandes);
     }
 
+
+    public function removeAllAction(){
+        $em=$this->getDoctrine()->getManager();
+
+        $listedemandes = $em->getRepository("DemandeBundle:Demande")->findAll();
+
+
+        foreach ($listedemandes as $offset => $record) {
+            $product = new Demande();
+            $product = $em->getRepository("DemandeBundle:Demande")->findOneBy(['id' => $record->getId()]);
+            $em->remove($product);
+            $em->flush();
+
+
+
+        }
+        return $this->redirectToRoute("_list_demande");
+
+
+    }
 
 }

@@ -26,6 +26,31 @@ class User extends  BaseUser
     /**
      * @var string
      *
+     * @ORM\Column(name="idFiscale", type="string", length=255,nullable=true)
+     */
+    public $idFiscale ;
+
+    /**
+     * @return string
+     */
+    public function getIdFiscale()
+    {
+        return $this->idFiscale;
+    }
+
+    /**
+     * @param string $idFiscale
+     */
+    public function setIdFiscale($idFiscale)
+    {
+        $this->idFiscale = $idFiscale;
+    }
+
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="nom", type="string", length=255)
      */
     public $nom ;

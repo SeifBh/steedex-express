@@ -26,6 +26,62 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
             ->getSingleScalarResult();
     }
 
+    public function valide(){
+        return $this->createQueryBuilder('d')
+            ->select('COUNT(d)')
+            ->where('d.etat = ?1')
+            ->setParameter(1, 'Valide')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+
+    public function enCours(){
+        return $this->createQueryBuilder('d')
+            ->select('COUNT(d)')
+            ->where('d.etat = ?1')
+            ->setParameter(1, 'Encours')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+
+    public function enTraitement(){
+        return $this->createQueryBuilder('d')
+            ->select('COUNT(d)')
+            ->where('d.etat = ?1')
+            ->setParameter(1, 'EnTraitement')
+            ->getQuery()
+            ->getSingleScalarResult();
+        $query =$this->getEntityManager()
+            ->createQuery("SELECT l FROM Geo\Entity\Location WHERE l.address = '1600 Amphitheatre Parkway, Mountain View, CA'");
+
+
+    }
+
+    public function dixDernierDemande()
+    {
+        $query = $this->getEntityManager()
+            ->createQuery("SELECT d  FROM DemandeBundle\Entity\Demande d  ORDER BY d.id DESC")
+            ->setMaxResults(10)
+        ;
+
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
+
+    public function dixDernierDemandeUser($id)
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->where('a.id_client = :id')
+            ->setParameter('id',  $id )
+
+            ->getQuery();
+    }
+
+
 
 
 }

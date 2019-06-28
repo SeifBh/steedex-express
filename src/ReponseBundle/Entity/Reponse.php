@@ -56,6 +56,88 @@ class Reponse
     private $dateModif;
 
     /**
+     * @return mixed
+     */
+    public function getIdReclamation()
+    {
+        return $this->idReclamation;
+    }
+
+    /**
+     * @param mixed $idReclamation
+     */
+    public function setIdReclamation($idReclamation)
+    {
+        $this->idReclamation = $idReclamation;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param mixed $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContenueReponse()
+    {
+        return $this->contenue_reponse;
+    }
+
+    /**
+     * @param string $contenue_reponse
+     */
+    public function setContenueReponse($contenue_reponse)
+    {
+        $this->contenue_reponse = $contenue_reponse;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateCreation()
+    {
+        return $this->dateCreation;
+    }
+
+    /**
+     * @param \DateTime $dateCreation
+     */
+    public function setDateCreation($dateCreation)
+    {
+        $this->dateCreation = $dateCreation;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateModif()
+    {
+        return $this->dateModif;
+    }
+
+    /**
+     * @param \DateTime $dateModif
+     */
+    public function setDateModif($dateModif)
+    {
+        $this->dateModif = $dateModif;
+    }
+
+
+
+    /**
      * Get id
      *
      * @return int

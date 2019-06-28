@@ -69,12 +69,14 @@ class Demande
     private $note;
 
 
-
-
     /**
-     * @ORM\Column(name="etat", type="boolean",nullable=true)
+     * @var string
+     * @ORM\Column(name="etat", type="string", length=255,nullable=true)
      */
     private $etat;
+
+
+
 
 
     /**
@@ -360,6 +362,9 @@ class Demande
     {
         $this->etat = $etat;
     }
+
+
+
 
     /**
      * @return date

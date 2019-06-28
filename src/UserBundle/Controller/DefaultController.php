@@ -99,7 +99,7 @@ class DefaultController extends D
         $user = $em->getRepository(User::class)->findOneBy(['id' => $id]);
         $mail_adr = $user->getEmail();
         $login = $user->getUsername();
-        $mdp = $user->getPlainPassword();
+        $mdp = $user->getPassword();
 
         $message = (new \Swift_Message('Info Compte'))
             ->setFrom('belhadjali.seif@gmail.com')

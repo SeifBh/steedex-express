@@ -1,5 +1,98 @@
 {% extends 'Template.html.twig' %}
 {% block body %}
+    <style>
+        /*
+    Image credits:
+    uifaces.com (http://uifaces.com/authorized)
+*/
+
+        #login { display: none; }
+        .login,
+        .logout {
+            position: absolute;
+            top: -3px;
+            right: 0;
+        }
+        .page-header { position: relative; }
+        .reviews {
+            color: #555;
+            font-weight: bold;
+            margin: 10px auto 20px;
+        }
+        .notes {
+            color: #999;
+            font-size: 12px;
+        }
+        .media .media-object { max-width: 120px; }
+        .media-body { position: relative; }
+        .media-date {
+            position: absolute;
+            right: 25px;
+            top: 25px;
+        }
+        .media-date li { padding: 0; }
+        .media-date li:first-child:before { content: ''; }
+        .media-date li:before {
+            content: '.';
+            margin-left: -2px;
+            margin-right: 2px;
+        }
+        .media-comment { margin-bottom: 20px; }
+        .media-replied { margin: 0 0 20px 50px; }
+        .media-replied .media-heading { padding-left: 6px; }
+
+        .btn-circle {
+            font-weight: bold;
+            font-size: 12px;
+            padding: 6px 15px;
+            border-radius: 20px;
+        }
+        .btn-circle span { padding-right: 6px; }
+        .embed-responsive { margin-bottom: 20px; }
+        .tab-content {
+            padding: 50px 15px;
+            border: 1px solid #ddd;
+            border-top: 0;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        .custom-input-file {
+            overflow: hidden;
+            position: relative;
+            width: 120px;
+            height: 120px;
+            background: #eee url('https://s3.amazonaws.com/uifaces/faces/twitter/walterstephanie/128.jpg');
+            background-size: 120px;
+            border-radius: 120px;
+        }
+        input[type="file"]{
+            z-index: 999;
+            line-height: 0;
+            font-size: 0;
+            position: absolute;
+            opacity: 0;
+            filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
+            margin: 0;
+            padding:0;
+            left:0;
+        }
+        .uploadPhoto {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            display: none;
+            width: 50%;
+            height: 50%;
+            color: #fff;
+            text-align: center;
+            line-height: 60px;
+            text-transform: uppercase;
+            background-color: rgba(0,0,0,.3);
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .custom-input-file:hover .uploadPhoto { display: block; }
+    </style>
     <ol class="breadcrumb">
         <li><a href="{{ path('admin_homepage') }}"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
         <li class="active">
@@ -49,14 +142,97 @@
         <!-- /.box-footer -->
     </div>
 
-    <div class="form-group">
-        <label for="comment">Reponse:</label>
-        <textarea class="form-control" rows="5" id="comment"></textarea>
-    </div>
 
-    <div class="pull-right">
-        <button type="button" class="btn btn-default"><i class="fa fa-reply"></i> Répondre</button>
-    </div>
 
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1" id="logout">
+                <div class="page-header">
+                    <h3 class="reviews">Repondre</h3>
+
+                </div>
+                <div class="comment-tabs">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab" aria-expanded="true"><h4 class="reviews text-capitalize">Reponses</h4></a></li>
+                        <li class=""><a href="#add-comment" role="tab" data-toggle="tab" aria-expanded="false"><h4 class="reviews text-capitalize">Ajouter une réponse</h4></a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="comments-logout">
+                            <ul class="media-list">
+
+                                {% for a in listeReponse %}
+
+
+                                <li class="media">
+                                    <a class="pull-left" href="#">
+                                        <img class="media-object img-circle" src="{{ asset('images/user.png') }}" alt="profile">
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="well well-lg">
+                                            <h4 class="media-heading text-uppercase reviews">{{ a.idUser.nom }} {{ a.idUser.prenom }}</h4>
+                                            <ul class="media-date text-uppercase reviews list-inline">
+                                                {{ a.dateCreation|date }}
+                                            </ul>
+                                            <p class="media-comment">
+                                                {{ a.contenueReponse }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="collapse" id="replyTwo">
+                                        <ul class="media-list">
+                                            <li class="media media-replied">
+                                                <a class="pull-left" href="#">
+                                                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/jackiesaik/128.jpg" alt="profile">
+                                                </a>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                    {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="tab-pane" id="add-comment">
+                            <form action="{{ path('_create_response') }}" method="post" class="form-horizontal" id="commentForm" role="form">
+                                <div class="form-group">
+                                    <label for="email" class="col-sm-2 control-label">Repondre:</label>
+                                    <div class="col-sm-10">
+                                        <input type="hidden" class="form-control" name="idRec" value="{{ reclamationSelected.id }}">
+                                        <textarea class="form-control" name="rep" id="addComment" rows="5"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Summit comment</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1" id="login">
+                <div class="page-header">
+                    <h3 class="reviews">Leave your comment</h3>
+
+                </div>
+                <div class="comment-tabs">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#comments-login" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
+                        <li><a href="#add-comment-disabled" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Add comment</h4></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 
 {% endblock %}

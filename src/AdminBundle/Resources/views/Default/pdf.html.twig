@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>A simple, clean, and responsive HTML invoice template</title>
+    <title>Facture</title>
 
     <style>
         .invoice-box {
@@ -99,21 +99,10 @@
     </style>
 </head>
 
-<body>
+<body  onload="myFunction()">
 <div class="partie1 partie2">
-    <table border="0" cellpadding="5" cellspacing="0" style="  border: 1px solid black;
-            border-collapse: collapse;" >
-        <tr>
-            <th width="300" style="padding: 10px;">
-                <img style="width: 100px; height: 100px" src="D:\Programmes\wamp64\www\steedex-dev\steedex\web\images\logo.jpg" width="200" height="100">
+    <img style="width: 100px; height: 100px" src="http://cavitywallinsulation.co.uk/wp-content/uploads/2019/06/logo.jpg" width="200" height="100">
 
-            </th>
-            <th width="300" style="padding: 10px;float: right !important;">
-
-
-            </th>
-        </tr>
-    </table>
 
 </div>
 
@@ -123,19 +112,19 @@
 
 
 
-        
+
         <div class="partie1">
             <table border="1" cellpadding="5" cellspacing="0" style="  border: 1px solid black;
             border-collapse: collapse;" >
                 <tr style="padding: 7px;">
-                    <th width="300" style="padding: 10px;">Sociéte : {{ client.nom }}</th>
+                    <th width="300" style="padding: 10px;">Sociéte : {{ client.nom }} {{ client.prenom }}</th>
                     <th width="300" s style="padding:10px;">N° de Bordereau: {{ demande.id }}</th>
                 </tr>
             </table><br>
             <table border="0" style="border: 0px solid !important;  border: 1px solid black;
             border-collapse: collapse; " >
                 <tr>
-                    <td class="tdStyle" width="350"><span style=""><b>Identifiant fiscal</b> : 144857669</span></td>
+                    <td class="tdStyle" width="350"><span style=""><b>Identifiant fiscal</b> : {{ demande.idClient.idFiscale}}</span></td>
                     <td class="tdStyle" width="300"><span style=""><b>Date de la facture</b> : {{ demande.dateEmission | date("d/m/Y") }}</span></td>
                 </tr>
                 <tr>
@@ -234,4 +223,10 @@
 
 </div>
 </body>
+<script>
+    function myFunction() {
+        window.print();
+    }
+</script>
+
 </html>

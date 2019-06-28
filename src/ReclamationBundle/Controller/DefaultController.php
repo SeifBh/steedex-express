@@ -4,6 +4,8 @@ namespace ReclamationBundle\Controller;
 
 use ReclamationBundle\Entity\Reclamation;
 use ReclamationBundle\Form\ReclamationType;
+use ReponseBundle\Entity\Reponse;
+use ReponseBundle\Form\ReponseType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -134,15 +136,26 @@ public function ouvrirAction(Request $request,$id){
     $em = $this->getDoctrine()->getManager();
     $reclamation = new Reclamation();
     $reclamationSelected = $em->getRepository("ReclamationBundle:Reclamation",$reclamation)->findOneBy(['id' => $recId]);
+    $reponse = new Reponse();
+    $form=$this->createForm(ReponseType::class,$reponse);
+    $form->handleRequest($request);
+    if ($form->isSubmitted())
+    {
+        $reponse->setDateCreation(new \DateTime());
+        $em->persist($reponse);
+        $em->flush();
+    }
 
 
 
 
 
-
+    $listeReponse = $em->getRepository('ReponseBundle:Reponse')->findBy(array('idReclamation'=>$reclamationSelected->getId()), array('id' => 'DESC'));
 
     return $this->render('@Reclamation/Default/reponse.html.twig', array(
         'reclamationSelected' => $reclamationSelected,
+        'form'=>$form,
+        'listeReponse'=>$listeReponse
     ));
 
 }

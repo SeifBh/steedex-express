@@ -1,3 +1,7 @@
 reponse_homepage:
     path:     /
     defaults: { _controller: ReponseBundle:Default:index }
+
+_create_response:
+    path:     /create
+    defaults: { _controller: ReponseBundle:Default:create }

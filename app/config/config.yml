@@ -138,3 +138,4 @@ fos_rest:
     unauthorized_challenge: null
     param_fetcher_listener:
         enabled: true
+

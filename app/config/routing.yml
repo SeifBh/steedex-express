@@ -30,6 +30,10 @@ reclamation_bundle:
     prefix:   /reclamation/reponses/
 
 
+homepage:
+    resource: "@ReponseBundle/Resources/config/routing.yml"
+    prefix:   /reclamation/reponses/
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

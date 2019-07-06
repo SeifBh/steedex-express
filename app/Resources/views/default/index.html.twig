@@ -1,77 +1,826 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                AA
-                <h1><span>Welcome to</span> Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h1>
+<!-- Mirrored from uicookies.com/demo/theme/transportation/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jun 2019 13:08:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Transportation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic" rel='stylesheet' type='text/css'>
+
+    <link href="{{ asset('Front/transportation/css/bootstrap.min.css') }} " rel="stylesheet">
+
+    <link href="{{ asset('Front/transportation/fonts/flaticon/flaticon.css') }} " rel="stylesheet">
+
+    <link href="{{ asset('Front/transportation/css/font-awesome.min.css') }} " rel="stylesheet">
+
+    <link href="{{ asset('Front/transportation/css/hippo-off-canvas.css') }} " rel="stylesheet">
+
+    <link href="{{ asset('Front/transportation/css/animate.css') }} " rel="stylesheet">
+
+    <link href="{{ asset('Front/transportation/css/language-select.css') }} " rel="stylesheet">
+
+    <link href="{{ asset('Front/transportation/owl.carousel/assets/owl.carousel.css') }} " rel="stylesheet">
+
+    <link href="{{ asset('Front/transportation/css/magnific-popup.css') }} " rel="stylesheet">
+
+    <link href="{{ asset('Front/transportation/css/menu.css') }} " rel="stylesheet">
+
+    <link href="{{ asset('Front/transportation/css/template.css') }} " rel="stylesheet">
+
+    <link href="{{ asset('Front/transportation/css/style.css') }} " rel="stylesheet">
+
+    <link href="{{ asset('Front/transportation/css/responsive.css') }} " rel="stylesheet">
+    <script src="{{ asset('Front/transportation/js/vendor/modernizr-2.8.1.min.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="{{ asset('Front/transportation/js/vendor/html5shim.js') }}"></script>
+    <script src="{{ asset('Front/transportation/js/vendor/respond.min.js') }}"></script>
+    <![endif]-->
+</head>
+<body id="page-top">
+<div id="st-container" class="st-container">
+    <div class="st-pusher">
+        <div class="st-content">
+            <header class="header">
+                <nav class="top-bar">
+                    <div class="overlay-bg">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="call-to-action">
+                                        <ul class="list-inline">
+                                            <li><a href="#"><i class="fa fa-phone"></i> 1-800-987-654</a></li>
+                                            <li><a href="#"><i class="fa fa-envelope"></i> <span class="__cf_email__" data-cfemail="4223262f2b2c02262d2f232b2c6c212d2f">[email&#160;protected]</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 hidden-xs">
+                                    <div class="topbar-right">
+                                        <div class="lang-support pull-right">
+                                            <select class="cs-select cs-skin-elastic">
+                                                <option value="" disabled selected>Language</option>
+                                                <option value="united-kingdom" data-class="flag-uk">English</option>
+                                                <option value="france" data-class="flag-france">French</option>
+                                                <option value="spain" data-class="flag-spain">Spanish</option>
+                                                <option value="south-africa" data-class="flag-bd">Bengali</option>
+                                            </select>
+                                        </div>
+                                        <ul class="social-links list-inline pull-right">
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div id="search">
+                    <button type="button" class="close">×</button>
+                    <form>
+                        <input type="search" value="" placeholder="type keyword(s) here" />
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container mainnav">
+                        <div class="navbar-header">
+                            <h1 class="logo"><a class="navbar-brand" href="index-2.html"><img src="{{ asset('Front/transportation/img/logo.png') }}" alt=""></a></h1>
+
+                            <button type="button" class="navbar-toggle collapsed pull-right">
+                                <span class="sr-only">Toggle navigation</span>
+                                <i class="fa fa-bars"></i>
+                            </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse navbar-collapse">
+                            <span class="search-button pull-right"><a href="#search"><i class="fa fa-search"></i></a></span>
+                            <ul class="nav navbar-nav navbar-right">
+
+                                <li class="dropdown active"><a href="index-2.html">Home <span class="fa fa-angle-down"></span></a>
+
+                                    <div class="submenu-wrapper">
+                                        <div class="submenu-inner">
+                                            <ul class="dropdown-menu">
+                                                <li><a href="index2.html">Home2</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </li>
+
+
+                                <li class="dropdown"><a href="#">Pages <span class="fa fa-angle-down"></span></a>
+
+                                    <div class="submenu-wrapper">
+                                        <div class="submenu-inner">
+                                            <ul class="dropdown-menu">
+                                                <li><a href="about.html">About</a></li>
+                                                <li><a href="service.html">Service</a></li>
+                                                <li><a href="our-people.html">Our people</a></li>
+                                                <li><a href="career.html">Career</a></li>
+                                                <li><a href="faq.html">FAQ Page</a></li>
+                                                <li><a href="typography.html">Typography</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </li>
+
+
+                                <li class="dropdown"><a href="#">Services <span class="fa fa-angle-down"></span></a>
+
+                                    <div class="submenu-wrapper">
+                                        <div class="submenu-inner">
+                                            <ul class="dropdown-menu">
+                                                <li><a href="air.html">Air transportation</a></li>
+                                                <li><a href="marine.html">Marine transportation</a></li>
+                                                <li><a href="moving.html">Moving & storage</a></li>
+                                                <li><a href="shipping.html">Shipping & operations</a></li>
+                                                <li><a href="transportation.html">Transportation logistics</a></li>
+                                                <li><a href="trucking.html">Trucking</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </li>
+
+                                <li class="dropdown mega-fw has-megamenu"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Features <span class="fa fa-angle-down"></span></a>
+
+                                    <div class="submenu-wrapper megamenu-wrapper">
+                                        <div class="submenu-inner megamenu-inner">
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <div class="mega-content">
+                                                        <div class="row">
+                                                            <div class="col-sm-3 mega-col">
+                                                                <ul>
+                                                                    <li class="dropdown-header">Features</li>
+                                                                    <li><a href="#">100% Responsive</a></li>
+                                                                    <li><a href="#">Animations</a></li>
+                                                                    <li><a href="#">Bootstrap 3+</a></li>
+                                                                    <li><a href="#">Valid Markups</a></li>
+                                                                    <li><a href="#">Mega Menu</a></li>
+                                                                    <li><a href="#">Free Supports And Update</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-sm-3 mega-col">
+                                                                <ul>
+                                                                    <li class="dropdown-header">Pages</li>
+                                                                    <li><a href="about.html">About</a></li>
+                                                                    <li><a href="service.html">Service</a></li>
+                                                                    <li><a href="our-people.html">Our people</a></li>
+                                                                    <li><a href="career.html">Career</a></li>
+                                                                    <li><a href="faq.html">FAQ Page</a></li>
+                                                                    <li><a href="typography.html">Typography</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-sm-3 mega-col">
+                                                                <ul>
+                                                                    <li class="dropdown-header">Services</li>
+                                                                    <li><a href="air.html">Air transportation</a></li>
+                                                                    <li><a href="marine.html">Marine transportation</a></li>
+                                                                    <li><a href="moving.html">Moving & storage</a></li>
+                                                                    <li><a href="shipping.html">Shipping & operations</a></li>
+                                                                    <li><a href="transportation.html">Transportation logistics</a></li>
+                                                                    <li><a href="trucking.html">Trucking</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-sm-3 mega-col">
+                                                                <ul>
+                                                                    <li class="dropdown-header">Typography</li>
+                                                                    <li><a href="#">Bootstrap grids</a></li>
+                                                                    <li><a href="#">Google fonts</a></li>
+                                                                    <li><a href="#">Fontawesome icons</a></li>
+                                                                    <li><a href="#">Flat icons</a></li>
+                                                                    <li><a href="#">Tabs</a></li>
+                                                                    <li><a href="#">Button elements</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+                                <li class="dropdown"><a href="#">Blog <span class="fa fa-angle-down"></span></a>
+
+                                    <div class="submenu-wrapper">
+                                        <div class="submenu-inner">
+                                            <ul class="dropdown-menu">
+                                                <li><a href="blog.html">Standard blog</a></li>
+                                                <li><a href="blog-single.html">Single blog</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <div id="main-carousel" class="carousel slide hero-slide" data-ride="carousel">
+
+                <ol class="carousel-indicators">
+                    <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#main-carousel" data-slide-to="1"></li>
+                </ol>
+
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="{{ asset('Front/transportation/img/slider/slide-1.jpg') }}" alt="Hero Slide">
+
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <small class="animated fadeIn">CALL US TODAY</small>
+                                <div class="phone animated lightSpeedIn">1-800-1234-567</div>
+                                <h1 class="animated lightSpeedIn">Making transportation fast and safe</h1>
+                                <p class="lead animated lightSpeedIn">It's a tag line, where you can write a key point of your idea.
+It is a long
+established fact that a reader will be distracted.</p>
+<a class="btn btn-primary animated lightSpeedIn" href="#">Work With Us Today</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="item">
+<img src="{{ asset('Front/transportation/img/slider/slide-2.jpg') }}" alt="Hero Slide">
+
+<div class="container">
+<div class="carousel-caption">
+<h1 class="animated bounceIn">We value your time and money</h1>
+<p class="lead animated bounceIn">It's a tag line, where you can write a key point of your idea. It
+                                    is a long
+                                    established fact that a reader will be distracted.</p>
+                                <a class="btn btn-primary animated bounceIn" href="#">Work With Us Today</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <a class="left carousel-control" href="#main-carousel" role="button" data-slide="prev">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#main-carousel" role="button" data-slide="next">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
 
-            <div id="status">
-                <p>
-                    <svg id="icon-status" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z" fill="#759E1A"/></svg>
-                    <h1>Hello seif SSagain</h1>
-                    Your application is now ready. You can start working on it at:
-                    <code>{{ base_dir }}</code>
-                </p>
-            </div>
 
-            <div id="next">
-                <h2>What's next?</h2>
-                <p>
-                    <svg id="icon-book" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-12.5 9 64 64" enable-background="new -12.5 9 64 64" xml:space="preserve">
-                        <path fill="#AAA" d="M6.8,40.8c2.4,0.8,4.5-0.7,4.9-2.5c0.2-1.2-0.3-2.1-1.3-3.2l-0.8-0.8c-0.4-0.5-0.6-1.3-0.2-1.9
-                            c0.4-0.5,0.9-0.8,1.8-0.5c1.3,0.4,1.9,1.3,2.9,2.2c-0.4,1.4-0.7,2.9-0.9,4.2l-0.2,1c-0.7,4-1.3,6.2-2.7,7.5
-                            c-0.3,0.3-0.7,0.5-1.3,0.6c-0.3,0-0.4-0.3-0.4-0.3c0-0.3,0.2-0.3,0.3-0.4c0.2-0.1,0.5-0.3,0.4-0.8c0-0.7-0.6-1.3-1.3-1.3
-                            c-0.6,0-1.4,0.6-1.4,1.7s1,1.9,2.4,1.8c0.8,0,2.5-0.3,4.2-2.5c2-2.5,2.5-5.4,2.9-7.4l0.5-2.8c0.3,0,0.5,0.1,0.8,0.1
-                            c2.4,0.1,3.7-1.3,3.7-2.3c0-0.6-0.3-1.2-0.9-1.2c-0.4,0-0.8,0.3-1,0.8c-0.1,0.6,0.8,1.1,0.1,1.5c-0.5,0.3-1.4,0.6-2.7,0.4l0.3-1.3
-                            c0.5-2.6,1-5.7,3.2-5.8c0.2,0,0.8,0,0.8,0.4c0,0.2,0,0.2-0.2,0.5c-0.2,0.3-0.3,0.4-0.2,0.7c0,0.7,0.5,1.1,1.2,1.1
-                            c0.9,0,1.2-1,1.2-1.4c0-1.2-1.2-1.8-2.6-1.8c-1.5,0.1-2.8,0.9-3.7,2.1c-1.1,1.3-1.8,2.9-2.3,4.5c-0.9-0.8-1.6-1.8-3.1-2.3
-                            c-1.1-0.7-2.3-0.5-3.4,0.3c-0.5,0.4-0.8,1-1,1.6c-0.4,1.5,0.4,2.9,0.8,3.4l0.9,1c0.2,0.2,0.6,0.8,0.4,1.5c-0.3,0.8-1.2,1.3-2.1,1
-                            c-0.4-0.2-1-0.5-0.9-0.9c0.1-0.2,0.2-0.3,0.3-0.5s0.1-0.3,0.1-0.3c0.2-0.6-0.1-1.4-0.7-1.6c-0.6-0.2-1.2,0-1.3,0.8
-                            C4.3,38.4,4.7,40,6.8,40.8z M46.1,20.9c0-4.2-3.2-7.5-7.1-7.5h-3.8C34.8,10.8,32.7,9,30.2,9L-2.3,9.1c-2.8,0.1-4.9,2.4-4.9,5.4
-                            L-7,58.6c0,4.8,8.1,13.9,11.6,14.1l34.7-0.1c3.9,0,7-3.4,7-7.6L46.1,20.9z M-0.3,36.4c0-8.6,6.5-15.6,14.5-15.6
-                            c8,0,14.5,7,14.5,15.6S22.1,52,14.2,52C6.1,52-0.3,45-0.3,36.4z M42.1,65.1c0,1.8-1.5,3.1-3.1,3.1H4.6c-0.7,0-3-1.8-4.5-4.4h30.4
-                            c2.8,0,5-2.4,5-5.4V17.9h3.7c1.6,0,2.9,1.4,2.9,3.1V65.1L42.1,65.1z"/>
-                    </svg>
+            <section class="service-home section-padding">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2 class="section-title">Our 24 Hour’s Services</h2>
+                            <span class="section-sub">Nullam ac urna ey felis dapibus<br> condimeytum sit amet</span>
+                        </div>
+                    </div>
+                    <div class="row content-row">
+                        <div class="col-sm-4">
+                            <div class="service">
+                                <div class="service-thumb-home">
+                                    <a href="#"><img src="{{ asset('Front/transportation/img/trans.jpg') }}" alt=""></a>
+                                </div>
+                                <h3>Transportation &amp; Logistics</h3>
+                                <p>Holisticly synergize maintainable intellectual<br> capital via viral interfaces. Energistically<br> embrace funyctionalized </p>
+                                <a class="readmore" href="#">Read More &nbsp;<i class="fa fa-angle-right"></i> </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="service">
+                                <div class="service-thumb-home">
+                                    <a href="#"><img src="{{ asset('Front/transportation/img/movin.jpg') }}" alt=""></a>
+                                </div>
+                                <h3>Moving &amp; Storage</h3>
+                                <p>Holisticly synergize maintainable intellectual<br> capital via viral interfaces. Energistically<br> embrace functionalized </p>
+                                <a class="readmore" href="#">Read More &nbsp;<i class="fa fa-angle-right"></i> </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="service">
+                                <div class="service-thumb-home">
+                                    <a href="#"><img src="{{ asset('Front/transportation/img/shipping.jpg') }}" alt=""></a>
+                                </div>
+                                <h3>Shipping Operations</h3>
+                                <p>Holisticly synergize maintainable intellectual<br> capital via viral interfaces. Energistically<br> embrace functionalized </p>
+                                <a class="readmore" href="#">Read More &nbsp;<i class="fa fa-angle-right"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                    Read the documentation to learn
-                    <a href="/login">
-                       Login 
-                    </a>
-                </p>
-            </div>
+
+            <section class="feature-section section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-7 col-xs-12">
+                            <h2>We do care about your cargo!</h2>
+                            <p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                            <p>Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="why-us-setion section-padding">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-xs-12">
+                            <h2 class="section-title">Why Chose Us</h2>
+                            <span class="section-sub">Monotonectally innovate cross-media<br> resources without seamless</span>
+                        </div>
+                    </div>
+                    <div class="row content-row">
+                        <div class="col-md-12">
+                            <div class="css-tab" role="tabpanel">
+
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#secure" aria-controls="secure" role="tab" data-toggle="tab"><i class="flaticon-logistics15"></i> Secure</a></li>
+                                    <li role="presentation"><a href="#trackable" aria-controls="trackable" role="tab" data-toggle="tab"><i class="flaticon-logistics18"></i> Trackable</a></li>
+                                    <li role="presentation"><a href="#fast" aria-controls="fast" role="tab" data-toggle="tab"><i class="flaticon-logistics16"></i> Fast</a></li>
+                                    <li role="presentation"><a href="#reliable" aria-controls="reliable" role="tab" data-toggle="tab"><i class="flaticon-broken43"></i> Reliable</a></li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active fade in" id="secure">
+                                        <div class="css-tab-content">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <img src="{{ asset('Front/transportation/img/secure.png') }}g" alt="">
+                                                </div>
+                                                <div class="col-md-6 content-text">
+                                                    <h3>Continually disintermediate</h3>
+                                                    <p>Credibly build virtual materials for fully researched paradigms. Authoritatively plagiarize long-term high-impact infomediaries with goal-oriented core competencies. Conveniently visualize process-centric applications through leading-edge testing procedures. Quickly build backend customer service for real-time metrics.</p>
+                                                    <p>Efficiently transform an expanded array of methodologies rather than customized infomediaries.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="trackable">
+                                        <div class="css-tab-content">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <img src="{{ asset('Front/transportation/img/track.png') }}" alt="">
+                                                </div>
+                                                <div class="col-md-6 content-text">
+                                                    <h3>Continually disintermediate</h3>
+                                                    <p>Credibly build virtual materials for fully researched paradigms. Authoritatively plagiarize long-term high-impact infomediaries with goal-oriented core competencies. Conveniently visualize process-centric applications through leading-edge testing procedures. Quickly build backend customer service for real-time metrics.</p>
+                                                    <p>Efficiently transform an expanded array of methodologies rather than customized infomediaries.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="fast">
+                                        <div class="css-tab-content">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <img src="{{ asset('Front/transportation/img/fast.png') }}" alt="">
+                                                </div>
+                                                <div class="col-md-6 content-text">
+                                                    <h3>Continually disintermediate</h3>
+                                                    <p>Credibly build virtual materials for fully researched paradigms. Authoritatively plagiarize long-term high-impact infomediaries with goal-oriented core competencies. Conveniently visualize process-centric applications through leading-edge testing procedures. Quickly build backend customer service for real-time metrics.</p>
+                                                    <p>Efficiently transform an expanded array of methodologies rather than customized infomediaries.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="reliable">
+                                        <div class="css-tab-content">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <img src="{{ asset('Front/transportation/img/reliable.png') }}" alt="">
+                                                </div>
+                                                <div class="col-md-6 content-text">
+                                                    <h3>Continually disintermediate</h3>
+                                                    <p>Credibly build virtual materials for fully researched paradigms. Authoritatively plagiarize long-term high-impact infomediaries with goal-oriented core competencies. Conveniently visualize process-centric applications through leading-edge testing procedures. Quickly build backend customer service for real-time metrics.</p>
+                                                    <p>Efficiently transform an expanded array of methodologies rather than customized infomediaries.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="testimonial-section section-padding">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2 class="section-title">We are Trusted By</h2>
+                            <span class="section-sub">Monotonectally innovate cross-media<br> resources without seamless</span>
+                        </div>
+                    </div>
+                    <div class="row row-content">
+                        <div class="col-md-12">
+                            <div id="testimonial-carousel" class="carousel slide" data-ride="carousel">
+
+                                <ol class="carousel-indicators">
+                                    <li data-target="#testimonial-carousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#testimonial-carousel" data-slide-to="1"></li>
+                                    <li data-target="#testimonial-carousel" data-slide-to="2"></li>
+                                </ol>
+
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <div class="testimonial-content">
+                                            <p>Progressively architect prospective imperatives through competitive communities. Professionally productize user<br> friendly networks with out-of-the-box mindshare. Energistically incubate functionalized best practices after 24/365<br> information. Dramatically restore end-to-end strategic theme areas.</p>
+                                            <span class="client-title">- Deanna Lewis -</span>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="testimonial-content">
+                                            <p>Progressively architect prospective imperatives through competitive communities. Professionally productize user<br> friendly networks with out-of-the-box mindshare. Energistically incubate functionalized best practices after 24/365<br> information. Dramatically restore end-to-end strategic theme areas.</p>
+                                            <span class="client-title">- Deanna Lewis -</span>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="testimonial-content">
+                                            <p>Progressively architect prospective imperatives through competitive communities. Professionally productize user<br> friendly networks with out-of-the-box mindshare. Energistically incubate functionalized best practices after 24/365<br> information. Dramatically restore end-to-end strategic theme areas.</p>
+                                            <span class="client-title">- Deanna Lewis -</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="partner-section">
+                        <div class="row row-content">
+                            <div class="col-md-12">
+                                <div class="owl-carousel partner-carousel">
+                                    <div class="item">
+                                        <a href="#"><img src="{{ asset('Front/transportation/img/partner/p1.jpg') }}" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="{{ asset('Front/transportation/img/partner/p2.jpg') }}" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="{{ asset('Front/transportation/img/partner/p3.jpg') }}" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="{{ asset('Front/transportation/img/partner/p4.jpg') }}" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="{{ asset('Front/transportation/img/partner/p5.jpg') }}" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="{{ asset('Front/transportation/img/partner/p6.jpg') }}" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="{{ asset('Front/transportation/img/partner/p5.jpg') }}" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="{{ asset('Front/transportation/img/partner/p3.jpg') }}" alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#"><img src="{{ asset('Front/transportation/img/partner/p4.jpg') }}" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="partner-carousel-navigation">
+                                    <a class="prev"><i class="fa fa-angle-left"></i></a>
+                                    <a class="next"><i class="fa fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="counter-section" data-stellar-background-ratio="0.5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="counter-block">
+                                <span class="count-description flaticon-boat"><strong class="timer">799</strong>order delivered</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="counter-block">
+                                <span class="count-description flaticon-international"><strong class="timer">19</strong>order delivered</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="counter-block">
+                                <span class="count-description flaticon-compass"><strong class="timer">521</strong>order delivered</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="cta-section">
+                <div class="container text-center">
+                    <a data-toggle="modal" data-target="#quoteModal" href="#" class="btn btn-primary quote-btn">Get a Quote</a>
+
+                    <div class="modal fade" id="quoteModal" tabindex="-1" role="dialog" aria-labelledby="quoteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h3 class="modal-title" id="quoteModalLabel">Request a rate for the shipping of your goods.</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="contactForm" action="https://uicookies.com/demo/theme/transportation/sendemail.php" method="POST">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="name">Name</label>
+                                                    <input id="name" name="name" type="text" class="form-control" required="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="company">Company Name</label>
+                                                    <input id="company" name="company" type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="phone">Phone Number</label>
+                                                    <input id="phone" name="phone" type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="email">Email address</label>
+                                                    <input id="email" name="email" type="email" class="form-control" required="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="city">City Name</label>
+                                                    <input id="city" name="city" type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="subject">Subject</label>
+                                                    <input id="subject" name="subject" type="text" class="form-control" required="" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group text-area">
+                                            <label for="message">Your Message</label>
+                                            <textarea id="message" name="message" class="form-control" rows="6" required="" placeholder=""></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Send Message</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="footer-widget-section section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-md-offset-1 col-sm-4">
+                            <div class="footer-widget">
+                                <h3>Place &amp; Contact</h3>
+                                <address>
+                                    384 Maple Circle<br>
+                                    Simi Valley, Nevada 47424<br>
+
+                                    <button type="button" class="modal-map" data-toggle="modal" data-target="#cssMapModal">Location Map</button>
+                                    <span class="tel">(554) 616-9926</span>
+                                </address>
+
+                                <div class="modal fade" id="cssMapModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Our Location</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id="googleMap"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-4">
+                            <div class="footer-widget">
+                                <h3>About Transport</h3>
+                                <ul>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="service.html">Service</a></li>
+                                    <li><a href="our-people.html">Our people</a></li>
+                                    <li><a href="career.html">Career</a></li>
+                                    <li><a href="faq.html">FAQ Page</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="footer-widget">
+                                <h3>Stay in Touch</h3>
+                                <p>Enter your email address to receive news &amp; offers from us</p>
+                                <form class="newsletter-form">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="InputEmail1">Email address</label>
+                                        <input type="email" class="form-control" id="InputEmail1" placeholder="Your email address">
+                                        <button type="submit" class="">Send &nbsp;<i class="fa fa-angle-right"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <footer class="copyright-section">
+                <div class="container text-center">
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="#">Privacy &amp; Cookies</a></li>
+                            <li><a href="#">Terms &amp; Conditions</a></li>
+                            <li><a href="#">Accessibility</a></li>
+                        </ul>
+                    </div>
+                    <div class="copyright-info">
+                        <span>Copyright © 2015 Unship. All Rights Reserved. Designed by <a href="https://uicookies.com/">uiCookies</a><br> Proudly powered by <a href="https://www.w3schools.com/html/html5_intro.asp">HTML5</a> and <a href="index.html">Bootstrap3</a></span>
+                    </div>
+                </div>
+            </footer>
 
         </div>
     </div>
-{% endblock %}
 
-{% block stylesheets %}
-<style>
-    body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
-    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
-    h1 { font-size: 36px; }
-    h2 { font-size: 21px; margin-bottom: 1em; }
-    p { margin: 0 0 1em 0; }
-    a { color: #0000F0; }
-    a:hover { text-decoration: none; }
-    code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
-    #wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
-    #container { padding: 2em; }
-    #welcome, #status { margin-bottom: 2em; }
-    #welcome h1 span { display: block; font-size: 75%; }
-    #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
-    #icon-book { display: none; }
+    <div class="offcanvas-menu offcanvas-effect">
+        <div class="offcanvas-wrap">
+            <div class="off-canvas-header">
+                <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="off-canvas-close-btn">&times;</button>
+            </div>
+            <ul id="offcanvasMenu" class="list-unstyled visible-xs visible-sm">
+                <li class="active"><a href="index-2.html">Home<span class="sr-only">(current)</span></a></li>
+                <li>
+                    <a href="#">Pages</a>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="service.html">Service</a></li>
+                        <li><a href="our-people.html">Our people</a></li>
+                        <li><a href="career.html">Career</a></li>
+                        <li><a href="faq.html">FAQ Page</a></li>
+                        <li><a href="typography.html">Typography</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                    <ul>
+                        <li><a href="air.html">Air transportation</a></li>
+                        <li><a href="marine.html">Marine transportation</a></li>
+                        <li><a href="moving.html">Moving &amp; storage</a></li>
+                        <li><a href="shipping.html">Shipping &amp; operations</a></li>
+                        <li><a href="transportation.html">Transportation logistics</a></li>
+                        <li><a href="trucking.html">Trucking</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Blog</a>
+                    <ul>
+                        <li>
+                            <a href="blog.html">Standard blog</a>
+                        </li>
+                        <li>
+                            <a href="blog-single.html">Single blog</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="typography.html">Typography</a></li>
+            </ul>
+            <div class="offcanvas-widgets hidden-sm hidden-xs">
+                <div id="twitterWidget">
+                    <h2>Tweeter feed</h2>
+                    <div class="twitter-widget"></div>
+                </div>
+                <div class="newsletter-widget">
+                    <h2>Stay in Touch</h2>
+                    <p>Enter your email address to receive news &amp; offers from us</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <label class="sr-only" for="InputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="InputEmail2" placeholder="Your email address">
+                            <button type="submit" class="btn">Send &nbsp;<i class="fa fa-angle-right"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    @media (min-width: 768px) {
-        #wrapper { width: 80%; margin: 2em auto; }
-        #icon-book { display: inline-block; }
-        #status a, #next a { display: block; }
+<div id="preloader">
+    <div id="status">
+        <div class="status-mes"></div>
+    </div>
+</div>
 
-        @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-        @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-        .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
-    }
-</style>
-{% endblock %}
+<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/jquery.js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="js/bootstrap.min.js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="owl.carousel/owl.carousel.min.js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="js/jquery.magnific-popup.min.js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="js/hippo-offcanvas.js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="js/jquery.inview.min.js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="js/jquery.stellar.js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="js/jquery.countTo.js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="js/classie.js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="js/selectFx.js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="js/jquery.sticky-kit.min.js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="js/twitterFetcher_min.js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="js/scripts.js" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+
+
+
+
+
+
+
+
+
+<script src="{{ asset('Front/transportation/js/jquery.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="{{ asset('Front/transportation/js/bootstrap.min.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="{{ asset('Front/transportation/owl.carousel/owl.carousel.min.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="{{ asset('Front/transportation/js/jquery.magnific-popup.min.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="{{ asset('Front/transportation/js/hippo-offcanvas.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="{{ asset('Front/transportation/js/jquery.inview.min.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="{{ asset('Front/transportation/js/jquery.stellar.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="{{ asset('Front/transportation/js/jquery.countTo.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="{{ asset('Front/transportation/js/classie.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="{{ asset('Front/transportation/js/selectFx.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="{{ asset('Front/transportation/js/jquery.sticky-kit.min.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+
+<script src="{{ asset('Front/transportation/js/twitterFetcher_min.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="{{ asset('Front/transportation/js/scripts.js') }}" type="48f882d78e589c2f5a207e4d-text/javascript"></script>
+
+<script src="{{ asset('Front/transportation/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}" data-cf-settings="48f882d78e589c2f5a207e4d-|49" defer=""></script></body>
+<script src="{{ asset('Front/transportation/scripts/5c5dd728/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="48f882d78e589c2f5a207e4d-|49" defer=""></script></body>
+
+<!-- Mirrored from uicookies.com/demo/theme/transportation/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jun 2019 13:08:44 GMT -->
+</html>

@@ -11,6 +11,17 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends D
 {
+
+    public function getUsersAction()
+    {
+        $restresult = $this->getDoctrine()->getRepository('UserBundle:User')->findAll();
+        if ($restresult === null) {
+            return new View("there are no users exist", Response::HTTP_NOT_FOUND);
+        }
+        return $restresult;
+    }
+
+
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();

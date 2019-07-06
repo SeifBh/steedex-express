@@ -54,6 +54,7 @@
         <div class="box-body no-padding" id="a5">
             <table class="table table-condensed">
                 <tbody><tr>
+                    <th>ID</th>
                     <th>Titre</th>
                     <th>Emetteur</th>
                     <th>Destinataire</th>
@@ -75,6 +76,7 @@
                 {% else %}
                     {% for d in listDemandes %}
                         <tr class="{% if d.readDemande == false %} notRead {% endif %}">
+                            <td>{{ d.id }}</td>
                             <td>{{ d.titre }}</td>
                             <td>{{ d.idClient.nom }} {{ d.idClient.prenom }}</td>
                             <td>{{ d.nomPrenomRecept }}</td>

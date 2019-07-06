@@ -1,3 +1,8 @@
+api:
+    resource: "@ApiBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 index_bundle:
     resource: "@AdminBundle/Resources/config/routing.yml"
     prefix:   /
@@ -5,6 +10,8 @@ index_bundle:
 _reponse_bundle:
     resource: "@ReponseBundle/Resources/config/routing.yml"
     prefix:   /reponses
+
+
 
 
 _demande_bundle:
@@ -37,5 +44,11 @@ homepage:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+_api_bundle:
+    type:   rest
+    resource: "@DemandeBundle/Controller/ApiController.php"
+    prefix:   /api
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

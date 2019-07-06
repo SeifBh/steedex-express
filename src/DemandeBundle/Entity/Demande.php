@@ -4,6 +4,7 @@ namespace DemandeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\DateTime;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Demande
@@ -16,7 +17,8 @@ class Demande
 {
     /**
      * @var int
-     *
+     * @Serializer\Expose
+     * @Serializer\Groups({"demande"})
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -25,12 +27,15 @@ class Demande
 
     /**
      * @var string
-     *
+     * @Serializer\Expose
+     * @Serializer\Groups({"demande"})
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
 
     /**
+     * @Serializer\Expose
+     * @Serializer\Groups({"demande"})
      * @var string
      *
      * @ORM\Column(name="nom_prenom_recept", type="string", length=255)

@@ -21,7 +21,7 @@ class SecurityController extends Controller
             // Your logic here...
 
             return new JsonResponse([
-                'success' => "Welcome"
+                'school' => $this->getUser()
             ]);
 
         } catch (\Exception $exception) {

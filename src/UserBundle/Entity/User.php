@@ -52,7 +52,7 @@ class User extends  BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255,nullable=true)
      */
     public $nom ;
 
@@ -60,7 +60,7 @@ class User extends  BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="prenom", type="string", length=255,nullable=true)
      */
     private $prenom ;
 
@@ -69,7 +69,7 @@ class User extends  BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="addresse", type="string", length=255)
+     * @ORM\Column(name="addresse", type="string", length=255,nullable=true)
      */
     private $addresse ;
 
@@ -78,7 +78,7 @@ class User extends  BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="tel", type="string", length=255)
+     * @ORM\Column(name="tel", type="string", length=255,nullable=true)
      */
     public $tel ;
 

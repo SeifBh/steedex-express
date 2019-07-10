@@ -11,7 +11,7 @@ class SecurityController extends Controller
 {
 
     /**
-     * @Route("/login", name="login")
+     * @Route("/json_login", name="json_login")
      * @return Response
      */
     public function login()

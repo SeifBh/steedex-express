@@ -22,7 +22,7 @@ security:
                 csrf_token_generator: security.csrf.token_manager
                 default_target_path:    /dashboard/index
             json_login:
-                check_path:    login
+                check_path:    json_login
             logout:
                 path:   /logout
                 target: /login

@@ -10,5 +10,5 @@ parameters:
     mailer_auth_mode: login
     mailer_host: smtp.gmail.com
     mailer_username: belhadjali.seif@gmail.com
-    mailer_password: ultraS18
+    mailer_password: ultraS20
     secret: ThisTokenIsNotSoSecretChangeIt

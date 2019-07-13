@@ -25,7 +25,8 @@ framework:
         resource: '%kernel.project_dir%/app/config/routing.yml'
         strict_requirements: ~
     form: ~
-    csrf_protection: ~
+    csrf_protection:
+         enabled: true
     validation: { enable_annotations: true }
     #serializer: { enable_annotations: true }
     default_locale: '%locale%'
@@ -139,3 +140,8 @@ fos_rest:
     param_fetcher_listener:
         enabled: true
 
+lexik_jwt_authentication:
+    private_key_path: %kernel.root_dir%/../config/jwt/private.pem
+    public_key_path:  %kernel.root_dir%/../config/jwt/public.pem
+    pass_phrase:      %jwt_key_pass_phrase%
+    token_ttl:        3600

@@ -23,12 +23,16 @@ security:
                 default_target_path:    /dashboard/index
             json_login:
                 check_path:    json_login
+
             logout:
                 path:   /logout
                 target: /login
             anonymous:    true
 
+
+
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/dashboard,       roles: IS_AUTHENTICATED_FULLY }

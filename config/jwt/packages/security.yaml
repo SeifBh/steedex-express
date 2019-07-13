@@ -1,0 +1,24 @@
+# security.yaml
+security:
+    # ...
+    firewalls:
+        login:
+            pattern:  ^/api/login
+            stateless: true
+            anonymous: true
+            json_login: # or form_login
+                provider:                 fos_userbundle    #or your custom user provider
+                check_path:               /api/login_check  #same as the configured route
+                success_handler:          lexik_jwt_authentication.handler.authentication_success
+                failure_handler:          lexik_jwt_authentication.handler.authentication_failure
+                require_previous_session: false
+        api:
+            pattern:   ^/api              # protected path
+            stateless: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+
+    access_control:
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }

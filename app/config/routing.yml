@@ -1,5 +1,7 @@
-api_login_check:
-    path: /api/login_check
+api:
+    resource: "@ApiBundle/Controller/"
+    type:     annotation
+    prefix:   /
 
 index_bundle:
     resource: "@AdminBundle/Resources/config/routing.yml"
@@ -43,7 +45,14 @@ app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
-
+_api_bundle:
+    type:   rest
+    resource: "@DemandeBundle/Controller/ApiController.php"
+    prefix:   /api
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+
+api_login_check:
+    path: /api/login_check

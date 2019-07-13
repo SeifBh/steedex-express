@@ -1,5 +1,33 @@
 lexik_jwt_authentication:
     secret_key:       '%kernel.project_dir%/config/jwt/private.pem' # required for token creation
     public_key:       '%kernel.project_dir%/config/jwt/public.pem'  # required for token verification
-    pass_phrase:      'your_secret_passphrase' # required for token creation, usage of an environment variable is recommended
+    pass_phrase:      'seifbh' # required for token creation, usage of an environment variable is recommended
     token_ttl:        3600
+    user_identity_field: username  # key under which the user identity will be stored in the token payload
+    clock_skew: 0
+
+    # token encoding/decoding settings
+    encoder:
+        # token encoder/decoder service - default implementation based on the lcobucci/jwt library
+        service:            lexik_jwt_authentication.encoder.lcobucci
+
+        # encryption algorithm used by the encoder service
+        signature_algorithm: RS256
+
+    # token extraction settings
+    token_extractors:
+        # look for a token as Authorization Header
+        authorization_header:
+            enabled: true
+            prefix:  ^/api
+            name:    Authorization
+
+        # check token in a cookie
+        cookie:
+            enabled: false
+            name:    apiname
+
+        # check token in query string parameter
+        query_parameter:
+            enabled: false
+            name:    api

@@ -11,5 +11,5 @@ parameters:
     mailer_host: smtp.gmail.com
     mailer_username: belhadjali.seif@gmail.com
     mailer_password: ultraS20
-    secret: ThisTokenIsNotSoSecretChangeIt
-    jwt_key_pass_phrase: 'seifbh'
+    secret: seifbh
+    jwt_key_pass_phrase: ~

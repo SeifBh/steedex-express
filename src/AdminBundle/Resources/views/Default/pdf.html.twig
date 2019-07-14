@@ -103,7 +103,6 @@
 <div class="partie1 partie2">
     <img style="width: 100px; height: 100px" src="http://cavitywallinsulation.co.uk/wp-content/uploads/2019/06/logo.jpg" width="200" height="100">
 
-
 </div>
 
 <div class="invoice-box">
@@ -129,7 +128,7 @@
                 </tr>
                 <tr>
                     <td class="tdStyle" width="350"><span style=""><b>Adresse</b> : {{ client.addresse }}</span></td>
-                    <td class="tdStyle" width="300"><span style=""><b>Date d’échéance</b> : {{ demande.dateRecepetion | date("d/m/Y") }}</span></td>
+                    <td class="tdStyle" width="300"><span style=""><b>Date d’échéance</b> : {{ demande.dateEcheance | date("d/m/Y") }}</span></td>
                 </tr>
                 <tr>
                     <td class="tdStyle" width="350"><span style=""><b>Téléphone</b> : {{ client.tel }}</span></td>

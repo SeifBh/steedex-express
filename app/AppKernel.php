@@ -29,7 +29,7 @@ class AppKernel extends Kernel
             new ReponseBundle\ReponseBundle(),
             new ApiBundle\ApiBundle(),
             new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
-
+            new DevisBundle\DevisBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

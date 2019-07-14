@@ -8,6 +8,7 @@ imports:
     - { resource: "@ReclamationBundle/Resources/config/services.yml" }
     - { resource: "@ReponseBundle/Resources/config/services.yml" }
     - { resource: "@ApiBundle/Resources/config/services.yml" }
+    - { resource: "@DevisBundle/Resources/config/services.yml" }
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfonfxy.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
@@ -144,3 +145,20 @@ lexik_jwt_authentication:
     public_key_path:  '%kernel.root_dir%/../var/jwt/public.pem'
     pass_phrase:      seifbh
     token_ttl:        3600
+
+nelmio_cors:
+        defaults:
+            allow_credentials: false
+            allow_origin: []
+            allow_headers: []
+            allow_methods: []
+            expose_headers: []
+            max_age: 0
+            hosts: []
+            origin_regex: false
+        paths:
+            '^/api/':
+                allow_origin: ['*']
+                allow_headers: ['*']
+                allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+                max_age: 3600

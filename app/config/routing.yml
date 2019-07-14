@@ -1,3 +1,7 @@
+devis:
+    resource: "@DevisBundle/Resources/config/routing.yml"
+    prefix:   /dashboard/devis/
+
 api:
     resource: "@ApiBundle/Controller/"
     type:     annotation
@@ -56,3 +60,4 @@ fos_user:
 
 api_login_check:
     path: /api/login_check
+    controller : AppBundle\Controller\DefaultController:index

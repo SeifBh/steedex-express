@@ -1,0 +1,8 @@
+_list_devis:
+    path:     /list
+    defaults: { _controller: DevisBundle:Default:index }
+
+_create_devis:
+    path:     /create
+    defaults: { _controller: DevisBundle:Default:create }
+

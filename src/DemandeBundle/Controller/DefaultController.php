@@ -74,7 +74,14 @@ class DefaultController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $demande->setEtat("EnTraitement");
                 $demande->setReadDemande(false);
+                $user_livreur = $em->getRepository("UserBundle:User")->find(33);
+                //En Cours = Livreur = yousssef
+                $demande->setIdLivreur($user_livreur);
+                $demande->setEtat("Encours");
+                //*******************************
                 $demande->setIdClient($user);
+                $demande->setDateEcheance(new \DateTime());
+
                 $demande->setFraisLivraison(5);
                 $em->persist($demande);
                 $em->flush();

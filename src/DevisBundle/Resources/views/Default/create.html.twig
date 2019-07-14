@@ -1,0 +1,53 @@
+{% extends 'Template.html.twig' %}
+{% block body %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path('admin_homepage') }}"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
+        <li class="active">
+            <a href="{{ path('_list_devis') }}">
+                Devis
+            </a>
+        </li>
+        <li class="active">
+            Ajout Devis
+        </li>
+    </ol>
+
+    <div class="box box-primary">
+
+
+        {{ form_start(form, {'method': 'post', 'action': path('_create_devis'), 'attr': {'class': ''}}) }}
+
+        {{ form_errors(form) }}
+
+        <div class="box-header with-border">
+            <h3 class="box-title">Ajouter Devis</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <div class="box-body">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Sujet</label>
+                {{ form_row(form.nomSociete) }}
+            </div>
+
+
+
+
+
+
+
+
+        <!-- /.box-body -->
+
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </div>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+
+
+
+
+
+{% endblock %}

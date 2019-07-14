@@ -2,7 +2,11 @@
 
 namespace AdminBundle\Controller;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
 use UserBundle\Entity\User ;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use UserBundle\Repository\UserRepository;
@@ -13,8 +17,14 @@ class DefaultController extends Controller
 
     public function templateAction()
     {
+
         $user = $this->getUser();
+      //  $jwtManager = $this->container->get('lexik_jwt_authentication.jwt_manager');
+
         $userId = $user->getId();
+
+       // $this->get('session')->set('loginUserId', $this->getUser());
+
 
         $em=$this->getDoctrine()->getManager();
         $nb_users = $em->getRepository("UserBundle:User")->countAllUsers();

@@ -118,6 +118,15 @@ class Demande
 
 
     /**
+     * @var date $date_echeance
+     *
+     * @ORM\Column(name="date_echeance", type="date", nullable=true)
+     */
+    private $date_echeance;
+
+
+
+    /**
      * @var date $date_recepetion
      *
      * @ORM\Column(name="date_reception", type="date", nullable=true)
@@ -175,6 +184,24 @@ class Demande
      * @ORM\Column(name="modifiedDemande", type="boolean",nullable=true)
      */
     private $modifiedDemande;
+
+    /**
+     * @return date
+     */
+    public function getDateEcheance()
+    {
+        return $this->date_echeance;
+    }
+
+    /**
+     * @param date $date_echeance
+     */
+    public function setDateEcheance($date_echeance)
+    {
+        $this->date_echeance = $date_echeance;
+    }
+
+
 
     /**
      * @return mixed

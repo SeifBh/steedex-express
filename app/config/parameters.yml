@@ -12,4 +12,4 @@ parameters:
     mailer_username: belhadjali.seif@gmail.com
     mailer_password: ultraS20
     secret: seifbh
-    jwt_key_pass_phrase: null
+    jwt_key_pass_phrase: seifbh

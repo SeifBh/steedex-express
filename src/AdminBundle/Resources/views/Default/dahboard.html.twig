@@ -3,6 +3,32 @@
 {% block body %}
 <section class="content">
 <div class="row">
+    <h1>
+
+
+    </h1>
+    <div id="result"></div>
+
+    <script>
+        // Check browser support
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            localStorage.setItem("list", "<h1>John<h1>");
+            appendToStorage("list", "<h2>David<h2>");
+
+            // Retrieve
+            document.getElementById("result").innerHTML = localStorage.getItem("list");
+        } else {
+            document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+        }
+
+        function appendToStorage(name, data){
+            var old = localStorage.getItem(name);
+            if(old === null) old = "";
+            localStorage.setItem(name, old + data);
+        }
+    </script>
+
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-aqua">

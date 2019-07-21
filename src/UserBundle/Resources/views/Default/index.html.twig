@@ -25,6 +25,7 @@
             <table class="table table-condensed">
                 <tbody><tr>
                     <th>Username</th>
+                    <th>PLAIN PASSWORD</th>
                     <th>Nom & Prenom</th>
                     <th>Tél</th>
                     <th>pass</th>
@@ -42,6 +43,8 @@
                 {% for c in users %}
                     <tr>
                         <td>{{ c.username }}</td>
+                        <td>{{ c.plainPassword }}</td>
+                        <td>{{ c.password }}</td>
                         <td>{{ c.nom }} {{ c.prenom }}</td>
                         <td>{{ c.tel }}</td>
                         <td>{{ c.password }}</td>

@@ -2,6 +2,7 @@
 
 namespace DemandeBundle\Entity;
 
+use DemandeBundle\Enum\DemandeTypeEnum;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\DateTime;
 use JMS\Serializer\Annotation as Serializer;
@@ -535,11 +536,45 @@ class Demande
     }
 
 
+    /**
+     * @var string
+     * @ORM\Column(name="type", type="string", length=255, nullable=true)
+     */
+    private $type;
+
+    //...
+
+    /**
+     * @param string $type
+     * @return Demande
+     */
+    public function setType($type)
+    {
+        if (!in_array($type, DemandeTypeEnum::getAvailableTypes())) {
+            throw new \InvalidArgumentException("Invalid type");
+        }
+
+        $this->type = $type;
+
+        return $this;
+    }
+
+
+
 
 
     public function __construct()
     {
     }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
 
 
 }

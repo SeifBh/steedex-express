@@ -56,6 +56,7 @@
                 <tbody><tr>
                     <th>ID</th>
                     <th>Titre</th>
+                    <th>Type</th>
                     <th>Emetteur</th>
                     <th>Destinataire</th>
                     <th>Addresse</th>
@@ -78,6 +79,7 @@
                         <tr class="{% if d.readDemande == false %} notRead {% endif %}">
                             <td>{{ d.id }}</td>
                             <td>{{ d.titre }}</td>
+                            <td>{{ d.type }}</td>
                             <td>{{ d.idClient.nom }} {{ d.idClient.prenom }}</td>
                             <td>{{ d.nomPrenomRecept }}</td>
                             <td>{{ d.addresseRecept }} </td>

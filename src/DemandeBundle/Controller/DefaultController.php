@@ -80,7 +80,11 @@ class DefaultController extends Controller
                 $demande->setEtat("Encours");
                 //*******************************
                 $demande->setIdClient($user);
-                $demande->setDateEcheance(new \DateTime());
+
+                $date = new \DateTime();
+                $date->add(new \DateInterval('P2D'));
+
+                $demande->setDateEcheance($date);
 
                 $demande->setFraisLivraison(5);
                 $em->persist($demande);

@@ -2,6 +2,7 @@
 
 namespace DemandeBundle\Form;
 
+use DemandeBundle\Enum\DemandeTypeEnum;
 use Doctrine\DBAL\Types\BooleanType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -49,6 +50,8 @@ class DemandeType extends AbstractType
                 )
             )
 
+
+
             ->add('montant', NumberType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Montant en dinars"),
 
@@ -85,6 +88,17 @@ class DemandeType extends AbstractType
 
             ])
 
+            ->add('type', ChoiceType::class, array(
+                'required' => true,
+                'choices' => DemandeTypeEnum::getAvailableTypes(),
+                'attr'=> array('class' => 'form-control','placeholder'=>"Type Demande"),
+                'label'=>false,
+
+                'choices_as_values' => true,
+                'choice_label' => function($choice) {
+                    return DemandeTypeEnum::getTypeName($choice);
+                },
+            ))
 
 
 

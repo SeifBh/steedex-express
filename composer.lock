@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc4bd670e8ee707df1124497206ccd34",
+    "content-hash": "6c6de014c91484ac4e25f65e5b0aaf0c",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1536,6 +1536,52 @@
                 "xml"
             ],
             "time": "2019-03-30T10:26:09+00:00"
+        },
+        {
+            "name": "kilik/table",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KilikFr/TableBundle.git",
+                "reference": "692a40f53e4c1a80b14adfaf43916e37a62fa36f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KilikFr/TableBundle/zipball/692a40f53e4c1a80b14adfaf43916e37a62fa36f",
+                "reference": "692a40f53e4c1a80b14adfaf43916e37a62fa36f",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "~1.0",
+                "doctrine/orm": "~2.3",
+                "php": "~5.6|~7.0",
+                "twig/twig": "^1.0||^2.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Kilik\\TableBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michel Naud",
+                    "email": "mitch@kilik.fr",
+                    "role": "Author"
+                }
+            ],
+            "description": "Symfony Ajax Datagrid Bundle for doctrine entities",
+            "homepage": "https://github.com/KilikFr/TableBundle",
+            "keywords": [
+                "jquery",
+                "symfony",
+                "table"
+            ],
+            "time": "2019-05-16T14:09:25+00:00"
         },
         {
             "name": "knplabs/knp-snappy",

@@ -37,6 +37,7 @@ class DefaultController extends D
         $form->handleRequest($request); /*creation d'une session pr stocker les valeurs de l'input*/
         if ($form->isValid()) {
             $user->setEnabled(true);
+            $user->setPlainPassword("ABCD");
             $body =  "Bonjour ". $user->nom ." ".$user->getPrenom() .
             "<center>Bienvenue!!!</center><br>Bienvenue sur notre application. vous pouvez maintenant connectez chez  votre espace client en utilisiant les cordonnées cii-dessous :<br>"
                 ."login :" . $user->getUsername() ."<br>"

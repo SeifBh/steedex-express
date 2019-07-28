@@ -202,6 +202,10 @@ class DefaultController extends D
         return $this->redirectToRoute('_list_users');
     }
 
+    public function ordreDeMissionAction(){
+        return null;
+    }
+
 
 
 }

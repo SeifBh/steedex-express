@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Tests\JsonSerializableObject;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use UserBundle\Entity\User;
@@ -226,8 +227,31 @@ class DefaultController extends Controller
     }
 
 public function testThisAction(Request $request){
-    $para = $request->get('data');
-        return new Response($para);
+
+    $em = $this->getDoctrine()->getManager();
+    $listeD = [];
+$para = $request->get('data');
+foreach ($para as $p){
+    $demande = new Demande();
+    $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id' => $p));
+    array_push($listeD,$demande);
+}
+
+    $serialzier = new Serializer(array(new ObjectNormalizer()));
+    $v = $serialzier->normalize($listeD);
+
+
+
+    $html2pdf = new Html2Pdf('P','A4','en');
+    $html2pdf->setTestIsImage(true);
+    $ecole ="jj";
+    return $this->render('@Demande/Default/manifest.twig',array('listeD'=>$listeD));
+
+
+
+   // return new JsonResponse($v);
+
+
 }
     public function viewPdfAction(Request $request){
         $id_demande = $request->get('id_demande');

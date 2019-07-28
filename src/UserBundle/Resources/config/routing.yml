@@ -14,7 +14,9 @@ _update_user:
     path:     /update/{id}
     defaults: { _controller: UserBundle:Default:update }
 
-
+_ordre_de_mission:
+    path:     /ordre_mission
+    defaults: { _controller: UserBundle:Default:ordreDeMission }
 _remove_user:
     path:     /remove/{id}
     defaults: { _controller: UserBundle:Default:remove }

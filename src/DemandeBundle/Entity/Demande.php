@@ -169,6 +169,31 @@ class Demande
     private $tailleColis;
 
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descProd", type="string",length=255,nullable=true)
+     */
+    private $descProd;
+
+    /**
+     * @return mixed
+     */
+    public function getDescProd()
+    {
+        return $this->descProd;
+    }
+
+    /**
+     * @param mixed $descProd
+     */
+    public function setDescProd($descProd)
+    {
+        $this->descProd = $descProd;
+    }
+
+
     /**
      * @ORM\Column(name="fragile", type="boolean",nullable=true)
      */

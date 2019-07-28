@@ -74,6 +74,55 @@ class User extends  BaseUser
     private $addresse ;
 
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="notes", type="string", length=255,nullable=true)
+     */
+    private $notes ;
+
+    /**
+     * @return string
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
+     * @param string $notes
+     */
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
+    }
+
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="frai_liv", type="integer", length=255,nullable=true)
+     */
+    public $frai_liv ;
+
+    /**
+     * @return int
+     */
+    public function getFraiLiv()
+    {
+        return $this->frai_liv;
+    }
+
+    /**
+     * @param int $frai_liv
+     */
+    public function setFraiLiv($frai_liv)
+    {
+        $this->frai_liv = $frai_liv;
+    }
+
+
+
 
     /**
      * @var string

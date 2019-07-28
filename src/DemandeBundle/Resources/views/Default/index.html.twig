@@ -11,6 +11,14 @@
             Liste Demande
         </li>
     </ol>
+
+    {% for message in app.flashes('success') %}
+       <br> <div class="alert alert-success">
+
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">Liste des demandes</h3>
@@ -54,6 +62,7 @@
         <div class="box-body no-padding" id="a5">
             <table class="table table-condensed">
                 <tbody><tr>
+                    <th></th>
                     <th>ID</th>
                     <th>Titre</th>
                     <th>Type</th>
@@ -77,6 +86,8 @@
                 {% else %}
                     {% for d in listDemandes %}
                         <tr class="{% if d.readDemande == false %} notRead {% endif %}">
+                            <td><input type="checkbox" id="{{ d.id }}"/>    &nbsp;   </td>
+
                             <td>{{ d.id }}</td>
                             <td>{{ d.titre }}</td>
                             <td>{{ d.type }}</td>
@@ -93,8 +104,10 @@
                                     <span class="label label-info">En Traitement</span>
                                 {% elseif (d.etat =="Encours") %}
                                     <span class="label label-warning">En Cours</span>
-                                {% else %}
+                                {% elseif (d.etat =="Valide") %}
                                     <span class="label label-success">Validé</span>
+                                    {% else %}
+                                    {{ d.etat }}
                                 {% endif %}
 
 
@@ -119,11 +132,7 @@
                             </td>
 
                             <td>
-                                {% if d.etat == "EnTraitement" %}
                                 <a href="{{ path('_assign_demande',{'id_demande':d.id}) }}">Affecter</a>
-                                    {% else %}
-                                    -
-                                {% endif %}
                             </td>
                             <td><a href="{{ path('_update_demande',{'id':d.id}) }}">Modifier</a></td>
                             <td><a href="{{ path('_remove_demande',{'id':d.id}) }}">Supprimer</a></td>
@@ -162,4 +171,52 @@
         <!-- /.box-body -->
     </div>
 
+    <button type="button" id="btnthis" class="btn btn-outline pull-left" >test</button>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            var checkboxIDs = [];
+
+            $(":checkbox").change(function(){
+                $(":checkbox:checked").each(function(index){
+                    checkboxIDs.push($(this).attr('id'));
+                })
+                if(checkboxIDs.indexOf($(this).attr('id')) > -1)
+                {
+                    console.log($(this).attr('id') + ' checked');
+                }
+                else
+                {
+                    console.log($(this).attr('id') + ' unchecked');
+                }
+
+
+            });
+
+
+            $( "#btnthis" ).click(function() {
+
+                    console.log(checkboxIDs);
+                    data = checkboxIDs;
+                    //alert(abcd);
+                    $.ajax({
+                        url : '{{ path("testthis") }}',
+                        data : data,
+                        success : function (response) {
+                            
+                        }
+
+                    });
+
+            });
+
+        });
+
+
+
+    </script>
 {% endblock %}

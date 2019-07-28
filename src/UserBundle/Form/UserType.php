@@ -7,6 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,20 +23,24 @@ class UserType extends AbstractType
             ->add('username', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Username"),
 
-                    'label'=>false
+                    'label'=>false,
+                    'required'=>true
                 )
             )
             ->add('nom', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Nom"),
 
-                    'label'=>false
+                    'label'=>false,
+                    'label'=>false,
+                    'required'=>true
                 )
             )
 
             ->add('prenom', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Prenom"),
 
-                    'label'=>false
+                    'label'=>false,
+                    'required'=>true
                 )
             )
 
@@ -48,28 +53,48 @@ class UserType extends AbstractType
             ->add('addresse', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Adresse"),
 
-                    'label'=>false
+                    'label'=>false,
+                    'required'=>true
                 )
             )
             ->add('tel', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Telephone"),
 
-                    'label'=>false
+                    'label'=>false,
+                    'required'=>true
                 )
             )
+
+            ->add('fraiLiv', TextType::class,array(
+                    'attr'=> array('class' => 'form-control','placeholder'=>"Frais de livraison"),
+
+                    'label'=>false,
+                    'required'=>true
+                )
+            )
+
             ->add('email', EmailType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Email"),
 
-                    'label'=>false
+                    'label'=>false,
+                    'required'=>false
                 )
             )
 
+            ->add('notes', TextareaType::class,array(
+                    'attr'=> array('class' => 'form-control','placeholder'=>"Notes"),
+
+                    'label'=>false,
+                    'required'=>false
+                )
+            )
 
 
 
             ->add('plainPassword', RepeatedType::class, array(
                 'label'=>false,
                 'type' => PasswordType::class,
+                'required'=>true,
                 'options' => array(
                     'translation_domain' => 'FOSUserBundle',
                     'attr' => array(

@@ -42,6 +42,12 @@ view_pdf:
     defaults: { _controller: DemandeBundle:Default:viewPdf }
 
 
+testthis:
+    path:     /testthis
+    defaults: { _controller: DemandeBundle:Default:testThis }
+
+
+
 
 _seen_all_demande:
     path:     /seen

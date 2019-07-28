@@ -2,6 +2,9 @@
 
 namespace UserBundle\Controller;
 
+use Kilik\TableBundle\Components\Column;
+use Kilik\TableBundle\Components\Filter;
+use Kilik\TableBundle\Components\Table;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use UserBundle\Entity\User;
@@ -20,21 +23,59 @@ class DefaultController extends D
         }
         return $restresult;
     }
+    private function getTable(User $user)
+    {
+        $queryBuilder = $this->getDoctrine()->getRepository('UserBundle:User')->createQueryBuilder('u')
+            ->select('u')
+            ->setParameter('user', $user);
+
+
+
+
+        $table = (new Table())
+            ->setId('tabledemo_user')
+            ->setQueryBuilder($queryBuilder, 'u')
+            ->setTemplate('UserBundle:User/Default:index.html.twig');
+
+
+
+
+
+
+        return $table;
+    }
+
 
 
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository(User::class)->findAll();
-        return $this->render('@User/Default/index.html.twig',array('users'=>$users) );
+        $u1 = new User();
+        // get product kilik table
+       /* $table = $this->getTable($u1);
+
+        return [
+            'table' => $this->get('kilik_table')->createFormView($table),
+            'user' => $u1,
+        ];*/
+
+
+
+       return $this->render('@User/Default/index.html.twig',array('users'=>$users) );
 
     }
 
     public function createAction(Request $request){
+
+
+
         $user = new User();
 
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request); /*creation d'une session pr stocker les valeurs de l'input*/
+
+
         if ($form->isValid()) {
             $user->setEnabled(true);
             $user->setPlainPassword("ABCD");
@@ -60,6 +101,7 @@ class DefaultController extends D
 
             $em->flush();
 
+            $this->addFlash('success', 'Utilisateur ajoutée avec success!');
 
             return $this->redirectToRoute("_list_users");
 

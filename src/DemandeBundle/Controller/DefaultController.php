@@ -74,10 +74,10 @@ class DefaultController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $demande->setEtat("EnTraitement");
                 $demande->setReadDemande(false);
-                $user_livreur = $em->getRepository("UserBundle:User")->find(33);
+               // $user_livreur = $em->getRepository("UserBundle:User")->find(33);
                 //En Cours = Livreur = yousssef
-                $demande->setIdLivreur($user_livreur);
-                $demande->setEtat("Encours");
+               // $demande->setIdLivreur($user_livreur);
+                //$demande->setEtat("Encours");
                 //*******************************
                 $demande->setIdClient($user);
 
@@ -89,6 +89,7 @@ class DefaultController extends Controller
                 $demande->setFraisLivraison(5);
                 $em->persist($demande);
                 $em->flush();
+                $this->addFlash('success', 'Demande ajoutée avec success!');
 
                 return $this->redirectToRoute("_list_demande");
             } else {
@@ -116,6 +117,8 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $demande = $em->getRepository("DemandeBundle:Demande")->find($id);
+        $selectedUser = $em->getRepository("UserBundle:User")->find($demande->getIdClient());
+        $getuserFraiLiv = $selectedUser->getFraiLiv();
         $form = $this->createForm(DemandeType::class, $demande);
         $form->handleRequest($request);
 
@@ -127,7 +130,8 @@ class DefaultController extends Controller
 
 
         return $this->render("@Demande/Default/update.html.twig", array(
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'fraiLiv' => $getuserFraiLiv
 
         ));
 
@@ -221,7 +225,10 @@ class DefaultController extends Controller
 
     }
 
-
+public function testThisAction(Request $request){
+    $para = $request->get('data');
+        return new Response($para);
+}
     public function viewPdfAction(Request $request){
         $id_demande = $request->get('id_demande');
         //return new Response($id_demande);

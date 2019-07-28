@@ -30,6 +30,8 @@ class AppKernel extends Kernel
             new ApiBundle\ApiBundle(),
             new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
             new DevisBundle\DevisBundle(),
+            new \Kilik\TableBundle\KilikTableBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

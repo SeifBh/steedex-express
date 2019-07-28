@@ -38,7 +38,7 @@
                         <div class="clearfix">
                             <span class="label label-success pull-right">
 
-                                Frais de Livraison = {{ d.fraisLivraison }} TND
+                                Frais de Livraison = {{ d.idClient.fraiLiv }} TND
                             </span>
 
                             <h4 style="margin-top: 0">De :{{ d.idClient.nom }} {{ d.idClient.prenom }} </h4>
@@ -50,14 +50,8 @@
                             <p> Adresse : {{ d.addresseRecept }} </p>
                             <p> tel : {{ d.telephoneRecept }}</p>
                             <p style="margin-bottom: 0">
-                                {% if (d.etat == "EnTraitement") and (d.idLivreur == null)  %}
-                                    <span class="label label-info">En Traitement</span>
-                                {% elseif (d.etat =="Encours") and (d.idLivreur != null) %}
-                                    <span class="label label-warning">Encours</span>
-                                {% else %}
-                                    <span class="label label-success">Validé</span>
+                                    <span class="label label-info">STATUS MAZEL</span>
 
-                                {% endif %}
 
 
                             </p>

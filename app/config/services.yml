@@ -13,7 +13,14 @@ services:
         # this means you cannot fetch services directly from the container via $container->get()
         # if you need to do this, you can override this setting on individual services
         public: false
-
+    kilik_table:
+        class: Kilik\TableBundle\Services\TableService
+        arguments:    ["@twig","@form.factory"]
+        public: true
+    kilik_table_api:
+        class: Kilik\TableBundle\Services\TableApiService
+        arguments:    ["@twig","@form.factory"]
+        public: true
     # makes classes in src/AppBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     AppBundle\:

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c6de014c91484ac4e25f65e5b0aaf0c",
+    "content-hash": "a4f213479698b4e21f9fb0a8fc7d1ef3",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -909,6 +909,66 @@
             "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
             "homepage": "https://github.com/dompdf/dompdf",
             "time": "2018-12-14T02:40:31+00:00"
+        },
+        {
+            "name": "emc/table-bundle",
+            "version": "1.2.0",
+            "target-dir": "EMC/TableBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chafiq/TableBundle.git",
+                "reference": "e1b2bc5cb193a39b87e41e5bf870dfb0377bd356"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chafiq/TableBundle/zipball/e1b2bc5cb193a39b87e41e5bf870dfb0377bd356",
+                "reference": "e1b2bc5cb193a39b87e41e5bf870dfb0377bd356",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "doctrine/doctrine-bundle": "~1.1",
+                "doctrine/orm": ">=2.4.8",
+                "sensio/framework-extra-bundle": "2.3.*",
+                "symfony/browser-kit": "~2.3",
+                "symfony/finder": "~2.3",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/monolog-bundle": "2.3.*",
+                "symfony/options-resolver": "~2.3",
+                "symfony/process": "~2.3",
+                "symfony/twig-bundle": "~2.3",
+                "symfony/yaml": "~2.3",
+                "twig/twig": "~1.8"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "EMC\\TableBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chafiq El Mechrafi",
+                    "email": "chafiq.elmechrafi@gmail.com"
+                }
+            ],
+            "description": "TableBundle makes dealing with tables easier. This bundle manage the most common needs for tables. It works and flexible as Symfony Forms. For more documentations see http://www.table-bundle.com",
+            "homepage": "http://www.table-bundle.com",
+            "keywords": [
+                "Data Grid bundle",
+                "data grid",
+                "grid",
+                "grid bundle",
+                "table",
+                "table bundle"
+            ],
+            "time": "2015-10-21T12:30:16+00:00"
         },
         {
             "name": "fig/link-util",

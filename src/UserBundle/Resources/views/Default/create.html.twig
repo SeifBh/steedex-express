@@ -1,19 +1,6 @@
 {% extends 'Template.html.twig' %}
 
 {% block body %}
-    <ol class="breadcrumb">
-        <li><a href="{{ path('admin_homepage') }}"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
-        <li class="active">
-            <a href="{{ path('_list_users') }}">
-                Utilisateurs
-            </a>
-        </li>
-        <li class="active">
-            Ajouter un tulisateur Utilisateurs
-        </li>
-    </ol>
-
-<div class="col-md-6">
 
     {{ form_start(form, {'method': 'post', 'action': path('_create_user'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
@@ -21,111 +8,178 @@
         {{ form_errors(form) }}
 
     </h2>
-    <div class="box box-primary">
-        <div class="box-header with-border">
-            <h3 class="box-title">Ajouter Un nouveau utilisateur</h3>
+
+
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title"></h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+        <div class="box-body">
+            <div class="form-group">
+                {{ form_errors(form.nom) }}
+
+                <label for="exampleInputEmail1">Nom</label>
+                {{ form_row(form.nom) }}
+
+
+            </div>
+
+
+
+
+            <div class="form-group">
+                {{ form_errors(form.prenom) }}
+
+                <label for="exampleInputEmail1">Prenom</label>
+                {{ form_row(form.prenom) }}
+
+
+            </div>
+
+            <div class="form-group">
+                {{ form_errors(form.username) }}
+
+                <label for="exampleInputEmail1">Username</label>
+                {{ form_row(form.username) }}
+
+
+            </div>
+
+            <div class="form-group">
+                {{ form_errors(form.email) }}
+
+                <label for="exampleInputEmail1">Email address</label>
+                {{ form_row(form.email) }}
+
+
+            </div>
+
+            <div class="form-group">
+                {{ form_errors(form.tel) }}
+
+                <label for="exampleInputEmail1">Tél</label>
+                {{ form_row(form.tel) }}
+
+
+            </div>
+
+
+            <div class="form-group">
+                {{ form_errors(form.addresse) }}
+
+                <label for="exampleInputEmail1">Addresse</label>
+                {{ form_row(form.addresse) }}
+
+
+            </div>
+
+
+
+            <div class="form-group">
+                {{ form_errors(form.plainPassword) }}
+                {{ form_row(form.plainPassword) }}
+
+            </div>
+
         </div>
-        <!-- /.box-header -->
-        <!-- form start -->
+        </div>
+        <!-- /.box -->
+
+        <!-- Form Element sizes -->
+
+        <!-- /.box -->
+
+
+        <!-- /.box -->
+
+        <!-- Input addon -->
+
+        <!-- /.box -->
+
+    </div>
+
+
+    <div class="col-md-6">
+        <!-- Horizontal Form -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title"></h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+
             <div class="box-body">
 
 
-                <div class="form-group">
-                    {{ form_errors(form.username) }}
+            <div class="form-group">
+                {{ form_errors(form.idFiscale) }}
 
-                    <label for="exampleInputEmail1">Username</label>
-                    {{ form_row(form.username) }}
-
-
-                </div>
-
-
-
-                <div class="form-group">
-                    {{ form_errors(form.nom) }}
-
-                    <label for="exampleInputEmail1">Nom</label>
-                    {{ form_row(form.nom) }}
-
-
-                </div>
-
-                <div class="form-group">
-                    {{ form_errors(form.prenom) }}
-
-                    <label for="exampleInputEmail1">Prenom</label>
-                    {{ form_row(form.prenom) }}
-
-
-                </div>
-
-
-
-                <div class="form-group">
-                    {{ form_errors(form.idFiscale) }}
-
-                    <label for="exampleInputEmail1">Identifiant Fiscale</label>
-                    {{ form_row(form.idFiscale) }}
-
-
-                </div>
-
-
-                <div class="form-group">
-                    {{ form_errors(form.addresse) }}
-
-                    <label for="exampleInputEmail1">Addresse</label>
-                    {{ form_row(form.addresse) }}
-
-
-                </div>
-
-
-                <div class="form-group">
-                    {{ form_errors(form.tel) }}
-
-                    <label for="exampleInputEmail1">Tél</label>
-                    {{ form_row(form.tel) }}
-
-
-                </div>
-
-
-
-                <div class="form-group">
-                    {{ form_errors(form.email) }}
-
-                    <label for="exampleInputEmail1">Email address</label>
-                    {{ form_row(form.email) }}
-
-
-                </div>
-
-
-                <div class="form-group">
-                    {{ form_errors(form.plainPassword) }}
-                    {{ form_row(form.plainPassword) }}
-
-                </div>
-
-                <div class="form-group">
-                    {{ form_errors(form.roles) }}
-                    {{ form_row(form.roles) }}
-
-                </div>
+                <label for="exampleInputEmail1">Identifiant Fiscale</label>
+                {{ form_row(form.idFiscale) }}
 
 
             </div>
-            <!-- /.box-body -->
 
-            <div class="box-footer">
-                <input type="submit" class="btn btn-primary">Submit</input>
+
+            <div class="form-group">
+                {{ form_errors(form.fraiLiv) }}
+
+                <label for="exampleInputEmail1">Frais de Livraison</label>
+                {{ form_row(form.fraiLiv) }}
+
+
             </div>
+
+
+
+            <div class="form-group">
+                {{ form_errors(form.roles) }}
+                {{ form_row(form.roles) }}
+
+            </div>
+
+
+                <div class="form-group">
+                    {{ form_errors(form.notes) }}
+
+                    <label for="exampleInputNotes">Notes</label>
+                    {{ form_row(form.notes) }}
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </div>
+        <!-- /.box -->
+        <!-- general form elements disabled -->
+
+        <!-- /.box -->
     </div>
+
+<center>
+
+        <input type="submit" class="btn  btn-info btn-lg"></input>
+
+
+
+
+
+</center>
+
+
 
     {{ form_rest(form) }}
 
     {{ form_end(form) }}
 
-</div>
 {% endblock %}

@@ -24,14 +24,16 @@ class DemandeType extends AbstractType
             ->add('titre', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Titre de la demande"),
 
-                    'label'=>false
+                    'label'=>false,
+                    'required' =>true
                 )
             )
 
             ->add('nom_prenom_recept', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Nom & Prenom"),
 
-                    'label'=>false
+                    'label'=>false,
+                    'required' =>true
                 )
             )
 
@@ -39,14 +41,16 @@ class DemandeType extends AbstractType
             ->add('addresse_recept', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Adresse Destinataire"),
 
-                    'label'=>false
+                    'label'=>false,
+                    'required' =>true
                 )
             )
 
             ->add('telephone_recept', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Telephone Destinataire"),
 
-                    'label'=>false
+                    'label'=>false,
+                    'required' =>true
                 )
             )
 
@@ -55,7 +59,8 @@ class DemandeType extends AbstractType
             ->add('montant', NumberType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Montant en dinars"),
 
-                    'label'=>false
+                    'label'=>false,
+                    'required' =>true
                 )
             )
 
@@ -63,19 +68,18 @@ class DemandeType extends AbstractType
             ->add('quantite', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Quantite"),
 
-                    'label'=>false
+                    'label'=>false,
+                    'required' =>true
                 )
             )
 
 
-            ->add('fragile', ChoiceType::class, [
-                'choices' => ['Oui' => true, 'Non' => false],
-                    'attr'=> array('class' => 'form-control','placeholder'=>"Fragile"),
-                    'data' => true,
-                    'label'=>false
 
-                ])
+        ->add('fragile', CheckboxType::class, array(
 
+            'label'    => 'Colis fragile ? ',
+   'required' => false
+))
             ->add('tailleColis', ChoiceType::class, [
                     'choices'  => [
                         'Grand' => null,
@@ -83,10 +87,12 @@ class DemandeType extends AbstractType
                         'Petit' => false,
                     ],
                 'label'=>false,
-                'attr'=> array('class' => 'form-control','placeholder'=>"Taille Colis")
+                'required' =>true,
+        'attr'=> array('class' => 'form-control','placeholder'=>"Taille Colis en cm")
 
 
             ])
+
 
             ->add('type', ChoiceType::class, array(
                 'required' => true,
@@ -100,24 +106,41 @@ class DemandeType extends AbstractType
                 },
             ))
 
-
+            ->add('etat', ChoiceType::class, array(
+                'attr'  =>  array('class' => 'form-control',
+                    'style' => 'margin:5px 0;'),
+                'choices' =>
+                    array
+                    (
+                        'EnTraitement' => 'EnTraitement',
+                        'EnCours' => 'EnCours',
+                        'Retour' => 'Retour',
+                        'Cloture' => 'Cloture',
+                        'Valide' => 'Valide'
+                    ) ,
+                'multiple' => false,
+                'label' => false,
+                'required' => false,
+            ))
 
 
 
 
             ->add('note', TextareaType::class,array(
-                    'attr'=> array('class' => 'form-control','placeholder'=>"Montant en dinars"),
+                    'attr'=> array('class' => 'form-control','placeholder'=>"Ecrire quelque chose a propos le client destinataire"),
 
-                    'label'=>false
+                    'label'=>false,
+                    'required' =>false
+                )
+            )
+            ->add('descProd', TextareaType::class,array(
+                    'attr'=> array('class' => 'form-control','placeholder'=>"Ecrire quelque chose a propos le produit du colis"),
+
+                    'label'=>false,
+                    'required' =>false
                 )
             )
 
-            ->add('fraisLivraison', NumberType::class,array(
-                    'attr'=> array('class' => 'form-control7 form-control','placeholder'=>""),
-
-                    'label'=>false
-                )
-            )
 
 
 

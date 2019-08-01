@@ -294,7 +294,7 @@
 
                             $('#tab').append(
                                 "<tr>" +
-                                "<td><input name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
+                                "<td><input  id='"+el.id+"' name='coffee'  name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
                                 "<td>"+el.id+"</td>"+
                                 "<td>"+el.dateEmission+"</td>"+
                                 "<td>"+el.titre+"</td>"+
@@ -323,11 +323,25 @@
 
 
 
+            var tmp = [];
+
+            $("input[name='checkbox']").change(function() {
+                var checked = $(this).val();
+                if ($(this).is(':checked')) {
+                    tmp.push(checked);
+                    console.log("added");
+                } else {
+                    console.log("removed");
+
+                    tmp.splice($.inArray(checked, tmp),1);
+                }
+            });
 
 
 
             $( "#btnthis" ).click(function() {
 
+                var tmp = myFunction();
                 console.log(tmp);
                 data = tmp;
                 //alert(abcd);
@@ -353,19 +367,6 @@
 
 
 
-            var tmp = [];
-
-            $("input[name='checkbox']").change(function() {
-                var checked = $(this).val();
-                if ($(this).is(':checked')) {
-                    tmp.push(checked);
-                    console.log("added");
-                } else {
-                    console.log("removed");
-
-                    tmp.splice($.inArray(checked, tmp),1);
-                }
-            });
 
 
 
@@ -386,7 +387,30 @@
 
 
 
+<script>
 
+
+
+    function myFunction() {
+        var tmp = [];
+
+        var coffee = document.getElementsByName('coffee');
+        var i;
+        for (i = 0; i < coffee.length; i++) {
+            if (coffee[i].checked) {
+                tmp.push(coffee[i].value);
+                console.log(tmp);
+            }
+            else{
+                tmp.splice($.inArray(coffee[i].value, tmp),1);
+                console.log(tmp);
+
+
+            }
+        }
+        return tmp;
+    }
+</script>
 
 
     <script src="{{ asset('tableFilter/assets/js/jquery-1.11.3.js') }}"></script>
@@ -397,56 +421,8 @@
     <script src="{{ asset('tableFilter/assets/js/jquery-ui-1.10.3.min.js') }}"></script>
     <script src="{{ asset('tableFilter/src/bootstrap-table-filter.js') }}"></script>
 
-    <script type="text/javascript">
-        var itemPrices = [{ id: 1, text: '$1' }, { id: 2, text: '$2' }];
-
-        $('#itemsTable').on('column-search.bs.table', function () {
-            console.log('hello event');
-        });
-    </script>
-
-
-    <script>
 
 
 
-
-
-
-
-            $(document).ready( function() {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                $('input[type="date"]').change(function(){
-                    var selectClientLast = $("#mylist").children("option:selected").val();
-
-
-
-            });
-
-
-
-        });
-        function testClicked()
-        {
-            $('.getDate').html($('#datePicker').val());
-        }
-
-
-    </script>
 
 {% endblock %}

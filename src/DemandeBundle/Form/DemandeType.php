@@ -4,6 +4,7 @@ namespace DemandeBundle\Form;
 
 use DemandeBundle\Enum\DemandeTypeEnum;
 use Doctrine\DBAL\Types\BooleanType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -13,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use UserBundle\Entity\User;
 
 class DemandeType extends AbstractType
 {
@@ -46,6 +48,8 @@ class DemandeType extends AbstractType
                     'required' =>true
                 )
             )
+
+
 
             ->add('telephone_recept', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Telephone Destinataire"),
@@ -150,6 +154,8 @@ class DemandeType extends AbstractType
                     'required' =>false
                 )
             )
+
+
 
 
 

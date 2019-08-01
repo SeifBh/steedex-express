@@ -213,23 +213,9 @@
                 </li>
 
 
-
-                <li class="treeview">
-                    <a href="{{ path('_ordre_de_mission') }}">
-                        <i class="fa fa-files-o"></i>
-                        <span>Ordre de Mission</span>
-                        <span class="pull-right-container">
-                                          <i class="fa fa-angle-left pull-right"></i>
-
-              <span class="label label-primary pull-right">
+                <li><a href="{{ path('_ordre_de_mission') }}"><i class="fa fa-circle-o text-red"></i> <span>Ordre de Mission</span></a></li>
 
 
-
-              </span>
-            </span>
-                    </a>
-
-                </li>
 
 
 
@@ -537,8 +523,14 @@
 </div>
 <!-- ./wrapper -->
 
+
+
+<script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js') }}"></script>
+<script src="{{ asset('js/printThis.js') }}"></script>
+
+
+
 <!-- jQuery 3 -->
-<script src="{{ asset('steedex_styles_ADMIN/bower_components/jquery/dist/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('steedex_styles_ADMIN/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

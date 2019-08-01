@@ -42,6 +42,28 @@ view_pdf:
     defaults: { _controller: DemandeBundle:Default:viewPdf }
 
 
+filterClients:
+    path:     /filterClient
+    defaults: { _controller: DemandeBundle:Default:filterClient }
+
+
+filterClientsDate:
+    path:     /filterClientDate
+    defaults: { _controller: DemandeBundle:Default:filterClientDate }
+
+
+filterGlobal:
+    path:     /filterGlobal
+    defaults: { _controller: DemandeBundle:Default:filterGlobal }
+
+
+filterGlobalLivreur:
+    path:     /filterGlobalLivreur
+    defaults: { _controller: DemandeBundle:Default:filterGlobalLivreur }
+
+
+
+
 testthis:
     path:     /testthis
     defaults: { _controller: DemandeBundle:Default:testThis }

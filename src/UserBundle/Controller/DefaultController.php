@@ -2,11 +2,15 @@
 
 namespace UserBundle\Controller;
 
+use DemandeBundle\Entity\Demande;
 use Kilik\TableBundle\Components\Column;
 use Kilik\TableBundle\Components\Filter;
 use Kilik\TableBundle\Components\Table;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 use UserBundle\Entity\User;
 use UserBundle\Form\UserType;
 use AdminBundle\Controller\DefaultController as D;
@@ -203,8 +207,69 @@ class DefaultController extends D
     }
 
     public function ordreDeMissionAction(){
-        return null;
+
+
+        $user = new User();
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        $listeLivreur = $em->getRepository('UserBundle:User')->findByRole("ROLE_LIVREUR");
+
+        return $this->render("@User/Default/ordreMission.html.twig",array(
+            'listeLivreur'=>$listeLivreur
+        ));
+
     }
+
+    public function livDemAction($id){
+
+        $em = $this->getDoctrine()->getManager();
+
+        $listeDemandeByLivreur = $em->getRepository("DemandeBundle:Demande")->getLivreurDemandes($id);
+
+
+
+
+
+        return $this->render("@User/Default/demandeBylivreur.html.twig",array(
+            'listeDemandeByLivreur'=>$listeDemandeByLivreur,
+            'idLivreur' => $id
+        ));
+
+    }
+    public function generateOrdreMissionAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $listeD = [];
+        $para = $request->get('data');
+        foreach ($para as $p){
+            $d = new Demande();
+            $listeDemande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id' => $p));
+            array_push($listeD,$listeDemande);
+        }
+
+
+
+        if($request->isXmlHttpRequest() ) {
+            $serialzier = new Serializer(array(new ObjectNormalizer()));
+            $v = $serialzier->normalize($listeD);
+            return $this->render('@User/Default/generateOrdre.html.twig',array('listeD'=>$listeD));
+
+            //return new JsonResponse($v);
+
+        }
+        $html2pdf = new Html2Pdf('L','A4','en');
+        $html2pdf->setTestIsImage(true);
+        $ecole ="jj";
+        return $this->render('@User/Default/generateOrdre.html.twig',array('listeD'=>$listeD));
+
+
+
+        // return new JsonResponse($v);
+
+
+    }
+
 
 
 

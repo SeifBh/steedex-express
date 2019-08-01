@@ -30,6 +30,11 @@ class DefaultController extends Controller
         return new Response($nb_unread_msgs);
     }
 
+    public function getAllClientAction(){
+
+return null;
+    }
+
     public function listAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -52,11 +57,17 @@ class DefaultController extends Controller
             $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array("id_client"=>$userId), array('id' => 'DESC'));
 
         }
+        $listeClients = $em->getRepository('UserBundle:User')->findByRole("ROLE_CLIENT");
 
 
-        return $this->render('@Demande/Default/index.html.twig', array(
-            'listDemandes' => $listDemandes,
-        ));
+
+
+         return $this->render("@Demande/Default/index.html.twig",array(
+             'listDemandes'=>$listDemandes,
+             'listeClients'=>$listeClients
+
+
+         ));
 
     }
 
@@ -84,8 +95,10 @@ class DefaultController extends Controller
 
                 $date = new \DateTime();
                 $date->add(new \DateInterval('P2D'));
+                $date_now = new \DateTime();
 
                 $demande->setDateEcheance($date);
+                $demande->setDateEmission($date_now);
 
                 $demande->setFraisLivraison(5);
                 $em->persist($demande);
@@ -237,12 +250,17 @@ foreach ($para as $p){
     array_push($listeD,$demande);
 }
 
-    $serialzier = new Serializer(array(new ObjectNormalizer()));
-    $v = $serialzier->normalize($listeD);
 
 
+    if($request->isXmlHttpRequest() ) {
+        $serialzier = new Serializer(array(new ObjectNormalizer()));
+        $v = $serialzier->normalize($listeD);
+       return $this->render('@Demande/Default/manifest.twig',array('listeD'=>$listeD));
 
-    $html2pdf = new Html2Pdf('P','A4','en');
+        //return new JsonResponse($v);
+
+    }
+    $html2pdf = new Html2Pdf('L','A4','en');
     $html2pdf->setTestIsImage(true);
     $ecole ="jj";
     return $this->render('@Demande/Default/manifest.twig',array('listeD'=>$listeD));
@@ -252,6 +270,152 @@ foreach ($para as $p){
    // return new JsonResponse($v);
 
 
+}
+
+
+
+    public function filterGlobalLivreurAction(Request $request){
+
+
+
+        $selectedClientDate = $request->get('date');
+        $selectedClient = $request->get('selectedClient');
+
+
+
+        $em = $this->getDoctrine()->getManager();
+
+
+
+
+            $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobalLivreur($selectedClient,$selectedClientDate);
+
+
+
+
+
+
+
+        if($request->isXmlHttpRequest() ) {
+
+            $serialzier = new Serializer(array(new ObjectNormalizer()));
+            $v = $serialzier->normalize($listeClientsFiltred);
+
+            return new JsonResponse($v);
+
+        }
+
+        return null;
+    }
+
+
+    public function filterGlobalAction(Request $request){
+
+
+
+        $selectedClientDate = $request->get('date');
+        $selectedClient = $request->get('selectedClient');
+
+
+
+        $em = $this->getDoctrine()->getManager();
+
+        if ($selectedClientDate == "")
+        {
+            $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClients($selectedClient);
+
+
+
+        }
+
+        elseif ($selectedClient == "all")
+        {
+
+            $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClientsDate($selectedClientDate);
+
+        }
+        else{
+
+            $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobal($selectedClient,$selectedClientDate);
+
+        }
+
+
+
+
+
+
+
+        if($request->isXmlHttpRequest() ) {
+
+            $serialzier = new Serializer(array(new ObjectNormalizer()));
+            $v = $serialzier->normalize($listeClientsFiltred);
+
+            return new JsonResponse($v);
+
+        }
+
+        return null;
+    }
+
+    public function filterClientDateAction(Request $request){
+
+
+
+        $selectedClientDate = $request->get('date');
+
+        $demande = new Demande();
+
+        $em = $this->getDoctrine()->getManager();
+
+
+            $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClientsDate($selectedClientDate);
+
+
+
+        if($request->isXmlHttpRequest() ) {
+
+            $serialzier = new Serializer(array(new ObjectNormalizer()));
+            $v = $serialzier->normalize($listeClientsFiltred);
+
+            return new JsonResponse($v);
+
+        }
+
+        return null;
+    }
+
+
+public function filterClientAction(Request $request){
+
+
+
+    $selectedClient = $request->get('selectedClient');
+
+    $demande = new Demande();
+
+    $em = $this->getDoctrine()->getManager();
+    if ($selectedClient == 'all'){
+        $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->findAll();
+
+    }
+    else{
+
+        $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClients($selectedClient);
+
+    }
+
+
+    if($request->isXmlHttpRequest() ) {
+
+        $serialzier = new Serializer(array(new ObjectNormalizer()));
+        $v = $serialzier->normalize($listeClientsFiltred);
+
+        return new JsonResponse($v);
+
+    }
+
+    return null;
 }
     public function viewPdfAction(Request $request){
         $id_demande = $request->get('id_demande');
@@ -269,6 +433,8 @@ foreach ($para as $p){
 
 
     }
+
+
     public function generatepdfAction(Request $request)
     {
 

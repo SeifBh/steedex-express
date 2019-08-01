@@ -46,6 +46,8 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
     }
 
 
+
+
     public function enTraitement(){
         return $this->createQueryBuilder('d')
             ->select('COUNT(d)')
@@ -80,6 +82,74 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
 
             ->getQuery();
     }
+
+
+
+    public function getLivreurDemandes($id)
+    {
+
+
+        return $this->createQueryBuilder('d')
+            ->where('d.id_livreur =  :id')
+            ->setParameter('id',  $id )
+            ->getQuery()
+            ->getResult();
+
+
+    }
+
+
+
+
+
+
+
+    public function filterByClients($id){
+        return $this->createQueryBuilder('d')
+            ->where('d.id_client =  :id')
+            ->setParameter('id',  $id )
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function filterByClientsDate($date){
+        return $this->createQueryBuilder('d')
+            ->where("d.date_emission")
+            ->where( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
+            ->setParameter('date',  $date )
+            ->getQuery()
+            ->getResult();
+    }
+
+
+
+    public function filterGlobal($id,$date){
+        return $this->createQueryBuilder('d')
+            ->where('d.id_client =  :id')
+            ->andWhere( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
+            ->setParameter('date',  $date )
+            ->setParameter('id',  $id )
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function filterGlobalLivreur($id,$date){
+        return $this->createQueryBuilder('d')
+            ->where('d.id_livreur =  :id')
+            ->andWhere( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
+            ->setParameter('date',  $date )
+            ->setParameter('id',  $id )
+            ->getQuery()
+            ->getResult();
+    }
+
+
+
+
+
+
+
+
 
 
 

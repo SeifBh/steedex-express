@@ -112,7 +112,7 @@ class Demande
     /**
      * @var date $date_emission
      *
-     * @ORM\Column(name="date_emission", type="date", nullable=true)
+     * @ORM\Column(name="date_emission", type="datetime", nullable=true)
      */
     private $date_emission;
 

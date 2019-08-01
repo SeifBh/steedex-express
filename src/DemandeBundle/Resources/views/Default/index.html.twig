@@ -1,5 +1,111 @@
 {% extends 'Template.html.twig' %}
 {% block body %}
+
+    <link href="{{ asset('tableFilter/assets/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('tableFilter/assets/css/bootstrap-override.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('tableFilter/assets/css/bootstrap-table.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('tableFilter/src/bootstrap-table-filter.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('comingsoon_05/vendor/select2/select2.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('tableFilter/assets/css/jquery-ui-1.10.3.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('ssssssssssssss') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('ssssssssssssss') }}" rel="stylesheet" type="text/css">
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+        .invoice-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            font-size: 16px;
+            line-height: 24px;
+            color: black;
+        }
+
+        .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+        }
+
+        .invoice-box table td {
+            padding: 5px;
+            vertical-align: top;
+        }
+
+        .invoice-box table tr td:nth-child(2) {
+            text-align: right;
+        }
+
+        .invoice-box table tr.top table td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.top table td.title {
+            font-size: 45px;
+            line-height: 45px;
+            color: #333;
+        }
+
+        .invoice-box table tr.information table td {
+            padding-bottom: 40px;
+        }
+
+        .invoice-box table tr.heading td {
+            background: #eee;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .invoice-box table tr.details td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.item td{
+            border-bottom: 1px solid #eee;
+        }
+
+        .invoice-box table tr.item.last td {
+            border-bottom: none;
+        }
+
+        .invoice-box table tr.total td:nth-child(2) {
+            border-top: 2px solid #eee;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .invoice-box table tr.top table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+
+            .invoice-box table tr.information table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        /** RTL **/
+        .rtl {
+            direction: rtl;
+        }
+
+        .rtl table {
+            text-align: right;
+        }
+
+        .rtl table tr td:nth-child(2) {
+            text-align: left;
+        }
+        @page {
+            @bottom-center { content: element(footer) }
+        }
+
+    </style>
     <ol class="breadcrumb">
         <li><a href="{{ path('admin_homepage') }}"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
         <li class="active">
@@ -18,6 +124,7 @@
         {{ message }}
     </div>
     {% endfor %}
+
 
     <div class="box">
         <div class="box-header">
@@ -58,12 +165,40 @@
             <!-- /.modal-dialog -->
         </div>
 
+
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class='col-sm-6'>
+                    <select id="mylist"  class='form-control' >
+                        <option value="all">All</option>
+
+                        {% for i in listeClients %}
+                            <option value="{{ i.id }}">{{ i.nom }} {{ i.prenom }}</option>
+
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class='col-sm-6'>
+                    <input type="date"   class="form-control" name="bday" id="datePicker" >
+                    <input type="button" class="btn btn-primary" value="Search" id="datebtn">
+                </div>
+
+            </div>
+        </div>
+        <script src="{{  asset('jquery-3.2.1.min.js') }}"></script>
+
+
+
         <!-- /.box-header -->
         <div class="box-body no-padding" id="a5">
-            <table class="table table-condensed">
+            <table class="table table-condensed" id="mainTable">
                 <tbody><tr>
                     <th></th>
                     <th>ID</th>
+                    <th>Date Emission</th>
                     <th>Titre</th>
                     <th>Type</th>
                     <th>Emetteur</th>
@@ -89,6 +224,7 @@
                             <td><input name="checkbox" type="checkbox" id="{{ d.id }}" value="{{ d.id }}"/>    &nbsp;   </td>
 
                             <td>{{ d.id }}</td>
+                            <td>{{ d.dateEmission | date }}</td>
                             <td>{{ d.titre }}</td>
                             <td>{{ d.type }}</td>
                             <td>{{ d.idClient.nom }} {{ d.idClient.prenom }}</td>
@@ -169,9 +305,16 @@
             </table>
         </div>
         <!-- /.box-body -->
+
+
+
+
+
+
+
     </div>
 
-    <button type="button"  id="btnthis" class="btn btn-primary pull-left" >Generate Ordre de mission || Generate Manifest (LOADIIN)</button>
+    <button type="button"  id="btnthis" class="btn btn-primary pull-left"  data-toggle="modal" data-target="#modal-default">Generate Ordre de mission || Generate Manifest (LOADIIN)</button>
 
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
@@ -185,11 +328,13 @@
                 var checked = $(this).val();
                 if ($(this).is(':checked')) {
                     tmp.push(checked);
+                    console.log("added");
                 } else {
+                    console.log("removed");
+
                     tmp.splice($.inArray(checked, tmp),1);
                 }
             });
-
 
 
 
@@ -199,19 +344,32 @@
                 console.log(tmp);
                 data = tmp;
                 //alert(abcd);
+                var $url = "{{ path('testthis', {'data': 'data'}) }}";
+
+
                 $.ajax({
                     url : '{{ path("testthis") }}',
                     data:  { "data" : tmp },
                     type:       'GET',
-                    dataType:   'json',
+                    dataType:   'html',
                     async:      true,
                     success : function (response) {
+                        $("#modal-default .modal-body").html(response);
 
-                    }
+                    },
+
+
 
                 });
 
             });
+
+
+            $("#printthis").click(function () {
+                $("#manifest").printThis();
+
+            });
+
 
 
         });
@@ -219,4 +377,146 @@
 
 
     </script>
+
+
+
+
+
+
+
+    <script src="{{ asset('tableFilter/assets/js/jquery-1.11.3.js') }}"></script>
+    <script src="{{ asset('tableFilter/assets/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('tableFilter/assets/js/bootstrap-table.js') }}"></script>
+    <script src="{{ asset('tableFilter/assets/js/bootstrap-table-en-US.js') }}"></script>
+    <script src="{{ asset('comingsoon_05/vendor/select2/select2.js') }}"></script>
+    <script src="{{ asset('tableFilter/assets/js/jquery-ui-1.10.3.min.js') }}"></script>
+    <script src="{{ asset('tableFilter/src/bootstrap-table-filter.js') }}"></script>
+
+    <script type="text/javascript">
+        var itemPrices = [{ id: 1, text: '$1' }, { id: 2, text: '$2' }];
+
+        $('#itemsTable').on('column-search.bs.table', function () {
+            console.log('hello event');
+        });
+    </script>
+
+
+    <script>
+
+
+
+
+
+
+
+            $(document).ready( function() {
+
+
+
+                $('#datebtn').click(function(){
+                    var selectClientLast = $("#mylist").children("option:selected").val();
+                    var date = $('input[type="date"]').val();
+
+                    $.ajax({
+                        url : '{{ path("filterGlobal") }}',
+                        data:  { "selectedClient":selectClientLast,"date" : date },
+                        type:       'GET',
+                        dataType:   'json',
+                        async:      true,
+                        success : function(response){
+                            $("#a5").html(
+                                "<table id='tab'  class=\"table table-condensed\">" +
+                                "       <tr>\n" +
+                                "            <th> # </th>\n" +
+                                "            <th> Id </th>\n" +
+                                "            <th> Date Emission </th>\n" +
+                                "            <th> Titre </th>\n" +
+                                "            <th> Type </th>\n" +
+                                "            <th> Emetteur </th>\n" +
+                                "            <th> Destinataire </th>\n" +
+                                "            <th> Adresse </th>\n" +
+                                "            <th> Tel </th>\n" +
+                                "            <th> Etat </th>\n" +
+                                "            <th> Livreur </th>\n" +
+
+
+                                "\n" +
+                                "</tr>" +
+                                "" +
+                                "</table>"
+                            );
+                            $.each(response,function(k,el){
+                                var valLivreur = el.idLivreur;
+                                var res = "Non";
+                                if(valLivreur==null){
+                                    res = "OUI";
+                                    var valLivreur = "<img src='https://image.flaticon.com/icons/png/512/291/291202.png' width='20px'>";
+
+
+                                }else{
+                                    res = "NON";
+                                    var valLivreur = el.idLivreur.nom + " " + el.idLivreur.prenom;
+
+                                }
+
+
+
+
+                                $('#tab').append(
+                                    "<tr>" +
+                                    "<td><input name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
+                                    "<td>"+el.id+"</td>"+
+                                    "<td>"+el.dateEmission+"</td>"+
+                                    "<td>"+el.titre+"</td>"+
+                                    "<td>"+el.type+"</td>"+
+                                    "<td>"+el.idClient.nom+"</td>"+
+                                    "<td>"+el.nomPrenomRecept+"</td>"+
+                                    "<td>"+el.addresseRecept+"</td>"+
+                                    "<td>"+el.telephoneRecept+"</td>"+
+                                    "<td>"+el.etat+"</td>"+
+                                    "<td>"+valLivreur+"</td>"+
+
+
+                                    "</tr>"
+                                )
+                            })
+
+
+                        },
+                    })
+
+
+
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+                $('input[type="date"]').change(function(){
+                console.log(this.value.toString('yy-MM-dd'));
+                    var selectClientLast = $("#mylist").children("option:selected").val();
+
+
+
+            });
+
+
+
+        });
+        function testClicked()
+        {
+            $('.getDate').html($('#datePicker').val());
+        }
+
+
+    </script>
+
 {% endblock %}

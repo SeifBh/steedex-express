@@ -16,7 +16,7 @@
             Liste utilisateur
         </li>
     </ol>
-<br>
+    <br>
     {% for message in app.flashes('success') %}
         <div class="alert alert-success">
             {{ message }}
@@ -43,29 +43,28 @@
 
             <table class="table table-condensed">
                 <tbody><tr>
+                    <th></th>
 
+                    <th>id</th>
                     <th>Nom & Prenom</th>
                     <th>Tél</th>
-                    <th>Addresse</th>
-                    <th>Email</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                    <th>To User</th>
-                    <th>To Admin</th>
+                    <th>entrer</th>
+
+
 
                 </tr>
 
-                {% for c in users %}
+                {% for c in listeLivreur %}
                     <tr>
+                        <td><input name="checkbox" type="checkbox" id="{{ c.id }}" value="{{ c.id }}"/>    &nbsp;   </td>
+                        <td id="id">{{ c.id }}</td>
 
                         <td>{{ c.nom }} {{ c.prenom }}</td>
                         <td id="tel">{{ c.tel }}</td>
-                        <td>{{ c.addresse }}</td>
-                        <td>{{ c.email }}</td>
-                        <td><a href="{{ path('_update_user',{'id':c.id}) }}">editer</a></td>
-                        <td><a href="{{ path('_remove_user',{'id':c.id}) }}">supprimer</a></td>
-                        <td><a href="{{ path('_send_mail_to_user',{'id':c.id}) }}">envoyer </a></td>
-                        <td><a href="{{ path('_send_mail_to_admin',{'id':c.id}) }}">envoyer</a></td>
+                        <td><a href="{{ path('_DemandeByLivreur',{'id':c.id}) }}">entrer</a></td>
+
+
+
 
                     </tr>
                 {% endfor %}
@@ -76,6 +75,29 @@
         <!-- /.box-body -->
     </div>
 
+    <div class="modal fade" id="modal-default" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">Default Modal</h4>
+                </div>
+                <div class="modal-body" id="manifest">
+                    <p>Loading...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="button" id="printthis" class="btn btn-primary">Imrpimer manifest</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+    <button type="button"  id="btnthis" class="btn btn-primary pull-left"  data-toggle="modal" data-target="#modal-default">Generate Ordre de mission || Generate Manifest (LOADIIN)</button>
 
 
     <a href="{{ path('_test_mail') }}">test mail</a>
@@ -91,6 +113,48 @@
         });
 
         $(document).ready(function() {
+
+
+            $( "#btnthis" ).click(function() {
+
+                console.log(tmp);
+                data = tmp;
+                //alert(abcd);
+                var $url = "{{ path('_generateOrdre', {'data': 'data'}) }}";
+
+
+                $.ajax({
+                    url : '{{ path("_generateOrdre") }}',
+                    data:  { "data" : tmp },
+                    type:       'GET',
+                    dataType:   'html',
+                    async:      true,
+                    success : function (response) {
+                        $("#modal-default .modal-body").html(response);
+
+                    },
+
+
+
+                });
+
+            });
+
+
+
+            var tmp = [];
+
+            $("input[name='checkbox']").change(function() {
+                var checked = $(this).val();
+                if ($(this).is(':checked')) {
+                    tmp.push(checked);
+                    console.log("added");
+                } else {
+                    console.log("removed");
+
+                    tmp.splice($.inArray(checked, tmp),1);
+                }
+            });
 
 
             $('table').DataTable( {

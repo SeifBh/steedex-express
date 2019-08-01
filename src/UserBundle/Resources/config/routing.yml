@@ -14,6 +14,18 @@ _update_user:
     path:     /update/{id}
     defaults: { _controller: UserBundle:Default:update }
 
+_generateOrdre:
+    path:     /generateOrdre
+    defaults: { _controller: UserBundle:Default:generateOrdreMission }
+
+
+_DemandeByLivreur:
+    path:     /LivDem/{id}
+    defaults: { _controller: UserBundle:Default:livDem }
+
+
+
+
 _ordre_de_mission:
     path:     /ordre_mission
     defaults: { _controller: UserBundle:Default:ordreDeMission }

@@ -7,8 +7,6 @@
     <link href="{{ asset('tableFilter/src/bootstrap-table-filter.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('comingsoon_05/vendor/select2/select2.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('tableFilter/assets/css/jquery-ui-1.10.3.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('ssssssssssssss') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('ssssssssssssss') }}" rel="stylesheet" type="text/css">
 
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
@@ -104,6 +102,19 @@
         @page {
             @bottom-center { content: element(footer) }
         }
+        #tabF td {
+            padding-left: 9px !important;
+        }
+        input#datePicker {
+            height: 39px;
+        }
+
+        .notload{
+            display:none;
+        }
+        .load{
+            display:block;
+        }
 
     </style>
     <ol class="breadcrumb">
@@ -117,6 +128,204 @@
             Liste Demande
         </li>
     </ol>
+<br>
+    <table id="tabF" width="50%">
+        <tr>
+            <td colspan="4">
+                <select id="mylist"  class='form-control' >
+                    <option value="all">All</option>
+
+                    {% for i in listeClients %}
+                        <option value="{{ i.id }}">{{ i.nom }} {{ i.prenom }}</option>
+
+                    {% endfor %}
+                </select>
+
+            </td>
+            <td colspan="4">
+                <input type="date"   class="form-control" name="bday" id="datePicker" >
+
+            </td>
+            <td colspan="4">
+                <input type="button" class="btn btn-primary" value="Search" id="datebtn">
+
+            </td>
+            <td>
+                <div id="imgL">
+
+
+                </div>
+            </td>
+        </tr>
+    </table>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-3">
+
+
+
+
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Inbox</h3>
+
+                        <h3 class="box-title">Liste des demandes</h3>
+                        <div class="box-tools">
+                            <a href="{{ path('_create_demande') }}" type="button" class="btn btn-block btn-primary btn-lg">Créer une demande</a>
+                        </div>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
+                            Effacer tout
+                        </button>
+                        <br>
+
+
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding">
+
+                        <!-- /.box-header -->
+                        <div class="box-body no-padding" id="a5">
+                            <table class="table table-condensed" id="mainTable">
+                                <tbody><tr>
+                                    <th>#</th>
+                                    <th>ID</th>
+                                    <th>Date Emission</th>
+                                    <th>Titre</th>
+                                    <th>Type</th>
+                                    <th>Emetteur</th>
+                                    <th>Destinataire</th>
+                                    <th>Addresse</th>
+                                    <th>Tel</th>
+                                    <th>Etat</th>
+                                    <th>Livreur</th>
+                                    <th>#Aff</th>
+                                    <th>#Mod</th>
+                                    <th>#Supp</th>
+                                    <th>#Conf</th>
+                                    <th>#Telecharger</th>
+                                    <th>#Imrpimer</th>
+
+                                </tr>
+
+                                {% if listDemandes is empty %}
+                                    <tr><th> Aucun demande enregistré</th></tr>
+                                {% else %}
+                                    {% for d in listDemandes %}
+                                        <tr class="{% if d.readDemande == false %} notRead {% endif %}">
+                                            <td><input name="checkbox" type="checkbox" id="{{ d.id }}" value="{{ d.id }}"/>    &nbsp;   </td>
+
+                                            <td>{{ d.id }}</td>
+                                            <td>{{ d.dateEmission | date }}</td>
+                                            <td>{{ d.titre }}</td>
+                                            <td>{{ d.type }}</td>
+                                            <td>{{ d.idClient.nom }} {{ d.idClient.prenom }}</td>
+                                            <td>{{ d.nomPrenomRecept }}</td>
+                                            <td>{{ d.addresseRecept }} </td>
+                                            <td>{{ d.telephoneRecept }}</td>
+
+                                            <td>
+
+
+
+                                                {% if(d.etat == "EnTraitement") %}
+                                                    <span class="label label-info">En Traitement</span>
+                                                {% elseif (d.etat =="Encours") %}
+                                                    <span class="label label-warning">En Cours</span>
+                                                {% elseif (d.etat =="Valide") %}
+                                                    <span class="label label-success">Validé</span>
+                                                {% else %}
+                                                    {{ d.etat }}
+                                                {% endif %}
+
+
+
+
+
+
+
+
+
+                                            </td>
+
+                                            <td>
+
+                                                {% if d.idLivreur != null %}
+                                                    {{ d.idLivreur.nom }} {{ d.idLivreur.prenom }}
+                                                {% else %}
+                                                    -
+                                                {% endif %}
+
+
+                                            </td>
+
+                                            <td>
+                                                <a href="{{ path('_assign_demande',{'id_demande':d.id}) }}">Affecter</a>
+                                            </td>
+                                            <td><a href="{{ path('_update_demande',{'id':d.id}) }}">Modifier</a></td>
+                                            <td><a href="{{ path('_remove_demande',{'id':d.id}) }}">Supprimer</a></td>
+                                            <td>
+
+
+                                                {% if d.idLivreur != null and d.etat != "Encours" and d.etat != "EnTraitement" %}
+                                                    -
+                                                {% else %}
+                                                    <a href="{{ path('_valide_demande', {'id_demande': d.id}) }}"> Confirmer</a>
+
+                                                {% endif %}
+
+
+
+                                            </td>
+
+                                            <td>
+                                                <a href="{{ path('_generate_url', {'id_demande': d.id}) }}"> Telecharger</a>
+
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('view_pdf', {'id_demande': d.id}) }}"> Imrpimer</a>
+
+                                            </td>
+
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+
+
+                        <button type="button"  id="btnthis" class="btn btn-primary pull-left"  data-toggle="modal" data-target="#modal-default">
+
+                            Generate manifeste
+                        </button>
+
+
+
+
+
+                    </div>
+
+
+                        <!-- /.mail-box-messages -->
+                    </div>
+                    <!-- /.box-body -->
+
+                </div>
+                <!-- /. box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
 
     {% for message in app.flashes('success') %}
         <br> <div class="alert alert-success">
@@ -127,19 +336,29 @@
 
 
     <div class="box">
-        <div class="box-header">
-            <h3 class="box-title">Liste des demandes</h3>
-            <div class="box-tools">
-                <a href="{{ path('_create_demande') }}" type="button" class="btn btn-block btn-primary btn-lg">Créer une demande</a>
+
+
+
+    <div class="modal fade" id="modal-default" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close closethis" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">Default Modal</h4>
+                </div>
+                <div class="modal-body" id="manifest">
+                    <p>Loading...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  class="btn btn-default pull-left closethis" data-dismiss="modal">Close</button>
+                    <button type="button" id="printthis" class="btn btn-primary">Imrpimer manifest</button>
+                </div>
             </div>
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
-                Effacer tout
-            </button>
-            <br>
+            <!-- /.modal-content -->
         </div>
-
-
-
+        <!-- /.modal-dialog -->
+    </div>
 
 
 
@@ -169,152 +388,10 @@
 
 
 
-        <div class="container">
-            <div class="row">
-                <div class='col-sm-6'>
-                    <select id="mylist"  class='form-control' >
-                        <option value="all">All</option>
-
-                        {% for i in listeClients %}
-                            <option value="{{ i.id }}">{{ i.nom }} {{ i.prenom }}</option>
-
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class='col-sm-6'>
-                    <input type="date"   class="form-control" name="bday" id="datePicker" >
-                    <input type="button" class="btn btn-primary" value="Search" id="datebtn">
-                </div>
-
-            </div>
-        </div>
-        <script src="{{  asset('jquery-3.2.1.min.js') }}"></script>
-
-
-
-        <!-- /.box-header -->
-        <div class="box-body no-padding" id="a5">
-            <table class="table table-condensed" id="mainTable">
-                <tbody><tr>
-                    <th></th>
-                    <th>ID</th>
-                    <th>Date Emission</th>
-                    <th>Titre</th>
-                    <th>Type</th>
-                    <th>Emetteur</th>
-                    <th>Destinataire</th>
-                    <th>Addresse</th>
-                    <th>Tel</th>
-                    <th>Etat</th>
-                    <th>Livreur</th>
-                    <th>#Aff</th>
-                    <th>#Mod</th>
-                    <th>#Supp</th>
-                    <th>#Conf</th>
-                    <th>#Telecharger</th>
-                    <th>#Imrpimer</th>
-
-                </tr>
-
-                {% if listDemandes is empty %}
-                    <tr><th> Aucun demande enregistré</th></tr>
-                {% else %}
-                    {% for d in listDemandes %}
-                        <tr class="{% if d.readDemande == false %} notRead {% endif %}">
-                            <td><input name="checkbox" type="checkbox" id="{{ d.id }}" value="{{ d.id }}"/>    &nbsp;   </td>
-
-                            <td>{{ d.id }}</td>
-                            <td>{{ d.dateEmission | date }}</td>
-                            <td>{{ d.titre }}</td>
-                            <td>{{ d.type }}</td>
-                            <td>{{ d.idClient.nom }} {{ d.idClient.prenom }}</td>
-                            <td>{{ d.nomPrenomRecept }}</td>
-                            <td>{{ d.addresseRecept }} </td>
-                            <td>{{ d.telephoneRecept }}</td>
-
-                            <td>
-
-
-
-                                {% if(d.etat == "EnTraitement") %}
-                                    <span class="label label-info">En Traitement</span>
-                                {% elseif (d.etat =="Encours") %}
-                                    <span class="label label-warning">En Cours</span>
-                                {% elseif (d.etat =="Valide") %}
-                                    <span class="label label-success">Validé</span>
-                                {% else %}
-                                    {{ d.etat }}
-                                {% endif %}
 
 
 
 
-
-
-
-
-
-                            </td>
-
-                            <td>
-
-                                {% if d.idLivreur != null %}
-                                    {{ d.idLivreur.nom }} {{ d.idLivreur.prenom }}
-                                {% else %}
-                                    -
-                                {% endif %}
-
-
-                            </td>
-
-                            <td>
-                                <a href="{{ path('_assign_demande',{'id_demande':d.id}) }}">Affecter</a>
-                            </td>
-                            <td><a href="{{ path('_update_demande',{'id':d.id}) }}">Modifier</a></td>
-                            <td><a href="{{ path('_remove_demande',{'id':d.id}) }}">Supprimer</a></td>
-                            <td>
-
-
-                                {% if d.idLivreur != null and d.etat != "Encours" and d.etat != "EnTraitement" %}
-                                    -
-                                {% else %}
-                                    <a href="{{ path('_valide_demande', {'id_demande': d.id}) }}"> Confirmer</a>
-
-                                {% endif %}
-
-
-
-                            </td>
-
-                            <td>
-                                <a href="{{ path('_generate_url', {'id_demande': d.id}) }}"> Telecharger</a>
-
-                            </td>
-                            <td>
-                                <a href="{{ path('view_pdf', {'id_demande': d.id}) }}"> Imrpimer</a>
-
-                            </td>
-
-                        </tr>
-                    {% endfor %}
-                {% endif %}
-
-
-                </tbody>
-
-            </table>
-        </div>
-        <!-- /.box-body -->
-
-
-
-
-
-
-
-    </div>
-
-    <button type="button"  id="btnthis" class="btn btn-primary pull-left"  data-toggle="modal" data-target="#modal-default">Generate Ordre de mission || Generate Manifest (LOADIIN)</button>
 
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
@@ -340,8 +417,10 @@
 
 
             $( "#btnthis" ).click(function() {
+                $('#manifest').html("<img src='https://worldschoolphotographs.com/wp-content/uploads/2018/05/loading.gif' width='150px'/>");
 
-                console.log(tmp);
+                var tmp = myFunction();
+
                 data = tmp;
                 //alert(abcd);
                 var $url = "{{ path('testthis', {'data': 'data'}) }}";
@@ -414,6 +493,9 @@
 
 
                 $('#datebtn').click(function(){
+                    $( "#imgL" ).append(" <img  src='https://www.wpfaster.org/wp-content/uploads/2013/06/circle-loading-gif.gif' width='50px'/>")
+                    $( "#tab" ).html("");
+
                     var selectClientLast = $("#mylist").children("option:selected").val();
                     var date = $('input[type="date"]').val();
 
@@ -424,6 +506,9 @@
                         dataType:   'json',
                         async:      true,
                         success : function(response){
+                            $( "#imgL" ).html("")
+                            $( "#tab" ).show();
+
                             $("#a5").html(
                                 "<table id='tab'  class=\"table table-condensed\">" +
                                 "       <tr>\n" +
@@ -438,6 +523,12 @@
                                 "            <th> Tel </th>\n" +
                                 "            <th> Etat </th>\n" +
                                 "            <th> Livreur </th>\n" +
+                                "            <th> #Aff </th>\n" +
+                                "            <th> #Mod </th>\n" +
+                                "            <th> #Supp </th>\n" +
+                                "            <th> #Conf </th>\n" +
+                                "            <th> #Telecharger </th>\n" +
+                                "            <th> #Imrpimer </th>\n" +
 
 
                                 "\n" +
@@ -446,7 +537,11 @@
                                 "</table>"
                             );
                             $.each(response,function(k,el){
+
+
                                 var valLivreur = el.idLivreur;
+                                var readD = el.readDemande;
+                                var classNotRead ;
                                 var res = "Non";
                                 if(valLivreur==null){
                                     res = "OUI";
@@ -459,14 +554,21 @@
 
                                 }
 
+                                if(readD==false){
+                                    var classNotRead = "notRead";
 
 
+                                }else{
+                                    var classNotRead = "alreadyReaded";
+
+                                }
+                                var myJSON = JSON.stringify(el.dateEmission);
 
                                 $('#tab').append(
-                                    "<tr>" +
-                                    "<td><input name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
+                                    "<tr class="+classNotRead +">" +
+                                    "<td><input  id='"+el.id+"' name='coffee'  name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
                                     "<td>"+el.id+"</td>"+
-                                    "<td>"+el.dateEmission+"</td>"+
+                                    "<td>"+myJSON+"</td>"+
                                     "<td>"+el.titre+"</td>"+
                                     "<td>"+el.type+"</td>"+
                                     "<td>"+el.idClient.nom+"</td>"+
@@ -475,6 +577,14 @@
                                     "<td>"+el.telephoneRecept+"</td>"+
                                     "<td>"+el.etat+"</td>"+
                                     "<td>"+valLivreur+"</td>"+
+
+                                    "<td> <a href='./assign/"+el.id+"'>Affecter</a></td>"+
+                                    "<td> <a href='./update/"+el.id+"'>Modifier</a></td>"+
+                                    "<td> <a href='./remove/"+el.id+"'>Supprimer</a></td>"+
+                                    "<td> <a href='./assign_final/"+el.id+"'>Confirmer</a></td>"+
+                                    "<td> <a href='./pdf/"+el.id+"'>Telecharger</a></td>"+
+                                    "<td> <a href='./view/"+el.id+"'>Telecharger</a></td>"+
+
 
 
                                     "</tr>"
@@ -518,5 +628,47 @@
 
 
     </script>
+
+    <script>
+
+
+
+        function myFunction() {
+
+            var tmp = [];
+
+            var coffee = document.getElementsByName('coffee');
+            var i;
+            /* for (i = 0; i < coffee.length; i++) {
+                 if (coffee[i].checked) {
+                     tmp.push(coffee[i].value);
+                 }
+                 else{
+                     tmp.splice($.inArray(coffee[i].value, tmp),1);
+
+
+                 }
+             }*/
+
+            // returns array of checked checkboxes with 'name' in 'form_id'
+
+            inputs = document.getElementsByName("coffee"),
+                arr = [];
+
+            for (var i = 0, max = inputs.length; i < max; i += 1) {
+                // Take only those inputs which are checkbox
+                if (inputs[i].type === "checkbox" && inputs[i].checked) {
+                    arr.push(inputs[i].value);
+                    console.log("added"+arr);
+
+                }
+            }
+
+
+            return arr;
+
+        }
+    </script>
+
 
 {% endblock %}

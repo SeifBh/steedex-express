@@ -334,12 +334,17 @@ foreach ($para as $p){
             $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClientsDate($selectedClientDate);
 
         }
-        else{
+       /* elseif(($selectedClientDate != "") && ($selectedClient != "all")){
 
             $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobal($selectedClient,$selectedClientDate);
 
-        }
+        }*/
+else{
+    $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobal($selectedClient,$selectedClientDate);
 
+    //$listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->findAll();
+
+}
 
 
 

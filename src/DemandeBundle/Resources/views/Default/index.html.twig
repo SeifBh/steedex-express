@@ -148,6 +148,7 @@
             </td>
             <td colspan="4">
                 <input type="button" class="btn btn-primary" value="Search" id="datebtn">
+                <a type="button" href="{{ path('_list_demande') }}" class="btn btn-danger" ">reset</a>
 
             </td>
             <td>
@@ -217,7 +218,7 @@
                                 {% else %}
                                     {% for d in listDemandes %}
                                         <tr class="{% if d.readDemande == false %} notRead {% endif %}">
-                                            <td><input name="checkbox" type="checkbox" id="{{ d.id }}" value="{{ d.id }}"/>    &nbsp;   </td>
+                                            <td><input name="coffee" type="checkbox" id="{{ d.id }}" value="{{ d.id }}"/>    &nbsp;   </td>
 
                                             <td>{{ d.id }}</td>
                                             <td>{{ d.dateEmission | date }}</td>
@@ -412,6 +413,7 @@
                     tmp.splice($.inArray(checked, tmp),1);
                 }
             });
+            console.log(tmp);
 
 
 

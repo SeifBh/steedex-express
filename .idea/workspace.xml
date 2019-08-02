@@ -4,12 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php" line="343" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/demandeByLivreur.html.twig" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/demandeByLivreur.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/generateOrdre.html.twig" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/generateOrdre.html.twig" />
-    </list>
+    <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="224" column="20" lean-forward="false" selection-start-line="224" selection-start-column="20" selection-end-line="224" selection-end-column="20" />
+            <state relative-caret-position="160">
+              <caret line="234" column="60" lean-forward="false" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="60" />
               <folding>
                 <element signature="e#41#74#0#PHP" expanded="true" />
                 <marker date="1564690089798" expanded="true" signature="1670:1780" ph="..." />
@@ -69,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demandeByLivreur.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="demandeByLivreur.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Default/demandeByLivreur.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="55">
@@ -134,7 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>filterByClientsDate</find>
       <find>Tableau de bo</find>
       <find>test</find>
       <find>#btnthis</find>
@@ -161,9 +155,10 @@
       <find>myFun</find>
       <find>btnth</find>
       <find>printthis</find>
-      <find>Liste</find>
       <find>liv</find>
       <find>ordre</find>
+      <find>Liste</find>
+      <find>demandeBylivreur</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -588,12 +583,12 @@
       <workItem from="1564329696964" duration="21109000" />
       <workItem from="1564417796230" duration="28764000" />
       <workItem from="1564677326277" duration="17699000" />
-      <workItem from="1564766168241" duration="4781000" />
+      <workItem from="1564766168241" duration="5050000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="324889000" />
+    <option name="totallyTimeSpent" value="325158000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1012,17 +1007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="224" column="20" lean-forward="false" selection-start-line="224" selection-start-column="20" selection-end-line="224" selection-end-column="20" />
-          <folding>
-            <element signature="e#41#74#0#PHP" expanded="true" />
-            <marker date="1564690089798" expanded="true" signature="1670:1780" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -1058,6 +1042,17 @@
             <element signature="e#4244#9106#0#HTML" expanded="false" />
             <element signature="e#14095#14485#0#HTML" expanded="false" />
             <marker date="1564771282896" expanded="true" signature="3568:3783" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="234" column="60" lean-forward="false" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="60" />
+          <folding>
+            <element signature="e#41#74#0#PHP" expanded="true" />
+            <marker date="1564690089798" expanded="true" signature="1670:1780" ph="..." />
           </folding>
         </state>
       </provider>

@@ -2,6 +2,7 @@
 
 namespace DemandeBundle\Form;
 
+use DemandeBundle\Enum\DemandeEtatEnum;
 use DemandeBundle\Enum\DemandeTypeEnum;
 use Doctrine\DBAL\Types\BooleanType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -40,7 +41,13 @@ class DemandeType extends AbstractType
                 )
             )
 
+            ->add('lieu', TextType::class,array(
+                    'attr'=> array('class' => 'form-control','placeholder'=>"Lieu (Exemple : Tunis,Marsa,Ariana ... )"),
 
+                    'label'=>false,
+                    'required' =>true
+                )
+            )
             ->add('addresse_recept', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Adresse Destinataire"),
 
@@ -112,21 +119,19 @@ class DemandeType extends AbstractType
             ))
 
             ->add('etat', ChoiceType::class, array(
-                'attr'  =>  array('class' => 'form-control',
-                    'style' => 'margin:5px 0;'),
-                'choices' =>
-                    array
-                    (
-                        'EnTraitement' => 'EnTraitement',
-                        'EnCours' => 'EnCours',
-                        'Retour' => 'Retour',
-                        'Cloture' => 'Cloture',
-                        'Valide' => 'Valide'
-                    ) ,
-                'multiple' => false,
-                'label' => false,
-                'required' => false,
+                'required' => true,
+                'choices' => DemandeEtatEnum::getAvailableTypes(),
+                'attr'=> array('class' => 'form-control','placeholder'=>"Etat Demande"),
+                'label'=>false,
+
+                'choices_as_values' => true,
+                'choice_label' => function($choice) {
+                    return DemandeEtatEnum::getTypeName($choice);
+                },
             ))
+
+
+
 
 
 

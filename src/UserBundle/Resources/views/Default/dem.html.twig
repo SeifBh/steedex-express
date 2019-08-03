@@ -14,6 +14,10 @@
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
+        body.skin-blue.sidebar-mini {
+            padding: 0px !important;
+        }
+
         .invoice-box {
             max-width: 800px;
             margin: auto;
@@ -198,7 +202,7 @@
                                     {% else %}
                                         {% for d in listeDemandeByLivreur %}
                                             <tr class="{% if d.readDemande == false %} notRead {% endif %}">
-                                                <td><input name="checkbox" type="checkbox" id="{{ d.id }}" value="{{ d.id }}"/>    &nbsp;   </td>
+                                                <td><input name="coffee" type="checkbox" id="{{ d.id }}" value="{{ d.id }}"/>    &nbsp;   </td>
 
                                                 <td>{{ d.id }}</td>
                                                 <td>{{ d.dateEmission | date }}</td>
@@ -286,6 +290,7 @@
             $('#datebtn').click(function(){
 
 
+
                 var selectClientLast = $("#idLiv").val();
                 var date = $('input[type="date"]').val();
 
@@ -320,6 +325,29 @@
                             ""
                         );
                         $.each(response,function(k,el){
+                            var myJSON = JSON.stringify(el.dateEmission);
+                            var myString = myJSON.substr(myJSON.indexOf("timestamp")+11,10)
+                            //var thenum = myString.replace( /^\D+/g, ''); // replace all leading non-digits with nothing
+
+                            var dateEmission = new Date(myString*1000);
+
+                            var dd = dateEmission.getDate();
+
+                            var mm = dateEmission.getMonth()+1;
+                            var yyyy = dateEmission.getFullYear();
+                            if(dd<10)
+                            {
+                                dd='0'+dd;
+                            }
+
+                            if(mm<10)
+                            {
+                                mm='0'+mm;
+                            }
+
+                            dateEmission = dd+'/'+mm+'/'+yyyy;
+                            console.log(dateEmission);
+
                             var valLivreur = el.idLivreur;
                             var res = "Non";
                             if(valLivreur==null){
@@ -340,7 +368,7 @@
                                 "<tr>" +
                                 "<td><input  id='"+el.id+"' name='coffee'  name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
                                 "<td>"+el.id+"</td>"+
-                                "<td>"+el.dateEmission+"</td>"+
+                                "<td>"+dateEmission+"</td>"+
                                 "<td>"+el.titre+"</td>"+
                                 "<td>"+el.type+"</td>"+
                                 "<td>"+el.idClient.nom+"</td>"+
@@ -358,6 +386,7 @@
 
                     },
                 })
+
 
 
 
@@ -384,30 +413,42 @@
 
 
             $( "#btnthis" ).click(function() {
-                $('#manifest').html("<img src='https://worldschoolphotographs.com/wp-content/uploads/2018/05/loading.gif' width='150px'/>");
+                $('#manifest').html("<center><img src='https://mowsalinas.org/subscribers/22sb4b327c1c/themes/default/images/wait.gif'/></center>");
+                var tmp= [];
 
-                var tmp = myFunction();
+                tmp = myFunction();
 
-                data = tmp;
-                var $url = "{{ path('_generateOrdre', {'data': 'data'}) }}";
+                if (tmp=="" ){
+                    $("#printthis").hide();
 
+                    $("#modal-default .modal-body").html("<p><h3 style='color:red'>Vous devez selectionner au moins une demande</h3></p>");
 
-                $.ajax({
-                    url : '{{ path("_generateOrdre") }}',
-                    data:  { "data" : tmp },
-                    type:       'GET',
-                    dataType:   'html',
-                    async:      true,
-                    success : function (response) {
-                        $("#modal-default .modal-body").html(response);
+                }
 
-                    },
+                else {
+                    data = tmp;
+                    var $url = "{{ path('_generateOrdre', {'data': 'data'}) }}";
 
 
+                    $.ajax({
+                        url : '{{ path("_generateOrdre") }}',
+                        data:  { "data" : tmp },
+                        type:       'GET',
+                        dataType:   'html',
+                        async:      true,
+                        success : function (response) {
+                            $("#printthis").show();
 
+                            $("#modal-default .modal-body").html(response);
+
+                        },
+
+
+
+                    });
+
+                }
                 });
-
-            });
 
 
 

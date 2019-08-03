@@ -61,7 +61,10 @@
                     {{ form_row(form.nom_prenom_recept) }}
                 </div>
 
-
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Lieu</label>
+                    {{ form_row(form.lieu) }}
+                </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Adresse</label>
                     {{ form_row(form.addresse_recept) }}
@@ -128,7 +131,6 @@
                 </div>
 
 
-                {% if is_granted('ROLE_ADMIN') == true %}
 
 
 
@@ -136,7 +138,6 @@
                         <label for="exampleInputEmail1">Etat Demande</label>
                         {{ form_row(form.etat) }}
                     </div>
-                {% endif %}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Type</label>
                     {{ form_row(form.type) }}

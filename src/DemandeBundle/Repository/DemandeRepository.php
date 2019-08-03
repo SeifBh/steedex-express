@@ -148,6 +148,16 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
             ->getResult();
     }
 
+    public function filterGlobalLivreurAll($id){
+        return $this->createQueryBuilder('d')
+            ->where('d.id_livreur =  :id')
+            ->setParameter('id',  $id )
+            ->orderBy('d.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+
 
 
 

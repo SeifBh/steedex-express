@@ -84,7 +84,6 @@ return null;
             if ($form->isValid()) {
 
                 $em = $this->getDoctrine()->getManager();
-                $demande->setEtat("EnTraitement");
                 $demande->setReadDemande(false);
                // $user_livreur = $em->getRepository("UserBundle:User")->find(33);
                 //En Cours = Livreur = yousssef
@@ -210,8 +209,8 @@ return null;
         $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id' => $id_demande));
 
         $demande->setIdLivreur($livreur);
-
-        $demande->setEtat("Encours");
+        //after adding enum etat this become comment
+       // $demande->setEtat("Encours");
         $em->persist($demande);
         $em->flush();
 
@@ -230,6 +229,7 @@ return null;
         $em = $this->getDoctrine()->getManager();
         $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id' => $id_demande));
 
+        //after adding enum etat this become comment
 
         $demande->setEtat("Valide");
         $em->persist($demande);
@@ -276,19 +276,28 @@ foreach ($para as $p){
 
     public function filterGlobalLivreurAction(Request $request){
 
+        $em = $this->getDoctrine()->getManager();
 
 
         $selectedClientDate = $request->get('date');
         $selectedClient = $request->get('selectedClient');
 
+        if ($selectedClientDate == ""){
+            $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobalLivreurAll($selectedClient);
 
 
-        $em = $this->getDoctrine()->getManager();
-
-
-
+        }
+        else{
 
             $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobalLivreur($selectedClient,$selectedClientDate);
+
+        }
+
+
+
+
+
+
 
 
 

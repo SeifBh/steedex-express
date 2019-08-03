@@ -145,7 +145,6 @@
             border-collapse: collapse;" >
                 <tr>
                     <th width="300" style="padding: 10px;">Destinateur</th>
-                    <th width="300" style="padding: 10px;">Service de livraison : Steedex</th>
                 </tr>
             </table>
 
@@ -155,11 +154,9 @@
             border-collapse: collapse;" >
                 <tr>
                     <td class="tdStyle" width="350"><span style=""><b>Nom du client :</b> : {{ demande.nomPrenomRecept }}</span></td>
-                    <td class="tdStyle" width="300"><span style=""><b>Nom de l’agent</b> : {{ demande.idLivreur.nom }} {{ demande.idLivreur.prenom }}</span></td>
                 </tr>
                 <tr>
                     <td class="tdStyle" width="350"><span style=""><b>Téléphone</b> : {{ demande.telephoneRecept }}</span></td>
-                    <td class="tdStyle" width="300"><span style=""><b>Téléphone</b> : {{ demande.idLivreur.tel }}</span></td>
                 </tr>
                 <tr>
                     <td class="tdStyle" width="350"><span style=""><b>Adresse</b> : {{ demande.addresseRecept }}</span></td>

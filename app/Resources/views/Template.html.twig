@@ -9,7 +9,11 @@
         Steedex | Tableau de bord
     {% endblock %}
     </title>
-
+<style>
+    body.skin-blue.sidebar-mini.active.menu-open {
+        padding: 0px !important;
+    }
+</style>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -177,22 +181,14 @@
                 </div>
             </div>
             <!-- search form -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-                </div>
-            </form>
+            
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header" id="hmenu">Menu</li>
 
 
-                <li><a href="{{ path('admin_homepage') }}"><i class="fa fa-circle-o text-red"></i> <span>Tableau de bord</span></a></li>
+                <li><a href="{{ path('admin_homepage') }}"><i class="fa fa-tachometer"></i> <span>Tableau de bord</span></a></li>
 
                 <li class="treeview">
                     <a href="{{ path('_list_demande') }}">
@@ -219,7 +215,7 @@
                 </li>
 
 
-                <li><a href="{{ path('_ordre_de_mission') }}"><i class="fa fa-circle-o text-red"></i> <span>Ordre de Mission</span></a></li>
+                <li><a href="{{ path('_ordre_de_mission') }}"><i class="fa fa-server"></i> <span>Ordre de Mission</span></a></li>
 
 
 
@@ -227,7 +223,7 @@
 
                 <li class="treeview">
                     <a href="{{ path('_list_reclamation') }}">
-                        <i class="fa fa-files-o"></i>
+                        <i class="fa fa-exclamation-triangle"></i>
                         <span>Reclamations</span>
                         <span class="pull-right-container">
                                                                       <i class="fa fa-angle-left pull-right"></i>

@@ -3,7 +3,6 @@
 <head>
 
     <meta charset="utf-8">
-    {% block title %}Manifest{% endblock %}
 
     <style>
         @media print{@page {size: landscape}}
@@ -99,6 +98,7 @@
             @bottom-center { content: element(footer) }
         }
 
+
     </style>
 </head>
 <page orientation="landscape" format="A5" >
@@ -117,22 +117,32 @@
 
 
         <div class="partie1">
-            <table>
+            <table  class="table table-striped">
                 <thead>
-                <th>nom demande</th>
+                <tr>
+                    <th scope="col">Ag.</th>
+                    <th scope="col">cl.</th>
+                    <th scope="col">dest.</th>
+                    <th scope="col">lieu.</th>
+                    <th scope="col">Adr.</th>
+                    <th scope="col">Oper.</th>
+                    <th scope="col">obser.</th>
+                </tr>
+
                 </thead>
                 <tbdody>
                     {% for l in listeD %}
 
 
                     <tr>
-                        <td>
-                            {{ l.titre }}
-                        </td>
+                        <td>{{ l.idLivreur.nom }} {{ l.idLivreur.prenom }} </td>
+                        <td>{{ l.idClient.nom }} {{ l.idClient.prenom }} </td>
+                        <td>{{ l.nomPrenomRecept }}</td>
+                        <td>{{ l.lieu }}</td>
+                        <td>{{ l.addresseRecept }}</td>
+                        <td>{{ l.type }}</td>
+                        <td>{{ l.note }}</td>
 
-                        <td>
-                            {{ l.montant }}
-                        </td>
 
                     </tr>
                     {% endfor %}

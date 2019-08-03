@@ -2,6 +2,7 @@
 
 namespace DemandeBundle\Entity;
 
+use DemandeBundle\Enum\DemandeEtatEnum;
 use DemandeBundle\Enum\DemandeTypeEnum;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\DateTime;
@@ -107,6 +108,46 @@ class Demande
 
 
 
+    //...
+
+    /**
+     * @param string $etat
+     * @return Demande
+     */
+    public function setEtat($etat)
+    {
+        if (!in_array($etat, DemandeEtatEnum::getAvailableTypes())) {
+            throw new \InvalidArgumentException("Invalid etat");
+        }
+
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * @var date $date_livraison
+     *
+     * @ORM\Column(name="date_livraison", type="datetime", nullable=true)
+     */
+    private $date_livraison;
+
+    /**
+     * @return date
+     */
+    public function getDateLivraison()
+    {
+        return $this->date_livraison;
+    }
+
+    /**
+     * @param date $date_livraison
+     */
+    public function setDateLivraison($date_livraison)
+    {
+        $this->date_livraison = $date_livraison;
+    }
+
 
 
     /**
@@ -115,6 +156,7 @@ class Demande
      * @ORM\Column(name="date_emission", type="datetime", nullable=true)
      */
     private $date_emission;
+
 
 
 
@@ -159,6 +201,31 @@ class Demande
      * @ORM\Column(name="taille", type="string",length=255,nullable=true)
      */
     private $taille;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lieu", type="string",length=255,nullable=true)
+     */
+    private $lieu;
+
+    /**
+     * @return string
+     */
+    public function getLieu()
+    {
+        return $this->lieu;
+    }
+
+    /**
+     * @param string $lieu
+     */
+    public function setLieu($lieu)
+    {
+        $this->lieu = $lieu;
+    }
+
 
 
     /**
@@ -437,13 +504,6 @@ class Demande
         return $this->etat;
     }
 
-    /**
-     * @param mixed $etat
-     */
-    public function setEtat($etat)
-    {
-        $this->etat = $etat;
-    }
 
 
 
@@ -570,7 +630,7 @@ class Demande
     //...
 
     /**
-     * @param string $type
+     * @param string $etat
      * @return Demande
      */
     public function setType($type)

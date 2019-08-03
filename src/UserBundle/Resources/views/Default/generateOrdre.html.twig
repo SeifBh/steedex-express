@@ -3,9 +3,16 @@
 <head>
 
     <meta charset="utf-8">
-    <title>MANIFEST</title>
+    <title>Ordre de Mission</title>
 
     <style>
+        table tr td {
+            text-align: center !important;
+        }
+        table tr th {
+            text-align: center !important;
+        }
+
         .invoice-box {
             max-width: 800px;
             margin: auto;
@@ -115,23 +122,28 @@
 
 
         <div class="partie1">
-            <table>
+            <table  class="table table-striped">
                 <thead>
-                <th>titre</th>
+                <tr>
+                    <th scope="col">Agent.</th>
+                    <th scope="col">Client</th>
+                    <th scope="col">Destination</th>
+
+                </tr>
+
                 </thead>
                 <tbdody>
                     {% for l in listeD %}
 
 
-                    <tr>
-                        <td>
-                            {{ l.titre }}
-                        </td>
+                        <tr>
+                            <td>{{ l.idLivreur.nom }} {{ l.idLivreur.prenom }} </td>
+                            <td>{{ l.idClient.nom }} {{ l.idClient.prenom }} </td>
+                            <td>{{ l.addresseRecept }}</td>
 
-
-
-                    </tr>
+                        </tr>
                     {% endfor %}
+
                 </tbdody>
             </table>
         </div><br>

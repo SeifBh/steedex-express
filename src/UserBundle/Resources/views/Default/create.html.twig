@@ -1,6 +1,7 @@
 {% extends 'Template.html.twig' %}
 
 {% block body %}
+    {% block title %}Creer un utilisateur{% endblock %}
 
     {{ form_start(form, {'method': 'post', 'action': path('_create_user'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 

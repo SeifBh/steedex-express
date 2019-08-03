@@ -22,15 +22,14 @@
             {{ message }}
         </div>
     {% endfor %}
-    <label>Search..</label>
-    <input class="form-control float-lg-right" id="myInput" type="text" placeholder="Search..">
 
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">Liste des utilisateurs</h3>
             <div class="box-tools">
-                <a href="{{ path('_create_user') }}" type="button" class="btn btn-block btn-primary btn-lg">Ajouter</a>
             </div><br>
+            <input class="form-control float-lg-right" id="myInput" type="text" placeholder="Search..">
+
         </div><br>
 
 
@@ -43,12 +42,11 @@
 
             <table class="table table-condensed">
                 <tbody><tr>
-                    <th></th>
 
                     <th>id</th>
                     <th>Nom & Prenom</th>
                     <th>Tél</th>
-                    <th>entrer</th>
+                    <th>suivre</th>
 
 
 
@@ -56,12 +54,11 @@
 
                 {% for c in listeLivreur %}
                     <tr>
-                        <td><input name="checkbox" type="checkbox" id="{{ c.id }}" value="{{ c.id }}"/>    &nbsp;   </td>
                         <td id="id">{{ c.id }}</td>
 
                         <td>{{ c.nom }} {{ c.prenom }}</td>
                         <td id="tel">{{ c.tel }}</td>
-                        <td><a href="{{ path('_DemandeByLivreur',{'id':c.id}) }}">entrer</a></td>
+                        <td><a href="{{ path('_DemandeByLivreur',{'id':c.id}) }}">suivre</a></td>
 
 
 
@@ -75,32 +72,10 @@
         <!-- /.box-body -->
     </div>
 
-    <div class="modal fade" id="modal-default" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Default Modal</h4>
-                </div>
-                <div class="modal-body" id="manifest">
-                    <p>Loading...</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <button type="button" id="printthis" class="btn btn-primary">Imrpimer manifest</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
 
 
-    <button type="button"  id="btnthis" class="btn btn-primary pull-left"  data-toggle="modal" data-target="#modal-default">Generate Ordre de mission || Generate Manifest (LOADIIN)</button>
 
 
-    <a href="{{ path('_test_mail') }}">test mail</a>
 
     <script>
         $(document).ready(function(){

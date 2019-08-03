@@ -108,6 +108,8 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
         return $this->createQueryBuilder('d')
             ->where('d.id_client =  :id')
             ->setParameter('id',  $id )
+            ->orderBy('d.id', 'DESC')
+
             ->getQuery()
             ->getResult();
     }
@@ -117,6 +119,7 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
             ->where("d.date_emission")
             ->where( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
             ->setParameter('date',  $date )
+            ->orderBy('d.id', 'DESC')
             ->getQuery()
             ->getResult();
     }
@@ -129,6 +132,7 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
             ->andWhere( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
             ->setParameter('date',  $date )
             ->setParameter('id',  $id )
+            ->orderBy('d.id', 'DESC')
             ->getQuery()
             ->getResult();
     }
@@ -139,6 +143,7 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
             ->andWhere( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
             ->setParameter('date',  $date )
             ->setParameter('id',  $id )
+            ->orderBy('d.id', 'DESC')
             ->getQuery()
             ->getResult();
     }

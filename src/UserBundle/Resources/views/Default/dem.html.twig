@@ -10,9 +10,9 @@
     <link href="{{ asset('ssssssssssssss') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('ssssssssssssss') }}" rel="stylesheet" type="text/css">
 
+    {% block title %}Liste Demandes par livreur{% endblock %}
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-
     <style>
         .invoice-box {
             max-width: 800px;
@@ -122,7 +122,7 @@
     <section class="content">
         <div class="row">
             <div class="col-md-3">
-
+                <label>Date Livraison:</label>
                 <input type="date"   class="form-control" name="bday" id="datePicker" > <br>
                 <input type="button" class="btn btn-primary btn-block margin-bottom" value="Search" id="datebtn">
 
@@ -249,13 +249,14 @@
 
                         <!-- /.mail-box-messages -->
                     </div>
-                    <button type="button"  id="btnthis" class="btn btn-primary pull-left"  data-toggle="modal" data-target="#modal-default">
 
-                        Generer ordre de mission
-                    </button>
                     <!-- /.box-body -->
 
                 </div>
+                <button type="button"  id="btnthis" class="btn btn-primary pull-left"  data-toggle="modal" data-target="#modal-default">
+
+                    Generer ordre de mission
+                </button>
                 <!-- /. box -->
             </div>
             <!-- /.col -->

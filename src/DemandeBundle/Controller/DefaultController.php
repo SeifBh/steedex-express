@@ -320,32 +320,32 @@ foreach ($para as $p){
 
         $em = $this->getDoctrine()->getManager();
 
-        if ($selectedClientDate == "")
-        {
-            $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClients($selectedClient);
+   if (($selectedClient == "all") && ($selectedClientDate=="")){
+       $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->findBy(array(), array('id' => 'DESC'));
+
+   }
+   else{
+       if ($selectedClientDate == "")
+       {
+           $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClients($selectedClient);
 
 
 
-        }
+       }
+       elseif ($selectedClient == "all")
+       {
 
-        elseif ($selectedClient == "all")
-        {
+           $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClientsDate($selectedClientDate);
 
-            $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClientsDate($selectedClientDate);
+       }
 
-        }
-       /* elseif(($selectedClientDate != "") && ($selectedClient != "all")){
+       else{
+           $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobal($selectedClient,$selectedClientDate);
 
-            $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobal($selectedClient,$selectedClientDate);
 
-        }*/
-else{
-    $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobal($selectedClient,$selectedClientDate);
+       }
 
-    //$listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->findAll();
-
-}
-
+   }
 
 
 

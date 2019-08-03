@@ -7,6 +7,7 @@
     <link href="{{ asset('tableFilter/src/bootstrap-table-filter.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('comingsoon_05/vendor/select2/select2.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('tableFilter/assets/css/jquery-ui-1.10.3.css') }}" rel="stylesheet" type="text/css">
+    {% block title %}Liste Demandes {% endblock %}
 
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
@@ -128,7 +129,7 @@
             Liste Demande
         </li>
     </ol>
-<br>
+    <br>
     <table id="tabF" width="50%">
         <tr>
             <td colspan="4">
@@ -194,20 +195,19 @@
                             <table class="table table-condensed" id="mainTable">
                                 <tbody><tr>
                                     <th>#</th>
-                                    <th>ID</th>
+                                    <th>Id</th>
                                     <th>Date Emission</th>
                                     <th>Titre</th>
                                     <th>Type</th>
                                     <th>Emetteur</th>
                                     <th>Destinataire</th>
-                                    <th>Addresse</th>
+                                    <th>Adresse</th>
                                     <th>Tel</th>
                                     <th>Etat</th>
                                     <th>Livreur</th>
                                     <th>#Aff</th>
                                     <th>#Mod</th>
                                     <th>#Supp</th>
-                                    <th>#Conf</th>
                                     <th>#Telecharger</th>
                                     <th>#Imrpimer</th>
 
@@ -218,10 +218,12 @@
                                 {% else %}
                                     {% for d in listDemandes %}
                                         <tr class="{% if d.readDemande == false %} notRead {% endif %}">
-                                            <td><input name="coffee" type="checkbox" id="{{ d.id }}" value="{{ d.id }}"/>    &nbsp;   </td>
+                                            <td>
+
+                                                <input name="coffee" type="checkbox" id="{{ d.id }}" value="{{ d.id }}"/> </td>
 
                                             <td>{{ d.id }}</td>
-                                            <td>{{ d.dateEmission | date }}</td>
+                                            <td>{{ d.dateEmission | date("d/m/Y") }}</td>
                                             <td>{{ d.titre }}</td>
                                             <td>{{ d.type }}</td>
                                             <td>{{ d.idClient.nom }} {{ d.idClient.prenom }}</td>
@@ -269,19 +271,7 @@
                                             </td>
                                             <td><a href="{{ path('_update_demande',{'id':d.id}) }}">Modifier</a></td>
                                             <td><a href="{{ path('_remove_demande',{'id':d.id}) }}">Supprimer</a></td>
-                                            <td>
 
-
-                                                {% if d.idLivreur != null and d.etat != "Encours" and d.etat != "EnTraitement" %}
-                                                    -
-                                                {% else %}
-                                                    <a href="{{ path('_valide_demande', {'id_demande': d.id}) }}"> Confirmer</a>
-
-                                                {% endif %}
-
-
-
-                                            </td>
 
                                             <td>
                                                 <a href="{{ path('_generate_url', {'id_demande': d.id}) }}"> Telecharger</a>
@@ -304,11 +294,6 @@
                         <!-- /.box-body -->
 
 
-                        <button type="button"  id="btnthis" class="btn btn-primary pull-left"  data-toggle="modal" data-target="#modal-default">
-
-                            Generate manifeste
-                        </button>
-
 
 
 
@@ -316,50 +301,41 @@
                     </div>
 
 
-                        <!-- /.mail-box-messages -->
-                    </div>
-                    <!-- /.box-body -->
 
+
+                    <!-- /.mail-box-messages -->
                 </div>
-                <!-- /. box -->
+                <!-- /.box-body -->
+                <button type="button"  id="btnthis" class="btn btn-primary pull-left"  data-toggle="modal" data-target="#modal-default">
+
+                    Generate manifeste
+                </button>
             </div>
-            <!-- /.col -->
+            <!-- /. box -->
+        </div>
+        <!-- /.col -->
         </div>
         <!-- /.row -->
-    </section>
-
-    {% for message in app.flashes('success') %}
-        <br> <div class="alert alert-success">
-
-        {{ message }}
-    </div>
-    {% endfor %}
-
-
-    <div class="box">
-
-
-
-    <div class="modal fade" id="modal-default" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close closethis" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Default Modal</h4>
+        <div class="modal fade" id="modal-default" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close closethis" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title">Default Modal</h4>
+                    </div>
+                    <div class="modal-body" id="manifest">
+                        <p>Loading...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button"  class="btn btn-default pull-left closethis" data-dismiss="modal">Close</button>
+                        <button type="button" id="printthis" class="btn btn-primary">Imrpimer manifest</button>
+                    </div>
                 </div>
-                <div class="modal-body" id="manifest">
-                    <p>Loading...</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button"  class="btn btn-default pull-left closethis" data-dismiss="modal">Close</button>
-                    <button type="button" id="printthis" class="btn btn-primary">Imrpimer manifest</button>
-                </div>
+                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
+            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal-dialog -->
-    </div>
 
 
 
@@ -384,6 +360,21 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
+
+    </section>
+
+    {% for message in app.flashes('success') %}
+        <br> <div class="alert alert-success">
+
+        {{ message }}
+    </div>
+    {% endfor %}
+
+
+
+
+
+
 
 
 
@@ -419,29 +410,42 @@
 
 
             $( "#btnthis" ).click(function() {
-                $('#manifest').html("<img src='https://worldschoolphotographs.com/wp-content/uploads/2018/05/loading.gif' width='150px'/>");
+                var tmp= [];
+                tmp = myFunction();
+                $('#manifest').html("<center><img src='https://mowsalinas.org/subscribers/22sb4b327c1c/themes/default/images/wait.gif'/></center>");
 
-                var tmp = myFunction();
+                if (tmp=="" ){
+                    $("#printthis").hide();
 
-                data = tmp;
-                //alert(abcd);
-                var $url = "{{ path('testthis', {'data': 'data'}) }}";
+                    $("#modal-default .modal-body").html("<p><h3 style='color:red'>Vous devez selectionner au moins une demande</h3></p>");
 
+                }
 
-                $.ajax({
-                    url : '{{ path("testthis") }}',
-                    data:  { "data" : tmp },
-                    type:       'GET',
-                    dataType:   'html',
-                    async:      true,
-                    success : function (response) {
-                        $("#modal-default .modal-body").html(response);
+                else{
 
-                    },
+                    data = tmp;
+                    //alert(abcd);
+                    var $url = "{{ path('testthis', {'data': 'data'}) }}";
 
 
+                    $.ajax({
+                        url : '{{ path("testthis") }}',
+                        data:  { "data" : tmp },
+                        type:       'GET',
+                        dataType:   'html',
+                        async:      true,
+                        success : function (response) {
+                            $("#printthis").show();
 
-                });
+                            $("#modal-default .modal-body").html(response);
+
+                        },
+
+
+
+                    });
+                }
+
 
             });
 
@@ -490,121 +494,141 @@
 
 
 
-            $(document).ready( function() {
+        $(document).ready( function() {
 
 
 
-                $('#datebtn').click(function(){
-                    $( "#imgL" ).append(" <img  src='https://www.wpfaster.org/wp-content/uploads/2013/06/circle-loading-gif.gif' width='50px'/>")
-                    $( "#tab" ).html("");
+            $('#datebtn').click(function(){
+                $( "#imgL" ).append(" <img  src='https://www.wpfaster.org/wp-content/uploads/2013/06/circle-loading-gif.gif' width='50px'/>")
+                $( "#tab" ).html("");
 
-                    var selectClientLast = $("#mylist").children("option:selected").val();
-                    var date = $('input[type="date"]').val();
+                var selectClientLast = $("#mylist").children("option:selected").val();
+                var date = $('input[type="date"]').val();
 
-                    $.ajax({
-                        url : '{{ path("filterGlobal") }}',
-                        data:  { "selectedClient":selectClientLast,"date" : date },
-                        type:       'GET',
-                        dataType:   'json',
-                        async:      true,
-                        success : function(response){
-                            $( "#imgL" ).html("")
-                            $( "#tab" ).show();
+                $.ajax({
+                    url : '{{ path("filterGlobal") }}',
+                    data:  { "selectedClient":selectClientLast,"date" : date },
+                    type:       'GET',
+                    dataType:   'json',
+                    async:      true,
+                    success : function(response){
 
-                            $("#a5").html(
-                                "<table id='tab'  class=\"table table-condensed\">" +
-                                "       <tr>\n" +
-                                "            <th> # </th>\n" +
-                                "            <th> Id </th>\n" +
-                                "            <th> Date Emission </th>\n" +
-                                "            <th> Titre </th>\n" +
-                                "            <th> Type </th>\n" +
-                                "            <th> Emetteur </th>\n" +
-                                "            <th> Destinataire </th>\n" +
-                                "            <th> Adresse </th>\n" +
-                                "            <th> Tel </th>\n" +
-                                "            <th> Etat </th>\n" +
-                                "            <th> Livreur </th>\n" +
-                                "            <th> #Aff </th>\n" +
-                                "            <th> #Mod </th>\n" +
-                                "            <th> #Supp </th>\n" +
-                                "            <th> #Conf </th>\n" +
-                                "            <th> #Telecharger </th>\n" +
-                                "            <th> #Imrpimer </th>\n" +
+                        $( "#imgL" ).html("")
+                        $( "#tab" ).show();
 
-
-                                "\n" +
-                                "</tr>" +
-                                "" +
-                                "</table>"
-                            );
-                            $.each(response,function(k,el){
+                        $("#a5").html(
+                            "<table id='tab'  class=\"table table-condensed\">" +
+                            "       <tr>\n" +
+                            "            <th> # </th>\n" +
+                            "            <th> Id </th>\n" +
+                            "            <th> Date Emission </th>\n" +
+                            "            <th> Titre </th>\n" +
+                            "            <th> Type </th>\n" +
+                            "            <th> Emetteur </th>\n" +
+                            "            <th> Destinataire </th>\n" +
+                            "            <th> Adresse </th>\n" +
+                            "            <th> Tel </th>\n" +
+                            "            <th> Etat </th>\n" +
+                            "            <th> Livreur </th>\n" +
+                            "            <th> #Aff </th>\n" +
+                            "            <th> #Mod </th>\n" +
+                            "            <th> #Supp </th>\n" +
+                            "            <th> #Telecharger </th>\n" +
+                            "            <th> #Imrpimer </th>\n" +
 
 
-                                var valLivreur = el.idLivreur;
-                                var readD = el.readDemande;
-                                var classNotRead ;
-                                var res = "Non";
-                                if(valLivreur==null){
-                                    res = "OUI";
-                                    var valLivreur = "<img src='https://image.flaticon.com/icons/png/512/291/291202.png' width='20px'>";
-
-
-                                }else{
-                                    res = "NON";
-                                    var valLivreur = el.idLivreur.nom + " " + el.idLivreur.prenom;
-
-                                }
-
-                                if(readD==false){
-                                    var classNotRead = "notRead";
-
-
-                                }else{
-                                    var classNotRead = "alreadyReaded";
-
-                                }
-                                var myJSON = JSON.stringify(el.dateEmission);
-
-                                $('#tab').append(
-                                    "<tr class="+classNotRead +">" +
-                                    "<td><input  id='"+el.id+"' name='coffee'  name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
-                                    "<td>"+el.id+"</td>"+
-                                    "<td>"+myJSON+"</td>"+
-                                    "<td>"+el.titre+"</td>"+
-                                    "<td>"+el.type+"</td>"+
-                                    "<td>"+el.idClient.nom+"</td>"+
-                                    "<td>"+el.nomPrenomRecept+"</td>"+
-                                    "<td>"+el.addresseRecept+"</td>"+
-                                    "<td>"+el.telephoneRecept+"</td>"+
-                                    "<td>"+el.etat+"</td>"+
-                                    "<td>"+valLivreur+"</td>"+
-
-                                    "<td> <a href='./assign/"+el.id+"'>Affecter</a></td>"+
-                                    "<td> <a href='./update/"+el.id+"'>Modifier</a></td>"+
-                                    "<td> <a href='./remove/"+el.id+"'>Supprimer</a></td>"+
-                                    "<td> <a href='./assign_final/"+el.id+"'>Confirmer</a></td>"+
-                                    "<td> <a href='./pdf/"+el.id+"'>Telecharger</a></td>"+
-                                    "<td> <a href='./view/"+el.id+"'>Telecharger</a></td>"+
-
-
-
-                                    "</tr>"
-                                )
-                            })
-
-
-                        },
-                    })
-
-
-
-                });
+                            "\n" +
+                            "</tr>" +
+                            "" +
+                            "</table>"
+                        );
+                        $.each(response,function(k,el){
+                            var confirmerOutput ;
 
 
 
 
 
+                            var valLivreur = el.idLivreur;
+                            var readD = el.readDemande;
+                            var classNotRead ;
+                            var res = "Non";
+                            if(valLivreur==null){
+                                res = "OUI";
+                                var valLivreur = "<img src='https://image.flaticon.com/icons/png/512/291/291202.png' width='20px'>";
+                                var confirmerOutput="<a href='#'>Confirmer</a>";
+
+                            }else{
+                                res = "NON";
+                                var valLivreur = el.idLivreur.nom + " " + el.idLivreur.prenom;
+                                var confirmerOutput="-";
+
+                            }
+
+                            if(readD==false){
+                                var classNotRead = "notRead";
+
+
+                            }else{
+                                var classNotRead = "alreadyReaded";
+
+                            }
+                            var myJSON = JSON.stringify(el.dateEmission);
+                            var myString = myJSON.substr(myJSON.indexOf("timestamp")+11,10)
+                            //var thenum = myString.replace( /^\D+/g, ''); // replace all leading non-digits with nothing
+
+                            var dateEmission = new Date(myString*1000);
+
+                            var dd = dateEmission.getDate();
+
+                            var mm = dateEmission.getMonth()+1;
+                            var yyyy = dateEmission.getFullYear();
+                            if(dd<10)
+                            {
+                                dd='0'+dd;
+                            }
+
+                            if(mm<10)
+                            {
+                                mm='0'+mm;
+                            }
+
+                            dateEmission = dd+'/'+mm+'/'+yyyy;
+                            console.log(dateEmission);
+
+                            $('#tab').append(
+                                "<tr class="+classNotRead +">" +
+                                "<td><input  id='"+el.id+"' name='coffee'  name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
+                                "<td>"+el.id+"</td>"+
+                                "<td>"+dateEmission+"</td>"+
+                                "<td>"+el.titre+"</td>"+
+                                "<td>"+el.type+"</td>"+
+                                "<td>"+el.idClient.nom+" "+el.idClient.prenom+"</td>"+
+                                "<td>"+el.nomPrenomRecept+"</td>"+
+                                "<td>"+el.addresseRecept+"</td>"+
+                                "<td>"+el.telephoneRecept+"</td>"+
+                                "<td>"+el.etat+"</td>"+
+                                "<td>"+valLivreur+"</td>"+
+
+                                "<td> <a href='./assign/"+el.id+"'>Affecter</a></td>"+
+                                "<td> <a href='./update/"+el.id+"'>Modifier</a></td>"+
+                                "<td> <a href='./remove/"+el.id+"'>Supprimer</a></td>"+
+                                "<td> <a href='./pdf/"+el.id+"'>Telecharger</a></td>"+
+                                "<td> <a href='./view/"+el.id+"'>Imprimer</a></td>"+
+
+
+
+                                "</tr>"
+                            )
+                        })
+
+
+                    },
+                })
+
+
+
+            });
 
 
 
@@ -612,9 +636,14 @@
 
 
 
-                $('input[type="date"]').change(function(){
+
+
+
+
+
+            $('input[type="date"]').change(function(){
                 console.log(this.value.toString('yy-MM-dd'));
-                    var selectClientLast = $("#mylist").children("option:selected").val();
+                var selectClientLast = $("#mylist").children("option:selected").val();
 
 
 

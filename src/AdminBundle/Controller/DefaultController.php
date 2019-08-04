@@ -2,6 +2,8 @@
 
 namespace AdminBundle\Controller;
 
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\AreaChart;
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarChart;
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
 use DemandeBundle\Enum\DemandeEtatEnum;
 use DemandeBundle\Enum\DemandeTypeEnum;
@@ -22,6 +24,20 @@ class DefaultController extends Controller
     public function templateAction()
     {
         $em=$this->getDoctrine()->getManager();
+
+        $area = new AreaChart();
+        $area->getData()->setArrayToDataTable([
+            ['Mois', 'Demandes'],
+            ['Juin',  10],
+            ['Juillet',  20],
+            ['Aout',  15],
+            ['Sep',  30]
+        ]);
+        $area->getOptions()->setTitle('Courbe de progression des demandes');
+        $area->getOptions()->getHAxis()->setTitle('Mois');
+        $area->getOptions()->getHAxis()->getTitleTextStyle()->setColor('#333');
+        $area->getOptions()->getVAxis()->setMinValue(0);
+
 
         $pieChart = new PieChart();
         $listAchat = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Achat));
@@ -83,7 +99,7 @@ class DefaultController extends Controller
            $listeR = $em->getRepository("ReclamationBundle:Reclamation")->dixDernierReclamationUser($userId);
             }
 
-        return $this->render('@Admin/Default/dahboard.html.twig', array('piechart' => $pieChart,"nb_users"=>$nb_users,'listedemandes'=>$listeD,"listeRec" =>$listeR));
+        return $this->render('@Admin/Default/dahboard.html.twig', array('piechart' => $pieChart,'area' => $area,"nb_users"=>$nb_users,'listedemandes'=>$listeD,"listeRec" =>$listeR));
     }
 
 

@@ -107,6 +107,7 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
     public function filterByClients($id){
         return $this->createQueryBuilder('d')
             ->where('d.id_client =  :id')
+            ->andWhere('d.archive =  false')
             ->setParameter('id',  $id )
             ->orderBy('d.id', 'DESC')
 
@@ -118,6 +119,7 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
         return $this->createQueryBuilder('d')
             ->where("d.date_emission")
             ->where( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
+            ->andWhere('d.archive =  false')
             ->setParameter('date',  $date )
             ->orderBy('d.id', 'DESC')
             ->getQuery()
@@ -129,6 +131,7 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
     public function filterGlobal($id,$date){
         return $this->createQueryBuilder('d')
             ->where('d.id_client =  :id')
+            ->andWhere('d.archive =  false')
             ->andWhere( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
             ->setParameter('date',  $date )
             ->setParameter('id',  $id )
@@ -140,6 +143,7 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
     public function filterGlobalLivreur($id,$date){
         return $this->createQueryBuilder('d')
             ->where('d.id_livreur =  :id')
+            ->andWhere('d.archive =  false')
             ->andWhere( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
             ->setParameter('date',  $date )
             ->setParameter('id',  $id )
@@ -151,6 +155,7 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
     public function filterGlobalLivreurAll($id){
         return $this->createQueryBuilder('d')
             ->where('d.id_livreur =  :id')
+            ->andWhere('d.archive =  false')
             ->setParameter('id',  $id )
             ->orderBy('d.id', 'DESC')
             ->getQuery()

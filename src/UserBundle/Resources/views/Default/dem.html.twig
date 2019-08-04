@@ -205,7 +205,7 @@
                                                 <td><input name="coffee" type="checkbox" id="{{ d.id }}" value="{{ d.id }}"/>    &nbsp;   </td>
 
                                                 <td>{{ d.id }}</td>
-                                                <td>{{ d.dateEmission | date }}</td>
+                                                <td>{{ d.dateEmission | date("d/m/Y") }}</td>
                                                 <td>{{ d.titre }}</td>
                                                 <td>{{ d.type }}</td>
 

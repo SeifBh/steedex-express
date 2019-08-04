@@ -45,7 +45,7 @@
                 <p>Encours de traitement</p>
             </div>
             <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="ion ion-stats-bars"></i>
             </div>
 
         </div>
@@ -89,7 +89,7 @@
                 <p>Encours de livraison</p>
             </div>
             <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-stats-bars"></i>
             </div>
 
         </div>
@@ -101,19 +101,35 @@
             <div class="inner">
                 <h3>0</h3>
 
-                <p>Echoué</p>
+                <p>Cloture</p>
             </div>
             <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="ion ion-stats-bars"></i>
             </div>
 
         </div>
     </div>
+
+
     <!-- ./col -->
 </div>
 
 <div class="row">
     <div class="col-md-8">
+        <div class="box box-info">
+            <div class="box-header with-border">
+
+                <div id="div_chat_area"></div>
+
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                <script type="text/javascript">
+                    {{ gc_draw(area, 'div_chat_area') }}
+                </script>
+
+
+            </div></div>
+    </div>
+    <div class="col-md-4">
         <div class="box box-info">
             <div class="box-header with-border">
                 <h3 class="box-title">Type / Demande</h3>
@@ -124,9 +140,6 @@
         <script type="text/javascript">
             {{ gc_draw(piechart, 'div_chart') }}
         </script>
-    </div>
-    <div class="col-md-4">
-
     </div>
 </div>
     </div></div>

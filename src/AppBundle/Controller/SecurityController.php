@@ -18,11 +18,8 @@ class SecurityController extends Controller
     {
         try {
 
-            // Your logic here...
 
-            return new JsonResponse(
-                $this->getUser()
-            );
+            return new JsonResponse($this->getUser());
 
         } catch (\Exception $exception) {
 

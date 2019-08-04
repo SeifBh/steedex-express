@@ -1,3 +1,7 @@
 api_homepage:
     path:     /getusers
     defaults: { _controller: ApiBundle:Default:index }
+
+_api_deamndes:
+    path:     /demandes
+    defaults: { _controller: ApiBundle:Default:getDemandes }

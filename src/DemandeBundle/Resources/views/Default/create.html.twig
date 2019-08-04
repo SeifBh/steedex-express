@@ -41,7 +41,10 @@
                 </div>
 
 
-
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Lieu</label>
+                    {{ form_row(form.lieu) }}
+                </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Adresse</label>
@@ -82,6 +85,16 @@
         <div class="box-header with-border">
             <h3 class="box-title"> </h3>
         </div>
+
+            {% if is_granted('ROLE_ADMIN') == true %}
+
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Etat Demande</label>
+                    {{ form_row(form.etat) }}
+                </div>
+            {% endif %}
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Type Demande</label>

@@ -3,6 +3,7 @@
 namespace DemandeBundle\Controller;
 
 use DemandeBundle\Entity\Demande;
+use DemandeBundle\Enum\DemandeEtatEnum;
 use DemandeBundle\Form\AssignType;
 use DemandeBundle\Form\DemandeClientType;
 use DemandeBundle\Form\DemandeType;
@@ -69,16 +70,16 @@ class DefaultController extends Controller
         $userId = $user->getId();
         $demande = new Demande();
 
-        $form = $this->createForm(DemandeType::class, $demande);
+        $form = $this->createForm(DemandeType::class, $demande,array('user' => $this->getUser()->getRoles()));
         $form->handleRequest($request); /*creation d'une session pr stocker les valeurs de l'input*/
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
 
                 $em = $this->getDoctrine()->getManager();
                 $demande->setReadDemande(false);
-                // $user_livreur = $em->getRepository("UserBundle:User")->find(33);
+                 $user_livreur = $em->getRepository("UserBundle:User")->find(33);
                 //En Cours = Livreur = yousssef
-                // $demande->setIdLivreur($user_livreur);
+                 $demande->setIdLivreur($user_livreur);
                 //$demande->setEtat("Encours");
                 //*******************************
                 $demande->setIdClient($user);
@@ -90,7 +91,7 @@ class DefaultController extends Controller
                 $demande->setArchive(false);
                 $demande->setDateEcheance($date);
                 $demande->setDateEmission($date_now);
-
+                $demande->setEtat(DemandeEtatEnum::ETAT_EnTraitement);
                 $demande->setFraisLivraison(5);
                 $em->persist($demande);
                 $em->flush();
@@ -287,7 +288,9 @@ class DefaultController extends Controller
 
         $demande->setIdLivreur($livreur);
         //after adding enum etat this become comment
-       // $demande->setEtat("Encours");
+        $demande->setEtat(DemandeEtatEnum::ETAT_EnCours);
+
+        // $demande->setEtat("Encours");
         $em->persist($demande);
         $em->flush();
 
@@ -307,8 +310,8 @@ class DefaultController extends Controller
         $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id' => $id_demande));
 
         //after adding enum etat this become comment
+        $demande->setEtat(DemandeEtatEnum::ETAT_Valide);
 
-        $demande->setEtat("Valide");
         $em->persist($demande);
         $em->flush();
 

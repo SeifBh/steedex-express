@@ -31,6 +31,8 @@ class AppKernel extends Kernel
             new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
             new DevisBundle\DevisBundle(),
             new \Kilik\TableBundle\KilikTableBundle(),
+            new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
+
 
         ];
 

@@ -165,3 +165,7 @@ nelmio_cors:
                 allow_headers: ['*']
                 allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
                 max_age: 3600
+
+cmen_google_charts:
+    version: "current"
+    language: "fr"

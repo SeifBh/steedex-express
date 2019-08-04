@@ -112,8 +112,24 @@
     <!-- ./col -->
 </div>
 
+<div class="row">
+    <div class="col-md-8">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Type / Demande</h3>
 
+        <div id="div_chart"></div>
 
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            {{ gc_draw(piechart, 'div_chart') }}
+        </script>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+    </div></div>
     <div class="row">
         <!-- Left col -->
         <div class="col-md-8">
@@ -156,16 +172,16 @@
                                 <td>{{ d.id }}</td>
                                 <td>{{ d.titre }}</td>
                                 <td>
-                                    {% if(d.etat == "EnTraitement") %}
-                                        <span class="label label-info">En Traitement</span>
-                                    {% elseif (d.etat =="Encours") %}
-                                        <span class="label label-warning">En Cours</span>
-                                    {% else %}
-                                        <span class="label label-success">Validé</span>
-                                    {% endif %}
+                                    {{ d.etat }}
 
                                 </td>
-                                <td><!--!--></td>
+                                <td>
+                                    {% if d.idLivreur == null %}
+                                        null
+                                        {% else %}
+                                    {{ d.idLivreur.nom }}
+                                            {% endif %}
+                                </td>
 
                             </tr>
                                 {% endfor %}

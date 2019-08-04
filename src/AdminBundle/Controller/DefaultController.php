@@ -2,6 +2,10 @@
 
 namespace AdminBundle\Controller;
 
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
+use DemandeBundle\Enum\DemandeEtatEnum;
+use DemandeBundle\Enum\DemandeTypeEnum;
+use DemandeBundle\Form\DemandeType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
@@ -17,6 +21,46 @@ class DefaultController extends Controller
 
     public function templateAction()
     {
+        $em=$this->getDoctrine()->getManager();
+
+        $pieChart = new PieChart();
+        $listAchat = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Achat));
+        $listRemise = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Remise));
+        $listPaiement = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Paiement));
+        $listRetour = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Retour));
+        $a = 0;
+        $r1 = 0;
+        $p = 0;
+        $r2 = 0;
+        foreach ($listAchat as $l){
+            $a = $a + 1;
+        }
+
+        foreach ($listRemise as $l){
+            $r1 = $r1 + 1;
+        }
+
+
+        foreach ($listPaiement as $l){
+            $p = $p + 1;
+        }
+
+        foreach ($listRetour as $l){
+            $r2 = $r2 + 1;
+        }
+
+        $pieChart->getData()->setArrayToDataTable(
+            [['Type Demande', 'Nombre'],
+                ['Achat',     $a],
+                ['Remise',      $r1],
+                ['Paiement',  $p],
+                ['Retour', $r2]
+            ]
+        );
+        $pieChart->getOptions()->getTitleTextStyle()->setBold(true);
+        $pieChart->getOptions()->getTitleTextStyle()->setColor('#009900');
+        $pieChart->getOptions()->getTitleTextStyle()->setFontName('Arial');
+        $pieChart->getOptions()->getTitleTextStyle()->setFontSize(20);
 
         $user = $this->getUser();
       //  $jwtManager = $this->container->get('lexik_jwt_authentication.jwt_manager');
@@ -26,7 +70,6 @@ class DefaultController extends Controller
        // $this->get('session')->set('loginUserId', $this->getUser());
 
 
-        $em=$this->getDoctrine()->getManager();
         $nb_users = $em->getRepository("UserBundle:User")->countAllUsers();
         $em=$this->getDoctrine()->getManager();
 
@@ -40,7 +83,7 @@ class DefaultController extends Controller
            $listeR = $em->getRepository("ReclamationBundle:Reclamation")->dixDernierReclamationUser($userId);
             }
 
-        return $this->render('@Admin/Default/dahboard.html.twig', array("nb_users"=>$nb_users,'listedemandes'=>$listeD,"listeRec" =>$listeR));
+        return $this->render('@Admin/Default/dahboard.html.twig', array('piechart' => $pieChart,"nb_users"=>$nb_users,'listedemandes'=>$listeD,"listeRec" =>$listeR));
     }
 
 

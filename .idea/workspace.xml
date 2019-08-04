@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php" line="434" />
+    <bookmark url="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php" line="437" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DemandeBundle/Form/DemandeClientType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/archive.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/favicon.ico" afterPath="$PROJECT_DIR$/web/favicon.ico" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Template.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Template.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Controller/ApiController.php" afterPath="$PROJECT_DIR$/src/DemandeBundle/Controller/ApiController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Entity/Demande.php" afterPath="$PROJECT_DIR$/src/DemandeBundle/Entity/Demande.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Form/DemandeType.php" afterPath="$PROJECT_DIR$/src/DemandeBundle/Form/DemandeType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/DemandeBundle/Resources/config/routing.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/create.html.twig" afterPath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/create.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/manifest.twig" afterPath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/manifest.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/update.html.twig" afterPath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/update.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/update.html.twig" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/update.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Front/transportation/js/scripts.js" afterPath="$PROJECT_DIR$/web/Front/transportation/js/scripts.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,109 +51,179 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Default/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php">
+        <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="181" column="6" lean-forward="false" selection-start-line="181" selection-start-column="6" selection-end-line="199" selection-end-column="0" />
+            <state relative-caret-position="16">
+              <caret line="312" column="54" lean-forward="false" selection-start-line="312" selection-start-column="54" selection-end-line="312" selection-end-column="54" />
               <folding>
-                <element signature="e#7764#7803#0#PHP" expanded="true" />
-                <marker date="1564874197776" expanded="true" signature="1670:1780" ph="..." />
+                <element signature="e#1704#1738#0#PHP" expanded="true" />
+                <element signature="e#3525#3637#0#PHP" expanded="false" />
+                <element signature="e#4544#4579#0#PHP" expanded="true" />
+                <element signature="e#4581#4682#0#PHP" expanded="false" />
+                <element signature="e#4697#5046#0#PHP" expanded="false" />
+                <element signature="e#4889#4983#0#PHP" expanded="false" />
+                <element signature="e#5051#5116#0#PHP" expanded="false" />
+                <element signature="e#5775#6117#0#PHP" expanded="false" />
+                <element signature="e#6122#6468#0#PHP" expanded="false" />
+                <element signature="e#6474#6697#0#PHP" expanded="false" />
+                <element signature="e#6711#7996#0#PHP" expanded="false" />
+                <element signature="e#6987#7123#0#PHP" expanded="false" />
+                <element signature="e#7251#7520#0#PHP" expanded="false" />
+                <element signature="e#7748#7989#0#PHP" expanded="false" />
+                <element signature="e#7799#7988#0#PHP" expanded="false" />
+                <element signature="e#8003#8820#0#PHP" expanded="false" />
+                <element signature="e#9414#10258#0#PHP" expanded="false" />
+                <element signature="e#9560#9738#0#PHP" expanded="false" />
+                <element signature="e#9746#10031#0#PHP" expanded="false" />
+                <element signature="e#10501#10829#0#PHP" expanded="false" />
+                <element signature="e#10674#10829#0#PHP" expanded="false" />
+                <element signature="e#10851#11076#0#PHP" expanded="false" />
+                <element signature="e#11111#12310#0#PHP" expanded="false" />
+                <element signature="e#11337#12043#0#PHP" expanded="false" />
+                <element signature="e#11523#12043#0#PHP" expanded="false" />
+                <element signature="e#11536#12037#0#PHP" expanded="false" />
+                <element signature="e#11708#11882#0#PHP" expanded="false" />
+                <element signature="e#11891#12037#0#PHP" expanded="false" />
+                <element signature="e#12057#12282#0#PHP" expanded="false" />
+                <element signature="e#12316#12904#0#PHP" expanded="false" />
+                <element signature="e#12651#12876#0#PHP" expanded="false" />
+                <element signature="e#12907#13589#0#PHP" expanded="false" />
+                <element signature="e#13101#13353#0#PHP" expanded="false" />
+                <element signature="e#13230#13353#0#PHP" expanded="false" />
+                <element signature="e#13360#13569#0#PHP" expanded="false" />
+                <element signature="e#13594#14236#0#PHP" expanded="false" />
+                <element signature="e#14243#14968#0#PHP" expanded="false" />
+                <element signature="e#14975#16392#0#PHP" expanded="false" />
+                <element signature="e#15200#16328#0#PHP" expanded="false" />
+                <element signature="e#15248#15584#0#PHP" expanded="false" />
+                <element signature="e#15981#16108#0#PHP" expanded="false" />
+                <element signature="e#16022#16107#2#PHP" expanded="false" />
+                <element signature="e#16398#17058#0#PHP" expanded="false" />
+                <element signature="e#16735#16842#0#PHP" expanded="false" />
+                <element signature="e#16776#16841#2#PHP" expanded="false" />
+                <element signature="e#17064#17284#0#PHP" expanded="false" />
+                <element signature="e#17291#17797#0#PHP" expanded="false" />
+                <element signature="e#17466#17733#0#PHP" expanded="false" />
+                <marker date="1564882029035" expanded="true" signature="2422:2689" ph="//..." />
+                <marker date="1564882029035" expanded="false" signature="10834:10836" ph="..." />
+                <marker date="1564882029035" expanded="false" signature="12043:12044" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Template.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/Template.html.twig">
+      <file leaf-file-name="create.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/create.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+            <state relative-caret-position="226">
+              <caret line="92" column="40" lean-forward="false" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
+      <file leaf-file-name="update.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/update.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+            <state relative-caret-position="190">
+              <caret line="133" column="8" lean-forward="false" selection-start-line="133" selection-start-column="8" selection-end-line="141" selection-end-column="27" />
+              <folding>
+                <marker date="1564869952378" expanded="true" signature="35:52" ph="{% block title ...%}" />
+                <marker date="1564869952378" expanded="true" signature="4526:4836" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3570">
+              <caret line="170" column="18" lean-forward="false" selection-start-line="170" selection-start-column="18" selection-end-line="170" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selectFx.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/Front/transportation/js/selectFx.js">
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="88" lean-forward="false" selection-start-line="0" selection-start-column="88" selection-end-line="0" selection-end-column="88" />
+            <state relative-caret-position="211">
+              <caret line="53" column="49" lean-forward="false" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/Front/transportation/js/scripts.js">
+      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="194" lean-forward="false" selection-start-line="11" selection-start-column="194" selection-end-line="11" selection-end-column="194" />
+            <state relative-caret-position="337">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dahboard.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="58">
+              <caret line="170" column="32" lean-forward="false" selection-start-line="170" selection-start-column="32" selection-end-line="170" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+        <entry file="file://$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="62" column="51" lean-forward="false" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
+            <state relative-caret-position="105">
+              <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
               <folding>
-                <marker date="1564874846262" expanded="true" signature="1404:1482" ph="api_login_check: &lt;2 keys&gt;" />
-                <marker date="1564874846262" expanded="true" signature="1416:1417" ph="/api/login_check" />
-                <marker date="1564874846262" expanded="true" signature="1443:1482" ph="AppBundle…ller:index" />
+                <marker date="1564882358220" expanded="true" signature="107:193" ph="api_homepage: &lt;2 keys&gt;" />
+                <marker date="1564882358220" expanded="true" signature="123:124" ph="/getusers" />
+                <marker date="1564882358220" expanded="true" signature="162:180" ph="ApiBundle…ault:index" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routing.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Routing/Tests/Fixtures/controller/routing.xml">
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+            <state relative-caret-position="400">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FactoryInterface.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Factory/FactoryInterface.php">
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FOSUserEvents.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOSUserEvents.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="142" column="10" lean-forward="false" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="10" />
-              <folding />
+            <state relative-caret-position="231">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding>
+                <element signature="e#42#99#0#PHP" expanded="true" />
+                <element signature="e#883#906#1#PHP" expanded="true" />
+                <element signature="e#1002#1025#1#PHP" expanded="true" />
+                <element signature="e#1124#1147#1#PHP" expanded="true" />
+                <element signature="e#1246#1269#1#PHP" expanded="true" />
+                <element signature="e#2507#2524#1#PHP" expanded="true" />
+                <element signature="e#2679#2702#1#PHP" expanded="true" />
+                <element signature="e#2767#2798#1#PHP" expanded="true" />
+                <element signature="e#2892#2915#1#PHP" expanded="true" />
+                <element signature="e#2990#3021#1#PHP" expanded="true" />
+                <element signature="e#3104#3139#0#PHP" expanded="true" />
+                <element signature="e#3460#3483#1#PHP" expanded="true" />
+                <element signature="e#3598#3630#0#PHP" expanded="true" />
+                <element signature="e#3809#3832#1#PHP" expanded="true" />
+                <element signature="e#4040#4063#1#PHP" expanded="true" />
+                <element signature="e#4283#4306#1#PHP" expanded="true" />
+                <element signature="e#4518#4550#1#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -169,16 +232,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Arc</find>
-      <find>listA</find>
-      <find>listeCl</find>
-      <find>archi</find>
-      <find>ROLE_</find>
-      <find>etat</find>
-      <find>demandeType</find>
-      <find>type'</find>
-      <find>setD</find>
-      <find>listAc</find>
       <find>jvec</find>
       <find>$passwordEncoder-&gt;encodePassword</find>
       <find>RegistrationController extends Controller</find>
@@ -199,6 +252,16 @@
       <find>Place</find>
       <find>Nos ser</find>
       <find>PARTENAIRES</find>
+      <find>class=&quot;navbar-brand&quot;</find>
+      <find>etat</find>
+      <find>for</find>
+      <find>create</find>
+      <find>type</find>
+      <find>for</find>
+      <find>EnCours</find>
+      <find>vALIDE</find>
+      <find>pie</find>
+      <find>idLi</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -213,7 +276,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="s doctrine:generate:form DevisBundle:Devis" />
       <command text="php bin/console debug:container jwt" />
       <command text="s server:run " />
       <command text="./vendor/bin/phpunit --filter testPOSTCreateToken " />
@@ -238,6 +300,7 @@
       <command text="s server:run " />
       <command text="s doctrine:schema:update --force " />
       <command text="s doctrine:generate:form DemandeBundle:Demande" />
+      <command text="composer require cmen/google-charts-bundle " />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -250,14 +313,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/src/DevisBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/DevisBundle/Resources/views/Default/create.html.twig" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml.dist" />
         <option value="$PROJECT_DIR$/src/DevisBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/ApiBundle/Controller/Api/ProgrammerController.php" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bridge/Doctrine/Tests/Fixtures/ContainerAwareFixture.php" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Enum/DemandeTypeEnum.php" />
@@ -266,9 +325,7 @@
         <option value="$PROJECT_DIR$/src/UserBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/manifest.twig" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/DQL/DateFormatFunction.php" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Table/BrandType.php" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/demandeByLivreur.html.twig" />
@@ -281,18 +338,15 @@
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/pdf.html.twig" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/dem.html.twig" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/generateOrdre.html.twig" />
-        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/update.html.twig" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Entity/Demande.php" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/archive.html.twig" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/create.html.twig" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Form/DemandeClientType.php" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/update.html.twig" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Form/DemandeType.php" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/manifest.twig" />
-        <option value="$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Controller/RegistrationController.php" />
         <option value="$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/index.html.twig" />
@@ -301,6 +355,15 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/web/Front/transportation/js/scripts.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
+        <option value="$PROJECT_DIR$/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/create.html.twig" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig" />
+        <option value="$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/DemandeBundle/Controller/ApiController.php" />
       </list>
     </option>
   </component>
@@ -509,6 +572,13 @@
               <item name="steedex" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="AdminBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="steedex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="steedex" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="AdminBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -532,14 +602,22 @@
               <item name="steedex" type="b2602c69:ProjectViewProjectNode" />
               <item name="steedex" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="DemandeBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ApiBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="steedex" type="b2602c69:ProjectViewProjectNode" />
               <item name="steedex" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="DemandeBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ApiBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="steedex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="steedex" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ApiBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="steedex" type="b2602c69:ProjectViewProjectNode" />
@@ -645,12 +723,12 @@
       <workItem from="1564329696964" duration="21109000" />
       <workItem from="1564417796230" duration="28764000" />
       <workItem from="1564677326277" duration="17699000" />
-      <workItem from="1564766168241" duration="45796000" />
+      <workItem from="1564766168241" duration="48447000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="365904000" />
+    <option name="totallyTimeSpent" value="368555000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -731,68 +809,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/DQL/DateFormatFunction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="32" column="46" lean-forward="false" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Serializer/Serializer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="71" column="20" lean-forward="false" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Default/demandeByLivreur.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="117" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="485" selection-end-column="14" />
-          <folding>
-            <element signature="e#12#30#0#Twig" expanded="false" />
-            <marker date="1564771991125" expanded="true" signature="3569:3784" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="23" column="53" lean-forward="false" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
-          <folding>
-            <marker date="1564687472367" expanded="true" signature="514:599" ph="_generateOrdre: &lt;2 keys&gt;" />
-            <marker date="1564687472367" expanded="true" signature="530:531" ph="/generateOrdre" />
-            <marker date="1564687472367" expanded="true" signature="572:591" ph="UserBundl…dreMission" />
-            <marker date="1564687472367" expanded="true" signature="604:621" ph="_ordre_de_mission" />
-            <marker date="1564687472367" expanded="true" signature="681:700" ph="UserBundl…ult:remove" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Default/create.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="41" lean-forward="false" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/assign.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -890,14 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Default/update.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -956,43 +964,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/update.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-          <folding>
-            <marker date="1564869952378" expanded="true" signature="35:52" ph="{% block title ...%}" />
-            <marker date="1564869952378" expanded="true" signature="4526:4836" ph="..." />
-            <marker date="1564869952378" expanded="true" signature="4526:4852" ph="..." />
-            <marker date="1564869952378" expanded="true" signature="4526:4864" ph="..." />
-            <marker date="1564869952378" expanded="true" signature="4526:4985" ph="{% block body ...%}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Form/DemandeType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-          <folding>
-            <marker date="1564870246107" expanded="false" signature="78:731" ph="..." />
-            <marker date="1564870246107" expanded="true" signature="887:1804" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="156" column="7" lean-forward="false" selection-start-line="156" selection-start-column="7" selection-end-line="156" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/create.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1083,18 +1058,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="62" column="51" lean-forward="false" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
-          <folding>
-            <marker date="1564874846262" expanded="true" signature="1404:1482" ph="api_login_check: &lt;2 keys&gt;" />
-            <marker date="1564874846262" expanded="true" signature="1416:1417" ph="/api/login_check" />
-            <marker date="1564874846262" expanded="true" signature="1443:1482" ph="AppBundle…ller:index" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/front.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="37">
@@ -1121,82 +1084,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="353" column="26" lean-forward="false" selection-start-line="353" selection-start-column="20" selection-end-line="353" selection-end-column="26" />
-          <folding>
-            <element signature="e#1664#1698#0#PHP" expanded="true" />
-            <element signature="e#3373#3485#0#PHP" expanded="false" />
-            <element signature="e#4392#4427#0#PHP" expanded="true" />
-            <element signature="e#4429#4530#0#PHP" expanded="false" />
-            <element signature="e#4545#4894#0#PHP" expanded="false" />
-            <element signature="e#4737#4831#0#PHP" expanded="false" />
-            <element signature="e#4899#4964#0#PHP" expanded="false" />
-            <element signature="e#5623#5965#0#PHP" expanded="false" />
-            <element signature="e#5970#6316#0#PHP" expanded="false" />
-            <element signature="e#6322#6545#0#PHP" expanded="false" />
-            <element signature="e#6559#7844#0#PHP" expanded="false" />
-            <element signature="e#6835#6971#0#PHP" expanded="false" />
-            <element signature="e#7099#7368#0#PHP" expanded="false" />
-            <element signature="e#7596#7837#0#PHP" expanded="false" />
-            <element signature="e#7647#7836#0#PHP" expanded="false" />
-            <element signature="e#7851#8608#0#PHP" expanded="false" />
-            <element signature="e#8614#9180#0#PHP" expanded="false" />
-            <element signature="e#9182#10026#0#PHP" expanded="false" />
-            <element signature="e#9328#9506#0#PHP" expanded="false" />
-            <element signature="e#9514#9799#0#PHP" expanded="false" />
-            <element signature="e#10269#10597#0#PHP" expanded="false" />
-            <element signature="e#10442#10597#0#PHP" expanded="false" />
-            <element signature="e#10619#10844#0#PHP" expanded="false" />
-            <element signature="e#10879#12078#0#PHP" expanded="false" />
-            <element signature="e#11105#11811#0#PHP" expanded="false" />
-            <element signature="e#11291#11811#0#PHP" expanded="false" />
-            <element signature="e#11304#11805#0#PHP" expanded="false" />
-            <element signature="e#11476#11650#0#PHP" expanded="false" />
-            <element signature="e#11659#11805#0#PHP" expanded="false" />
-            <element signature="e#11825#12050#0#PHP" expanded="false" />
-            <element signature="e#12084#12672#0#PHP" expanded="false" />
-            <element signature="e#12419#12644#0#PHP" expanded="false" />
-            <element signature="e#12675#13357#0#PHP" expanded="false" />
-            <element signature="e#12869#13121#0#PHP" expanded="false" />
-            <element signature="e#12998#13121#0#PHP" expanded="false" />
-            <element signature="e#13128#13337#0#PHP" expanded="false" />
-            <element signature="e#13362#14004#0#PHP" expanded="false" />
-            <element signature="e#14011#14736#0#PHP" expanded="false" />
-            <element signature="e#14743#16160#0#PHP" expanded="false" />
-            <element signature="e#14968#16096#0#PHP" expanded="false" />
-            <element signature="e#15016#15352#0#PHP" expanded="false" />
-            <element signature="e#15749#15876#0#PHP" expanded="false" />
-            <element signature="e#15790#15875#2#PHP" expanded="false" />
-            <element signature="e#16166#16826#0#PHP" expanded="false" />
-            <element signature="e#16503#16610#0#PHP" expanded="false" />
-            <element signature="e#16544#16609#2#PHP" expanded="false" />
-            <element signature="e#16832#17052#0#PHP" expanded="false" />
-            <element signature="e#17059#17565#0#PHP" expanded="false" />
-            <element signature="e#17234#17501#0#PHP" expanded="false" />
-            <marker date="1564872475817" expanded="false" signature="10602:10604" ph="..." />
-            <marker date="1564872475817" expanded="false" signature="11811:11812" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="181" column="6" lean-forward="false" selection-start-line="181" selection-start-column="6" selection-end-line="199" selection-end-column="0" />
-          <folding>
-            <element signature="e#7764#7803#0#PHP" expanded="true" />
-            <marker date="1564874197776" expanded="true" signature="1670:1780" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1234,8 +1126,203 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/cmen/google-charts-bundle/GoogleCharts/Charts/PieChart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Form/DemandeType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3212">
+          <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+          <folding>
+            <marker date="1564870246107" expanded="false" signature="78:731" ph="..." />
+            <marker date="1564870246107" expanded="true" signature="887:1804" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
-          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <caret line="252" column="7" lean-forward="false" selection-start-line="252" selection-start-column="7" selection-end-line="257" selection-end-column="0" />
+          <folding>
+            <element signature="e#7764#7803#0#PHP" expanded="true" />
+            <marker date="1564874197776" expanded="true" signature="1670:1780" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/update.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="133" column="8" lean-forward="false" selection-start-line="133" selection-start-column="8" selection-end-line="141" selection-end-column="27" />
+          <folding>
+            <marker date="1564869952378" expanded="true" signature="35:52" ph="{% block title ...%}" />
+            <marker date="1564869952378" expanded="true" signature="4526:4836" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/create.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="92" column="40" lean-forward="false" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <element signature="e#42#99#0#PHP" expanded="true" />
+            <element signature="e#883#906#1#PHP" expanded="true" />
+            <element signature="e#1002#1025#1#PHP" expanded="true" />
+            <element signature="e#1124#1147#1#PHP" expanded="true" />
+            <element signature="e#1246#1269#1#PHP" expanded="true" />
+            <element signature="e#2507#2524#1#PHP" expanded="true" />
+            <element signature="e#2679#2702#1#PHP" expanded="true" />
+            <element signature="e#2767#2798#1#PHP" expanded="true" />
+            <element signature="e#2892#2915#1#PHP" expanded="true" />
+            <element signature="e#2990#3021#1#PHP" expanded="true" />
+            <element signature="e#3104#3139#0#PHP" expanded="true" />
+            <element signature="e#3460#3483#1#PHP" expanded="true" />
+            <element signature="e#3598#3630#0#PHP" expanded="true" />
+            <element signature="e#3809#3832#1#PHP" expanded="true" />
+            <element signature="e#4040#4063#1#PHP" expanded="true" />
+            <element signature="e#4283#4306#1#PHP" expanded="true" />
+            <element signature="e#4518#4550#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="312" column="54" lean-forward="false" selection-start-line="312" selection-start-column="54" selection-end-line="312" selection-end-column="54" />
+          <folding>
+            <element signature="e#1704#1738#0#PHP" expanded="true" />
+            <element signature="e#3525#3637#0#PHP" expanded="false" />
+            <element signature="e#4544#4579#0#PHP" expanded="true" />
+            <element signature="e#4581#4682#0#PHP" expanded="false" />
+            <element signature="e#4697#5046#0#PHP" expanded="false" />
+            <element signature="e#4889#4983#0#PHP" expanded="false" />
+            <element signature="e#5051#5116#0#PHP" expanded="false" />
+            <element signature="e#5775#6117#0#PHP" expanded="false" />
+            <element signature="e#6122#6468#0#PHP" expanded="false" />
+            <element signature="e#6474#6697#0#PHP" expanded="false" />
+            <element signature="e#6711#7996#0#PHP" expanded="false" />
+            <element signature="e#6987#7123#0#PHP" expanded="false" />
+            <element signature="e#7251#7520#0#PHP" expanded="false" />
+            <element signature="e#7748#7989#0#PHP" expanded="false" />
+            <element signature="e#7799#7988#0#PHP" expanded="false" />
+            <element signature="e#8003#8820#0#PHP" expanded="false" />
+            <element signature="e#9414#10258#0#PHP" expanded="false" />
+            <element signature="e#9560#9738#0#PHP" expanded="false" />
+            <element signature="e#9746#10031#0#PHP" expanded="false" />
+            <element signature="e#10501#10829#0#PHP" expanded="false" />
+            <element signature="e#10674#10829#0#PHP" expanded="false" />
+            <element signature="e#10851#11076#0#PHP" expanded="false" />
+            <element signature="e#11111#12310#0#PHP" expanded="false" />
+            <element signature="e#11337#12043#0#PHP" expanded="false" />
+            <element signature="e#11523#12043#0#PHP" expanded="false" />
+            <element signature="e#11536#12037#0#PHP" expanded="false" />
+            <element signature="e#11708#11882#0#PHP" expanded="false" />
+            <element signature="e#11891#12037#0#PHP" expanded="false" />
+            <element signature="e#12057#12282#0#PHP" expanded="false" />
+            <element signature="e#12316#12904#0#PHP" expanded="false" />
+            <element signature="e#12651#12876#0#PHP" expanded="false" />
+            <element signature="e#12907#13589#0#PHP" expanded="false" />
+            <element signature="e#13101#13353#0#PHP" expanded="false" />
+            <element signature="e#13230#13353#0#PHP" expanded="false" />
+            <element signature="e#13360#13569#0#PHP" expanded="false" />
+            <element signature="e#13594#14236#0#PHP" expanded="false" />
+            <element signature="e#14243#14968#0#PHP" expanded="false" />
+            <element signature="e#14975#16392#0#PHP" expanded="false" />
+            <element signature="e#15200#16328#0#PHP" expanded="false" />
+            <element signature="e#15248#15584#0#PHP" expanded="false" />
+            <element signature="e#15981#16108#0#PHP" expanded="false" />
+            <element signature="e#16022#16107#2#PHP" expanded="false" />
+            <element signature="e#16398#17058#0#PHP" expanded="false" />
+            <element signature="e#16735#16842#0#PHP" expanded="false" />
+            <element signature="e#16776#16841#2#PHP" expanded="false" />
+            <element signature="e#17064#17284#0#PHP" expanded="false" />
+            <element signature="e#17291#17797#0#PHP" expanded="false" />
+            <element signature="e#17466#17733#0#PHP" expanded="false" />
+            <marker date="1564882029035" expanded="true" signature="2422:2689" ph="//..." />
+            <marker date="1564882029035" expanded="false" signature="10834:10836" ph="..." />
+            <marker date="1564882029035" expanded="false" signature="12043:12044" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="170" column="32" lean-forward="false" selection-start-line="170" selection-start-column="32" selection-end-line="170" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3570">
+          <caret line="170" column="18" lean-forward="false" selection-start-line="170" selection-start-column="18" selection-end-line="170" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding>
+            <marker date="1564882358220" expanded="true" signature="107:193" ph="api_homepage: &lt;2 keys&gt;" />
+            <marker date="1564882358220" expanded="true" signature="123:124" ph="/getusers" />
+            <marker date="1564882358220" expanded="true" signature="162:180" ph="ApiBundle…ault:index" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="53" column="49" lean-forward="false" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="49" />
           <folding />
         </state>
       </provider>

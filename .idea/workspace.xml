@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -99,9 +98,11 @@
       <file leaf-file-name="security.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/config/security.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="46" column="30" lean-forward="false" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="253">
+              <caret line="50" column="33" lean-forward="false" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+              <folding>
+                <marker date="1564919192450" expanded="true" signature="0:1591" ph="security: &lt;5 keys&gt;" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -634,12 +635,12 @@
       <workItem from="1564417796230" duration="28764000" />
       <workItem from="1564677326277" duration="17699000" />
       <workItem from="1564766168241" duration="55022000" />
-      <workItem from="1564916236714" duration="1041000" />
+      <workItem from="1564916236714" duration="1904000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="376171000" />
+    <option name="totallyTimeSpent" value="377034000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1138,9 +1139,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="46" column="30" lean-forward="false" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="253">
+          <caret line="50" column="33" lean-forward="false" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+          <folding>
+            <marker date="1564919192450" expanded="true" signature="0:1591" ph="security: &lt;5 keys&gt;" />
+          </folding>
         </state>
       </provider>
     </entry>

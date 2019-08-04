@@ -9,7 +9,10 @@
         Steedex | Tableau de bord
     {% endblock %}
     </title>
-<style>
+    <link rel="icon" href="{{ asset('favicon.ico') }}" />
+
+
+    <style>
     body.skin-blue.sidebar-mini.active.menu-open {
         padding: 0px !important;
     }
@@ -210,6 +213,7 @@
                     <ul class="treeview-menu">
                         <li><a href="{{ path('_list_demande') }}"><i class="fa fa-circle-o"></i> Afficher demandes</a></li>
                         <li><a href="{{ path('_create_demande') }}"><i class="fa fa-circle-o"></i> Ajout demande</a></li>
+                        <li><a href="{{ path('_liste_archive_demande') }}"><i class="fa fa-circle-o"></i> Archives</a></li>
 
                         </ul>
                 </li>
@@ -323,7 +327,7 @@
     <!-- /.content-wrapper -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0 
+            <b>Version</b> 1.0
         </div>
         <strong>Copyright 2019 All rights
             reserved.</strong>

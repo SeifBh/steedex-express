@@ -82,11 +82,12 @@ class DefaultController extends D
 
         if ($form->isValid()) {
             $user->setEnabled(true);
-            $user->setPlainPassword("ABCD");
+            $len = strlen($user->getPassword());
+            $painpass = substr($user->getPassword(), $len, -45);
             $body =  "Bonjour ". $user->nom ." ".$user->getPrenom() .
             "<center>Bienvenue!!!</center><br>Bienvenue sur notre application. vous pouvez maintenant connectez chez  votre espace client en utilisiant les cordonnées cii-dessous :<br>"
                 ."login :" . $user->getUsername() ."<br>"
-                . "Mot de passe :" .$user->getPlainPassword().
+                . "Mot de passe :" .$user->$painpass().
             "<br><br><h5>Steedex support</h5>"
             ;
             //return  new Response($body);
@@ -159,11 +160,15 @@ class DefaultController extends D
         $login = $user->getUsername();
         $mdp = $user->getPassword();
 
+         $indexOfFirst = strrpos($mdp,'{');
+        $motdePasse = substr($mdp,0,$indexOfFirst);
+
+
         $message = (new \Swift_Message('Info Compte'))
             ->setFrom('belhadjali.seif@gmail.com')
             ->setTo($mail_adr)
             ->setBody(
-                $login . " " . $mdp
+                "Login : " . $login . " ********* Mote de passe = " . $motdePasse
             );
         $this->get('mailer')->send($message);
         return $this->redirectToRoute('_list_users');
@@ -179,13 +184,16 @@ class DefaultController extends D
         $mail_adr = $user->getEmail();
         $login = $user->getUsername();
         $mdp = $user->getPassword();
-
+        $len = strlen($user->getPassword());
+        $painpass = substr($user->getPassword(), $len, -45);
+        $indexOfFirst = strrpos($mdp,'{');
+        $motdePasse = substr($mdp,0,$indexOfFirst);
         $message = (new \Swift_Message('Info Compte - Steedex Admin'))
             ->setFrom('belhadjali.seif@gmail.com')
             ->setTo('belhadjali.seif@gmail.com')
             ->setTo($mail_adr)
             ->setBody(
-                $login . " " . $mdp
+                "Login : " . $login . " ********* Mote de passe = " . $motdePasse
             );
         $this->get('mailer')->send($message);
         return $this->redirectToRoute('_list_users');

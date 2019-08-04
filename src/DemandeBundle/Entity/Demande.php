@@ -262,6 +262,27 @@ class Demande
 
 
     /**
+     * @ORM\Column(name="archive", type="boolean",nullable=true)
+     */
+    private $archive;
+
+    /**
+     * @return mixed
+     */
+    public function getArchive()
+    {
+        return $this->archive;
+    }
+
+    /**
+     * @param mixed $archive
+     */
+    public function setArchive($archive)
+    {
+        $this->archive = $archive;
+    }
+
+    /**
      * @ORM\Column(name="fragile", type="boolean",nullable=true)
      */
     private $fragile;

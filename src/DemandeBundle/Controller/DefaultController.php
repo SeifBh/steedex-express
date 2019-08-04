@@ -4,6 +4,7 @@ namespace DemandeBundle\Controller;
 
 use DemandeBundle\Entity\Demande;
 use DemandeBundle\Form\AssignType;
+use DemandeBundle\Form\DemandeClientType;
 use DemandeBundle\Form\DemandeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -22,21 +23,9 @@ use Dompdf\Options;
 
 class DefaultController extends Controller
 {
-
-    public function countNbMsg()
-    {
-        $em=$this->getDoctrine()->getManager();
-        $nb_unread_msgs = $em->getRepository("DemandeBundle:Demande")->countUnreadCol();
-        return new Response($nb_unread_msgs);
-    }
-
-    public function getAllClientAction(){
-
-return null;
-    }
-
     public function listAction()
     {
+        //return new JsonResponse($this->getUser()->getPlainPassword());
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
         $userId = $user->getId();
@@ -44,16 +33,18 @@ return null;
 
         if ($this->isGranted("ROLE_ADMIN"))
         {
-            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array(), array('id' => 'DESC'));
+            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('archive'=>false), array('id' => 'DESC'));
 
         }
         elseif ($this->isGranted("ROLE_LIVREUR"))
         {
+
             $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array("id_livreur"=>$userId), array('id' => 'DESC'));
 
         }
 
         else{
+
             $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array("id_client"=>$userId), array('id' => 'DESC'));
 
         }
@@ -62,12 +53,12 @@ return null;
 
 
 
-         return $this->render("@Demande/Default/index.html.twig",array(
-             'listDemandes'=>$listDemandes,
-             'listeClients'=>$listeClients
+        return $this->render("@Demande/Default/index.html.twig",array(
+            'listDemandes'=>$listDemandes,
+            'listeClients'=>$listeClients
 
 
-         ));
+        ));
 
     }
 
@@ -85,9 +76,9 @@ return null;
 
                 $em = $this->getDoctrine()->getManager();
                 $demande->setReadDemande(false);
-               // $user_livreur = $em->getRepository("UserBundle:User")->find(33);
+                // $user_livreur = $em->getRepository("UserBundle:User")->find(33);
                 //En Cours = Livreur = yousssef
-               // $demande->setIdLivreur($user_livreur);
+                // $demande->setIdLivreur($user_livreur);
                 //$demande->setEtat("Encours");
                 //*******************************
                 $demande->setIdClient($user);
@@ -96,6 +87,7 @@ return null;
                 $date->add(new \DateInterval('P2D'));
                 $date_now = new \DateTime();
 
+                $demande->setArchive(false);
                 $demande->setDateEcheance($date);
                 $demande->setDateEmission($date_now);
 
@@ -123,8 +115,6 @@ return null;
 
 
     }
-
-
     public function updateAction(Request $request, $id)
     {
 
@@ -132,7 +122,14 @@ return null;
         $demande = $em->getRepository("DemandeBundle:Demande")->find($id);
         $selectedUser = $em->getRepository("UserBundle:User")->find($demande->getIdClient());
         $getuserFraiLiv = $selectedUser->getFraiLiv();
-        $form = $this->createForm(DemandeType::class, $demande);
+        $roles = $this->getUser()->getRoles();
+            $form = $this->createForm(DemandeType::class, $demande, array('user' => $this->getUser()->getRoles()));
+
+
+
+
+
+
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -162,6 +159,86 @@ return null;
 
         return $this->redirectToRoute("_list_demande");
     }
+    public function getAllClientAction(){
+
+        return null;
+    }
+    public function listArchiveAction()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $userId = $this->getUser()->getId();
+        if ($this->isGranted("ROLE_ADMIN"))
+        {
+
+
+            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('archive'=>true), array('id' => 'DESC'));
+
+        }
+
+
+        else{
+
+            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array("id_client"=>$userId,'archive'=>true), array('id' => 'DESC'));
+
+        }
+
+
+
+
+
+        return $this->render("@Demande/Default/archive.html.twig",array(
+            'listDemandes'=>$listDemandes
+
+
+        ));
+    }
+    public function archiveAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $demande = $em->getRepository("DemandeBundle:Demande")->find($id);
+        $demande->setArchive(true);
+        $em->persist($demande);
+        $em->flush();
+
+        return $this->redirectToRoute('_list_demande');
+
+
+
+
+
+
+    }
+    public function desarchiveAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $demande = $em->getRepository("DemandeBundle:Demande")->find($id);
+        $demande->setArchive(false);
+        $em->persist($demande);
+        $em->flush();
+
+        return $this->redirectToRoute('_list_demande');
+
+
+
+
+
+
+    }
+
+    public function countNbMsg()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $nb_unread_msgs = $em->getRepository("DemandeBundle:Demande")->countUnreadCol();
+        return new Response($nb_unread_msgs);
+    }
+
+
+
+
+
+
+
 
 
     public function affecterAction(Request $request, $id_demande)

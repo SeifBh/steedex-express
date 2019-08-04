@@ -17,45 +17,14 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use UserBundle\Entity\User;
 
-class DemandeType extends AbstractType
+class DemandeClientType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $role = $options['user'];
-       // var_dump($role);
-
-        if (in_array('ROLE_ADMIN',$role)){
-
-            $builder
-
-                ->add('dateEmission', DateType::class,array(
-                        'attr'=> array('class' => 'form-control'),
-
-                        'label'=>false,
-                        'required' =>false
-                    )
-                )
-
-                ->add('etat', ChoiceType::class, array(
-                    'required' => true,
-                    'choices' => DemandeEtatEnum::getAvailableTypes(),
-                    'attr'=> array('class' => 'form-control','placeholder'=>"Etat Demande"),
-                    'label'=>false,
-
-                    'choices_as_values' => true,
-                    'choice_label' => function($choice) {
-                        return DemandeEtatEnum::getTypeName($choice);
-                    }
-                ));
-
-        }
-
-
         $builder
-
             ->add('titre', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Titre de la demande"),
 
@@ -63,7 +32,6 @@ class DemandeType extends AbstractType
                     'required' =>true
                 )
             )
-
 
             ->add('nom_prenom_recept', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Nom & Prenom"),
@@ -174,6 +142,7 @@ class DemandeType extends AbstractType
 
 
 
+
         ;
     }/**
      * {@inheritdoc}
@@ -181,9 +150,7 @@ class DemandeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'DemandeBundle\Entity\Demande',
-            'user' => null
-
+            'data_class' => 'DemandeBundle\Entity\Demande'
         ));
     }
 
@@ -192,7 +159,7 @@ class DemandeType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'demandebundle_demande';
+        return 'demandebundle_demande_client';
     }
 
 

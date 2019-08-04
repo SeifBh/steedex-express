@@ -25,6 +25,21 @@ _assign_demande:
     path:     /assign/{id_demande}
     defaults: { _controller: DemandeBundle:Default:affecter }
 
+_archive_demande:
+    path:     /archive/{id}
+    defaults: { _controller: DemandeBundle:Default:archive }
+
+_desarchive_demande:
+    path:     /deasrchive/{id}
+    defaults: { _controller: DemandeBundle:Default:desarchive }
+
+
+
+_liste_archive_demande:
+    path:     /listArchive
+    defaults: { _controller: DemandeBundle:Default:listArchive }
+
+
 confirm_demande:
     path:     /assign/{id_demande}/{id_livreur}
     defaults: { _controller: DemandeBundle:Default:confirmAssign }

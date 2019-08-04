@@ -43,6 +43,34 @@ class DefaultController extends Controller
         ));
     }
 
+    /**
+     * @Route("/getQuote", name="quote")
+     */
+    public function quoteAction(Request $request)
+    {
+        $name = $request->get("name");
+        $subject = $request->get("subject");
+        $email = $request->get("email");
+        $company = $request->get("company");
+        $tel = $request->get("phone");
+        $message = $request->get("message");
+
+
+        $message = (new \Swift_Message('Contact - Steedex Admin'))
+            ->setFrom($email)
+            ->setTo('belhadjali.seif@gmail.com')
+            ->setBody(
+                "<b>name :</b> " . $name . "<br> <b>Sujet :</b>" . $subject . "<br><b>Telephone :</b>" . $tel . "<br> <b>Societe :</b>" . $company . "<br><b>Message :</b>" . $message
+            );
+        $message->setContentType("text/html");
+
+        $this->get('mailer')->send($message);
+
+
+        return new Response("Formulaire envoyee avec success");
+    }
+
+
 
 
     public function nbUsersAction()

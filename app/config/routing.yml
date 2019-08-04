@@ -61,3 +61,7 @@ fos_user:
 api_login_check:
     path: /api/login_check
     controller : AppBundle\Controller\DefaultController:index
+
+_getQuote:
+    path: /getQuote
+    controller : AppBundle\Controller\DefaultController:quote

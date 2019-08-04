@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/pdf.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/pdf.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Repository/DemandeRepository.php" afterPath="$PROJECT_DIR$/src/DemandeBundle/Repository/DemandeRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/dem.html.twig" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/dem.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -96,11 +91,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dahboard.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dahboard.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="385">
               <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="security.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="41" column="92" lean-forward="true" selection-start-line="41" selection-start-column="92" selection-end-line="41" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -120,7 +125,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>/i&gt; Archives&lt;/</find>
       <find>Aucun demande enregistré</find>
       <find>archiveA</find>
       <find>ABCD&quot;</find>
@@ -150,6 +154,7 @@
       <find>|</find>
       <find>dest</find>
       <find>idLi</find>
+      <find>EnCo</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -215,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/DemandeBundle/DQL/DateFormatFunction.php" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Table/BrandType.php" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/demandeByLivreur.html.twig" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/create.html.twig" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/assign.html.twig" />
@@ -252,6 +256,7 @@
         <option value="$PROJECT_DIR$/src/DemandeBundle/Repository/DemandeRepository.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/security.yml" />
       </list>
     </option>
   </component>
@@ -672,12 +677,12 @@
       <workItem from="1564329696964" duration="21109000" />
       <workItem from="1564417796230" duration="28764000" />
       <workItem from="1564677326277" duration="17699000" />
-      <workItem from="1564766168241" duration="50268000" />
+      <workItem from="1564766168241" duration="50995000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="370376000" />
+    <option name="totallyTimeSpent" value="371103000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -690,13 +695,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1929" y="-9" width="1938" height="1058" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20032224" sideWeight="0.4729494" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.4924812" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282532" sideWeight="0.50751877" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32060185" sideWeight="0.48125" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32060185" sideWeight="0.48125" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.49375" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -921,14 +925,6 @@
           <folding>
             <marker date="1564871827996" expanded="true" signature="2787:3839" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1253,6 +1249,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
           <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="41" column="92" lean-forward="true" selection-start-line="41" selection-start-column="92" selection-end-line="41" selection-end-column="92" />
           <folding />
         </state>
       </provider>

@@ -31,7 +31,6 @@ security:
 
         main:
             anonymous: ~
-            pattern: ^/
             json_login:
                 check_path: /json_login
             user_checker: security.user_checker
@@ -46,6 +45,3 @@ security:
                 path:   /logout
                 target: /login
             anonymous:    true
-    access_control:
-            - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-            - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }

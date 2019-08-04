@@ -48,4 +48,4 @@ security:
             anonymous:    true
     access_control:
             - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-            - { path: ^/dashboard, role: ROLE_USER }
+            - { path: ^/dashboard/users, role: ROLE_ADMIN }

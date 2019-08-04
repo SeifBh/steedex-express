@@ -410,7 +410,7 @@ foreach ($para as $p){
         $em = $this->getDoctrine()->getManager();
 
    if (($selectedClient == "all") && ($selectedClientDate=="")){
-       $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->findBy(array(), array('id' => 'DESC'));
+       $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->findBy(array('archive'=>false), array('id' => 'DESC'));
 
    }
    else{

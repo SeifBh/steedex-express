@@ -1,5 +1,5 @@
 {% extends "Template.html.twig" %}
-{% block title %}Update User{% endblock %}
+{% block title %}Update Demande{% endblock %}
 
 {% block body %}
     <style>
@@ -131,7 +131,7 @@
                 </div>
 
 
-                {% if is_granted('ROLE_ADMIN') == true %}
+                {% if (is_granted('ROLE_ADMIN') == true or is_granted('ROLE_LIVREUR')) %}
 
 
 
@@ -140,6 +140,9 @@
                         {{ form_row(form.etat) }}
                     </div>
                 {% endif %}
+
+
+
                 <div class="form-group">
                     <label for="exampleInputEmail1">Type</label>
                     {{ form_row(form.type) }}
@@ -153,7 +156,7 @@
                 {% if is_granted('ROLE_ADMIN') == true %}
 
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Description du produit</label>
+                    <label for="exampleInputEmail1">Date Emission</label>
                     {{ form_row(form.dateEmission) }}
                 </div>
                 {% endif %}

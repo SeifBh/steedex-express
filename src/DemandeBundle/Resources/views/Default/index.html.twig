@@ -197,11 +197,14 @@
                         <div class="box-tools">
                             <a href="{{ path('_create_demande') }}" type="button" class="btn btn-block btn-primary btn-lg">Créer une demande</a>
                         </div>
+                        {% if is_granted('ROLE_ADMIN') == true %}
+
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
                             Effacer tout
                         </button>
                         <br>
 
+                        {% endif %}
 
                         <!-- /.box-tools -->
                     </div>
@@ -223,10 +226,22 @@
                                     <th>Tel</th>
                                     <th>Etat</th>
                                     <th>Livreur</th>
+                                    {% if is_granted('ROLE_ADMIN') == true %}
+
+
                                     <th>#Aff</th>
+                                    {% endif %}
+
                                     <th>#Mod</th>
+
+                                    {% if is_granted('ROLE_ADMIN') == true %}
+
                                     <th>#Supp</th>
+
+
                                     <th>#Arch</th>
+                                    {% endif %}
+
                                     <th>#Telecharger</th>
                                     <th>#Imrpimer</th>
 
@@ -275,15 +290,19 @@
 
 
                                             </td>
+                                            {% if is_granted('ROLE_ADMIN') == true %}
 
                                             <td>
                                                 <a href="{{ path('_assign_demande',{'id_demande':d.id}) }}">Affecter</a>
                                             </td>
+                                            {% endif %}
                                             <td><a href="{{ path('_update_demande',{'id':d.id}) }}">Modifier</a></td>
+                                            {% if is_granted('ROLE_ADMIN') == true %}
+
                                             <td><a href="{{ path('_remove_demande',{'id':d.id}) }}">Supprimer</a></td>
                                             <td><a href="{{ path('_archive_demande',{'id':d.id}) }}">Archiver</a></td>
 
-
+{% endif %}
                                             <td>
                                                 <a href="{{ path('_generate_url', {'id_demande': d.id}) }}"> Telecharger</a>
 
@@ -349,6 +368,7 @@
         </div>
 
 
+        {% if is_granted('ROLE_ADMIN') == true %}
 
         <div class="modal modal-danger fade" id="modal-danger">
             <div class="modal-dialog">
@@ -371,6 +391,8 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
+        {% endif %}
+
 
     </section>
 

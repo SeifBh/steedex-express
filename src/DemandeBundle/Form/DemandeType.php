@@ -27,7 +27,7 @@ class DemandeType extends AbstractType
         $role = $options['user'];
        // var_dump($role);
 
-        if (in_array('ROLE_ADMIN',$role)){
+        if (in_array('ROLE_ADMIN',$role)) {
 
             $builder
 
@@ -38,6 +38,26 @@ class DemandeType extends AbstractType
                         'required' =>false
                     )
                 )
+
+                ->add('etat', ChoiceType::class, array(
+                    'required' => true,
+                    'choices' => DemandeEtatEnum::getAvailableTypes(),
+                    'attr'=> array('class' => 'form-control','placeholder'=>"Etat Demande"),
+                    'label'=>false,
+
+                    'choices_as_values' => true,
+                    'choice_label' => function($choice) {
+                        return DemandeEtatEnum::getTypeName($choice);
+                    }
+                ));
+
+        }
+
+        if (in_array('ROLE_LIVREUR',$role)) {
+
+            $builder
+
+
 
                 ->add('etat', ChoiceType::class, array(
                     'required' => true,
@@ -124,6 +144,9 @@ class DemandeType extends AbstractType
             'label'    => 'Colis fragile ? ',
    'required' => false
 ))
+
+
+
             ->add('tailleColis', ChoiceType::class, [
                     'choices'  => [
                         'Grand' => null,

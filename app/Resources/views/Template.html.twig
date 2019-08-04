@@ -211,15 +211,20 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{ path('_list_demande') }}"><i class="fa fa-circle-o"></i> Afficher demandes</a></li>
                         <li><a href="{{ path('_create_demande') }}"><i class="fa fa-circle-o"></i> Ajout demande</a></li>
+                        <li><a href="{{ path('_list_demande') }}"><i class="fa fa-circle-o"></i> Afficher demandes</a></li>
+                        {% if is_granted('ROLE_ADMIN') == true %}
+
                         <li><a href="{{ path('_liste_archive_demande') }}"><i class="fa fa-circle-o"></i> Archives</a></li>
 
+                        {% endif %}
                         </ul>
                 </li>
+                {% if is_granted('ROLE_ADMIN') == true %}
 
 
                 <li><a href="{{ path('_ordre_de_mission') }}"><i class="fa fa-server"></i> <span>Ordre de Mission</span></a></li>
+                {% endif %}
 
 
 
@@ -243,12 +248,14 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{ path('_list_reclamation') }}"><i class="fa fa-circle-o"></i> Afficher Reclamation</a></li>
+
                         <li><a href="{{ path('_create_reclamation') }}"><i class="fa fa-circle-o"></i> Ajout Reclamation</a></li>
+                        <li><a href="{{ path('_list_reclamation') }}"><i class="fa fa-circle-o"></i> Afficher Reclamation</a></li>
                     </ul>
                 </li>
 
 
+                {% if is_granted('ROLE_ADMIN') == true %}
 
                 <li class="treeview">
                     <a href="{{ path('_list_users') }}">
@@ -268,11 +275,11 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{ path('_list_users') }}"><i class="fa fa-circle-o"></i> Afficher Users</a></li>
                         <li><a href="{{ path('_create_user') }}"><i class="fa fa-circle-o"></i> Ajout Utilisateur</a></li>
+                        <li><a href="{{ path('_list_users') }}"><i class="fa fa-circle-o"></i> Afficher Users</a></li>
                     </ul>
                 </li>
-
+                {% endif %}
 
 
 

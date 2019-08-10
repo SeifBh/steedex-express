@@ -3,6 +3,7 @@
 namespace ApiBundle\Controller;
 
 use DemandeBundle\Entity\Demande;
+use DemandeBundle\Enum\DemandeEtatEnum;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -69,7 +70,20 @@ class DefaultController extends Controller
     {
         $demande = new Demande();
 
+
+
         $selectedDemande = $this->getDoctrine()->getRepository("DemandeBundle:Demande")->findOneBy(['id'=>$id]);
+        if ($etat == "EnCours")
+            $selectedDemande->setEtat(DemandeEtatEnum::ETAT_EnCours);
+        else if ($etat == "EnTraitement")
+            $selectedDemande->setEtat(DemandeEtatEnum::ETAT_EnTraitement);
+        else if ($etat == "Valide")
+            $selectedDemande->setEtat(DemandeEtatEnum::ETAT_Valide);
+        else if ($etat == "Cloture")
+            $selectedDemande->setEtat(DemandeEtatEnum::ETAT_Cloture);
+        else if ($etat == "Retour")
+            $selectedDemande->setEtat(DemandeEtatEnum::ETAT_Retour);
+
         $this->getDoctrine()->getManager()->persist($selectedDemande);
         $this->getDoctrine()->getManager()->flush();
 

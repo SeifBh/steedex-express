@@ -66,13 +66,13 @@
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="281">
+              <caret line="81" column="36" lean-forward="true" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
               <folding>
                 <element signature="e#40#73#0#PHP" expanded="true" />
-                <element signature="e#621#644#1#PHP" expanded="true" />
-                <element signature="e#1140#1163#1#PHP" expanded="true" />
-                <element signature="e#1694#1717#1#PHP" expanded="true" />
+                <element signature="e#661#684#1#PHP" expanded="true" />
+                <element signature="e#1180#1203#1#PHP" expanded="true" />
+                <element signature="e#1734#1757#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -105,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="179">
-              <caret line="122" column="39" lean-forward="false" selection-start-line="122" selection-start-column="39" selection-end-line="122" selection-end-column="39" />
+              <caret line="290" column="55" lean-forward="false" selection-start-line="290" selection-start-column="26" selection-end-line="290" selection-end-column="55" />
               <folding>
                 <element signature="e#3525#3637#0#PHP" expanded="false" />
                 <element signature="e#3953#3976#1#PHP" expanded="true" />
@@ -121,7 +121,6 @@
                 <element signature="e#7251#7520#0#PHP" expanded="false" />
                 <element signature="e#7748#7989#0#PHP" expanded="false" />
                 <element signature="e#7799#7988#0#PHP" expanded="false" />
-                <element signature="e#8003#8820#0#PHP" expanded="false" />
                 <element signature="e#9414#10258#0#PHP" expanded="false" />
                 <element signature="e#9560#9738#0#PHP" expanded="false" />
                 <element signature="e#9746#10031#0#PHP" expanded="false" />
@@ -161,7 +160,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>type</find>
       <find>EnCours</find>
       <find>vALIDE</find>
       <find>pie</find>
@@ -191,6 +189,7 @@
       <find>frai</find>
       <find>selectedUser</find>
       <find>flush</find>
+      <find>setEtat</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -658,12 +657,12 @@
       <workItem from="1564766168241" duration="55022000" />
       <workItem from="1564916236714" duration="6720000" />
       <workItem from="1565027925425" duration="2784000" />
-      <workItem from="1565439715020" duration="10594000" />
+      <workItem from="1565439715020" duration="11055000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="395228000" />
+    <option name="totallyTimeSpent" value="395689000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1127,7 +1126,7 @@
     <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
-          <caret line="122" column="39" lean-forward="false" selection-start-line="122" selection-start-column="39" selection-end-line="122" selection-end-column="39" />
+          <caret line="290" column="55" lean-forward="false" selection-start-line="290" selection-start-column="26" selection-end-line="290" selection-end-column="55" />
           <folding>
             <element signature="e#3525#3637#0#PHP" expanded="false" />
             <element signature="e#3953#3976#1#PHP" expanded="true" />
@@ -1143,7 +1142,6 @@
             <element signature="e#7251#7520#0#PHP" expanded="false" />
             <element signature="e#7748#7989#0#PHP" expanded="false" />
             <element signature="e#7799#7988#0#PHP" expanded="false" />
-            <element signature="e#8003#8820#0#PHP" expanded="false" />
             <element signature="e#9414#10258#0#PHP" expanded="false" />
             <element signature="e#9560#9738#0#PHP" expanded="false" />
             <element signature="e#9746#10031#0#PHP" expanded="false" />
@@ -1180,13 +1178,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state relative-caret-position="281">
+          <caret line="81" column="36" lean-forward="true" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
           <folding>
             <element signature="e#40#73#0#PHP" expanded="true" />
-            <element signature="e#621#644#1#PHP" expanded="true" />
-            <element signature="e#1140#1163#1#PHP" expanded="true" />
-            <element signature="e#1694#1717#1#PHP" expanded="true" />
+            <element signature="e#661#684#1#PHP" expanded="true" />
+            <element signature="e#1180#1203#1#PHP" expanded="true" />
+            <element signature="e#1734#1757#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

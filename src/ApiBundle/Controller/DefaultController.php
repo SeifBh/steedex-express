@@ -70,7 +70,7 @@ class DefaultController extends Controller
         $demande = new Demande();
 
         $selectedDemande = $this->getDoctrine()->getRepository("DemandeBundle:Demande")->findOneBy(['id'=>$id]);
-        $selectedDemande->setEtat("EnTraitement");
+        $selectedDemande->setEtat($etat+"");
         $this->getDoctrine()->getManager()->persist($selectedDemande);
         $this->getDoctrine()->getManager()->flush();
 

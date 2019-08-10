@@ -9,3 +9,7 @@ _api_deamndes:
 _api_deamndes_client:
     path:     /demande/{id_client}
     defaults: { _controller: ApiBundle:Default:getDemandeClient }
+
+_api_deamndes_livreur:
+    path:     /demande_livreur/{id_livreur}
+    defaults: { _controller: ApiBundle:Default:getDemandeLivreur }

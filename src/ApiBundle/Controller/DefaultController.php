@@ -47,5 +47,21 @@ class DefaultController extends Controller
     }
 
 
+    public function getDemandeLivreurAction($id_livreur)
+    {
+        $demande = new Demande();
+
+        $selectedUser = $this->getDoctrine()->getRepository("UserBundle:User")->findBy(['id'=>$id_livreur]);
+
+        $articles = $this->getDoctrine()->getRepository('DemandeBundle:Demande')->findBy(['id_livreur' => $selectedUser]);
+
+
+        $data = $this->get('jms_serializer')->serialize($articles, 'json');
+
+        $response = new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+    }
 
 }

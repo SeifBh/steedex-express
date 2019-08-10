@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -63,33 +64,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="84" column="48" lean-forward="false" selection-start-line="84" selection-start-column="48" selection-end-line="84" selection-end-column="48" />
+            <state relative-caret-position="-34">
+              <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding>
                 <element signature="e#40#73#0#PHP" expanded="true" />
                 <element signature="e#621#644#1#PHP" expanded="true" />
                 <element signature="e#1140#1163#1#PHP" expanded="true" />
                 <element signature="e#1694#1717#1#PHP" expanded="true" />
-                <element signature="e#2190#2213#1#PHP" expanded="true" />
-                <marker date="1565452855693" expanded="true" signature="2035:2444" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="18" column="60" lean-forward="false" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
+            <state relative-caret-position="336">
+              <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
               <folding>
-                <marker date="1565452471533" expanded="true" signature="231:239" ph="/demandes" />
-                <marker date="1565452471533" expanded="true" signature="281:299" ph="ApiBundle…etDemandes" />
-                <marker date="1565452471533" expanded="true" signature="491:511" ph="/demande_…d_livreur}" />
-                <marker date="1565452471533" expanded="true" signature="548:566" ph="ApiBundle…ndeLivreur" />
+                <marker date="1565453025135" expanded="true" signature="231:239" ph="/demandes" />
+                <marker date="1565453025135" expanded="true" signature="281:299" ph="ApiBundle…etDemandes" />
+                <marker date="1565453025135" expanded="true" signature="489:509" ph="/demande_…d_livreur}" />
+                <marker date="1565453025135" expanded="true" signature="546:564" ph="ApiBundle…ndeLivreur" />
               </folding>
             </state>
           </provider>
@@ -284,8 +283,8 @@
         <option value="$PROJECT_DIR$/src/DemandeBundle/Controller/ApiController.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml" />
       </list>
     </option>
   </component>
@@ -651,12 +650,12 @@
       <workItem from="1564766168241" duration="55022000" />
       <workItem from="1564916236714" duration="6720000" />
       <workItem from="1565027925425" duration="2784000" />
-      <workItem from="1565439715020" duration="6863000" />
+      <workItem from="1565439715020" duration="7082000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="391497000" />
+    <option name="totallyTimeSpent" value="391716000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1106,19 +1105,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="60" lean-forward="false" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
-          <folding>
-            <marker date="1565452471533" expanded="true" signature="231:239" ph="/demandes" />
-            <marker date="1565452471533" expanded="true" signature="281:299" ph="ApiBundle…etDemandes" />
-            <marker date="1565452471533" expanded="true" signature="491:511" ph="/demande_…d_livreur}" />
-            <marker date="1565452471533" expanded="true" signature="548:566" ph="ApiBundle…ndeLivreur" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -1174,15 +1160,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="84" column="48" lean-forward="false" selection-start-line="84" selection-start-column="48" selection-end-line="84" selection-end-column="48" />
+        <state relative-caret-position="-34">
+          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding>
             <element signature="e#40#73#0#PHP" expanded="true" />
             <element signature="e#621#644#1#PHP" expanded="true" />
             <element signature="e#1140#1163#1#PHP" expanded="true" />
             <element signature="e#1694#1717#1#PHP" expanded="true" />
-            <element signature="e#2190#2213#1#PHP" expanded="true" />
-            <marker date="1565452855693" expanded="true" signature="2035:2444" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding>
+            <marker date="1565453025135" expanded="true" signature="231:239" ph="/demandes" />
+            <marker date="1565453025135" expanded="true" signature="281:299" ph="ApiBundle…etDemandes" />
+            <marker date="1565453025135" expanded="true" signature="489:509" ph="/demande_…d_livreur}" />
+            <marker date="1565453025135" expanded="true" signature="546:564" ph="ApiBundle…ndeLivreur" />
           </folding>
         </state>
       </provider>

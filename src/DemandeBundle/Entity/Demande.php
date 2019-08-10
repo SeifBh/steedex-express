@@ -135,6 +135,30 @@ class Demande
     private $date_livraison;
 
     /**
+     * @var date $updated_date
+     *
+     * @ORM\Column(name="updated_date", type="datetime", nullable=true)
+     */
+    private $updated_date;
+
+    /**
+     * @return date
+     */
+    public function getUpdatedDate()
+    {
+        return $this->updated_date;
+    }
+
+    /**
+     * @param date $updated_date
+     */
+    public function setUpdatedDate($updated_date)
+    {
+        $this->updated_date = $updated_date;
+    }
+
+
+    /**
      * @return date
      */
     public function getDateLivraison()

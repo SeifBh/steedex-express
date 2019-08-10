@@ -89,6 +89,7 @@ class DefaultController extends Controller
                 $date_now = new \DateTime();
 
                 $demande->setArchive(false);
+                $demande->setUpdatedDate($date_now);
                 $demande->setDateEcheance($date);
                 $demande->setDateEmission($date_now);
                 $demande->setEtat(DemandeEtatEnum::ETAT_EnTraitement);
@@ -134,6 +135,7 @@ class DefaultController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $demande->setUpdatedDate(new \DateTime());
             $em->persist($demande);
             $em->flush();
             return $this->redirectToRoute('_list_demande');

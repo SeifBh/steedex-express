@@ -21,7 +21,7 @@ class DefaultController extends Controller
 
     public function getDemandesAction()
     {
-        $articles = $this->getDoctrine()->getRepository('DemandeBundle:Demande')->findAll();
+        $articles = $this->getDoctrine()->getRepository('DemandeBundle:Demande')->findBy(array(), array('updated_date' => 'DESC'));
         $data = $this->get('jms_serializer')->serialize($articles, 'json');
 
         $response = new Response($data);
@@ -35,8 +35,8 @@ class DefaultController extends Controller
         $demande = new Demande();
 
         $selectedUser = $this->getDoctrine()->getRepository("UserBundle:User")->findBy(['id'=>$id_client]);
+        $articles = $this->getDoctrine()->getRepository('DemandeBundle:Demande')->findBy(array('id_client' => $selectedUser), array('updated_date' => 'DESC'));
 
-        $articles = $this->getDoctrine()->getRepository('DemandeBundle:Demande')->findBy(['id_client' => $selectedUser]);
 
 
         $data = $this->get('jms_serializer')->serialize($articles, 'json');
@@ -54,7 +54,7 @@ class DefaultController extends Controller
 
         $selectedUser = $this->getDoctrine()->getRepository("UserBundle:User")->findBy(['id'=>$id_livreur]);
 
-        $articles = $this->getDoctrine()->getRepository('DemandeBundle:Demande')->findBy(['id_livreur' => $selectedUser]);
+        $articles = $this->getDoctrine()->getRepository('DemandeBundle:Demande')->findBy(array('id_livreur' => $selectedUser), array('updated_date' => 'DESC'));
 
 
         $data = $this->get('jms_serializer')->serialize($articles, 'json');
@@ -84,6 +84,9 @@ class DefaultController extends Controller
         else if ($etat == "Retour")
             $selectedDemande->setEtat(DemandeEtatEnum::ETAT_Retour);
 
+
+
+        $selectedDemande->setUpdatedDate(new \DateTime());
         $this->getDoctrine()->getManager()->persist($selectedDemande);
         $this->getDoctrine()->getManager()->flush();
 

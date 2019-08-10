@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -63,40 +64,88 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SecurityController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="53" column="105" lean-forward="false" selection-start-line="53" selection-start-column="105" selection-end-line="53" selection-end-column="105" />
+            <state relative-caret-position="260">
+              <caret line="71" column="110" lean-forward="false" selection-start-line="71" selection-start-column="99" selection-end-line="71" selection-end-column="110" />
               <folding>
                 <element signature="e#40#73#0#PHP" expanded="true" />
                 <element signature="e#621#644#1#PHP" expanded="true" />
                 <element signature="e#1140#1163#1#PHP" expanded="true" />
                 <element signature="e#1694#1717#1#PHP" expanded="true" />
+                <element signature="e#2140#2163#1#PHP" expanded="true" />
+                <marker date="1565452471860" expanded="true" signature="2035:2394" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="378">
+              <caret line="18" column="60" lean-forward="false" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
               <folding>
-                <marker date="1565445169766" expanded="true" signature="231:239" ph="/demandes" />
-                <marker date="1565445169766" expanded="true" signature="281:299" ph="ApiBundle…etDemandes" />
-                <marker date="1565445169766" expanded="true" signature="415:443" ph="ApiBundle…andeClient" />
+                <marker date="1565452471533" expanded="true" signature="231:239" ph="/demandes" />
+                <marker date="1565452471533" expanded="true" signature="281:299" ph="ApiBundle…etDemandes" />
+                <marker date="1565452471533" expanded="true" signature="491:511" ph="/demande_…d_livreur}" />
+                <marker date="1565452471533" expanded="true" signature="548:566" ph="ApiBundle…ndeLivreur" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="136" column="9" lean-forward="false" selection-start-line="136" selection-start-column="9" selection-end-line="137" selection-end-column="25" />
+              <folding>
+                <element signature="e#3525#3637#0#PHP" expanded="false" />
+                <element signature="e#4581#4682#0#PHP" expanded="false" />
+                <element signature="e#4697#5046#0#PHP" expanded="false" />
+                <element signature="e#4889#4983#0#PHP" expanded="false" />
+                <element signature="e#5051#5116#0#PHP" expanded="false" />
+                <element signature="e#5775#6117#0#PHP" expanded="false" />
+                <element signature="e#6122#6468#0#PHP" expanded="false" />
+                <element signature="e#6474#6697#0#PHP" expanded="false" />
+                <element signature="e#6711#7996#0#PHP" expanded="false" />
+                <element signature="e#6987#7123#0#PHP" expanded="false" />
+                <element signature="e#7251#7520#0#PHP" expanded="false" />
+                <element signature="e#7748#7989#0#PHP" expanded="false" />
+                <element signature="e#7799#7988#0#PHP" expanded="false" />
+                <element signature="e#8003#8820#0#PHP" expanded="false" />
+                <element signature="e#9414#10258#0#PHP" expanded="false" />
+                <element signature="e#9560#9738#0#PHP" expanded="false" />
+                <element signature="e#9746#10031#0#PHP" expanded="false" />
+                <element signature="e#10266#11104#0#PHP" expanded="false" />
+                <element signature="e#10501#10829#0#PHP" expanded="false" />
+                <element signature="e#10674#10829#0#PHP" expanded="false" />
+                <element signature="e#10851#11076#0#PHP" expanded="false" />
+                <element signature="e#12073#12298#0#PHP" expanded="false" />
+                <element signature="e#12332#12920#0#PHP" expanded="false" />
+                <element signature="e#12667#12892#0#PHP" expanded="false" />
+                <element signature="e#12923#13605#0#PHP" expanded="false" />
+                <element signature="e#13117#13369#0#PHP" expanded="false" />
+                <element signature="e#13246#13369#0#PHP" expanded="false" />
+                <element signature="e#13376#13585#0#PHP" expanded="false" />
+                <element signature="e#13610#14252#0#PHP" expanded="false" />
+                <element signature="e#14259#14984#0#PHP" expanded="false" />
+                <element signature="e#14991#16408#0#PHP" expanded="false" />
+                <element signature="e#15216#16344#0#PHP" expanded="false" />
+                <element signature="e#15264#15600#0#PHP" expanded="false" />
+                <element signature="e#15997#16124#0#PHP" expanded="false" />
+                <element signature="e#16038#16123#2#PHP" expanded="false" />
+                <element signature="e#16414#17074#0#PHP" expanded="false" />
+                <element signature="e#16751#16858#0#PHP" expanded="false" />
+                <element signature="e#16792#16857#2#PHP" expanded="false" />
+                <element signature="e#17080#17300#0#PHP" expanded="false" />
+                <element signature="e#17307#17813#0#PHP" expanded="false" />
+                <element signature="e#17482#17749#0#PHP" expanded="false" />
+                <marker date="1564941240491" expanded="true" signature="2422:2689" ph="//..." />
+                <marker date="1564941240491" expanded="false" signature="10834:10836" ph="..." />
+                <marker date="1564941240491" expanded="true" signature="12059:12060" ph="..." />
               </folding>
             </state>
           </provider>
@@ -106,7 +155,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>create</find>
       <find>type</find>
       <find>EnCours</find>
       <find>vALIDE</find>
@@ -136,6 +184,7 @@
       <find>frai_liv</find>
       <find>frai</find>
       <find>selectedUser</find>
+      <find>flush</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -150,11 +199,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="s doctrine:schema:update --force " />
-      <command text="composer require kilik/table " />
-      <command text="s server:run " />
-      <command text="s doctrine:schema:update --force " />
-      <command text="composer require kilik/table " />
       <command text="./bin/console assets:install --symlink " />
       <command text="s assets:install --symlink " />
       <command text="php bin/console kilik:table:generate" />
@@ -174,6 +218,11 @@
       <command text="s debug:router " />
       <command text="getList" />
       <command text="s debug:router " />
+      <command text="s server:run " />
+      <command text="run" />
+      <command text="s server:run " />
+      <command text="c clear-cache" />
+      <command text="s cache:clear" />
       <command text="s server:run " />
     </commandsHistory>
   </component>
@@ -481,6 +530,19 @@
               <item name="steedex" type="b2602c69:ProjectViewProjectNode" />
               <item name="steedex" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="DemandeBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="steedex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="steedex" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="DemandeBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="steedex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="steedex" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="UserBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -590,12 +652,12 @@
       <workItem from="1564766168241" duration="55022000" />
       <workItem from="1564916236714" duration="6720000" />
       <workItem from="1565027925425" duration="2784000" />
-      <workItem from="1565439715020" duration="5002000" />
+      <workItem from="1565439715020" duration="6632000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="389636000" />
+    <option name="totallyTimeSpent" value="391266000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -608,13 +670,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20837809" sideWeight="0.4729494" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.4924812" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282532" sideWeight="0.50751877" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25526932" sideWeight="0.48125" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25526932" sideWeight="0.48125" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.49375" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -961,59 +1022,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="123" column="79" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-          <folding>
-            <element signature="e#3525#3637#0#PHP" expanded="false" />
-            <element signature="e#4581#4682#0#PHP" expanded="false" />
-            <element signature="e#4697#5046#0#PHP" expanded="false" />
-            <element signature="e#4889#4983#0#PHP" expanded="false" />
-            <element signature="e#5051#5116#0#PHP" expanded="false" />
-            <element signature="e#5775#6117#0#PHP" expanded="false" />
-            <element signature="e#6122#6468#0#PHP" expanded="false" />
-            <element signature="e#6474#6697#0#PHP" expanded="false" />
-            <element signature="e#6711#7996#0#PHP" expanded="false" />
-            <element signature="e#6987#7123#0#PHP" expanded="false" />
-            <element signature="e#7251#7520#0#PHP" expanded="false" />
-            <element signature="e#7748#7989#0#PHP" expanded="false" />
-            <element signature="e#7799#7988#0#PHP" expanded="false" />
-            <element signature="e#8003#8820#0#PHP" expanded="false" />
-            <element signature="e#9414#10258#0#PHP" expanded="false" />
-            <element signature="e#9560#9738#0#PHP" expanded="false" />
-            <element signature="e#9746#10031#0#PHP" expanded="false" />
-            <element signature="e#10266#11104#0#PHP" expanded="false" />
-            <element signature="e#10501#10829#0#PHP" expanded="false" />
-            <element signature="e#10674#10829#0#PHP" expanded="false" />
-            <element signature="e#10851#11076#0#PHP" expanded="false" />
-            <element signature="e#12073#12298#0#PHP" expanded="false" />
-            <element signature="e#12332#12920#0#PHP" expanded="false" />
-            <element signature="e#12667#12892#0#PHP" expanded="false" />
-            <element signature="e#12923#13605#0#PHP" expanded="false" />
-            <element signature="e#13117#13369#0#PHP" expanded="false" />
-            <element signature="e#13246#13369#0#PHP" expanded="false" />
-            <element signature="e#13376#13585#0#PHP" expanded="false" />
-            <element signature="e#13610#14252#0#PHP" expanded="false" />
-            <element signature="e#14259#14984#0#PHP" expanded="false" />
-            <element signature="e#14991#16408#0#PHP" expanded="false" />
-            <element signature="e#15216#16344#0#PHP" expanded="false" />
-            <element signature="e#15264#15600#0#PHP" expanded="false" />
-            <element signature="e#15997#16124#0#PHP" expanded="false" />
-            <element signature="e#16038#16123#2#PHP" expanded="false" />
-            <element signature="e#16414#17074#0#PHP" expanded="false" />
-            <element signature="e#16751#16858#0#PHP" expanded="false" />
-            <element signature="e#16792#16857#2#PHP" expanded="false" />
-            <element signature="e#17080#17300#0#PHP" expanded="false" />
-            <element signature="e#17307#17813#0#PHP" expanded="false" />
-            <element signature="e#17482#17749#0#PHP" expanded="false" />
-            <marker date="1564941240491" expanded="true" signature="2422:2689" ph="//..." />
-            <marker date="1564941240491" expanded="false" signature="10834:10836" ph="..." />
-            <marker date="1564941240491" expanded="true" signature="12059:12060" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
@@ -1080,6 +1088,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="136" column="9" lean-forward="false" selection-start-line="136" selection-start-column="9" selection-end-line="137" selection-end-column="25" />
+          <folding>
+            <element signature="e#3525#3637#0#PHP" expanded="false" />
+            <element signature="e#4581#4682#0#PHP" expanded="false" />
+            <element signature="e#4697#5046#0#PHP" expanded="false" />
+            <element signature="e#4889#4983#0#PHP" expanded="false" />
+            <element signature="e#5051#5116#0#PHP" expanded="false" />
+            <element signature="e#5775#6117#0#PHP" expanded="false" />
+            <element signature="e#6122#6468#0#PHP" expanded="false" />
+            <element signature="e#6474#6697#0#PHP" expanded="false" />
+            <element signature="e#6711#7996#0#PHP" expanded="false" />
+            <element signature="e#6987#7123#0#PHP" expanded="false" />
+            <element signature="e#7251#7520#0#PHP" expanded="false" />
+            <element signature="e#7748#7989#0#PHP" expanded="false" />
+            <element signature="e#7799#7988#0#PHP" expanded="false" />
+            <element signature="e#8003#8820#0#PHP" expanded="false" />
+            <element signature="e#9414#10258#0#PHP" expanded="false" />
+            <element signature="e#9560#9738#0#PHP" expanded="false" />
+            <element signature="e#9746#10031#0#PHP" expanded="false" />
+            <element signature="e#10266#11104#0#PHP" expanded="false" />
+            <element signature="e#10501#10829#0#PHP" expanded="false" />
+            <element signature="e#10674#10829#0#PHP" expanded="false" />
+            <element signature="e#10851#11076#0#PHP" expanded="false" />
+            <element signature="e#12073#12298#0#PHP" expanded="false" />
+            <element signature="e#12332#12920#0#PHP" expanded="false" />
+            <element signature="e#12667#12892#0#PHP" expanded="false" />
+            <element signature="e#12923#13605#0#PHP" expanded="false" />
+            <element signature="e#13117#13369#0#PHP" expanded="false" />
+            <element signature="e#13246#13369#0#PHP" expanded="false" />
+            <element signature="e#13376#13585#0#PHP" expanded="false" />
+            <element signature="e#13610#14252#0#PHP" expanded="false" />
+            <element signature="e#14259#14984#0#PHP" expanded="false" />
+            <element signature="e#14991#16408#0#PHP" expanded="false" />
+            <element signature="e#15216#16344#0#PHP" expanded="false" />
+            <element signature="e#15264#15600#0#PHP" expanded="false" />
+            <element signature="e#15997#16124#0#PHP" expanded="false" />
+            <element signature="e#16038#16123#2#PHP" expanded="false" />
+            <element signature="e#16414#17074#0#PHP" expanded="false" />
+            <element signature="e#16751#16858#0#PHP" expanded="false" />
+            <element signature="e#16792#16857#2#PHP" expanded="false" />
+            <element signature="e#17080#17300#0#PHP" expanded="false" />
+            <element signature="e#17307#17813#0#PHP" expanded="false" />
+            <element signature="e#17482#17749#0#PHP" expanded="false" />
+            <marker date="1564941240491" expanded="true" signature="2422:2689" ph="//..." />
+            <marker date="1564941240491" expanded="false" signature="10834:10836" ph="..." />
+            <marker date="1564941240491" expanded="true" signature="12059:12060" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="60" lean-forward="false" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
+          <folding>
+            <marker date="1565452471533" expanded="true" signature="231:239" ph="/demandes" />
+            <marker date="1565452471533" expanded="true" signature="281:299" ph="ApiBundle…etDemandes" />
+            <marker date="1565452471533" expanded="true" signature="491:511" ph="/demande_…d_livreur}" />
+            <marker date="1565452471533" expanded="true" signature="548:566" ph="ApiBundle…ndeLivreur" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1090,35 +1172,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="53" column="105" lean-forward="false" selection-start-line="53" selection-start-column="105" selection-end-line="53" selection-end-column="105" />
+        <state relative-caret-position="260">
+          <caret line="71" column="110" lean-forward="false" selection-start-line="71" selection-start-column="99" selection-end-line="71" selection-end-column="110" />
           <folding>
             <element signature="e#40#73#0#PHP" expanded="true" />
             <element signature="e#621#644#1#PHP" expanded="true" />
             <element signature="e#1140#1163#1#PHP" expanded="true" />
             <element signature="e#1694#1717#1#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ApiBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <marker date="1565445169766" expanded="true" signature="231:239" ph="/demandes" />
-            <marker date="1565445169766" expanded="true" signature="281:299" ph="ApiBundle…etDemandes" />
-            <marker date="1565445169766" expanded="true" signature="415:443" ph="ApiBundle…andeClient" />
+            <element signature="e#2140#2163#1#PHP" expanded="true" />
+            <marker date="1565452471860" expanded="true" signature="2035:2394" ph="{...}" />
           </folding>
         </state>
       </provider>

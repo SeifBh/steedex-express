@@ -64,4 +64,26 @@ class DefaultController extends Controller
         return $response;
     }
 
+
+    public function updateDemandeAction($id,$etat)
+    {
+        $demande = new Demande();
+
+        $selectedDemande = $this->getDoctrine()->getRepository("DemandeBundle:Demande")->findOneBy(['id'=>$id]);
+
+
+        $selectedDemande->setEtat($etat)
+           $em->persist($selectedDemande);
+            $em->flush();
+/*
+        $data = $this->get('jms_serializer')->serialize($selectedDemande, 'json');
+
+        $response = new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+*/
+        return $response;
+    }
+
+
+
 }

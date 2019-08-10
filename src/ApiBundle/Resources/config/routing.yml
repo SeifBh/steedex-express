@@ -17,4 +17,5 @@ _api_deamndes_livreur:
 _api_update_demande:
     path:     /demande/update/{id}/{etat}
     defaults: { _controller: ApiBundle:Default:updateDemande }
+    type:   PUT
 

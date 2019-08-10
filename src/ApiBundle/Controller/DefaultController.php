@@ -68,21 +68,14 @@ class DefaultController extends Controller
     public function updateDemandeAction($id,$etat)
     {
         $demande = new Demande();
-        $em = $this->getDoctrine()->getManager();
 
         $selectedDemande = $this->getDoctrine()->getRepository("DemandeBundle:Demande")->findOneBy(['id'=>$id]);
+        $selectedDemande->setEtat("EnTraitement");
+        $this->getDoctrine()->getManager()->persist($selectedDemande);
+        $this->getDoctrine()->getManager()->flush();
 
 
-        $selectedDemande->setEtat($etat)
-           $em->persist($selectedDemande);
-            $em->flush();
-/*
-        $data = $this->get('jms_serializer')->serialize($selectedDemande, 'json');
-
-        $response = new Response($data);
-        $response->headers->set('Content-Type', 'application/json');
-*/
-        $response = new JsonResponse("updated ..");
+        $response = new JsonResponse("updated");
 
 
         return $response;

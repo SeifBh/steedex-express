@@ -6,3 +6,6 @@ _api_deamndes:
     path:     /demandes
     defaults: { _controller: ApiBundle:Default:getDemandes }
 
+_api_deamndes_client:
+    path:     /demande/{id_client}
+    defaults: { _controller: ApiBundle:Default:getDemandeClient }

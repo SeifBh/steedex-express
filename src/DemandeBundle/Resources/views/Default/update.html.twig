@@ -75,11 +75,14 @@
                     {{ form_row(form.telephone_recept) }}
                 </div>
 
+                {% if (is_granted('ROLE_ADMIN') ) %}
+
+
                 <div class="form-group">
                     <label for="exampleInputEmail1">Montant</label>
                     {{ form_row(form.montant) }}
                 </div>
-
+                {% endif %}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Quantite</label>
                     {{ form_row(form.quantite) }}

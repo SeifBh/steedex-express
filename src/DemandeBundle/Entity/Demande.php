@@ -46,7 +46,7 @@ class Demande
 
     /**
      * @var string
-     *
+     * @Serializer\Groups({"demande"})
      * @ORM\Column(name="addresse_recept", type="string", length=255)
      */
     private $addresse_recept;
@@ -54,14 +54,14 @@ class Demande
 
     /**
      * @var string
-     *
+     * @Serializer\Groups({"demande"})
      * @ORM\Column(name="telephone_recept", type="string", length=255)
      */
     private $telephone_recept;
 
     /**
      * @var integer
-     *
+     * @Serializer\Groups({"demande"})
      * @ORM\Column(name="montant", type="integer", nullable=true)
      */
     private $montant;
@@ -95,6 +95,7 @@ class Demande
 
     /**
      * @var string
+     * @Serializer\Groups({"demande"})
      * @ORM\Column(name="note", type="string", length=255,nullable=true)
      */
     private $note;
@@ -102,6 +103,7 @@ class Demande
 
     /**
      * @var string
+     * @Serializer\Groups({"demande"})
      * @ORM\Column(name="etat", type="string", length=255,nullable=true)
      */
     private $etat;
@@ -171,7 +173,7 @@ class Demande
 
     /**
      * @var date $date_recepetion
-     *
+     * @Serializer\Groups({"demande"})
      * @ORM\Column(name="date_reception", type="date", nullable=true)
      */
     private $date_recepetion;
@@ -181,7 +183,7 @@ class Demande
 
     /**
      * @var integer
-     *
+     * @Serializer\Groups({"demande"})
      * @ORM\Column(name="quantite", type="integer",nullable=true)
      */
     private $quantite;

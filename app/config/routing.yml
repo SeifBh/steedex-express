@@ -51,7 +51,7 @@ app:
 
 _api_bundle:
     type:   rest
-    resource: "@DemandeBundle/Controller/ApiController.php"
+    resource: "@ApiBundle/Resources/config/routing.yml"
     prefix:   /api
 
 fos_user:

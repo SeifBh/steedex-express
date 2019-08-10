@@ -31,6 +31,14 @@ class DemandeType extends AbstractType
 
             $builder
 
+                ->add('montant', NumberType::class,array(
+                        'attr'=> array('class' => 'form-control','placeholder'=>"Montant en dinars"),
+
+                        'label'=>false,
+                        'required' =>true
+                    )
+                )
+
                 ->add('dateEmission', DateType::class,array(
                         'attr'=> array('class' => 'form-control'),
 
@@ -59,6 +67,7 @@ class DemandeType extends AbstractType
 
 
 
+
                 ->add('etat', ChoiceType::class, array(
                     'required' => true,
                     'choices' => DemandeEtatEnum::getAvailableTypes(),
@@ -72,6 +81,9 @@ class DemandeType extends AbstractType
                 ));
 
         }
+
+
+
 
 
         $builder
@@ -120,13 +132,6 @@ class DemandeType extends AbstractType
 
 
 
-            ->add('montant', NumberType::class,array(
-                    'attr'=> array('class' => 'form-control','placeholder'=>"Montant en dinars"),
-
-                    'label'=>false,
-                    'required' =>true
-                )
-            )
 
 
             ->add('quantite', TextType::class,array(

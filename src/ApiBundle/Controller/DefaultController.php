@@ -2,6 +2,7 @@
 
 namespace ApiBundle\Controller;
 
+use DemandeBundle\Entity\Demande;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,12 +20,31 @@ class DefaultController extends Controller
 
     public function getDemandesAction()
     {
-        $em=$this->getDoctrine()->getManager();
-        $demandes=$em->getRepository("DemandeBundle:Demande")->findAll();
+        $articles = $this->getDoctrine()->getRepository('DemandeBundle:Demande')->findAll();
+        $data = $this->get('jms_serializer')->serialize($articles, 'json');
 
-        return new JsonResponse($demandes);
+        $response = new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 
+    public function getDemandeClientAction($id_client)
+    {
+        $demande = new Demande();
+
+        $selectedUser = $this->getDoctrine()->getRepository("UserBundle:User")->findBy(['id'=>$id_client]);
+
+        $articles = $this->getDoctrine()->getRepository('DemandeBundle:Demande')->findBy(['id_client' => $selectedUser]);
+
+
+        $data = $this->get('jms_serializer')->serialize($articles, 'json');
+
+        $response = new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+    }
 
 
 

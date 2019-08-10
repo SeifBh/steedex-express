@@ -19,7 +19,18 @@ class SecurityController extends Controller
         try {
 
 
-            return new JsonResponse($this->getUser());
+            $user = $this->getUser();
+
+            return $this->json([
+                'id' => $user->getId(),
+                'username' => $user->getUsername(),
+                'nom' => $user->getNom(),
+                'prenom' => $user->getPrenom(),
+                'tel' => $user->getTel(),
+                'roles' => $user->getRoles(),
+            ]);
+
+
 
         } catch (\Exception $exception) {
 

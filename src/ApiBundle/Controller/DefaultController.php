@@ -68,6 +68,7 @@ class DefaultController extends Controller
     public function updateDemandeAction($id,$etat)
     {
         $demande = new Demande();
+        $em = $this->getDoctrine()->getManager();
 
         $selectedDemande = $this->getDoctrine()->getRepository("DemandeBundle:Demande")->findOneBy(['id'=>$id]);
 
@@ -81,6 +82,9 @@ class DefaultController extends Controller
         $response = new Response($data);
         $response->headers->set('Content-Type', 'application/json');
 */
+        $response = new JsonResponse("updated ..");
+
+
         return $response;
     }
 

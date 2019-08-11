@@ -26,6 +26,9 @@ class SecurityController extends Controller
                 'username' => $user->getUsername(),
                 'nom' => $user->getNom(),
                 'prenom' => $user->getPrenom(),
+                'email' => $user->getEmail(),
+                'adresse' => $user->getAddresse(),
+                'frais' => $user->getFraiLiv(),
                 'tel' => $user->getTel(),
                 'roles' => $user->getRoles(),
             ]);

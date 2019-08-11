@@ -31,6 +31,7 @@ class SecurityController extends Controller
                 'frais' => $user->getFraiLiv(),
                 'tel' => $user->getTel(),
                 'roles' => $user->getRoles(),
+                'fiscal' => $user->getIdFiscale(),
             ]);
 
 

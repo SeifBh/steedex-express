@@ -42,7 +42,7 @@
 
                 </h3>
 
-                <p>Encours de traitement</p>
+                <p>En Traitement</p>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -57,13 +57,13 @@
             <div class="inner">
                 <h3>
                     {{ render(controller(
-                    'AdminBundle:Default:valide',
+                    'AdminBundle:Default:enCours',
                     { 'max': 3 }
                     )) }}
 
                    </h3>
 
-                <p>Validé</p>
+                <p>En Cours</p>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -79,14 +79,14 @@
                 <h3>
 
                     {{ render(controller(
-                    'AdminBundle:Default:enCours',
+                    'AdminBundle:Default:valide',
                     { 'max': 3 }
                     )) }}
 
 
                 </h3>
 
-                <p>Encours de livraison</p>
+                <p>Valide</p>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -94,12 +94,19 @@
 
         </div>
     </div>
+
+
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-red">
             <div class="inner">
-                <h3>0</h3>
+                <h3>
+                    {{ render(controller(
+                    'AdminBundle:Default:cloture',
+                    { 'max': 3 }
+                    )) }}
+                </h3>
 
                 <p>Cloture</p>
             </div>

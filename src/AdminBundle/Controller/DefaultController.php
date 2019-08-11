@@ -23,15 +23,18 @@ class DefaultController extends Controller
 
     public function templateAction()
     {
-        $em=$this->getDoctrine()->getManager();
 
+        $em=$this->getDoctrine()->getManager();
+        $nbJuin = (int) $this->demandeParMoisAction("2019-06");
+        $nb_Juillet = (int) $this->demandeParMoisAction("2019-07");
+        $nb_Aout = (int) $this->demandeParMoisAction("2019-08");
+        $nb_September = (int) $this->demandeParMoisAction("2019-09");
         $area = new AreaChart();
         $area->getData()->setArrayToDataTable([
             ['Mois', 'Demandes'],
-            ['Juin',  10],
-            ['Juillet',  20],
-            ['Aout',  15],
-            ['Sep',  30]
+            ['Juin',  $nbJuin],
+            ['Juillet',  $nb_Juillet],
+            ['Aout',  $nb_Aout]
         ]);
         $area->getOptions()->setTitle('Courbe de progression des demandes');
         $area->getOptions()->getHAxis()->setTitle('Mois');
@@ -118,24 +121,100 @@ class DefaultController extends Controller
         return $this->render('@Admin/Default/admin.html.twig',array('listedemandes'=>$listeD));
     }
 
+    public function clotureAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+
+        if ($this->isGranted("ROLE_ADMIN"))
+        {
+            $nb_demande_cloture = $em->getRepository("DemandeBundle:Demande")->clotureAdmin();
+
+        }
+        else if ($this->isGranted("ROLE_CLIENT")){
+            $nb_demande_cloture = $em->getRepository("DemandeBundle:Demande")->cloture($this->getUser()->getId());
+
+        }
+
+        else if ($this->isGranted("ROLE_LIVREUR")){
+            $nb_demande_cloture = $em->getRepository("DemandeBundle:Demande")->clotureLivreur($this->getUser()->getId());
+
+        }
+        return new Response($nb_demande_cloture);
+    }
+
+    public function demandeParMoisAction($date)
+    {
+        $em=$this->getDoctrine()->getManager();
+
+
+            $nb = $em->getRepository("DemandeBundle:Demande")->countDemandeParMois($date);
+
+
+        return $nb;
+    }
+
     public function valideAction()
     {
         $em=$this->getDoctrine()->getManager();
-        $nb_demande_valide = $em->getRepository("DemandeBundle:Demande")->valide();
+
+        if ($this->isGranted("ROLE_ADMIN"))
+        {
+            $nb_demande_valide = $em->getRepository("DemandeBundle:Demande")->valideAdmin();
+
+        }
+        else if ($this->isGranted("ROLE_CLIENT")){
+            $nb_demande_valide = $em->getRepository("DemandeBundle:Demande")->valide($this->getUser()->getId());
+
+        }
+
+        else if ($this->isGranted("ROLE_LIVREUR")){
+            $nb_demande_valide = $em->getRepository("DemandeBundle:Demande")->valideLivreur($this->getUser()->getId());
+
+        }
         return new Response($nb_demande_valide);
     }
+
+
 
     public function enCoursAction()
     {
         $em=$this->getDoctrine()->getManager();
-        $nb_demande_enCours = $em->getRepository("DemandeBundle:Demande")->enCours();
+
+        if ($this->isGranted("ROLE_ADMIN"))
+        {
+            $nb_demande_enCours = $em->getRepository("DemandeBundle:Demande")->enCoursAdmin();
+
+        }
+        else if ($this->isGranted("ROLE_CLIENT")){
+            $nb_demande_enCours = $em->getRepository("DemandeBundle:Demande")->enCours($this->getUser()->getId());
+
+        }
+
+        else if ($this->isGranted("ROLE_LIVREUR")){
+            $nb_demande_enCours = $em->getRepository("DemandeBundle:Demande")->enCoursLivreur($this->getUser()->getId());
+
+        }
         return new Response($nb_demande_enCours);
     }
 
     public function enTraitementAction()
     {
         $em=$this->getDoctrine()->getManager();
-        $nb_demande_enTraitement = $em->getRepository("DemandeBundle:Demande")->enTraitement();
+
+        if ($this->isGranted("ROLE_ADMIN"))
+        {
+            $nb_demande_enTraitement = $em->getRepository("DemandeBundle:Demande")->enTraitementAdmin();
+
+        }
+        else if ($this->isGranted("ROLE_CLIENT")){
+            $nb_demande_enTraitement = $em->getRepository("DemandeBundle:Demande")->enTraitement($this->getUser()->getId());
+
+        }
+
+        else if ($this->isGranted("ROLE_LIVREUR")){
+            $nb_demande_enTraitement = $em->getRepository("DemandeBundle:Demande")->enTraitementLivreur($this->getUser()->getId());
+
+        }
         return new Response($nb_demande_enTraitement);
     }
 

@@ -37,7 +37,7 @@ class ReclamationRepository extends \Doctrine\ORM\EntityRepository
             ->where('a.id_user = :id')
             ->setParameter('id',  $id )
 
-            ->getQuery();
+            ->getQuery()->getResult();
     }
 
 

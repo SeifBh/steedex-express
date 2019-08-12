@@ -53,7 +53,7 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-green">
+        <div class="small-box bg-yellow">
             <div class="inner">
                 <h3>
                     {{ render(controller(
@@ -74,7 +74,7 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-yellow">
+        <div class="small-box bg-green">
             <div class="inner">
                 <h3>
 
@@ -192,8 +192,17 @@
                                 <td>{{ d.id }}</td>
                                 <td>{{ d.titre }}</td>
                                 <td>
-                                    {{ d.etat }}
-
+                                    {% if (d.etat == "EnTraitement") %}
+                                        <span class="label label-info">{{ d.etat }}</span>
+                                    {% elseif (d.etat == "EnCours") %}
+                                        <span class="label label-warning">{{ d.etat }}</span>
+                                    {% elseif (d.etat == "Valide") %}
+                                        <span class="label label-success">{{ d.etat }}</span>
+                                    {% elseif (d.etat == "Cloture") %}
+                                        <span class="label label-danger">{{ d.etat }}</span>
+                                    {% else %}
+                                        {{ d.etat }}
+                                    {% endif %}
                                 </td>
                                 <td>
                                     {% if d.idLivreur == null %}
@@ -253,6 +262,10 @@
                         <!-- /.item -->
 
                         <!-- /.item -->
+    {% if listeRec is empty %}
+      <li>Aucune demande </li>
+    {% else %}
+
                         {% for r in listeRec %}
                         <li class="item">
 
@@ -266,6 +279,7 @@
                             </div>
                         </li>
                             {% endfor %}
+        {% endif %}
                         <!-- /.item -->
                     </ul>
                 </div>

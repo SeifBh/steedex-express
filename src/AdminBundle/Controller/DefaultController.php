@@ -25,10 +25,31 @@ class DefaultController extends Controller
     {
 
         $em=$this->getDoctrine()->getManager();
-        $nbJuin = (int) $this->demandeParMoisAction("2019-06");
-        $nb_Juillet = (int) $this->demandeParMoisAction("2019-07");
-        $nb_Aout = (int) $this->demandeParMoisAction("2019-08");
-        $nb_September = (int) $this->demandeParMoisAction("2019-09");
+        if ($this->isGranted("ROLE_ADMIN"))
+        {
+            $nbJuin = (int) $this->demandeParMoisAction("2019-06",null);
+            $nb_Juillet = (int) $this->demandeParMoisAction("2019-07",null);
+            $nb_Aout = (int) $this->demandeParMoisAction("2019-08",null);
+            $nb_September = (int) $this->demandeParMoisAction("2019-09",null);
+        }
+        else if ($this->isGranted("ROLE_CLIENT"))
+        {
+            $nbJuin = (int) $this->demandeParMoisAction("2019-06",$this->getUser()->getId());
+            $nb_Juillet = (int) $this->demandeParMoisAction("2019-07",$this->getUser()->getId());
+            $nb_Aout = (int) $this->demandeParMoisAction("2019-08",$this->getUser()->getId());
+            $nb_September = (int) $this->demandeParMoisAction("2019-09",$this->getUser()->getId());
+        }
+        else if ($this->isGranted("ROLE_LIVREUR"))
+        {
+            $nbJuin = (int) $this->demandeParMoisAction("2019-06",$this->getUser()->getId());
+            $nb_Juillet = (int) $this->demandeParMoisAction("2019-07",$this->getUser()->getId());
+            $nb_Aout = (int) $this->demandeParMoisAction("2019-08",$this->getUser()->getId());
+            $nb_September = (int) $this->demandeParMoisAction("2019-09",$this->getUser()->getId());
+        }
+
+
+
+
         $area = new AreaChart();
         $area->getData()->setArrayToDataTable([
             ['Mois', 'Demandes'],
@@ -43,10 +64,33 @@ class DefaultController extends Controller
 
 
         $pieChart = new PieChart();
-        $listAchat = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Achat));
-        $listRemise = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Remise));
-        $listPaiement = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Paiement));
-        $listRetour = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Retour));
+        $connectedUser = $this->getUser();
+
+        if ($this->isGranted("ROLE_ADMIN"))
+        {
+
+            $listAchat = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Achat));
+            $listRemise = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Remise));
+            $listPaiement = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Paiement));
+            $listRetour = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Retour));
+        }
+        else if ($this->isGranted("ROLE_CLIENT"))
+        {
+
+            $listAchat = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Achat,'id_client'=>$this->getUser()->getId()));
+            $listRemise = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Remise,'id_client'=>$this->getUser()->getId()));
+            $listPaiement = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Paiement,'id_client'=>$this->getUser()->getId()));
+            $listRetour = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Retour,'id_client'=>$this->getUser()->getId()));
+        }
+        else if ($this->isGranted("ROLE_LIVREUR"))
+        {
+            $listAchat = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Achat,'id_livreur'=>$this->getUser()->getId()));
+            $listRemise = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Remise,'id_livreur'=>$this->getUser()->getId()));
+            $listPaiement = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Paiement,'id_livreur'=>$this->getUser()->getId()));
+            $listRetour = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Retour,'id_livreur'=>$this->getUser()->getId()));
+        }
+
+
         $a = 0;
         $r1 = 0;
         $p = 0;
@@ -96,10 +140,17 @@ class DefaultController extends Controller
             $listeD = $em->getRepository("DemandeBundle:Demande")->dixDernierDemande();
             $listeR = $em->getRepository("ReclamationBundle:Reclamation")->dixDernierReclamation();
         }
-        else{
+        else if   ($this->isGranted("ROLE_CLIENT")){
 
-            $listeD = $em->getRepository("DemandeBundle:Demande")->dixDernierDemandeUser($userId);
+            $listeD = $em->getRepository("DemandeBundle:Demande")->dixDernierDemandeClient($userId);
            $listeR = $em->getRepository("ReclamationBundle:Reclamation")->dixDernierReclamationUser($userId);
+            }
+            else if  ($this->isGranted("ROLE_LIVREUR"))
+            {
+                $listeD = $em->getRepository("DemandeBundle:Demande")->dixDernierDemandeLivreur($userId);
+                $listeR = $em->getRepository("ReclamationBundle:Reclamation")->dixDernierReclamationUser($userId);
+
+
             }
 
         return $this->render('@Admin/Default/dahboard.html.twig', array('piechart' => $pieChart,'area' => $area,"nb_users"=>$nb_users,'listedemandes'=>$listeD,"listeRec" =>$listeR));
@@ -131,23 +182,45 @@ class DefaultController extends Controller
 
         }
         else if ($this->isGranted("ROLE_CLIENT")){
-            $nb_demande_cloture = $em->getRepository("DemandeBundle:Demande")->cloture($this->getUser()->getId());
+            $nb_demande_cloture = $em->getRepository("DemandeBundle:Demande")->cloture($this->getUser()->getId(),"Cloture");
 
         }
 
         else if ($this->isGranted("ROLE_LIVREUR")){
-            $nb_demande_cloture = $em->getRepository("DemandeBundle:Demande")->clotureLivreur($this->getUser()->getId());
+            $nb_demande_cloture = $em->getRepository("DemandeBundle:Demande")->clotureLivreur($this->getUser()->getId(),"Cloture");
 
         }
         return new Response($nb_demande_cloture);
     }
 
-    public function demandeParMoisAction($date)
+
+    public function findListAchatAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $listAchat = $em->getRepository("DemandeBundle:Demande")->clotureLivreur($this->getUser()->getId(),"Cloture");
+
+
+    }
+    public function demandeParMoisAction($date,$id)
     {
         $em=$this->getDoctrine()->getManager();
 
-
+        if ($this->isGranted("ROLE_ADMIN"))
+        {
             $nb = $em->getRepository("DemandeBundle:Demande")->countDemandeParMois($date);
+
+        }
+        else if ($this->isGranted("ROLE_CLIENT")){
+            $nb = $em->getRepository("DemandeBundle:Demande")->countDemandeParMoisClient($date,$id);
+
+        }
+
+        else if ($this->isGranted("ROLE_LIVREUR")){
+            $nb = $em->getRepository("DemandeBundle:Demande")->countDemandeParMoisLivreur($date,$id);
+
+        }
+
+
 
 
         return $nb;
@@ -163,12 +236,12 @@ class DefaultController extends Controller
 
         }
         else if ($this->isGranted("ROLE_CLIENT")){
-            $nb_demande_valide = $em->getRepository("DemandeBundle:Demande")->valide($this->getUser()->getId());
+            $nb_demande_valide = $em->getRepository("DemandeBundle:Demande")->valide($this->getUser()->getId(),"Valide");
 
         }
 
         else if ($this->isGranted("ROLE_LIVREUR")){
-            $nb_demande_valide = $em->getRepository("DemandeBundle:Demande")->valideLivreur($this->getUser()->getId());
+            $nb_demande_valide = $em->getRepository("DemandeBundle:Demande")->valideLivreur($this->getUser()->getId(),"Valide");
 
         }
         return new Response($nb_demande_valide);
@@ -186,12 +259,12 @@ class DefaultController extends Controller
 
         }
         else if ($this->isGranted("ROLE_CLIENT")){
-            $nb_demande_enCours = $em->getRepository("DemandeBundle:Demande")->enCours($this->getUser()->getId());
+            $nb_demande_enCours = $em->getRepository("DemandeBundle:Demande")->enCours($this->getUser()->getId(),"EnCours");
 
         }
 
         else if ($this->isGranted("ROLE_LIVREUR")){
-            $nb_demande_enCours = $em->getRepository("DemandeBundle:Demande")->enCoursLivreur($this->getUser()->getId());
+            $nb_demande_enCours = $em->getRepository("DemandeBundle:Demande")->enCoursLivreur($this->getUser()->getId(),"EnCours");
 
         }
         return new Response($nb_demande_enCours);
@@ -200,21 +273,23 @@ class DefaultController extends Controller
     public function enTraitementAction()
     {
         $em=$this->getDoctrine()->getManager();
-
         if ($this->isGranted("ROLE_ADMIN"))
         {
+
             $nb_demande_enTraitement = $em->getRepository("DemandeBundle:Demande")->enTraitementAdmin();
 
         }
         else if ($this->isGranted("ROLE_CLIENT")){
-            $nb_demande_enTraitement = $em->getRepository("DemandeBundle:Demande")->enTraitement($this->getUser()->getId());
+
+            $nb_demande_enTraitement = $em->getRepository("DemandeBundle:Demande")->enTraitement($this->getUser()->getId(),"EnTraitement");
 
         }
-
         else if ($this->isGranted("ROLE_LIVREUR")){
-            $nb_demande_enTraitement = $em->getRepository("DemandeBundle:Demande")->enTraitementLivreur($this->getUser()->getId());
+
+            $nb_demande_enTraitement = $em->getRepository("DemandeBundle:Demande")->enTraitementLivreur($this->getUser()->getId(),"EnTraitement");
 
         }
+
         return new Response($nb_demande_enTraitement);
     }
 

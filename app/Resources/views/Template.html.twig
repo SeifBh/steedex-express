@@ -6,7 +6,7 @@
 
     <title>
         {% block title %}
-        Steedex | Tableau de bord
+        SteedEx | Tableau de bord
     {% endblock %}
     </title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" />
@@ -54,7 +54,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>S</b>TDX</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Stee</b>dex</span>
+            <span class="logo-lg"><b>Stee</b>dEx</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -200,6 +200,9 @@
                         <span class="pull-right-container">
                                           <i class="fa fa-angle-left pull-right"></i>
 
+                            {% if is_granted('ROLE_ADMIN') == true %}
+
+
               <span class="label label-primary pull-right">
 
                    {{  render(controller(
@@ -208,6 +211,8 @@
                    )) }}
 
               </span>
+                            {% endif %}
+
             </span>
                     </a>
                     <ul class="treeview-menu">
@@ -236,6 +241,7 @@
                         <span>Reclamations</span>
                         <span class="pull-right-container">
                                                                       <i class="fa fa-angle-left pull-right"></i>
+                            {% if is_granted('ROLE_ADMIN') == true %}
 
               <span class="label label-primary pull-right">
 
@@ -245,6 +251,7 @@
                    )) }}
 
               </span>
+                            {% endif %}
             </span>
                     </a>
                     <ul class="treeview-menu">
@@ -263,6 +270,7 @@
                         <span>Utilisateurs</span>
                         <span class="pull-right-container">
                                                                       <i class="fa fa-angle-left pull-right"></i>
+                            {% if is_granted('ROLE_ADMIN') == true %}
 
               <span class="label label-primary pull-right">
 
@@ -272,6 +280,7 @@
                   )) }}
 
               </span>
+                            {% endif %}
             </span>
                     </a>
                     <ul class="treeview-menu">

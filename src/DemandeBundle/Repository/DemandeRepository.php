@@ -27,6 +27,31 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
     }
 
 
+
+    public function countDemandeParMoisClient($date,$id){
+        return $this->createQueryBuilder('d')
+            ->select('COUNT(d)')
+            ->where( "DATE_FORMAT(d.date_emission, '%Y-%m') = :date" )
+            ->andWhere("d.id_client = :id")
+
+            ->setParameter('date',  $date )
+            ->setParameter('id',  $id )
+
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    public function countDemandeParMoisLivreur($date,$id){
+        return $this->createQueryBuilder('d')
+            ->select('COUNT(d)')
+            ->where( "DATE_FORMAT(d.date_emission, '%Y-%m') = :date" )
+            ->andWhere("d.id_livreur = :id")
+            ->setParameter('date',  $date )
+            ->setParameter('id',  $id )
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
     public function countDemandeParMois($date){
         return $this->createQueryBuilder('d')
             ->select('COUNT(d)')
@@ -49,22 +74,24 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
     }
 
 
-    public function cloture($id){
+    public function cloture($id,$etat){
         return $this->createQueryBuilder('d')
             ->select('COUNT(d)')
-            ->where('d.etat = ?1')
-            ->setParameter(1, 'Cloture')
-            ->where('d.id_client = :id')
+            ->where('d.etat = :etat')
+            ->setParameter('etat', $etat)
+            ->setParameter('id', $id)
+            ->andWhere('d.id_client = :id')
             ->getQuery()
             ->getSingleScalarResult();
     }
 
-    public function clotureLivreur($id){
+    public function clotureLivreur($id,$etat){
         return $this->createQueryBuilder('d')
             ->select('COUNT(d)')
-            ->where('d.etat = ?1')
-            ->setParameter(1, 'Cloture')
-            ->where('d.id_livreur = :id')
+            ->where('d.etat = :etat')
+            ->setParameter('etat', $etat)
+            ->setParameter('id', $id)
+            ->andWhere('d.id_livreur = :id')
             ->getQuery()
             ->getSingleScalarResult();
     }
@@ -81,22 +108,24 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
     }
 
 
-    public function valide($id){
+    public function valide($id,$etat){
         return $this->createQueryBuilder('d')
             ->select('COUNT(d)')
-            ->where('d.etat = ?1')
-            ->setParameter(1, 'Valide')
-            ->where('d.id_client = :id')
+            ->where('d.etat = :etat')
+            ->setParameter('etat', $etat)
+            ->setParameter('id', $id)
+            ->andWhere('d.id_client = :id')
             ->getQuery()
             ->getSingleScalarResult();
     }
 
-    public function valideLivreur($id){
+    public function valideLivreur($id,$etat){
         return $this->createQueryBuilder('d')
             ->select('COUNT(d)')
-            ->where('d.etat = ?1')
-            ->setParameter(1, 'Valide')
-            ->where('d.id_livreur = :id')
+            ->where('d.etat = :etat')
+            ->setParameter('etat', $etat)
+            ->setParameter('id', $id)
+            ->andWhere('d.id_livreur = :id')
             ->getQuery()
             ->getSingleScalarResult();
     }
@@ -112,23 +141,25 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
             ->getSingleScalarResult();
     }
 
-    public function enCours($id){
+    public function enCours($id,$etat){
         return $this->createQueryBuilder('d')
             ->select('COUNT(d)')
-            ->where('d.etat = ?1')
-            ->setParameter(1, 'Encours')
-            ->where('d.id_client = :id')
+            ->where('d.etat = :etat')
+            ->setParameter('etat', $etat)
+            ->setParameter('id', $id)
+            ->andWhere('d.id_client = :id')
             ->getQuery()
             ->getSingleScalarResult();
     }
 
 
-    public function enCoursLivreur($id){
+    public function enCoursLivreur($id,$etat){
         return $this->createQueryBuilder('d')
             ->select('COUNT(d)')
-            ->where('d.etat = ?1')
-            ->setParameter(1, 'Encours')
-            ->where('d.id_livreur = :id')
+            ->where('d.etat = :etat')
+            ->andWhere('d.id_livreur = :id')
+            ->setParameter('etat', $etat)
+            ->setParameter('id', $id)
             ->getQuery()
             ->getSingleScalarResult();
     }
@@ -145,23 +176,23 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
 
     }
 
-    public function enTraitement($id){
+    public function enTraitement($id,$etat){
         return $this->createQueryBuilder('d')
             ->select('COUNT(d)')
-            ->where('d.etat = ?1')
-            ->setParameter(1, 'EnTraitement')
-            ->where('d.id_client = :id')
+            ->where('d.etat = :etat')
+            ->setParameter('etat', $etat)
+            ->andWhere('d.id_client = :id')
             ->setParameter('id',  $id )
             ->getQuery()
             ->getSingleScalarResult();
 
     }
-    public function enTraitementLivreur($id){
+    public function enTraitementLivreur($id,$etat){
         return $this->createQueryBuilder('d')
             ->select('COUNT(d)')
-            ->where('d.etat = ?1')
-            ->setParameter(1, 'EnTraitement')
-            ->where('d.id_livreur = :id')
+            ->where('d.etat = :etat')
+            ->andWhere('d.id_livreur = :id')
+            ->setParameter('etat', $etat)
             ->setParameter('id',  $id )
             ->getQuery()
             ->getSingleScalarResult();
@@ -172,15 +203,48 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
 
     public function dixDernierDemande()
     {
-        $query = $this->getEntityManager()
-            ->createQuery("SELECT d  FROM DemandeBundle\Entity\Demande d  ORDER BY d.id DESC")
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->orderBy("a.updated_date","DESC")
+            ->getQuery()
             ->setMaxResults(10)
-        ;
+            ->getResult();
 
 
-        // returns an array of Product objects
-        return $query->getResult();
     }
+
+    public function dixDernierDemandeClient($id)
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->where("a.id_client = :id")
+            ->setParameter('id',$id)
+            ->orderBy("a.updated_date","DESC")
+            ->getQuery()
+            ->setMaxResults(10)
+            ->getResult();
+
+
+    }
+
+
+    public function dixDernierDemandeLivreur($id)
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->where("a.id_livreur = :id")
+            ->setParameter('id',$id)
+            ->orderBy("a.updated_date","DESC")
+            ->getQuery()
+            ->setMaxResults(10)
+            ->getResult();
+
+
+    }
+
+
+
+
 
     public function dixDernierDemandeUser($id)
     {
@@ -191,6 +255,18 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
 
             ->getQuery();
     }
+
+
+    public function listeAchat($type)
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a')
+            ->where('a.type = :id')
+            ->setParameter('type',  $type )
+
+            ->getQuery();
+    }
+
 
 
 

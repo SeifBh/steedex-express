@@ -16,6 +16,54 @@
     body.skin-blue.sidebar-mini.active.menu-open {
         padding: 0px !important;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Removes the clear button from date inputs */
+    input[type="date"]::-webkit-clear-button {
+    }
+
+    /* Removes the spin button */
+    input[type="date"]::-webkit-inner-spin-button {
+    }
+
+    /* Always display the drop down caret */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+    }
+
+    /* A few custom styles for date inputs */
+    input[type="date"] {
+        appearance: none;
+        -webkit-appearance: none;
+        color: #95a5a6;
+        border-radius:0px;
+        font-family: "Helvetica", arial, sans-serif;
+        font-size: 18px;
+        border:1px solid #b6b6b6;
+        background:#ffffff;
+        padding:5px;
+        display: inline-block !important;
+        visibility: visible !important;
+    }
+
+    input[type="date"], focus {
+        color: #333;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+    }
+        
 </style>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">

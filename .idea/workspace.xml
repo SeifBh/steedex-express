@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Repository/DemandeRepository.php" afterPath="$PROJECT_DIR$/src/DemandeBundle/Repository/DemandeRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Template.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Template.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -117,11 +115,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DemandeRepository.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DemandeRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Repository/DemandeRepository.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="191">
               <caret line="293" column="39" lean-forward="false" selection-start-line="293" selection-start-column="39" selection-end-line="293" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Template.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/Template.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="533">
+              <caret line="65" column="8" lean-forward="false" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -258,11 +266,11 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/ReclamationBundle/Repository/ReclamationRepository.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/Template.html.twig" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Repository/DemandeRepository.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Template.html.twig" />
       </list>
     </option>
   </component>
@@ -710,12 +718,12 @@
       <workItem from="1565027925425" duration="2784000" />
       <workItem from="1565439715020" duration="12711000" />
       <workItem from="1565504294089" duration="235000" />
-      <workItem from="1565520198881" duration="17215000" />
+      <workItem from="1565520198881" duration="18246000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="414795000" />
+    <option name="totallyTimeSpent" value="415826000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1147,14 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/Template.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="54" column="46" lean-forward="false" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1237,6 +1237,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
           <caret line="293" column="39" lean-forward="false" selection-start-line="293" selection-start-column="39" selection-end-line="293" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Template.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="65" column="8" lean-forward="false" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
           <folding />
         </state>
       </provider>

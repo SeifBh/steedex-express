@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/exception.html.twig" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Template.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Template.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Repository/DemandeRepository.php" afterPath="$PROJECT_DIR$/src/DemandeBundle/Repository/DemandeRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ReclamationBundle/Repository/ReclamationRepository.php" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Repository/ReclamationRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -114,7 +108,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dahboard.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dahboard.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
@@ -124,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="249" column="31" lean-forward="false" selection-start-line="249" selection-start-column="31" selection-end-line="251" selection-end-column="42" />
+            <state relative-caret-position="410">
+              <caret line="171" column="20" lean-forward="false" selection-start-line="171" selection-start-column="20" selection-end-line="171" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -158,7 +152,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>flush</find>
       <find>setEtat</find>
       <find>DESC</find>
       <find>LivDEM</find>
@@ -188,6 +181,7 @@
       <find>logo-lg</find>
       <find>parMo</find>
       <find>Entr</find>
+      <find>Encours</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -271,7 +265,6 @@
         <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/create.html.twig" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/dem.html.twig" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/pdf.html.twig" />
-        <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/manifest.twig" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Form/DemandeType.php" />
@@ -290,6 +283,7 @@
         <option value="$PROJECT_DIR$/src/ReclamationBundle/Repository/ReclamationRepository.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/Template.html.twig" />
         <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/dahboard.html.twig" />
+        <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig" />
       </list>
     </option>
   </component>
@@ -713,12 +707,12 @@
       <workItem from="1565027925425" duration="2784000" />
       <workItem from="1565439715020" duration="12711000" />
       <workItem from="1565504294089" duration="235000" />
-      <workItem from="1565520198881" duration="14889000" />
+      <workItem from="1565520198881" duration="15304000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="412469000" />
+    <option name="totallyTimeSpent" value="412884000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1178,14 +1172,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="249" column="31" lean-forward="false" selection-start-line="249" selection-start-column="31" selection-end-line="251" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Entity/Demande.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
@@ -1239,6 +1225,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="55" column="39" lean-forward="false" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="171" column="20" lean-forward="false" selection-start-line="171" selection-start-column="20" selection-end-line="171" selection-end-column="20" />
           <folding />
         </state>
       </provider>

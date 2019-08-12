@@ -155,6 +155,9 @@
 
     <table id="tabF" width="50%">
         <tr>
+            {% if is_granted('ROLE_ADMIN') == true %}
+
+
             <td colspan="4">
                 <select id="mylist"  class='form-control' >
                     <option value="all">All</option>
@@ -166,6 +169,7 @@
                 </select>
 
             </td>
+            {% endif %}
             <td colspan="4">
                 <input type="date"   class="form-control" name="bday" id="datePicker" >
 

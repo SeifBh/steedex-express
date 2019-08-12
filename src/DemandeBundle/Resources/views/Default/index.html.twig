@@ -169,6 +169,11 @@
                 </select>
 
             </td>
+                {% else %}
+            <select id="mylist"  class='form-control' style="display:none">
+                <option value="all">All</option>
+            </select>
+
             {% endif %}
             <td colspan="4">
                 <input type="date"   class="form-control" name="bday" id="datePicker" >

@@ -411,32 +411,74 @@ foreach ($para as $p){
 
         $em = $this->getDoctrine()->getManager();
 
-   if (($selectedClient == "all") && ($selectedClientDate=="")){
-       $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->findBy(array('archive'=>false), array('id' => 'DESC'));
+        if ($this->isGranted("ROLE_ADMIN"))
+        {
+            if (($selectedClient == "all") && ($selectedClientDate=="")){
+                $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->findBy(array('archive'=>false), array('id' => 'DESC'));
 
-   }
-   else{
-       if ($selectedClientDate == "")
-       {
-           $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClients($selectedClient);
-
-
-
-       }
-       elseif ($selectedClient == "all")
-       {
-
-           $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClientsDate($selectedClientDate);
-
-       }
-
-       else{
-           $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobal($selectedClient,$selectedClientDate);
+            }
+            else{
+                if ($selectedClientDate == "")
+                {
+                    $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClients($selectedClient);
 
 
-       }
 
-   }
+                }
+                elseif ($selectedClient == "all")
+                {
+
+                    $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClientsDate($selectedClientDate);
+
+                }
+
+                else{
+                    $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobal($selectedClient,$selectedClientDate);
+
+
+                }
+
+            }
+
+
+        }
+       else if ($this->isGranted("ROLE_CLIENT"))
+        {
+
+            if (($selectedClient == "all") && ($selectedClientDate=="")){
+                $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->findBy(array('archive'=>false,'id_client'=>$this->getUser()->getId()), array('id' => 'DESC'));
+
+            }
+            else{
+                if ($selectedClientDate == "")
+                {
+                    $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClients($selectedClient);
+
+
+
+                }
+                elseif ($selectedClient == "all")
+                {
+
+                    $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByClientsDateClient($selectedClientDate,$this->getUser()->getId());
+
+                }
+
+                else{
+                    $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobal($selectedClient,$selectedClientDate);
+
+
+                }
+
+            }
+
+
+
+        }
+
+
+
+
 
 
 

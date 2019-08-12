@@ -302,6 +302,22 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
             ->getResult();
     }
 
+
+    public function filterByClientsDateClient($date,$idclient){
+        return $this->createQueryBuilder('d')
+            ->where("d.date_emission")
+            ->where( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
+            ->andWhere('d.archive =  false')
+            ->andWhere('d.id_client =  :idclient')
+            ->setParameter('date',  $date )
+            ->setParameter('idclient',  $idclient )
+            ->orderBy('d.updated_date', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+
+
     public function filterByClientsDate($date){
         return $this->createQueryBuilder('d')
             ->where("d.date_emission")

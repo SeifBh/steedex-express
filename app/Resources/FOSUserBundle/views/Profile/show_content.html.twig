@@ -1,6 +1,8 @@
 {% extends 'Template.html.twig' %}
+    {% block title %}Mon Compte {% endblock %}
 
 {% block body %}
+
     {% trans_default_domain 'FOSUserBundle' %}
 
     <div class="row">
@@ -19,10 +21,10 @@
                 <div class="box-footer no-padding">
                     <ul class="nav nav-stacked">
 
-                        <li><a href="#">Mes Demandes <span class="pull-right badge bg-blue">31</span></a></li>
-                        <li><a href="#">Mes Reclamations <span class="pull-right badge bg-aqua">5</span></a></li>
-                        <li><a href="/profile">Mon Compte  <span class="pull-right badge bg-green">12</span></a></li>
-                        <li><a href="/logout">Deconnexion <span class="pull-right badge bg-red">842</span></a></li>
+                        <li><a href="{{ path('_list_demande') }}">Mes Demandes </a></li>
+                        <li><a href="{{ path('_list_reclamation') }}">Mes Reclamations </a></li>
+                        <li><a href="/profile">Mon Compte  </a></li>
+                        <li><a href="/logout">Deconnexion</a></li>
                     </ul>
                 </div>
             </div>
@@ -71,6 +73,8 @@
             </div>
             <!-- /.nav-tabs-custom -->
         </div>
+<center>        <h1>@{{ app.user.username }}</h1>
+</center>
         <!-- /.col -->
     </div>
 {% endblock %}

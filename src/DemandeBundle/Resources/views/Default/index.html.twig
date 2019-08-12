@@ -3,7 +3,6 @@
 
 
 {% block body %}
-
     <link href="{{ asset('tableFilter/assets/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('tableFilter/assets/css/bootstrap-override.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('tableFilter/assets/css/bootstrap-table.css') }}" rel="stylesheet" type="text/css">
@@ -158,21 +157,21 @@
             {% if is_granted('ROLE_ADMIN') == true %}
 
 
-            <td colspan="4">
-                <select id="mylist"  class='form-control' >
+                <td colspan="4">
+                    <select id="mylist"  class='form-control' >
+                        <option value="all">All</option>
+
+                        {% for i in listeClients %}
+                            <option value="{{ i.id }}">{{ i.nom }} {{ i.prenom }}</option>
+
+                        {% endfor %}
+                    </select>
+
+                </td>
+            {% else %}
+                <select id="mylist"  class='form-control' style="display:none">
                     <option value="all">All</option>
-
-                    {% for i in listeClients %}
-                        <option value="{{ i.id }}">{{ i.nom }} {{ i.prenom }}</option>
-
-                    {% endfor %}
                 </select>
-
-            </td>
-                {% else %}
-            <select id="mylist"  class='form-control' style="display:none">
-                <option value="all">All</option>
-            </select>
 
             {% endif %}
             <td colspan="4">
@@ -208,10 +207,10 @@
                         </div>
                         {% if is_granted('ROLE_ADMIN') == true %}
 
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
-                            Effacer tout
-                        </button>
-                        <br>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
+                                Effacer tout
+                            </button>
+                            <br>
 
                         {% endif %}
 
@@ -238,17 +237,17 @@
                                     {% if is_granted('ROLE_ADMIN') == true %}
 
 
-                                    <th>#Aff</th>
+                                        <th>#Aff</th>
                                     {% endif %}
 
                                     <th>#Mod</th>
 
                                     {% if is_granted('ROLE_ADMIN') == true %}
 
-                                    <th>#Supp</th>
+                                        <th>#Supp</th>
 
 
-                                    <th>#Arch</th>
+                                        <th>#Arch</th>
                                     {% endif %}
 
                                     <th>#Telecharger</th>
@@ -301,17 +300,17 @@
                                             </td>
                                             {% if is_granted('ROLE_ADMIN') == true %}
 
-                                            <td>
-                                                <a href="{{ path('_assign_demande',{'id_demande':d.id}) }}">Affecter</a>
-                                            </td>
+                                                <td>
+                                                    <a href="{{ path('_assign_demande',{'id_demande':d.id}) }}">Affecter</a>
+                                                </td>
                                             {% endif %}
                                             <td><a href="{{ path('_update_demande',{'id':d.id}) }}">Modifier</a></td>
                                             {% if is_granted('ROLE_ADMIN') == true %}
 
-                                            <td><a href="{{ path('_remove_demande',{'id':d.id}) }}">Supprimer</a></td>
-                                            <td><a href="{{ path('_archive_demande',{'id':d.id}) }}">Archiver</a></td>
+                                                <td><a href="{{ path('_remove_demande',{'id':d.id}) }}">Supprimer</a></td>
+                                                <td><a href="{{ path('_archive_demande',{'id':d.id}) }}">Archiver</a></td>
 
-{% endif %}
+                                            {% endif %}
                                             <td>
                                                 <a href="{{ path('_generate_url', {'id_demande': d.id}) }}"> Telecharger</a>
 
@@ -379,27 +378,27 @@
 
         {% if is_granted('ROLE_ADMIN') == true %}
 
-        <div class="modal modal-danger fade" id="modal-danger">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title">Vider Demandes</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Vous-étes sur ? </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Fermer</button>
-                        <a class="btn btn-outline"  role="button" href="{{ path('_remove_all_demande') }}"> Effacer tout</a>
+            <div class="modal modal-danger fade" id="modal-danger">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Vider Demandes</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Vous-étes sur ? </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Fermer</button>
+                            <a class="btn btn-outline"  role="button" href="{{ path('_remove_all_demande') }}"> Effacer tout</a>
 
+                        </div>
                     </div>
+                    <!-- /.modal-content -->
                 </div>
-                <!-- /.modal-content -->
+                <!-- /.modal-dialog -->
             </div>
-            <!-- /.modal-dialog -->
-        </div>
         {% endif %}
 
 
@@ -410,19 +409,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
     <script type="text/javascript">
 
@@ -505,7 +491,6 @@
 
 
 
-    <script src="{{ asset('tableFilter/assets/js/jquery-1.11.3.js') }}"></script>
     <script src="{{ asset('tableFilter/assets/js/bootstrap.js') }}"></script>
     <script src="{{ asset('tableFilter/assets/js/bootstrap-table.js') }}"></script>
     <script src="{{ asset('tableFilter/assets/js/bootstrap-table-en-US.js') }}"></script>

@@ -69,6 +69,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <!-- Font Awesome -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <link rel="stylesheet" href="{{ asset('steedex_styles_ADMIN/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('steedex_styles_ADMIN/bower_components/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('steedex_styles_ADMIN/bower_components/Ionicons/css/ionicons.min.css') }}">
@@ -193,7 +195,7 @@
 
                                 <p>
                                     {{ app.user.nom }}  {{ app.user.prenom }}-  {{ app.user.roles|join(' ') }}
-                                    <small> {{ app.user.lastLogin | date }}</small>
+                                    <small> Derniére connexion: {{ app.user.lastLogin | date }}</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->

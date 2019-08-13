@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Template.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Template.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/generateOrdre.html.twig" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/generateOrdre.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/ordreMission.html.twig" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/ordreMission.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/parameters.yml" afterPath="$PROJECT_DIR$/app/config/parameters.yml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -81,7 +79,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Template.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Template.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/Template.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="63">
@@ -91,11 +89,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="services.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parameters.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dashboard</find>
       <find>adre</find>
       <find>ENC</find>
       <find>listAc</find>
@@ -125,6 +142,7 @@
       <find>class=&quot;user-header&quot;</find>
       <find>nav nav-tabs nav-justified control-sidebar-tabs</find>
       <find>desc</find>
+      <find>class=&quot;control-sidebar-subheading&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -176,7 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/DemandeBundle/Enum/DemandeTypeEnum.php" />
         <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/src/UserBundle/Form/UserType.php" />
         <option value="$PROJECT_DIR$/src/UserBundle/Entity/User.php" />
@@ -227,6 +244,7 @@
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/generateOrdre.html.twig" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/ordreMission.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/Template.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
       </list>
     </option>
   </component>
@@ -631,12 +649,12 @@
       <workItem from="1565504294089" duration="235000" />
       <workItem from="1565520198881" duration="18246000" />
       <workItem from="1565642611036" duration="3179000" />
-      <workItem from="1565685752656" duration="1894000" />
+      <workItem from="1565685752656" duration="2565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="420899000" />
+    <option name="totallyTimeSpent" value="421570000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -738,20 +756,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/pdf.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="146" column="47" lean-forward="false" selection-start-line="146" selection-start-column="47" selection-end-line="146" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Tests/Functional/app/JsonLogin/custom_handlers.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1149,6 +1153,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="458" column="40" lean-forward="false" selection-start-line="458" selection-start-column="40" selection-end-line="458" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>

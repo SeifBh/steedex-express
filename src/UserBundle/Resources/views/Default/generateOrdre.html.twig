@@ -127,7 +127,8 @@
                 <tr>
                     <th scope="col">Agent.</th>
                     <th scope="col">Client</th>
-                    <th scope="col">Destination</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Operation</th>
 
                 </tr>
 
@@ -140,6 +141,7 @@
                             <td>{{ l.idLivreur.nom }} {{ l.idLivreur.prenom }} </td>
                             <td>{{ l.idClient.nom }} {{ l.idClient.prenom }} </td>
                             <td>{{ l.addresseRecept }}</td>
+                            <td>{{ l.type }}</td>
 
                         </tr>
                     {% endfor %}

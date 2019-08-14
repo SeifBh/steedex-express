@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Enum/ReclamationEtatEnum.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Resources/views/Default/update.html.twig" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/Front/public_images/free-ui-beepbeep_quentindegrange.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/Front/public_images/grille tarifaire 2019-2020_Ecole d'ingénieur tunisiens.pdf" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ReclamationBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ReclamationBundle/Entity/Reclamation.php" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Entity/Reclamation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ReclamationBundle/Form/ReclamationType.php" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Form/ReclamationType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ReclamationBundle/Resources/views/Default/create.html.twig" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Resources/views/Default/create.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ReclamationBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Resources/views/Default/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/archive.html.twig" afterPath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/archive.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,7 +39,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="ReclamationType.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReclamationType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ReclamationBundle/Form/ReclamationType.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -58,6 +48,16 @@
                 <element signature="e#42#89#0#PHP" expanded="true" />
                 <marker date="1565803343938" expanded="true" signature="661:1178" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="39" column="54" lean-forward="false" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -87,10 +87,22 @@
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="123" column="5" lean-forward="false" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+            <state relative-caret-position="215">
+              <caret line="192" column="52" lean-forward="false" selection-start-line="192" selection-start-column="52" selection-end-line="192" selection-end-column="52" />
               <folding>
                 <element signature="e#4652#4687#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="archive.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/archive.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="155" column="53" lean-forward="false" selection-start-line="155" selection-start-column="53" selection-end-line="155" selection-end-column="53" />
+              <folding>
+                <element signature="e#12#30#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,7 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>parMo</find>
       <find>Entr</find>
       <find>Encours</find>
       <find>All&lt;</find>
@@ -137,9 +148,10 @@
       <find>ETAT</find>
       <find>etat</find>
       <find>ReclamationEtatEnum</find>
-      <find>updateAc</find>
-      <find>use ReclamationBundle\Enum\ReclamationEtatEnum;</find>
       <find>Recla</find>
+      <find>use ReclamationBundle\Enum\ReclamationEtatEnum;</find>
+      <find>arch</find>
+      <find>updateAc</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -192,7 +204,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/update.html.twig" />
-        <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/archive.html.twig" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Form/DemandeClientType.php" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Controller/RegistrationController.php" />
         <option value="$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php" />
@@ -242,6 +253,7 @@
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/ReclamationBundle/Resources/views/Default/update.html.twig" />
         <option value="$PROJECT_DIR$/src/ReclamationBundle/Form/ReclamationType.php" />
+        <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/archive.html.twig" />
       </list>
     </option>
   </component>
@@ -437,20 +449,28 @@
               <item name="steedex" type="b2602c69:ProjectViewProjectNode" />
               <item name="steedex" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ReclamationBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="DemandeBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="steedex" type="b2602c69:ProjectViewProjectNode" />
               <item name="steedex" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ReclamationBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="DemandeBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="steedex" type="b2602c69:ProjectViewProjectNode" />
               <item name="steedex" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ReclamationBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="DemandeBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="steedex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="steedex" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="DemandeBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
@@ -459,9 +479,6 @@
               <item name="steedex" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="ReclamationBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Default" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="steedex" type="b2602c69:ProjectViewProjectNode" />
@@ -580,12 +597,12 @@
       <workItem from="1565520198881" duration="18246000" />
       <workItem from="1565642611036" duration="3179000" />
       <workItem from="1565685752656" duration="7360000" />
-      <workItem from="1565742809646" duration="6446000" />
+      <workItem from="1565742809646" duration="6806000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="432811000" />
+    <option name="totallyTimeSpent" value="433171000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -687,13 +704,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Default/generateOrdre.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Default/ordreMission.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -841,13 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="49" lean-forward="false" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/archive.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1030,16 +1033,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="123" column="5" lean-forward="false" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
-          <folding>
-            <element signature="e#4652#4687#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3570">
@@ -1085,6 +1078,34 @@
           <folding>
             <element signature="e#42#89#0#PHP" expanded="true" />
             <marker date="1565803343938" expanded="true" signature="661:1178" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="39" column="54" lean-forward="false" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="192" column="52" lean-forward="false" selection-start-line="192" selection-start-column="52" selection-end-line="192" selection-end-column="52" />
+          <folding>
+            <element signature="e#4652#4687#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/archive.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="155" column="53" lean-forward="false" selection-start-line="155" selection-start-column="53" selection-end-line="155" selection-end-column="53" />
+          <folding>
+            <element signature="e#12#30#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>

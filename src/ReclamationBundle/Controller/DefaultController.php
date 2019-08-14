@@ -3,6 +3,7 @@
 namespace ReclamationBundle\Controller;
 
 use ReclamationBundle\Entity\Reclamation;
+use ReclamationBundle\Enum\ReclamationEtatEnum;
 use ReclamationBundle\Form\ReclamationType;
 use ReponseBundle\Entity\Reponse;
 use ReponseBundle\Form\ReponseType;
@@ -62,14 +63,18 @@ class DefaultController extends Controller
         $userId = $user->getId();
         $reclmation = new Reclamation();
 
-        $form = $this->createForm(ReclamationType::class, $reclmation);
+        $roles = $this->getUser()->getRoles();
+        $form = $this->createForm(ReclamationType::class, $reclmation, array('user' => $this->getUser()->getRoles()));
+
+
+
         $form->handleRequest($request); /*creation d'une session pr stocker les valeurs de l'input*/
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
 
                 $em = $this->getDoctrine()->getManager();
                 $reclmation->setIdUser($user);
-                $reclmation->setEtat("encours");
+                $reclmation->setEtat(ReclamationEtatEnum::ETAT_EnCours);
                 $reclmation->setReadReclamation(false);
                 $reclmation->setModifiedReclamation(false);
                 $reclmation->setDateCreation(new \DateTime());
@@ -101,7 +106,7 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $reclamation = $em->getRepository("ReclamationBundle:Reclamation")->find($id);
-        $form = $this->createForm(Reclamation::class, $reclamation);
+        $form = $this->createForm(ReclamationType::class, $reclamation);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -111,7 +116,7 @@ class DefaultController extends Controller
         }
 
 
-        return $this->render("ReclamationBundle:Default:index.html.twig", array(
+        return $this->render("ReclamationBundle:Default:update.html.twig", array(
             'form' => $form->createView()
         ));
 

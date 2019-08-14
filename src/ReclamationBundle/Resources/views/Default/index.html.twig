@@ -26,7 +26,7 @@
                     <th>De de la part</th>
                     <th>Sujet</th>
                     <th>Description</th>
-
+                    <th>Etat</th>
                     <th>#Ouv</th>
                     <th>#Mod</th>
                     <th>#Supp</th>
@@ -42,6 +42,7 @@
                             <td>{{ d.idUser.nom }} {{ d.idUser.prenom }}</td>
                             <td>{{ d.sujet }}</td>
                             <td>{{ d.description }}</td>
+                            <td>{{ d.etat }}</td>
 
                             <td><a href="{{ path('_ouvrir_reclamation',{'id':d.id}) }}">Ouvrir</a></td>
                             <td><a href="{{ path('_update_reclamation',{'id':d.id}) }}">Modifier</a></td>

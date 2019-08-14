@@ -3,6 +3,7 @@
 namespace ReclamationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ReclamationBundle\Enum\ReclamationEtatEnum;
 
 /**
  * Reclamation
@@ -88,12 +89,18 @@ class Reclamation
 
     /**
      * @param string $etat
+     * @return Reclamation
      */
     public function setEtat($etat)
     {
-        $this->etat = $etat;
-    }
+        if (!in_array($etat, ReclamationEtatEnum::getAvailableTypes())) {
+            throw new \InvalidArgumentException("Invalid etat");
+        }
 
+        $this->etat = $etat;
+
+        return $this;
+    }
 
 
     /**

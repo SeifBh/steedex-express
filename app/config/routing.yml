@@ -13,7 +13,7 @@ index_bundle:
 
 _reponse_bundle:
     resource: "@ReponseBundle/Resources/config/routing.yml"
-    prefix:   /reponses
+    prefix:   /dashboard/reponses
 
 
 
@@ -33,12 +33,12 @@ admin_bundle:
 
 reclamation_bundle:
     resource: "@ReclamationBundle/Resources/config/routing.yml"
-    prefix:   /reclamation/
+    prefix:   /dashboard/reclamation/
 
 
 reclamation_bundle:
     resource: "@ReponseBundle/Resources/config/routing.yml"
-    prefix:   /reclamation/reponses/
+    prefix:   /dashboard/reclamation/reponses/
 
 
 homepage:

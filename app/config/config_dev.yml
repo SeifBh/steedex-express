@@ -39,5 +39,5 @@ monolog:
 
 swiftmailer:
     transport: gmail
-    username:  '%mailer_user%'
+    username:  '%mailer_username%'
     password:  '%mailer_password%'

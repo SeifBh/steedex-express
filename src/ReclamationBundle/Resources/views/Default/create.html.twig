@@ -28,13 +28,13 @@
         <!-- /.box-header -->
         <!-- form start -->
         <div class="box-body">
-
+{% if is_granted("ROLE_ADMIN") %}
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Etat</label>
                 {{ form_row(form.etat) }}
             </div>
-
+{% endif %}
 
 
 

@@ -105,8 +105,11 @@ class DefaultController extends Controller
     public function updateAction(Request $request,$id){
 
         $em = $this->getDoctrine()->getManager();
+        $reclmation = new Reclamation();
         $reclamation = $em->getRepository("ReclamationBundle:Reclamation")->find($id);
-        $form = $this->createForm(ReclamationType::class, $reclamation);
+        $roles = $this->getUser()->getRoles();
+        $form = $this->createForm(ReclamationType::class, $reclamation, array('user' => $this->getUser()->getRoles()));
+
         $form->handleRequest($request);
 
         if ($form->isValid()) {

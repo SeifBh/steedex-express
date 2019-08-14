@@ -20,6 +20,7 @@ class ReclamationType extends AbstractType
         $role = $options['user'];
         // var_dump($role);
 
+        if (in_array('ROLE_ADMIN',$role)) {
             $builder
                 ->add('etat', ChoiceType::class, array(
                     'required' => true,
@@ -31,17 +32,10 @@ class ReclamationType extends AbstractType
                     'choice_label' => function($choice) {
                         return ReclamationEtatEnum::getTypeName($choice);
                     }
-                ))
-
-
-
-
-
-
-
-
-
-            ->add('sujet', TextType::class,array(
+                ));
+        }
+            $builder
+                    ->add('sujet', TextType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Sujet"),
 
                     'label'=>false

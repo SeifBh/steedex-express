@@ -69,6 +69,7 @@ class DefaultController extends Controller
 
                 $em = $this->getDoctrine()->getManager();
                 $reclmation->setIdUser($user);
+                $reclmation->setEtat("encours");
                 $reclmation->setReadReclamation(false);
                 $reclmation->setModifiedReclamation(false);
                 $reclmation->setDateCreation(new \DateTime());

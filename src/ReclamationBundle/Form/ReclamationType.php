@@ -24,6 +24,12 @@ class ReclamationType extends AbstractType
                 )
             )
 
+            ->add('etat', TextType::class,array(
+                    'attr'=> array('class' => 'form-control','placeholder'=>"Sujet"),
+
+                    'label'=>false
+                )
+            )
             ->add('description', TextareaType::class,array(
                     'attr'=> array('class' => 'form-control','placeholder'=>"Reclamer quelque chose"),
 

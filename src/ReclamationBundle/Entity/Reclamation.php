@@ -28,6 +28,14 @@ class Reclamation
      */
     private $sujet;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etat", type="string", length=255, nullable=true)
+     */
+    private $etat;
+
     /**
      * @var string
      *
@@ -69,6 +77,22 @@ class Reclamation
      * @ORM\JoinColumn(name="id_user",referencedColumnName="id",onDelete="SET NULL",nullable=true)
      */
     private $id_user;
+
+    /**
+     * @return string
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
 
 
 

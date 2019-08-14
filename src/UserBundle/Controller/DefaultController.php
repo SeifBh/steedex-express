@@ -204,6 +204,8 @@ class DefaultController extends D
 
     public function testMailAction()
     {
+     //   return new Response($this->container->getParameter('kernel.environment'));
+
         $message = (new \Swift_Message('Demande prête'))
             ->setFrom('belhadjali.seif@gmail.com')
             ->setTo('belhadjali.seif@gmail.com')

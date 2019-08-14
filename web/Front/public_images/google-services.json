@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "375632522667",
+    "firebase_url": "https://loginrestapi-4732e.firebaseio.com",
+    "project_id": "loginrestapi-4732e",
+    "storage_bucket": "loginrestapi-4732e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375632522667:android:2c6e08016b80579c",
+        "android_client_info": {
+          "package_name": "tn.seif.steedex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375632522667-uvvdv0ial4hitj7g3rgqgrke0ifkl7ur.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tn.seif.steedex",
+            "certificate_hash": "0ae917afc0afe41b897125bb4c857777b6960cff"
+          }
+        },
+        {
+          "client_id": "375632522667-eggak3iq8m4kj11s4k403hma76njkdp8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlB6uHRyOqtPhTxtdAJ_5C3DMNxQF_8vM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375632522667-eggak3iq8m4kj11s4k403hma76njkdp8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

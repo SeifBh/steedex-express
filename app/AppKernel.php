@@ -32,6 +32,7 @@ class AppKernel extends Kernel
             new DevisBundle\DevisBundle(),
             new \Kilik\TableBundle\KilikTableBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
+            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
 
 
         ];

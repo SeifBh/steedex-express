@@ -169,3 +169,5 @@ nelmio_cors:
 cmen_google_charts:
     version: "current"
     language: "fr"
+
+gregwar_captcha: ~

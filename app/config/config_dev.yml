@@ -38,6 +38,6 @@ monolog:
         #    level: info
 
 swiftmailer:
-    transport: gmail
-    username:  '%mailer_username%'
-    password:  '%mailer_password%'
+    transport: smtp
+    mailer_username: belhadjali.seif@gmail.com
+    mailer_password: ultraS1920

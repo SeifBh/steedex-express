@@ -23,5 +23,5 @@ monolog:
 
 swiftmailer:
     transport: smtp
-    username:  '%mailer_username%'
-    password:  '%mailer_password%'
+    mailer_username: belhadjali.seif@gmail.com
+    mailer_password: ultraS1920

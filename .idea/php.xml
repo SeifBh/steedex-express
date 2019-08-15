@@ -54,4 +54,9 @@
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.5.0" />
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings load_method="PHPUNIT_PHAR" custom_loader_path="" phpunit_phar_path="E:/phpunit-8.3.4.phar" />
+    </phpunit_settings>
+  </component>
 </project>

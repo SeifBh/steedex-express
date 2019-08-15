@@ -136,6 +136,10 @@ class DefaultController extends Controller
 
         if ($form->isValid()) {
             $demande->setUpdatedDate(new \DateTime());
+            if ($demande->getEtat() == DemandeEtatEnum::ETAT_Valide)
+            {
+                $demande->setDateRecepetion(new \DateTime());
+            }
             $em->persist($demande);
             $em->flush();
             return $this->redirectToRoute('_list_demande');

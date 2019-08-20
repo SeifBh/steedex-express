@@ -348,7 +348,7 @@
                 <!-- /.box-body -->
                 <button type="button"  id="btnthis" class="btn btn-primary pull-left"  data-toggle="modal" data-target="#modal-default">
 
-                    Generate manifeste 5sqs
+                    Generate manifeste
                 </button>
             </div>
             <!-- /. box -->
@@ -434,7 +434,6 @@
 
 
             $( "#btnthis" ).click(function() {
-                    console.log('aa');
                 var tmp= [];
                 tmp = myFunction();
                 $('#manifest').html("<center><img src='https://mowsalinas.org/subscribers/22sb4b327c1c/themes/default/images/wait.gif'/></center>");
@@ -447,7 +446,6 @@
                 }
 
                 else{
-                alert('ok');
                     data = tmp;
                     //alert(abcd);
                     var $url = "{{ path('testthis', {'data': 'data'}) }}";

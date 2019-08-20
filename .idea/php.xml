@@ -51,12 +51,14 @@
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
       <path value="$PROJECT_DIR$/../../stdeex/symfony_heroku/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/../../stdeex/symfony_heroku/vendor/symfony/symfony" />
+      <path value="" />
+      <path value="C:\php\pear" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="5.5.0" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="7" />
   <component name="PhpUnit">
     <phpunit_settings>
-      <PhpUnitSettings load_method="PHPUNIT_PHAR" custom_loader_path="" phpunit_phar_path="E:/phpunit-8.3.4.phar" />
+      <PhpUnitSettings load_method="PHPUNIT_PHAR" custom_loader_path="" phpunit_phar_path="C:/bin/phpunit.phar" />
     </phpunit_settings>
   </component>
 </project>

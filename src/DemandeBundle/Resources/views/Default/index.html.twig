@@ -9,7 +9,9 @@
     <link href="{{ asset('tableFilter/src/bootstrap-table-filter.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('comingsoon_05/vendor/select2/select2.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('tableFilter/assets/css/jquery-ui-1.10.3.css') }}" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -346,7 +348,7 @@
                 <!-- /.box-body -->
                 <button type="button"  id="btnthis" class="btn btn-primary pull-left"  data-toggle="modal" data-target="#modal-default">
 
-                    Generate manifeste
+                    Generate manifeste 5sqs
                 </button>
             </div>
             <!-- /. box -->
@@ -432,6 +434,7 @@
 
 
             $( "#btnthis" ).click(function() {
+                    console.log('aa');
                 var tmp= [];
                 tmp = myFunction();
                 $('#manifest').html("<center><img src='https://mowsalinas.org/subscribers/22sb4b327c1c/themes/default/images/wait.gif'/></center>");
@@ -444,7 +447,7 @@
                 }
 
                 else{
-
+                alert('ok');
                     data = tmp;
                     //alert(abcd);
                     var $url = "{{ path('testthis', {'data': 'data'}) }}";

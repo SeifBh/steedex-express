@@ -109,7 +109,7 @@
     {% if is_granted('ROLE_ADMIN') == true %}
 
         <div class="form-group">
-            <label for="exampleInputEmail1">Montant</label>
+            <label for="exampleInputEmail1">Montant 22</label>
             {{ form_row(form.montant) }}
         </div>
 
@@ -129,6 +129,14 @@
                 <label for="exampleInputEmail1">Description</label>
                 {{ form_row(form.descProd) }}
             </div>
+    {% if is_granted('ROLE_ADMIN') == true %}
+
+        <div class="form-group">
+                <label for="exampleInputEmail1">Date Emission</label>
+                {{ form_row(form.dateEmission) }}
+            </div>
+
+    {% endif %}
 
 
 

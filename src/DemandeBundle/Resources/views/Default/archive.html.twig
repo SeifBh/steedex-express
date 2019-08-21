@@ -185,15 +185,16 @@
                 <div class="box box-primary">
 
                     <div class="box-header with-border">
-                        <h3 class="box-title">Inbox</h3>
 
-                        <h3 class="box-title">Liste des demandes</h3>
-                        <div class="box-tools">
-                            <a href="{{ path('_create_demande') }}" type="button" class="btn btn-block btn-primary btn-lg">Créer une demande</a>
+                        <h3 class="box-title">Liste des demandes archivé</h3>
+                        <div class="form-">
+                            <div class="box-tools">
+                                <a href="{{ path('_create_demande') }}" type="button" class=" btn float-right btn-success ">Créer une demande</a>
+                            </div>
+
                         </div>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
-                            Effacer tout
-                        </button>
+
+
                         <br>
 
 
@@ -227,7 +228,7 @@
                                 </tr>
 
                                 {% if listDemandes is empty %}
-                                    <tr><th> Aucun demande enregistré</th></tr>
+                                    <tr><th><center> Aucun demande enregistré</center></th></tr>
                                 {% else %}
                                     {% for d in listDemandes %}
                                         <tr class="{% if d.readDemande == false %} notRead {% endif %}">

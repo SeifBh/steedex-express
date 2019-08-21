@@ -67,9 +67,7 @@
             </div>
             <!-- /.box-body -->
 
-            <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+
 
     </div>
     </div>
@@ -109,11 +107,20 @@
     {% if is_granted('ROLE_ADMIN') == true %}
 
         <div class="form-group">
-            <label for="exampleInputEmail1">Montant 22</label>
+            <label for="exampleInputEmail1">Montant </label>
             {{ form_row(form.montant) }}
         </div>
 
-    {% endif %}
+    {% elseif  is_granted('ROLE_CLIENT') == true %}
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Montant </label>
+                    {{ form_row(form.montant) }}
+                </div>
+
+            {% endif %}
+
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Taille</label>
@@ -147,8 +154,13 @@
 
 
         </div>
+
     </div>
+
+
     </div>
+<center>    <button type="submit" class="btn btn-lg btn-primary">Envoyer</button>
+</center>
     {{ form_rest(form) }}
     {{ form_end(form) }}
 

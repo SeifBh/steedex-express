@@ -26,6 +26,17 @@ class DemandeType extends AbstractType
     {
         $role = $options['user'];
        // var_dump($role);
+        if (in_array('ROLE_CLIENT',$role)) {
+            $builder
+
+                ->add('montant', NumberType::class,array(
+                        'attr'=> array('class' => 'form-control','placeholder'=>"Montant en dinars"),
+
+                        'label'=>false,
+                        'required' =>true
+                    )
+                );
+        }
 
         if (in_array('ROLE_ADMIN',$role)) {
 

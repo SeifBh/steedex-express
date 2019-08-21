@@ -277,11 +277,17 @@
 
                                             <td>
 
-
-                                                {{ d.etat }}
-
-
-
+                                                {% if (d.etat == "EnTraitement") %}
+                                                    <span class="label label-info">{{ d.etat }}</span>
+                                                {% elseif (d.etat == "EnCours") %}
+                                                    <span class="label label-warning">{{ d.etat }}</span>
+                                                {% elseif (d.etat == "Valide") %}
+                                                    <span class="label label-success">{{ d.etat }}</span>
+                                                {% elseif (d.etat == "Cloture") %}
+                                                    <span class="label label-danger">{{ d.etat }}</span>
+                                                {% else %}
+                                                    {{ d.etat }}
+                                                {% endif %}
 
 
 

@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/dem.html.twig" afterPath="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/dem.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app_dev.php" afterPath="$PROJECT_DIR$/web/app_dev.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,16 +44,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="update.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Default/update.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="170" column="52" lean-forward="false" selection-start-line="170" selection-start-column="52" selection-end-line="170" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -79,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dem.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dem.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UserBundle/Resources/views/Default/dem.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -87,6 +76,16 @@
               <folding>
                 <element signature="e#12#30#0#Twig" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_dev.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/app_dev.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -159,7 +158,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>arch</find>
       <find>updae</find>
       <find>tes</find>
       <find>updateAc</find>
@@ -189,6 +187,7 @@
       <find>imgL</find>
       <find>datebtn</find>
       <find>tab</find>
+      <find>id=&quot;tab</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -279,7 +278,6 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/web/app_dev.php" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register_content.html.twig" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/edit_content.html.twig" />
         <option value="$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php" />
@@ -291,6 +289,7 @@
         <option value="$PROJECT_DIR$/app/Resources/views/Template.html.twig" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/UserBundle/Resources/views/Default/dem.html.twig" />
+        <option value="$PROJECT_DIR$/web/app_dev.php" />
       </list>
     </option>
   </component>
@@ -808,7 +807,7 @@
       <workItem from="1566255451889" duration="2393000" />
       <workItem from="1566323436847" duration="172000" />
       <workItem from="1566323860987" duration="1920000" />
-      <workItem from="1566412288210" duration="5249000" />
+      <workItem from="1566412288210" duration="5430000" />
     </task>
     <servers />
   </component>
@@ -845,7 +844,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="460291000" />
+    <option name="totallyTimeSpent" value="460472000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1196,14 +1195,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/app_dev.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-378">
@@ -1361,6 +1352,14 @@
           <folding>
             <element signature="e#12#30#0#Twig" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app_dev.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

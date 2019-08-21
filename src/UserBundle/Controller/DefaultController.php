@@ -85,11 +85,7 @@ class DefaultController extends D
             $len = strlen($user->getPassword());
             $painpass = substr($user->getPassword(), $len, -45);
             $body =  "Bonjour ". $user->nom ." ".$user->getPrenom() .
-            "<center>Bienvenue!!!</center><br>Bienvenue sur notre application. vous pouvez maintenant connectez chez  votre espace client en utilisiant les cordonnées cii-dessous :<br>"
-                ."login :" . $user->getUsername() ."<br>"
-                . "Mot de passe :" .$user->$painpass().
-            "<br><br><h5>Steedex support</h5>"
-            ;
+            "<center>Bienvenue!!!</center><br>Bienvenue sur notre application. vous pouvez maintenant connectez chez  votre espace client en utilisiant les cordonnées cii-dessous :<br><br><br><h5>Steedex support</h5>";
             //return  new Response($body);
             $em = $this->getDoctrine()->getManager();
 
@@ -146,7 +142,8 @@ class DefaultController extends D
 
 
         return $this->render("@User/Default/update.html.twig",array(
-            'form'=>$form->createView()
+            'form'=>$form->createView(),
+            'user'=>$user
         ));
 
     }

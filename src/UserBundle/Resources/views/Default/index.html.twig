@@ -26,14 +26,18 @@
             {{ message }}
         </div>
     {% endfor %}
-    <label>Search..</label>
+<div class="form-group">
+
+
+<label>Search..</label>
     <input class="form-control float-lg-right" id="myInput" type="text" placeholder="Search..">
 
+</div>
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">Liste des utilisateurs</h3>
             <div class="box-tools">
-                <a href="{{ path('_create_user') }}" type="button" class="btn btn-block btn-primary btn-lg">Ajouter</a>
+                <a href="{{ path('_create_user') }}" type="button" class="btn btn-block btn-success btn-lg">Ajouter</a>
             </div><br>
         </div><br>
 
@@ -45,7 +49,7 @@
 
 
 
-            <table class="table table-condensed">
+            <table class="table table-striped table-condensed table-hover ">
                 <tbody><tr>
 
                     <th>Nom & Prenom</th>
@@ -54,8 +58,7 @@
                     <th>Email</th>
                     <th>Edit</th>
                     <th>Delete</th>
-                    <th>To User</th>
-                    <th>To Admin</th>
+
 
                 </tr>
 
@@ -65,10 +68,8 @@
                         <td id="tel">{{ c.tel }}</td>
                         <td>{{ c.addresse }}</td>
                         <td>{{ c.email }}</td>
-                        <td><a href="{{ path('_update_user',{'id':c.id}) }}">editer</a></td>
-                        <td><a href="{{ path('_remove_user',{'id':c.id}) }}">supprimer</a></td>
-                        <td><a href="{{ path('_send_mail_to_user',{'id':c.id}) }}">envoyer </a></td>
-                        <td><a href="{{ path('_send_mail_to_admin',{'id':c.id}) }}">envoyer</a></td>
+                        <td><a href="{{ path('_update_user',{'id':c.id}) }}">Modifier</a></td>
+                        <td><a href="{{ path('_remove_user',{'id':c.id}) }}">Supprimer</a></td>
 
                     </tr>
                 {% endfor %}
@@ -81,7 +82,7 @@
 
 
 
-    <a href="{{ path('_test_mail') }}">test mail</a>
+    <a href="{{ path('_test_mail') }}">Test Email to belhadjali.seif@gmail.com</a>
 
     <script>
         $(document).ready(function(){

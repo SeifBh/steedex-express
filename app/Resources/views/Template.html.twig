@@ -17,7 +17,11 @@
         padding: 0px !important;
     }
 
-
+    .navbar-nav>.user-menu>.dropdown-menu>li.user-header {
+        height: 242px;
+        padding: 10px;
+        text-align: center;
+    }
 
 
 
@@ -41,7 +45,9 @@
     /* Always display the drop down caret */
     input[type="date"]::-webkit-calendar-picker-indicator {
     }
-
+    .table-hover tr:hover {
+        background-color: #f0ff05ba !important;
+    }
     /* A few custom styles for date inputs */
     input[type="date"] {
         appearance: none;
@@ -141,10 +147,10 @@
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li class="header">You have  {{ render(controller(
+                            <li class="header">Vous avez  {{ render(controller(
                                 'AppBundle:Default:countUnreadMessages',
                                 { 'max': 3 }
-                                )) }} notifications
+                                )) }} notification(s)
 
                             </li>
                             <li>
@@ -170,7 +176,18 @@
                                 <img src="{{ asset('steedex_styles_ADMIN/dist/img/user-icon.png')}}" class="img-circle" alt="User Image">
 
                                 <p>
-                                    {{ app.user.nom }}  {{ app.user.prenom }}-  {{ app.user.roles|join(' ') }}
+                                    {{ app.user.nom }}  {{ app.user.prenom }}-<br>
+
+                                    {% if is_granted('ROLE_ADMIN') == true %}
+                                        ROLE ADMIN<br>
+                                    {% elseif is_granted('ROLE_CLIENT') == true %}
+                                        ROLE Client<br>
+                                    {% elseif is_granted('ROLE_LIVREUR') == true %}
+                                    ROLE Livreur<br>
+
+
+                                    {% endif %}
+
                                     <small> Derniére connexion: {{ app.user.lastLogin | date }}</small>
                                 </p>
                             </li>

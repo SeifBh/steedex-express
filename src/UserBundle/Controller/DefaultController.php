@@ -118,7 +118,28 @@ class DefaultController extends D
     public function removeAction(Request $request,$id){
         $em=$this->getDoctrine()->getManager();
         $user=$em->getRepository("UserBundle:User")->find($id);
+        $user_livreur = $em->getRepository("UserBundle:User")->find(33);
+
+
         if ($user!=null){
+
+            $listeDemande=$em->getRepository("DemandeBundle:Demande")->findBy(array("id_livreur"=>$user->getId()));
+
+            foreach ($listeDemande as $offset => $record) {
+
+                $product = new Demande();
+
+                $product = $em->getRepository("DemandeBundle:Demande")->findOneBy(['id' => $record->getId()]);
+
+                $product->setIdLivreur($user_livreur);
+
+                $em->persist($product);
+                $em->flush();
+
+
+
+            }
+
             $em->remove($user);
             $em->flush();
         }

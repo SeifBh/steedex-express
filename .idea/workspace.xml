@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Front/steedex_template/mt-demo/67900/67965/mt-content/uploads/2018/06/mt-1497-home-parallax4.jpg" afterPath="$PROJECT_DIR$/web/Front/steedex_template/mt-demo/67900/67965/mt-content/uploads/2018/06/mt-1497-home-parallax4.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css" afterPath="$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,7 +76,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
@@ -88,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="262">
+              <caret line="3490" column="22" lean-forward="false" selection-start-line="3490" selection-start-column="22" selection-end-line="3490" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -136,7 +134,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>myInput</find>
       <find>LivDe</find>
       <find>update</find>
       <find>.gif</find>
@@ -166,6 +163,7 @@
       <find>TRANSPORT DE PETITS COLIS ET DE COLIS VOLUMINEUX</find>
       <find>.js</find>
       <find>moto-widget moto-widget-row row-gutter-0 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto</find>
+      <find>Testimonials</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -266,8 +264,8 @@
         <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/create.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/Template.html.twig" />
         <option value="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/archive.html.twig" />
-        <option value="$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
+        <option value="$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css" />
       </list>
     </option>
   </component>
@@ -744,7 +742,7 @@
       <workItem from="1566255451889" duration="2393000" />
       <workItem from="1566323436847" duration="172000" />
       <workItem from="1566323860987" duration="1920000" />
-      <workItem from="1566412288210" duration="13881000" />
+      <workItem from="1566412288210" duration="14044000" />
     </task>
     <servers />
   </component>
@@ -781,7 +779,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="468923000" />
+    <option name="totallyTimeSpent" value="469086000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1300,18 +1298,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="568" column="45" lean-forward="false" selection-start-line="568" selection-start-column="45" selection-end-line="568" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="3490" column="22" lean-forward="false" selection-start-line="3490" selection-start-column="22" selection-end-line="3490" selection-end-column="22" />
           <folding />
         </state>
       </provider>

@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Front/steedex_template/mt-demo/67900/67965/mt-content/uploads/2018/06/mt-1497-home-parallax4.jpg" afterPath="$PROJECT_DIR$/web/Front/steedex_template/mt-demo/67900/67965/mt-content/uploads/2018/06/mt-1497-home-parallax4.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css" afterPath="$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
-              <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+              <caret line="568" column="45" lean-forward="false" selection-start-line="568" selection-start-column="45" selection-end-line="568" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -89,8 +91,8 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="37" />
+            <state relative-caret-position="462">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -134,9 +136,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&lt;tab</find>
-      <find>role l</find>
-      <find>&lt;ta</find>
       <find>myInput</find>
       <find>LivDe</find>
       <find>update</find>
@@ -153,7 +152,6 @@
       <find>montant</find>
       <find>Créer</find>
       <find>.css</find>
-      <find>.js</find>
       <find>&lt;img</find>
       <find>mt-1497-home-header-bg.jpg</find>
       <find>perso</find>
@@ -164,6 +162,10 @@
       <find>bg1.</find>
       <find>parallax3.</find>
       <find>parallax4.</find>
+      <find>satisf</find>
+      <find>TRANSPORT DE PETITS COLIS ET DE COLIS VOLUMINEUX</find>
+      <find>.js</find>
+      <find>moto-widget moto-widget-row row-gutter-0 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -742,7 +744,7 @@
       <workItem from="1566255451889" duration="2393000" />
       <workItem from="1566323436847" duration="172000" />
       <workItem from="1566323860987" duration="1920000" />
-      <workItem from="1566412288210" duration="11820000" />
+      <workItem from="1566412288210" duration="13881000" />
     </task>
     <servers />
   </component>
@@ -779,7 +781,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="466862000" />
+    <option name="totallyTimeSpent" value="468923000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1300,8 +1302,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="37" />
+        <state relative-caret-position="462">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1309,7 +1311,7 @@
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
-          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <caret line="568" column="45" lean-forward="false" selection-start-line="568" selection-start-column="45" selection-end-line="568" selection-end-column="45" />
           <folding />
         </state>
       </provider>

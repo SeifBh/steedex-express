@@ -42,6 +42,14 @@ class DefaultController extends Controller
             'roles' => $user->getRoles(),
         ));
     }
+    /**
+     * @Route("/confidentialite", name="confidentialite")
+     */
+    public function confidentialiteAction()
+    {
+        return $this->render('@Admin/Default/confidentialite.html.twig');
+
+    }
 
     /**
      * @Route("/getQuote", name="quote")

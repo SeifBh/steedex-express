@@ -47,7 +47,7 @@
                             <div class="moto-widget moto-widget-row__column moto-cell col-sm-3 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-bg-position="left top" data-container="container" data-spacing="aaaa" data-widget="row.column" style="">
                                 <div class="moto-widget moto-widget-text moto-preset-default moto-spacing-top-small moto-spacing-right-auto moto-spacing-bottom-small moto-spacing-left-auto" data-animation="" data-preset="default" data-spacing="sasa" data-widget="text">
                                     <div class="moto-widget-text-content moto-widget-text-editable">
-                                        <p class="moto-text_218">Deveoped By Safemediaweb - Copyright © 2019. All rights reserved.</p>
+                                        <p class="moto-text_218"><a href="{{ path('_confidentialite') }}">Confidentialite</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -60,3 +60,45 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+
+        $(".moto-widget-menu-toggle-btn").click(function(){
+            var $this = $(this);
+            if($this.data('clicked')) {
+                $this.data('clicked', false);
+                $("#wid_1529048814_11lc8jp4u" ).removeClass("moto-spacing-left-auto moto-widget-menu-mobile-open");
+
+            }
+            else {
+                $this.data('clicked', true);
+                $("#wid_1529048814_11lc8jp4u" ).addClass("moto-spacing-left-auto moto-widget-menu-mobile-open");
+            }
+        });
+
+
+
+/*
+        var on = false;
+        var off = true;
+        $( ".moto-widget-menu-toggle-btn" ).click(function() {
+                on = true;
+                off = false;
+
+            if (on = true) {
+                off = false;
+                $("#wid_1529048814_11lc8jp4u" ).removeClass("moto-spacing-left-auto moto-widget-menu-mobile-open");
+            }
+            if (off = true) {
+                on = false;
+
+                $("#wid_1529048814_11lc8jp4u" ).addClass("moto-spacing-left-auto moto-widget-menu-mobile-open");
+            }
+
+
+
+
+
+        });*/
+
+    </script>

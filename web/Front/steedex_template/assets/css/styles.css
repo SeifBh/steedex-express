@@ -3153,6 +3153,7 @@ h4 {
 	.moto-widget-menu.moto-preset-default.moto-widget-menu-mobile-open .moto-widget-menu-list {
 		background-color: #ffffff;
 		border-color: #0c3c8e;
+		position: relative;
 	}
 	.moto-widget-menu.moto-preset-default.moto-widget-menu-mobile-open .moto-widget-menu-list .moto-widget-menu-item {
 		border-color: transparent;

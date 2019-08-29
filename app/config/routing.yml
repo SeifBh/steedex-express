@@ -66,6 +66,12 @@ _getQuote:
     path: /getQuote
     controller : AppBundle\Controller\DefaultController:quote
 
+
+_confidentialite:
+    path: /confidentialite
+    controller : AppBundle\Controller\DefaultController:confidentialite
+
+
 json_login:
     path:       /json_login
     controller: AppBundle\Controller\SecurityController::login

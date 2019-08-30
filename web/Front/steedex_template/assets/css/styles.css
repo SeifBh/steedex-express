@@ -1,3 +1,19 @@
+li.moto-widget-social-links-extended__item.moto-widget-social-links-extended__item-2 a:hover {
+	background-color: #266ca7 !important;
+	color: white !important;
+	text-decoration:inherit  !important;
+}
+
+@media (min-width: 768px) {
+
+.moto-container_content_5b236ee02 {
+	background-color: #1bb2b7;
+	transition-duration: 0.4s;
+	transition-property: background-color, border-color;
+	height: 69px;
+
+}
+}
 
 @media (min-width: 768px) {
 
@@ -257,7 +273,7 @@ h2{
 	color: #0ea5dd;
 }
 .moto-color2_3 {
-	color: #14b5f0;
+	color: #1bb2b7;
 }
 .moto-color2_4 {
 	color: #2cbdf2;
@@ -853,7 +869,7 @@ h4 {
 	font-weight: 400;
 	font-style: normal;
 	font-family: 'Open Sans', sans-serif;
-	color: #14b5f0;
+	color: #1bb2b7;
 	font-size: 24px;
 	line-height: 1.2;
 	letter-spacing: 0px;

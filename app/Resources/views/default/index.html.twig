@@ -1,12 +1,11 @@
 <html data-ng-app="website" lang="en"><!-- Mirrored from template67965.motopreview.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Aug 2019 22:31:39 GMT --><!-- Added by HTTrack --><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
 
-
+<link href="http://template67965.motopreview.com/mt-includes/css/assets.min.css" rel="stylesheet">
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 
 
-    <script type="text/javascript" src="{{ asset('steedex_styles_ADMIN/js/website.mina45d.js') }}"></script>
 
 
 
@@ -14,7 +13,7 @@
 
     <meta content="text/html; charset=utf-8" http-equiv="content-type"><!-- /Added by HTTrack -->
     <meta charset="utf-8">
-    <title>Home</title>
+    <title>SteedEx | Acceuil</title>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 
 
@@ -33,21 +32,40 @@
             <div class="container-fluid">
                 <div class="row">
 
+                    <!------ Header ---------->
 
                     {% include 'default/partials/header.html.twig' %}
+
+                    <!------ HomeSlider ---------->
+
                     {% include 'default/partials/homeslider.html.twig' %}
-                        {% include 'default/partials/about.html.twig' %}
 
+                    <!------ About us page ---------->
 
-                        {% include ':default/partials:services.html.twig' %}
+                    {% include 'default/partials/about.html.twig' %}
 
+                    <!------ Service page ---------->
+
+                    {% include ':default/partials:services.html.twig' %}
+
+                    <!------ Service Testmotionals ---------->
 
                     {% include 'default/partials/testimonials.html.twig' %}
 
+                    <!------ Conuter page ---------->
+
                     {% include 'default/partials/counter.html.twig' %}
 
+                    <!------ Clients page ---------->
+
                     {% include 'default/partials/client.html.twig' %}
+
+                    <!------ Devis page ---------->
+
                     {% include 'default/partials/devis.html.twig' %}
+
+                    <!------ Footer page ---------->
+
                     {% include 'default/partials/footer.html.twig' %}
 
 
@@ -55,24 +73,27 @@
     </section>
 </div>
 <div class="moto-back-to-top-button" data-moto-back-to-top-button="">
-    <a class="moto-back-to-top-button-link"><span class="moto-back-to-top-button-icon fa"></span></a>
+    <a class="moto-back-to-top-button-link" href="#"><span class="moto-back-to-top-button-icon fa"></span></a>
 </div>
-<div  class="moto-widget-callback moto-widget-callback_closed moto-preset-default" data-moto-widget-callback="">
+<div id="call1" class="moto-widget-callback moto-widget-callback_closed moto-preset-default"  data-moto-widget-callback="">
 
-    <div class="moto-widget-callback__wrapper"  id="call1">
-      
+    <div class="moto-widget-callback__wrapper"  >
+
         <div id="phone1none" class="moto-widget-callback__open-button moto-widget-callback__thumbnail-wrapper moto-widget-callback__thumbnail-wrapper_icon">
             <div class="moto-widget-callback__overlay moto-widget-callback__overlay_open-button"></div>
             <div class="moto-widget-callback__thumbnail moto-widget-callback__thumbnail_icon fa fa-fw fa-phone"></div>
         </div>
         <div id="con1display" class="moto-widget-callback__body moto-widget-callback__body_more-details-enabled" style="display: none;">
             <div class="moto-widget-callback__agent moto-widget-callback__thumbnail-wrapper moto-widget-callback__thumbnail-wrapper_icon">
-                <div class="moto-widget-callback__thumbnail moto-widget-callback__thumbnail_icon fa fa-fw fa-user-circle-o"></div>
+                <div class="moto-widget-callback__thumbnail moto-widget-callback__thumbnail_icon fa fa-fw fa-user-circle-o">
+
+
+                </div>
             </div>
             <div class="moto-widget-callback__description moto-widget-text">
-                <p class="moto-text_system_9" style="text-align: center;">John Smith</p>
-                <p class="moto-text_normal" style="text-align: center;">agent</p>
-                <p class="moto-text_system_8" style="text-align: center;"><a class="moto-link" data-action="call" href="tel:+112233445566"><span class="fa"></span> +112233445566</a></p>
+                <p class="moto-text_system_9" style="text-align: center;">Youssed Steedex</p>
+                <p class="moto-text_normal" style="text-align: center;">Livreur</p>
+                <p class="moto-text_system_8" style="text-align: center;"><a class="moto-link" data-action="call" href="tel:+21655870049"><span class="fa"></span> +21655870049</a></p>
             </div>
             <div class="moto-widget-callback__more-details-wrapper">
                 <hr class="moto-widget-callback__more-details-divider">
@@ -104,6 +125,7 @@
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/anim.js') }}"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css"/>
 
 <!------ JS CODE ---------->
@@ -117,8 +139,77 @@
 
 
 
+
+
+
+
     $(document).ready(function(){
 
+
+        var $element = $("#call1");
+        var $openButton = $("#call1").find('.moto-widget-callback__open-button');
+        var $closeButton = $("#call1").find('.moto-widget-callback__close-button');
+        var $moreDetailsButton = $("#call1").find('.moto-widget-callback__more-details-button');
+        var $moreDetails = $("#call1").find('.moto-widget-callback__more-details-wrapper');
+        var $callbackBody = $("#call1").find('.moto-widget-callback__body');
+        var ANIMATION_DURATION = 100;
+
+        function openCallback() {
+            if ($element.hasClass('moto-widget-callback_opened') || $element.hasClass('moto-widget-callback_opening') || $element.hasClass('moto-widget-callback_closing')) {
+                console.lgo('inside if');
+                return;
+            }
+            console.log("outside if");
+            $element.removeClass('moto-widget-callback_closed');
+            $element.addClass('moto-widget-callback_opening');
+
+            // firstly we have to set normal width and only then show content and hide button
+            $callbackBody.animate({ width: 280 }, ANIMATION_DURATION / 2, function() {
+                $openButton.slideUp(ANIMATION_DURATION / 2);
+                $callbackBody.slideDown(ANIMATION_DURATION / 2, function() {
+                    $element.removeClass('moto-widget-callback_opening');
+                    $element.addClass('moto-widget-callback_opened');
+                });
+            });
+        }
+
+        function closeCallback() {
+            if ($element.hasClass('moto-widget-callback_closed') || $element.hasClass('moto-widget-callback_opening') || $element.hasClass('moto-widget-callback_closing')) {
+                return;
+            }
+
+            $element.removeClass('moto-widget-callback_opened');
+            $element.addClass('moto-widget-callback_closing');
+            $openButton.slideDown(ANIMATION_DURATION);
+            $callbackBody.slideUp(ANIMATION_DURATION, function() {
+                $element.removeClass('moto-widget-callback_closing');
+                $element.addClass('moto-widget-callback_closed');
+            });
+        }
+
+        function toggleModeDetails() {
+            if ($callbackBody.hasClass('moto-widget-callback__body_more-details-opened')) {
+                $moreDetails.slideUp();
+                $callbackBody.removeClass('moto-widget-callback__body_more-details-opened');
+            } else {
+                $moreDetails.slideDown();
+                $callbackBody.addClass('moto-widget-callback__body_more-details-opened');
+            }
+        }
+
+
+        $openButton.click(function() {
+            openCallback();
+        });
+
+
+        $closeButton.click(function() {
+            closeCallback();
+        });
+
+        $moreDetailsButton.click(function() {
+            toggleModeDetails();
+        });
 
 
 

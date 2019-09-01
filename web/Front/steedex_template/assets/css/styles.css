@@ -1,4 +1,20 @@
+html {
+	scroll-behavior: smooth;
+}
+.fa-user-circle-o:before {
+	content: "\f2be";
+	color: #1bb2b7;
+}
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
 
+center.centertext h5 {
+	margin-top: 70px;
+	color: white !important;
+}
 
 .row.ac {
 	height: -webkit-fill-available;
@@ -2559,8 +2575,8 @@ h4 {
 	}
 }
 .moto-back-to-top-button {
-	right: 40px;
-	bottom: -50px;
+	right: 69px;
+	bottom: 54px;
 	transition: .3s;
 }
 @media screen and (max-width: 767px) {
@@ -2593,6 +2609,7 @@ h4 {
 	background: #08285e;
 	font: 26px/56px 'FontAwesome';
 	text-align: center;
+	padding-top: 13px;
 	height: 58px;
 	border-radius: 10px;
 	width: 58px;

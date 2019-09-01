@@ -6,6 +6,12 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 
 
+    <script type="text/javascript" src="{{ asset('steedex_styles_ADMIN/js/website.mina45d.js') }}"></script>
+
+
+
+
+
     <meta content="text/html; charset=utf-8" http-equiv="content-type"><!-- /Added by HTTrack -->
     <meta charset="utf-8">
     <title>Home</title>
@@ -51,13 +57,15 @@
 <div class="moto-back-to-top-button" data-moto-back-to-top-button="">
     <a class="moto-back-to-top-button-link"><span class="moto-back-to-top-button-icon fa"></span></a>
 </div>
-<div class="moto-widget-callback moto-widget-callback_closed moto-preset-default" data-moto-widget-callback="">
-    <div class="moto-widget-callback__wrapper">
-        <div class="moto-widget-callback__open-button moto-widget-callback__thumbnail-wrapper moto-widget-callback__thumbnail-wrapper_icon">
+<div  class="moto-widget-callback moto-widget-callback_closed moto-preset-default" data-moto-widget-callback="">
+
+    <div class="moto-widget-callback__wrapper"  id="call1">
+      
+        <div id="phone1none" class="moto-widget-callback__open-button moto-widget-callback__thumbnail-wrapper moto-widget-callback__thumbnail-wrapper_icon">
             <div class="moto-widget-callback__overlay moto-widget-callback__overlay_open-button"></div>
             <div class="moto-widget-callback__thumbnail moto-widget-callback__thumbnail_icon fa fa-fw fa-phone"></div>
         </div>
-        <div class="moto-widget-callback__body moto-widget-callback__body_more-details-enabled" style="display: none;">
+        <div id="con1display" class="moto-widget-callback__body moto-widget-callback__body_more-details-enabled" style="display: none;">
             <div class="moto-widget-callback__agent moto-widget-callback__thumbnail-wrapper moto-widget-callback__thumbnail-wrapper_icon">
                 <div class="moto-widget-callback__thumbnail moto-widget-callback__thumbnail_icon fa fa-fw fa-user-circle-o"></div>
             </div>
@@ -86,7 +94,7 @@
             <div class="moto-widget-callback__more-details-button-wrapper">
                 <i class="moto-widget-callback__more-details-button fa fa-angle-down"></i>
             </div>
-            <div class="moto-widget-callback__close-button">
+            <div id="closethis" class="moto-widget-callback__close-button">
                 ×
             </div>
         </div>
@@ -107,7 +115,16 @@
 
 
 
+
+
     $(document).ready(function(){
+
+
+
+
+
+
+
         $('.customer-logos').slick({
             slidesToShow: 6,
             slidesToScroll: 1,

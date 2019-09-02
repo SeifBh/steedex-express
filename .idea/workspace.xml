@@ -5,22 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/default/partials/head.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/default/partials/sections.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/default/partials/spy2.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/default/partials/topHeader.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/partials/app.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/partials/app.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/partials/client.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/partials/client.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/partials/header.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/partials/header.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/partials/homeslider.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/partials/homeslider.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/partials/testimonials.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/partials/testimonials.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Front/steedex_template/assets/css/steedex_styles.css" afterPath="$PROJECT_DIR$/web/Front/steedex_template/assets/css/steedex_styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css" afterPath="$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Front/steedex_template/assets/js/steedex_scripts.js" afterPath="$PROJECT_DIR$/web/Front/steedex_template/assets/js/steedex_scripts.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -78,8 +66,8 @@
       <file leaf-file-name="client.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/partials/client.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="502">
+              <caret line="89" column="5" lean-forward="false" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -95,21 +83,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state relative-caret-position="262">
+              <caret line="515" column="4" lean-forward="false" selection-start-line="515" selection-start-column="4" selection-end-line="515" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="steedex_styles.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="steedex_styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/Front/steedex_template/assets/css/steedex_styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="122" column="4" lean-forward="false" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="4" />
+            <state relative-caret-position="226">
+              <caret line="112" column="55" lean-forward="false" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -128,8 +116,8 @@
       <file leaf-file-name="app.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/partials/app.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="64" lean-forward="false" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+            <state relative-caret-position="336">
+              <caret line="16" column="92" lean-forward="false" selection-start-line="16" selection-start-column="92" selection-end-line="16" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -299,15 +287,15 @@
         <option value="$PROJECT_DIR$/app/Resources/views/default/partials/homeslider.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/partials/testimonials.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/partials/head.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/partials/app.html.twig" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/partials/spy2.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/partials/client.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/partials/header.html.twig" />
-        <option value="$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
         <option value="$PROJECT_DIR$/web/Front/steedex_template/assets/css/steedex_styles.css" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/partials/client.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/partials/app.html.twig" />
+        <option value="$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css" />
       </list>
     </option>
   </component>
@@ -882,7 +870,7 @@
       <workItem from="1567255304022" duration="3286000" />
       <workItem from="1567351126724" duration="4442000" />
       <workItem from="1567365185119" duration="672000" />
-      <workItem from="1567366162998" duration="21909000" />
+      <workItem from="1567366162998" duration="22578000" />
     </task>
     <servers />
   </component>
@@ -919,7 +907,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="521471000" />
+    <option name="totallyTimeSpent" value="522140000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1338,14 +1326,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/partials/app.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="64" lean-forward="false" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="688">
@@ -1384,26 +1364,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/partials/client.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/partials/header.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="194" column="38" lean-forward="false" selection-start-line="194" selection-start-column="38" selection-end-line="194" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1418,8 +1382,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/Front/steedex_template/assets/css/steedex_styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="122" column="4" lean-forward="false" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="4" />
+        <state relative-caret-position="226">
+          <caret line="112" column="55" lean-forward="false" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/partials/client.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="89" column="5" lean-forward="false" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/partials/app.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="92" lean-forward="false" selection-start-line="16" selection-start-column="92" selection-end-line="16" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="515" column="4" lean-forward="false" selection-start-line="515" selection-start-column="4" selection-end-line="515" selection-end-column="4" />
           <folding />
         </state>
       </provider>

@@ -4,13 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php" line="485" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/partials/header.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/partials/header.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/partials/homeslider.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/partials/homeslider.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/partials/services.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/partials/services.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Front/steedex_template/assets/css/steedex_styles.css" afterPath="$PROJECT_DIR$/web/Front/steedex_template/assets/css/steedex_styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css" afterPath="$PROJECT_DIR$/web/Front/steedex_template/assets/css/styles.css" />
-    </list>
+    <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,8 +111,8 @@
       <file leaf-file-name="header.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/partials/header.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="152" column="74" lean-forward="false" selection-start-line="152" selection-start-column="74" selection-end-line="152" selection-end-column="74" />
+            <state relative-caret-position="442">
+              <caret line="151" column="30" lean-forward="true" selection-start-line="151" selection-start-column="30" selection-end-line="151" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -865,7 +859,7 @@
       <workItem from="1567255304022" duration="3286000" />
       <workItem from="1567351126724" duration="4442000" />
       <workItem from="1567365185119" duration="672000" />
-      <workItem from="1567366162998" duration="23696000" />
+      <workItem from="1567366162998" duration="23900000" />
     </task>
     <servers />
   </component>
@@ -902,7 +896,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="523258000" />
+    <option name="totallyTimeSpent" value="523462000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -921,7 +915,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3208431" sideWeight="0.4924812" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46252927" sideWeight="0.5209452" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46721312" sideWeight="0.47905478" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46721312" sideWeight="0.47905478" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.49375" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1401,8 +1395,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/partials/header.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="152" column="74" lean-forward="false" selection-start-line="152" selection-start-column="74" selection-end-line="152" selection-end-column="74" />
+        <state relative-caret-position="442">
+          <caret line="151" column="30" lean-forward="true" selection-start-line="151" selection-start-column="30" selection-end-line="151" selection-end-column="30" />
           <folding />
         </state>
       </provider>

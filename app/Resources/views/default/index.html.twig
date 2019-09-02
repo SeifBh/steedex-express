@@ -2,12 +2,15 @@
 
 <link href="http://template67965.motopreview.com/mt-includes/css/assets.min.css" rel="stylesheet">
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 
 
 
-
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 
 
@@ -25,13 +28,16 @@
     <link href="{{ asset('Front/steedex_template/mt-includes/css/assets.minf6d5.css') }}" rel="stylesheet">
 
     <link href="{{ asset('Front/steedex_template/assets/css/styles.css') }}" id="moto-website-style" rel="stylesheet">
+    <link href="{{ asset('Front/steedex_template/assets/css/steedex_styles.css') }}" id="moto-website-style" rel="stylesheet">
+
+    <script type="text/javascript" src="{{ asset('Front/steedex_template/assets/js/steedex_scripts.js') }}"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 
 
 
 </head>
-<body class="moto-background moto-website_live" data-spy="scroll" data-target=".menu" data-offset="50">
+<body class="moto-background moto-website_live" data-spy="scroll">
 <div class="page">
     <section class="content page-1 moto-section" data-container="section" data-widget="section" id="section-content">
         <div class="moto-widget moto-widget-block moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-bg-position="left top" data-spacing="aaaa" data-widget="block" style="">
@@ -136,117 +142,7 @@
 
 <!------ JS CODE ---------->
 
-<script language="javascript">
 
-
-
-
-
-
-
-
-
-
-
-
-    $(document).ready(function(){
-
-
-        var $element = $("#call1");
-        var $openButton = $("#call1").find('.moto-widget-callback__open-button');
-        var $closeButton = $("#call1").find('.moto-widget-callback__close-button');
-        var $moreDetailsButton = $("#call1").find('.moto-widget-callback__more-details-button');
-        var $moreDetails = $("#call1").find('.moto-widget-callback__more-details-wrapper');
-        var $callbackBody = $("#call1").find('.moto-widget-callback__body');
-        var ANIMATION_DURATION = 100;
-
-        function openCallback() {
-            if ($element.hasClass('moto-widget-callback_opened') || $element.hasClass('moto-widget-callback_opening') || $element.hasClass('moto-widget-callback_closing')) {
-                console.lgo('inside if');
-                return;
-            }
-            console.log("outside if");
-            $element.removeClass('moto-widget-callback_closed');
-            $element.addClass('moto-widget-callback_opening');
-
-            // firstly we have to set normal width and only then show content and hide button
-            $callbackBody.animate({ width: 280 }, ANIMATION_DURATION / 2, function() {
-                $openButton.slideUp(ANIMATION_DURATION / 2);
-                $callbackBody.slideDown(ANIMATION_DURATION / 2, function() {
-                    $element.removeClass('moto-widget-callback_opening');
-                    $element.addClass('moto-widget-callback_opened');
-                });
-            });
-        }
-
-        function closeCallback() {
-            if ($element.hasClass('moto-widget-callback_closed') || $element.hasClass('moto-widget-callback_opening') || $element.hasClass('moto-widget-callback_closing')) {
-                return;
-            }
-
-            $element.removeClass('moto-widget-callback_opened');
-            $element.addClass('moto-widget-callback_closing');
-            $openButton.slideDown(ANIMATION_DURATION);
-            $callbackBody.slideUp(ANIMATION_DURATION, function() {
-                $element.removeClass('moto-widget-callback_closing');
-                $element.addClass('moto-widget-callback_closed');
-            });
-        }
-
-        function toggleModeDetails() {
-            if ($callbackBody.hasClass('moto-widget-callback__body_more-details-opened')) {
-                $moreDetails.slideUp();
-                $callbackBody.removeClass('moto-widget-callback__body_more-details-opened');
-            } else {
-                $moreDetails.slideDown();
-                $callbackBody.addClass('moto-widget-callback__body_more-details-opened');
-            }
-        }
-
-
-        $openButton.click(function() {
-            openCallback();
-        });
-
-
-        $closeButton.click(function() {
-            closeCallback();
-        });
-
-        $moreDetailsButton.click(function() {
-            toggleModeDetails();
-        });
-
-
-
-
-
-
-        $('.customer-logos').slick({
-            slidesToShow: 6,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 1500,
-            arrows: false,
-            dots: false,
-            pauseOnHover: false,
-            responsive: [{
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 4
-                }
-            }, {
-                breakpoint: 520,
-                settings: {
-                    slidesToShow: 3
-                }
-            }]
-        });
-    });
-
-
-
-</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 
 

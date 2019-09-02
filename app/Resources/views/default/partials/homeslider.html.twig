@@ -1,93 +1,9 @@
 <style>
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 100%;
-    }
-
-    .sticky + .content {
-        padding-top: 60px;
-    }
-
-    .menu {
-        width:100%;
-    }
-    .fixed {
-        position:fixed;
-        top:0;
-        background-color: #353159;
-    }
 
 
 </style>
-<div id="navbar" class="menu moto-widget moto-widget-container moto-container_content_5b236ee02" data-bg-position="left top" data-container="container" data-css-name="moto-container_content_5b236ee02" data-moto-sticky="{ }" data-widget="container">
-    <div  class="moto-widget moto-widget-row row-fixed moto-justify-content_center moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-bg-position="left top" data-grid-type="sm" data-spacing="aaaa" data-widget="row" style="">
-        <div class="container-fluid">
-            <div class="row" data-container="container">
-                <div class="moto-widget moto-widget-row__column moto-cell col-sm-9 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-bg-position="left top" data-container="container" data-spacing="aaaa" data-widget="row.column" style="">
-                    <div class="moto-widget moto-widget-menu moto-preset-default moto-align-left moto-align-center_mobile-h moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-preset="default" data-widget="menu" id="wid_1529048814_11lc8jp4u">
-                        <button class="moto-widget-menu-toggle-btn" href="#"><i class="moto-widget-menu-toggle-btn-icon fa fa-bars"></i></button>
-                        <ul class="moto-widget-menu-list moto-widget-menu-list_horizontal">
-                            <li class="moto-widget-menu-item">
-                                <a class="moto-widget-menu-link moto-widget-menu-link-level-1 moto-widget-menu-link-active moto-link" data-action="page" href="/">Acceuil</a>
-                            </li>
 
-                            <li class="moto-widget-menu-item">
-                                <a class="moto-widget-menu-link moto-widget-menu-link-level-1 moto-widget-menu-link-active moto-link" data-action="page" href="#about_steedex">Qui sommes nous</a>
-                            </li>
-
-                            <li class="moto-widget-menu-item">
-                                <a class="moto-widget-menu-link moto-widget-menu-link-level-1 moto-widget-menu-link-active moto-link" data-action="page" href="#services_steedex">Services</a>
-                            </li>
-
-
-                            <li class="moto-widget-menu-item">
-                                <a class="moto-widget-menu-link moto-widget-menu-link-level-1 moto-widget-menu-link-active moto-link" data-action="page" href="#temoignage_steedex">Témoignage</a>
-                            </li>
-                            <li class="moto-widget-menu-item">
-                                <a class="moto-widget-menu-link moto-widget-menu-link-level-1 moto-widget-menu-link-active moto-link" data-action="page" href="#contact_steedex">Contact</a>
-                            </li>
-
-                            <li class="moto-widget-menu-item">
-
-                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                    <a class="moto-widget-menu-link moto-widget-menu-link-level-1 moto-widget-menu-link-active moto-link" data-action="page" style="color: #ffffff; background-color: #ff6464;" href="{{ path('admin_homepage') }}">Tableau de bord</a>
-
-                                    <ul class="moto-widget-menu-sublist">
-                                        <li class="moto-widget-menu-item">
-                                            <a href="/logout" data-action="page" class="moto-widget-menu-link moto-widget-menu-link-level-2 moto-widget-menu-link-active moto-link">Deconnexion</a>
-                                        </li>
-
-                                    </ul>
-                                {% else %}
-                                    <a class="moto-widget-menu-link moto-widget-menu-link-level-1 moto-widget-menu-link-active moto-link" data-action="page" style="color: #ffffff; background-color: #14b5f0;" href="/login">Login</a>
-
-                                {% endif %}
-
-
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="moto-widget moto-widget-row__column moto-cell col-sm-3 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-bg-position="left top" data-container="container" data-spacing="aaaa" data-widget="row.column" style="">
-                    <div class="moto-widget moto-widget-social-links-extended moto-preset-default moto-align-right moto-align-center_mobile-h moto-spacing-top-small moto-spacing-right-small moto-spacing-bottom-small moto-spacing-left-small" data-preset="default" data-widget="social_links_extended" data-widget-id="wid_1529048823_bei7ptnuq" id="wid_1529048823_bei7ptnuq">
-                        <ul class="moto-widget-social-links-extended__list">
-
-                            <li class="moto-widget-social-links-extended__item moto-widget-social-links-extended__item-2">
-                                <a class="moto-widget-social-links-extended__link" href="https://www.facebook.com/SteedEx/" target="_self"><span class="moto-widget-social-links-extended__icon fa fa-facebook"></span></a>
-                            </li>
-
-                        </ul>
-                        <style type="text/css">
-                        </style>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="moto-widget moto-widget-row row-fixed moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-bg-image="2018/06/mt-1497-home-header-bg.jpg/index.html" data-bg-position="top" data-grid-type="sm" data-spacing="aaaa" data-widget="row" style="background-image:url('/Front/steedex_template//mt-demo/67900/67965/mt-content/uploads/2018/06/mt-1497-home-header-bg.jpg');background-position:top;background-repeat:no-repeat;background-size:cover;">
+<div id="steedex_home" class="moto-widget moto-widget-row row-fixed moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-bg-image="2018/06/mt-1497-home-header-bg.jpg/index.html" data-bg-position="top" data-grid-type="sm" data-spacing="aaaa" data-widget="row" style="background-image:url('/Front/steedex_template//mt-demo/67900/67965/mt-content/uploads/2018/06/mt-1497-home-header-bg.jpg');background-position:top;background-repeat:no-repeat;background-size:cover;">
     <div class="container-fluid">
         <div class="row" data-container="container">
             <div class="moto-widget moto-widget-row__column moto-cell col-sm-12 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-bg-position="left top" data-container="container" data-spacing="aaaa" data-widget="row.column" style="">

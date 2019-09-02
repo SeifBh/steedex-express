@@ -52,6 +52,26 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/spy", name="spy")
+     */
+    public function spyAction()
+    {
+        return $this->render('default/partials/sections.html.twig');
+
+    }
+
+    /**
+     * @Route("/spy2", name="spy2")
+     */
+    public function spy2Action()
+    {
+        return $this->render('default/partials/spy2.html.twig');
+
+    }
+
+
+
+    /**
      * @Route("/getQuote", name="quote")
      */
     public function quoteAction(Request $request)

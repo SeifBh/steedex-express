@@ -71,6 +71,15 @@ _confidentialite:
     path: /confidentialite
     controller : AppBundle\Controller\DefaultController:confidentialite
 
+_spy:
+    path: /spy
+    controller : AppBundle\Controller\DefaultController:spy
+
+_spy2:
+    path: /spy2
+    controller : AppBundle\Controller\DefaultController:spy2
+
+
 
 json_login:
     path:       /json_login

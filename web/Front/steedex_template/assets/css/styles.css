@@ -892,6 +892,7 @@ h4 {
 	background-color: #1bb2b7;
 	transition-duration: 0.4s;
 	transition-property: background-color, border-color;
+	z-index:5000;
 }
 .moto-text_202 {
 	font-weight: 400;

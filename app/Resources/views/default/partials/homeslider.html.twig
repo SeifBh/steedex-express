@@ -1,5 +1,16 @@
-<div class="moto-widget moto-widget-container moto-container_content_5b236ee02" data-bg-position="left top" data-container="container" data-css-name="moto-container_content_5b236ee02" data-moto-sticky="{ }" data-widget="container">
-    <div class="moto-widget moto-widget-row row-fixed moto-justify-content_center moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-bg-position="left top" data-grid-type="sm" data-spacing="aaaa" data-widget="row" style="">
+<style>
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .sticky + .content {
+        padding-top: 60px;
+    }
+</style>
+<div id="navbar" class="moto-widget moto-widget-container moto-container_content_5b236ee02" data-bg-position="left top" data-container="container" data-css-name="moto-container_content_5b236ee02" data-moto-sticky="{ }" data-widget="container">
+    <div  class="moto-widget moto-widget-row row-fixed moto-justify-content_center moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-bg-position="left top" data-grid-type="sm" data-spacing="aaaa" data-widget="row" style="">
         <div class="container-fluid">
             <div class="row" data-container="container">
                 <div class="moto-widget moto-widget-row__column moto-cell col-sm-9 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-bg-position="left top" data-container="container" data-spacing="aaaa" data-widget="row.column" style="">
@@ -120,3 +131,17 @@
 </div>
 </div>
 </div>
+<script>
+    window.onscroll = function() {myFunction()};
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+</script>

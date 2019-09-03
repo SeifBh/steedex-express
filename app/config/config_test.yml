@@ -14,16 +14,4 @@ web_profiler:
     intercept_redirects: false
 
 swiftmailer:
-    transport:        gmail
-    username:         belhadjali.seif@gmail.com
-    password:         ultraS1920
-    host:             localhost
-    port:             465
-    encryption:       ssl
-    auth-mode:        login
-    spool: { type: 'memory' }
-    stream_options:
-        ssl:
-            allow_self_signed: true
-            verify_peer: false
-            verify_peer_name: false
+    disable_delivery: false

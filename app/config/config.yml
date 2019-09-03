@@ -69,8 +69,8 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: %mailer_transport%
-    encryption: tls
+    transport: gmail
+    encryption: ssl
     auth_mode:  login
     host:       smtp.gmail.com
     username:  %mailer_username%

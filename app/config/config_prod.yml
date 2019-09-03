@@ -22,6 +22,9 @@ monolog:
             process_psr_3_messages: false
 
 swiftmailer:
-    transport: smtp
-    username:  belhadjali.seif@gmail.com
-    password:  ultraS1920
+    transport: gmail
+    encryption: ssl
+    auth_mode:  login
+    host:       smtp.gmail.com
+    username:  %mailer_username%
+    password:  %mailer_password%

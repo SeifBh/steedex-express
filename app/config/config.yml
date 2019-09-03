@@ -69,18 +69,19 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: gmail
-    encryption: ssl
-    auth_mode:  login
-    host:       smtp.gmail.com
-    username:  %mailer_username%
-    password:  %mailer_password%
-    spool:     { type: memory }
+    transport:        gmail
+    username:         belhadjali.seif@gmail.com
+    password:         ultraS1920
+    host:             localhost
+    port:             465
+    encryption:       ssl
+    auth-mode:        login
+    spool: { type: 'memory' }
     stream_options:
-      ssl:
-        allow_self_signed: true
-        verify_peer: false
-        verify_peer_name: false
+        ssl:
+            allow_self_signed: true
+            verify_peer: false
+            verify_peer_name: false
 sensio_framework_extra:
    router:
         annotations: true

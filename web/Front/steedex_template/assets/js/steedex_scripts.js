@@ -65,10 +65,8 @@ $(document).ready(function(){
     function toggleModeDetails() {
         if ($callbackBody.hasClass('moto-widget-callback__body_more-details-opened')) {
             $moreDetails.slideUp();
-            $callbackBody.removeClass('moto-widget-callback__body_more-details-opened');
         } else {
             $moreDetails.slideDown();
-            $callbackBody.addClass('moto-widget-callback__body_more-details-opened');
         }
     }
 
@@ -149,7 +147,7 @@ $(document).ready(function(){
 
     function openCallback() {
         if ($element.hasClass('moto-widget-callback_opened') || $element.hasClass('moto-widget-callback_opening') || $element.hasClass('moto-widget-callback_closing')) {
-            console.lgo('inside if');
+            console.log('inside if');
             return;
         }
         console.log("outside if");

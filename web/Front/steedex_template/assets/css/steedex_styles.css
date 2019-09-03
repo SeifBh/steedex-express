@@ -131,6 +131,7 @@ nav.navbar.navbar-inverse li a{
 
 ul.nav.navbar-nav.moto-widget-menu-list.moto-widget-menu-list_horizontal li a{
     height: 69px !important;
+    font-weight: 600;
     padding-top:25px;
     /* display: table-column; */
 }
@@ -173,3 +174,7 @@ ul.nav.navbar-nav.moto-widget-menu-list.moto-widget-menu-list_horizontal li a{
 
 }
 
+
+:target {
+    padding-top:75px;
+}

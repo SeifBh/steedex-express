@@ -130,7 +130,8 @@
                     <div class="moto-widget moto-widget-row__column moto-cell col-sm-9 moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-bg-position="left top" data-container="container" data-spacing="aaaa" data-widget="row.column" style="">
 
                         <div class="  moto-widget moto-widget-menu moto-preset-default moto-align-left moto-align-center_mobile-h moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto" data-preset="default" data-widget="menu" id="wid_1529048814_11lc8jp4u">
-
+                            {% set currentPath = path(app.request.attributes.get('_route'),
+                            app.request.attributes.get('_route_params')) %}
 
 
                             <nav class="navbar navbar-inverse ">
@@ -150,22 +151,49 @@
                                                 </li>
 
                                                 <li class="moto-widget-menu-item">
+                                                    {% if(currentPath == '/') %}
                                                     <a class=" " data-action="page" href="#about_steedex">Qui sommes nous</a>
+                                                    {% else %}
+                                                        <a class=" " data-action="page" href="/#about_steedex">Qui sommes nous</a>
+                                                    {% endif %}
                                                 </li>
 
                                                 <li class="moto-widget-menu-item">
-                                                    <a class=" " data-action="page" href="#services_steedex">Services</a>
+                                                    {% if(currentPath == '/') %}
+                                                        <a class=" " data-action="page" href="#services_steedex">Services</a>
+                                                    {% else %}
+                                                        <a class=" " data-action="page" href="/#services_steedex">Services</a>
+                                                    {% endif %}
+
                                                 </li>
 
                                                 <li class="moto-widget-menu-item">
-                                                    <a class=" " data-action="page" href="#steedex_app">SteedExApp</a>
+
+                                                    {% if(currentPath == '/') %}
+                                                        <a class=" " data-action="page" href="#steedex_app">SteedExApp</a>
+                                                    {% else %}
+                                                        <a class=" " data-action="page" href="/#steedex_app">SteedExApp</a>
+                                                    {% endif %}
+
                                                 </li>
 
                                                 <li class="moto-widget-menu-item">
-                                                    <a class=" " data-action="page" href="#temoignage_steedex">Témoignage</a>
+
+                                                    {% if(currentPath == '/') %}
+                                                        <a class=" " data-action="page" href="#temoignage_steedex">Témoignage</a>
+                                                    {% else %}
+                                                        <a class=" " data-action="page" href="/#temoignage_steedex">Témoignage</a>
+                                                    {% endif %}
+
                                                 </li>
                                                 <li class="moto-widget-menu-item">
-                                                    <a class=" " data-action="page" href="#contact_steedex">Contact</a>
+                                                    {% if(currentPath == '/') %}
+                                                        <a class=" " data-action="page" href="#contact_steedex">Contact</a>
+                                                    {% else %}
+                                                        <a class=" " data-action="page" href="/#contact_steedex">Contact</a>
+                                                    {% endif %}
+
+
                                                 </li>
 
                                                 <li class="moto-widget-menu-item">

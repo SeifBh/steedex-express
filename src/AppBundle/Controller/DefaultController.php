@@ -42,6 +42,30 @@ class DefaultController extends Controller
             'roles' => $user->getRoles(),
         ));
     }
+
+
+    /**
+     * @Route("/getdevis", name="getdevis")
+     */
+    public function getDevisAction(Request $request)
+    {
+        $name = $request->get('name');
+        $phone = $request->get('phone');
+        $messageDesc = $request->get('message');
+
+
+        $message = (new \Swift_Message('Contact - Steedex Admin'))
+            ->setFrom("user@steedex.tn")
+            ->setTo('belhadjali.seif@gmail.com')
+            ->setBody("<b>Nom&Prenom: </b>" .$name. "<br><b>Télephone: </b>" . $phone . "<br><b>Message: </b>" . $messageDesc);
+        $message->setContentType("text/html");
+
+        $this->get('mailer')->send($message);
+
+        return new Response("Devis envoyee avec success");
+
+    }
+
     /**
      * @Route("/confidentialite", name="confidentialite")
      */

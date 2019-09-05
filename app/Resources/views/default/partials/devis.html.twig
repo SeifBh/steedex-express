@@ -121,20 +121,18 @@
 
                     <div data-widget-id="wid_1529055639_hrdlit0tw" class="moto-widget moto-widget-contact_form moto-preset-default moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-auto moto-spacing-left-auto  " data-preset="default" data-widget="contact_form" data-spacing="aaaa">
                         <div ng-controller="widget.ContactForm.Controller" ng-init="hash = '2@eyJoIjoiU3pLeHhZTVc3YzBDbjI2T1huMFFlZWpcL1NuZ3VuR3o1Q0NvdlwvNjBMd2tzPSIsImkiOiJlbDBYcXNsZTd1NU9iTnZoVEh4UUhRPT0iLCJ2IjoiRHVNbEdEY3hnTlwvZ0JUdm80NlJRSkl5NDRNR3J6RmJSQTJINU9US0dOcGpuWUs5dUNod0hJdCsyZ3BDSTFsbGtrK1IyVWNDQVcwS21abWxzWFhYXC9mUT09In0=';actionAfterSubmission={&quot;action&quot;:&quot;none&quot;,&quot;url&quot;:&quot;&quot;,&quot;target&quot;:&quot;_self&quot;,&quot;id&quot;:&quot;&quot;};resetAfterSubmission=false">
-                            <form class="moto-widget-contact_form-form ng-pristine ng-invalid ng-invalid-required" role="form" name="contactForm" ng-submit="submit()" novalidate="">
+                            <form action="{{ path('_getdevis')}}" method="POST" class="moto-widget-contact_form-form ng-pristine ng-invalid ng-invalid-required" role="form" >
                                 <div ng-show="sending" class="contact-form-loading ng-hide"></div>
 
                                 <div class="moto-widget-contact_form-group">
-                                    <label for="field_name" class="moto-widget-contact_form-label">Name</label>
-                                    <input type="text" class="moto-widget-contact_form-field moto-widget-contact_form-input ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" placeholder="Name *" ng-blur="validate('name')" required="" ng-model-options="{ updateOn: 'blur' }" name="name" id="field_name" ng-model="message.name">
-                                    <span class="moto-widget-contact_form-field-error ng-hide" ng-show="contactForm.name.$invalid &amp;&amp; !contactForm.name.$pristine &amp;&amp; !contactForm.name.emailInvalid">Field is required</span>
+                                    <label for="field_name" class="moto-widget-contact_form-label">Nom&Prenom</label>
+                                    <input required type="text" class="moto-widget-contact_form-field moto-widget-contact_form-input ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" placeholder="Nom&Prenom *" ng-blur="validate('name')" required="" ng-model-options="{ updateOn: 'blur' }" name="name" id="field_name" ng-model="message.name">
                                 </div>
 
 
                                 <div class="moto-widget-contact_form-group">
-                                    <label for="field_phone" class="moto-widget-contact_form-label">Phone</label>
-                                    <input type="text" class="moto-widget-contact_form-field moto-widget-contact_form-input ng-pristine ng-untouched ng-valid ng-empty" placeholder="Phone " ng-model-options="{ updateOn: 'blur' }" name="phone" id="field_phone" ng-model="message.phone">
-                                    <span class="moto-widget-contact_form-field-error ng-hide" ng-show="contactForm.phone.$invalid &amp;&amp; !contactForm.phone.$pristine &amp;&amp; !contactForm.phone.emailInvalid">Field is required</span>
+                                    <label for="field_phone" class="moto-widget-contact_form-label">Tel</label>
+                                    <input required type="text" class="moto-widget-contact_form-field moto-widget-contact_form-input ng-pristine ng-untouched ng-valid ng-empty" placeholder="Tél *" ng-model-options="{ updateOn: 'blur' }" name="phone" id="field_phone" ng-model="message.phone">
                                 </div>
 
 
@@ -142,24 +140,17 @@
 
                                 <div class="moto-widget-contact_form-group">
                                     <label for="field_message" class="moto-widget-contact_form-label">Description</label>
-                                    <textarea class="moto-widget-contact_form-field moto-widget-contact_form-textarea ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" rows="3" placeholder="Description *" ng-blur="validate('message')" required="" ng-model-options="{ updateOn: 'blur' }" name="message" id="field_message" ng-model="message.message"></textarea>
-                                    <span class="moto-widget-contact_form-field-error ng-hide" ng-show="contactForm.message.$invalid &amp;&amp; !contactForm.message.$pristine">Field is required</span>
+                                    <textarea class="moto-widget-contact_form-field moto-widget-contact_form-textarea ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" rows="3" placeholder="Description *" ng-blur="validate('message')" required="" ng-model-options="{ updateOn: 'blur' }" name="message" id="field_message" ng-model="message.message" required></textarea>
                                 </div>
 
 
 
-                                <div class="moto-widget-contact_form-success ng-hide" ng-show="showSuccessMessage">
-                                    Your message was sent successfully
-                                </div>
-                                <div class="moto-widget-contact_form-danger ng-hide" ng-show="emailError">
-                                    Sorry, your message was not sent
-                                </div>
+
                                 <div class="moto-widget-contact_form-buttons">
 
                                     <div class="moto-widget moto-widget-button moto-preset-default moto-align-center" data-preset="default" data-align="center">
-                                        <a ng-click="submit();" class="moto-widget-button-link moto-size-medium" data-size="medium"><span class="fa moto-widget-theme-icon"></span><span class="moto-widget-button-label">SEND</span></a>
+                                        <input type="submit" class="btn btn-primary" value="Envoyer"></input>
                                     </div>
-                                    <button type="submit" class="hidden"></button>
 
                                 </div>
                             </form>

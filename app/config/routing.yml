@@ -79,6 +79,9 @@ _spy2:
     path: /spy2
     controller : AppBundle\Controller\DefaultController:spy2
 
+_getdevis:
+    path: /getdevis
+    controller : AppBundle\Controller\DefaultController:getDevis
 
 
 json_login:

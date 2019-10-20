@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7999892b-4ac8-4d7f-86a0-49573804404f" name="steedex" url="http://ssh.cluster023.hosting.ovh.net">
+        <fileTransfer host="ssh.cluster023.hosting.ovh.net" port="22" rootFolder="/home/steedexekb/www/steedex" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

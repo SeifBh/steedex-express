@@ -165,7 +165,6 @@
         <div class="row">
 
 
-
             <div class="col-md-12">
                 <div class="box box-primary">
 
@@ -363,9 +362,7 @@
                         <h3 class="box-title">Liste des demandes livraison</h3>
                         <div class="box-tools">
 
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
-                                Effacer tout
-                            </button>
+
 
                             <a href="{{ path('_create_demande') }}" type="button" class="btn btn-success">Créer une demande livraison</a>
                         </div>
@@ -566,6 +563,16 @@
                 </button>
             </div>
             <!-- /. box -->
+
+
+            {% if is_granted('ROLE_SUPER_ADMIN') == true %}
+
+                <a href="" class=" float-right" data-toggle="modal" data-target="#modal-danger">
+                    Effacer tout
+                </a>
+            {% endif %}
+
+
         </div>
         <!-- /.col -->
         </div>
@@ -592,7 +599,7 @@
         </div>
 
 
-        {% if is_granted('ROLE_ADMIN') == true %}
+        {% if is_granted('ROLE_SUPER_ADMIN') == true %}
 
             <div class="modal modal-danger fade" id="modal-danger">
                 <div class="modal-dialog">
@@ -600,10 +607,10 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span></button>
-                            <h4 class="modal-title">Vider Demandes</h4>
+                            <h4 class="modal-title">Effacer toutes les demandes</h4>
                         </div>
                         <div class="modal-body">
-                            <p>Vous-étes sur ? </p>
+                            <p>Cette action est irréversible . Vous-étes sur ? </p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Fermer</button>
@@ -619,8 +626,6 @@
 
 
     </section>
-
-
 
 
 
@@ -722,6 +727,7 @@
         });
     </script>
 
+    {% if is_granted('ROLE_ADMIN') == true %}
 
     <script>
 
@@ -778,7 +784,7 @@
 
 
 
-
+                            var isAdmin = false;
 
                             var valLivreur = el.idLivreur;
                             var readD = el.readDemande;
@@ -805,18 +811,43 @@
 
                             }
 
+                            var myJSON = JSON.stringify(el.dateEmission);
+                            var myString = myJSON.substr(myJSON.indexOf("timestamp")+11,10)
+                            //var thenum = myString.replace( /^\D+/g, ''); // replace all leading non-digits with nothing
+
+                            var dateEmission = new Date(myString*1000);
+
+                            var dd = dateEmission.getDate();
+
+                            var mm = dateEmission.getMonth()+1;
+                            var yyyy = dateEmission.getFullYear();
+                            if(dd<10)
+                            {
+                                dd='0'+dd;
+                            }
+
+                            if(mm<10)
+                            {
+                                mm='0'+mm;
+                            }
+
+                            dateEmission = dd+'/'+mm+'/'+yyyy;
+                            console.log(dateEmission);
+
+
+
                             $('#tabCoursier').append(
                                 "<tr class="+classNotRead +">" +
                                 "<td><input  id='"+el.id+"' name='coffee'  name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
                                 "<td>"+el.id+"</td>"+
-                                "<td>"+el.date_emission.date+"</td>"+
+                                "<td>"+dateEmission+"</td>"+
                                 "<td>"+el.quoi+"</td>"+
                                 "<td>"+el.id_client.nom+" "+el.id_client.prenom+"</td>"+
                                 "<td>"+el.nom_prenom_recept+"</td>"+
                                 "<td>"+el.addresse_recept +"</td>"+
                                 "<td>"+el.typeDC+"</td>"+
                                 "<td>"+el.etat+"</td>"+
-                                "<td>"+el.id_client.nom+" "+el.id_client.prenom+"</td>"+
+                                "<td>"+el.id_livreur.nom+" "+el.id_livreur.prenom+"</td>"+
 
                                 "<td> <a href='./assign/"+el.id+"'>Affecter</a></td>"+
                                 "<td> <a href='./update/"+el.id+"'>Modifier</a></td>"+
@@ -1054,6 +1085,714 @@
 
 
     </script>
+
+
+    {% elseif is_granted('ROLE_CLIENT') == true %}
+
+        <script>
+
+
+            $(document).ready( function() {
+
+
+
+                $('#datebtnCoursier').click(function(){
+                    $( "#imgLCoursier" ).append(" <img  src='https://www.wpfaster.org/wp-content/uploads/2013/06/circle-loading-gif.gif' width='50px'/>")
+                    $( "#tab" ).html("");
+
+                    var selectClientLastCoursier = $("#mylistCoursier").children("option:selected").val();
+                    var dateCoursier = $('#datePickerCoursier').val();
+
+                    $.ajax({
+                        url : '{{ path("filterGlobalCoursier") }}',
+                        data:  { "selectedClientCoursier":selectClientLastCoursier,"dateCoursier" : dateCoursier },
+                        type:       'GET',
+                        dataType:   'json',
+                        async:      true,
+                        success : function(response){
+
+                            $( "#imgLCoursier" ).html("")
+                            $( "#tabCoursier" ).show();
+
+                            $("#a5Coursier").html(
+                                "<table id='tabCoursier'  class=\"table table-striped table-hover table-condensed\">" +
+                                "       <tr>\n" +
+                                "            <th> # </th>\n" +
+                                "            <th> Id </th>\n" +
+                                "            <th> Date Emission </th>\n" +
+                                "            <th> Quoi </th>\n" +
+                                "            <th> Emetteur </th>\n" +
+                                "            <th> Destinataire </th>\n" +
+                                "            <th> Lieu </th>\n" +
+                                "            <th> Type </th>\n" +
+                                "            <th> Etat </th>\n" +
+                                "            <th> Livreur </th>\n" +
+
+                                "            <th> #Mod </th>\n" +
+                                "            <th> #Telecharger </th>\n" +
+                                "            <th> #Imrpimer </th>\n" +
+
+                                "\n" +
+                                "</tr>" +
+                                "" +
+                                "</table>"
+                            );
+                            $.each(response,function(k,el){
+                                var confirmerOutput ;
+
+
+
+                                var isAdmin = false;
+
+                                var valLivreur = el.idLivreur;
+                                var readD = el.readDemande;
+                                var classNotRead ;
+                                var res = "Non";
+                                if(valLivreur==null){
+                                    res = "OUI";
+                                    var valLivreur = "<img src='https://image.flaticon.com/icons/png/512/291/291202.png' width='20px'>";
+                                    var confirmerOutput="<a href='#'>Confirmer</a>";
+
+                                }else{
+                                    res = "NON";
+                                    var valLivreur = el.idLivreur.nom + " " + el.idLivreur.prenom;
+                                    var confirmerOutput="-";
+
+                                }
+
+                                if(readD==false){
+                                    var classNotRead = "notRead";
+
+
+                                }else{
+                                    var classNotRead = "alreadyReaded";
+
+                                }
+
+                                var myJSON = JSON.stringify(el.dateEmission);
+                                var myString = myJSON.substr(myJSON.indexOf("timestamp")+11,10)
+                                //var thenum = myString.replace( /^\D+/g, ''); // replace all leading non-digits with nothing
+
+                                var dateEmission = new Date(myString*1000);
+
+                                var dd = dateEmission.getDate();
+
+                                var mm = dateEmission.getMonth()+1;
+                                var yyyy = dateEmission.getFullYear();
+                                if(dd<10)
+                                {
+                                    dd='0'+dd;
+                                }
+
+                                if(mm<10)
+                                {
+                                    mm='0'+mm;
+                                }
+
+                                dateEmission = dd+'/'+mm+'/'+yyyy;
+                                console.log(dateEmission);
+
+
+
+                                $('#tabCoursier').append(
+                                    "<tr class="+classNotRead +">" +
+                                    "<td><input  id='"+el.id+"' name='coffee'  name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
+                                    "<td>"+el.id+"</td>"+
+                                    "<td>"+dateEmission+"</td>"+
+                                    "<td>"+el.quoi+"</td>"+
+                                    "<td>"+el.id_client.nom+" "+el.id_client.prenom+"</td>"+
+                                    "<td>"+el.nom_prenom_recept+"</td>"+
+                                    "<td>"+el.addresse_recept +"</td>"+
+                                    "<td>"+el.typeDC+"</td>"+
+                                    "<td>"+el.etat+"</td>"+
+                                    "<td>"+el.id_livreur.nom+" "+el.id_livreur.prenom+"</td>"+
+
+                                    "<td> <a href='./update-demande-coursier/"+el.id+"'>Modifier</a></td>"+
+                                    "<td> <a href='./pdf/"+el.id+"'>Telecharger</a></td>"+
+                                    "<td> <a href='./view/"+el.id+"'>Imprimer</a></td>"+
+
+
+
+                                    "</tr>"
+                                )
+                            })
+
+
+                        },
+                    })
+
+
+
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+                $('input[type="date"]').change(function(){
+                    console.log(this.value.toString('yy-MM-dd'));
+                    var selectClientLast = $("#mylist").children("option:selected").val();
+
+
+
+                });
+
+
+
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            $(document).ready( function() {
+
+                $('#datebtn').click(function(){
+                    $( "#imgL" ).append(" <img  src='https://www.wpfaster.org/wp-content/uploads/2013/06/circle-loading-gif.gif' width='50px'/>")
+                    $( "#tab" ).html("");
+
+                    var selectClientLast = $("#mylist").children("option:selected").val();
+                    var date = $('#datePicker').val();
+
+
+                    $.ajax({
+                        url : '{{ path("filterGlobal") }}',
+                        data:  { "selectedClient":selectClientLast,"date" : date },
+                        type:       'GET',
+                        dataType:   'json',
+                        async:      true,
+                        success : function(response){
+                            console.log(date);
+                            $( "#imgL" ).html("")
+                            $( "#tab" ).show();
+
+                            $("#a5").html(
+                                "<table id='tab'  class=\"table table-striped table-hover table-condensed\">" +
+                                "       <tr>\n" +
+                                "            <th> # </th>\n" +
+                                "            <th> Id </th>\n" +
+                                "            <th> Date Emission </th>\n" +
+                                "            <th> Titre </th>\n" +
+                                "            <th> Type </th>\n" +
+                                "            <th> Emetteur </th>\n" +
+                                "            <th> Destinataire </th>\n" +
+                                "            <th> Adresse </th>\n" +
+                                "            <th> Tel </th>\n" +
+                                "            <th> Etat </th>\n" +
+                                "            <th> Livreur </th>\n" +
+                                "            <th> #Mod </th>\n" +
+                                "            <th> #Telecharger </th>\n" +
+                                "            <th> #Imrpimer </th>\n" +
+
+
+                                "\n" +
+                                "</tr>" +
+                                "" +
+                                "</table>"
+                            );
+                            $.each(response,function(k,el){
+                                var confirmerOutput ;
+
+
+
+
+
+                                var valLivreur = el.idLivreur;
+                                var readD = el.readDemande;
+                                var classNotRead ;
+                                var res = "Non";
+                                if(valLivreur==null){
+                                    res = "OUI";
+                                    var valLivreur = "<img src='https://image.flaticon.com/icons/png/512/291/291202.png' width='20px'>";
+                                    var confirmerOutput="<a href='#'>Confirmer</a>";
+
+                                }else{
+                                    res = "NON";
+                                    var valLivreur = el.idLivreur.nom + " " + el.idLivreur.prenom;
+                                    var confirmerOutput="-";
+
+                                }
+
+                                if(readD==false){
+                                    var classNotRead = "notRead";
+
+
+                                }else{
+                                    var classNotRead = "alreadyReaded";
+
+                                }
+                                var myJSON = JSON.stringify(el.dateEmission);
+                                var myString = myJSON.substr(myJSON.indexOf("timestamp")+11,10)
+                                //var thenum = myString.replace( /^\D+/g, ''); // replace all leading non-digits with nothing
+
+                                var dateEmission = new Date(myString*1000);
+
+                                var dd = dateEmission.getDate();
+
+                                var mm = dateEmission.getMonth()+1;
+                                var yyyy = dateEmission.getFullYear();
+                                if(dd<10)
+                                {
+                                    dd='0'+dd;
+                                }
+
+                                if(mm<10)
+                                {
+                                    mm='0'+mm;
+                                }
+
+                                dateEmission = dd+'/'+mm+'/'+yyyy;
+                                console.log(dateEmission);
+
+                                $('#tab').append(
+                                    "<tr class="+classNotRead +">" +
+                                    "<td><input  id='"+el.id+"' name='coffee'  name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
+                                    "<td>"+el.id+"</td>"+
+                                    "<td>"+dateEmission+"</td>"+
+                                    "<td>"+el.titre+"</td>"+
+                                    "<td>"+el.type+"</td>"+
+                                    "<td>"+el.idClient.nom+" "+el.idClient.prenom+"</td>"+
+                                    "<td>"+el.nomPrenomRecept+"</td>"+
+                                    "<td>"+el.addresseRecept+"</td>"+
+                                    "<td>"+el.telephoneRecept+"</td>"+
+                                    "<td>"+el.etat+"</td>"+
+                                    "<td>"+valLivreur+"</td>"+
+
+                                    "<td> <a href='./update/"+el.id+"'>Modifier</a></td>"+
+                                    "<td> <a href='./pdf/"+el.id+"'>Telecharger</a></td>"+
+                                    "<td> <a href='./view/"+el.id+"'>Imprimer</a></td>"+
+
+
+
+                                    "</tr>"
+                                )
+                            })
+
+
+                        },
+                    })
+
+
+
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+                $('input[type="date"]').change(function(){
+                    console.log(this.value.toString('yy-MM-dd'));
+                    var selectClientLast = $("#mylist").children("option:selected").val();
+
+
+
+                });
+
+
+
+            });
+            function testClicked()
+            {
+                $('.getDate').html($('#datePicker').val());
+            }
+
+
+        </script>
+    {% elseif is_granted('ROLE_LIVREUR') == true %}
+
+        <script>
+
+
+            $(document).ready( function() {
+
+
+
+                $('#datebtnCoursier').click(function(){
+                    $( "#imgLCoursier" ).append(" <img  src='https://www.wpfaster.org/wp-content/uploads/2013/06/circle-loading-gif.gif' width='50px'/>")
+                    $( "#tab" ).html("");
+
+                    var selectClientLastCoursier = $("#mylistCoursier").children("option:selected").val();
+                    var dateCoursier = $('#datePickerCoursier').val();
+
+                    $.ajax({
+                        url : '{{ path("filterGlobalCoursier") }}',
+                        data:  { "selectedClientCoursier":selectClientLastCoursier,"dateCoursier" : dateCoursier },
+                        type:       'GET',
+                        dataType:   'json',
+                        async:      true,
+                        success : function(response){
+
+                            $( "#imgLCoursier" ).html("")
+                            $( "#tabCoursier" ).show();
+
+                            $("#a5Coursier").html(
+                                "<table id='tabCoursier'  class=\"table table-striped table-hover table-condensed\">" +
+                                "       <tr>\n" +
+                                "            <th> # </th>\n" +
+                                "            <th> Id </th>\n" +
+                                "            <th> Date Emission </th>\n" +
+                                "            <th> Quoi </th>\n" +
+                                "            <th> Emetteur </th>\n" +
+                                "            <th> Destinataire </th>\n" +
+                                "            <th> Lieu </th>\n" +
+                                "            <th> Type </th>\n" +
+                                "            <th> Etat </th>\n" +
+                                "            <th> Livreur </th>\n" +
+
+                                "            <th> #Mod </th>\n" +
+                                "            <th> #Telecharger </th>\n" +
+                                "            <th> #Imrpimer </th>\n" +
+
+                                "\n" +
+                                "</tr>" +
+                                "" +
+                                "</table>"
+                            );
+                            $.each(response,function(k,el){
+                                var confirmerOutput ;
+
+
+
+                                var isAdmin = false;
+
+                                var valLivreur = el.idLivreur;
+                                var readD = el.readDemande;
+                                var classNotRead ;
+                                var res = "Non";
+                                if(valLivreur==null){
+                                    res = "OUI";
+                                    var valLivreur = "<img src='https://image.flaticon.com/icons/png/512/291/291202.png' width='20px'>";
+                                    var confirmerOutput="<a href='#'>Confirmer</a>";
+
+                                }else{
+                                    res = "NON";
+                                    var valLivreur = el.idLivreur.nom + " " + el.idLivreur.prenom;
+                                    var confirmerOutput="-";
+
+                                }
+
+                                if(readD==false){
+                                    var classNotRead = "notRead";
+
+
+                                }else{
+                                    var classNotRead = "alreadyReaded";
+
+                                }
+
+                                var myJSON = JSON.stringify(el.dateEmission);
+                                var myString = myJSON.substr(myJSON.indexOf("timestamp")+11,10)
+                                //var thenum = myString.replace( /^\D+/g, ''); // replace all leading non-digits with nothing
+
+                                var dateEmission = new Date(myString*1000);
+
+                                var dd = dateEmission.getDate();
+
+                                var mm = dateEmission.getMonth()+1;
+                                var yyyy = dateEmission.getFullYear();
+                                if(dd<10)
+                                {
+                                    dd='0'+dd;
+                                }
+
+                                if(mm<10)
+                                {
+                                    mm='0'+mm;
+                                }
+
+                                dateEmission = dd+'/'+mm+'/'+yyyy;
+                                console.log(dateEmission);
+
+
+
+                                $('#tabCoursier').append(
+                                    "<tr class="+classNotRead +">" +
+                                    "<td><input  id='"+el.id+"' name='coffee'  name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
+                                    "<td>"+el.id+"</td>"+
+                                    "<td>"+dateEmission+"</td>"+
+                                    "<td>"+el.quoi+"</td>"+
+                                    "<td>"+el.id_client.nom+" "+el.id_client.prenom+"</td>"+
+                                    "<td>"+el.nom_prenom_recept+"</td>"+
+                                    "<td>"+el.addresse_recept +"</td>"+
+                                    "<td>"+el.typeDC+"</td>"+
+                                    "<td>"+el.etat+"</td>"+
+                                    "<td>"+el.id_livreur.nom+" "+el.id_livreur.prenom+"</td>"+
+
+                                    "<td> <a href='./update-demande-coursier/"+el.id+"'>Modifier</a></td>"+
+                                    "<td> <a href='./pdf/"+el.id+"'>Telecharger</a></td>"+
+                                    "<td> <a href='./view/"+el.id+"'>Imprimer</a></td>"+
+
+
+
+                                    "</tr>"
+                                )
+                            })
+
+
+                        },
+                    })
+
+
+
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+                $('input[type="date"]').change(function(){
+                    console.log(this.value.toString('yy-MM-dd'));
+                    var selectClientLast = $("#mylist").children("option:selected").val();
+
+
+
+                });
+
+
+
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            $(document).ready( function() {
+
+                $('#datebtn').click(function(){
+                    $( "#imgL" ).append(" <img  src='https://www.wpfaster.org/wp-content/uploads/2013/06/circle-loading-gif.gif' width='50px'/>")
+                    $( "#tab" ).html("");
+
+                    var selectClientLast = $("#mylist").children("option:selected").val();
+                    var date = $('#datePicker').val();
+
+
+                    $.ajax({
+                        url : '{{ path("filterGlobal") }}',
+                        data:  { "selectedClient":selectClientLast,"date" : date },
+                        type:       'GET',
+                        dataType:   'json',
+                        async:      true,
+                        success : function(response){
+                            console.log(date);
+                            $( "#imgL" ).html("")
+                            $( "#tab" ).show();
+
+                            $("#a5").html(
+                                "<table id='tab'  class=\"table table-striped table-hover table-condensed\">" +
+                                "       <tr>\n" +
+                                "            <th> # </th>\n" +
+                                "            <th> Id </th>\n" +
+                                "            <th> Date Emission </th>\n" +
+                                "            <th> Titre </th>\n" +
+                                "            <th> Type </th>\n" +
+                                "            <th> Emetteur </th>\n" +
+                                "            <th> Destinataire </th>\n" +
+                                "            <th> Adresse </th>\n" +
+                                "            <th> Tel </th>\n" +
+                                "            <th> Etat </th>\n" +
+                                "            <th> Livreur </th>\n" +
+                                "            <th> #Mod </th>\n" +
+                                "            <th> #Telecharger </th>\n" +
+                                "            <th> #Imrpimer </th>\n" +
+
+
+                                "\n" +
+                                "</tr>" +
+                                "" +
+                                "</table>"
+                            );
+                            $.each(response,function(k,el){
+                                var confirmerOutput ;
+
+
+
+
+
+                                var valLivreur = el.idLivreur;
+                                var readD = el.readDemande;
+                                var classNotRead ;
+                                var res = "Non";
+                                if(valLivreur==null){
+                                    res = "OUI";
+                                    var valLivreur = "<img src='https://image.flaticon.com/icons/png/512/291/291202.png' width='20px'>";
+                                    var confirmerOutput="<a href='#'>Confirmer</a>";
+
+                                }else{
+                                    res = "NON";
+                                    var valLivreur = el.idLivreur.nom + " " + el.idLivreur.prenom;
+                                    var confirmerOutput="-";
+
+                                }
+
+                                if(readD==false){
+                                    var classNotRead = "notRead";
+
+
+                                }else{
+                                    var classNotRead = "alreadyReaded";
+
+                                }
+                                var myJSON = JSON.stringify(el.dateEmission);
+                                var myString = myJSON.substr(myJSON.indexOf("timestamp")+11,10)
+                                //var thenum = myString.replace( /^\D+/g, ''); // replace all leading non-digits with nothing
+
+                                var dateEmission = new Date(myString*1000);
+
+                                var dd = dateEmission.getDate();
+
+                                var mm = dateEmission.getMonth()+1;
+                                var yyyy = dateEmission.getFullYear();
+                                if(dd<10)
+                                {
+                                    dd='0'+dd;
+                                }
+
+                                if(mm<10)
+                                {
+                                    mm='0'+mm;
+                                }
+
+                                dateEmission = dd+'/'+mm+'/'+yyyy;
+                                console.log(dateEmission);
+
+                                $('#tab').append(
+                                    "<tr class="+classNotRead +">" +
+                                    "<td><input  id='"+el.id+"' name='coffee'  name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
+                                    "<td>"+el.id+"</td>"+
+                                    "<td>"+dateEmission+"</td>"+
+                                    "<td>"+el.titre+"</td>"+
+                                    "<td>"+el.type+"</td>"+
+                                    "<td>"+el.idClient.nom+" "+el.idClient.prenom+"</td>"+
+                                    "<td>"+el.nomPrenomRecept+"</td>"+
+                                    "<td>"+el.addresseRecept+"</td>"+
+                                    "<td>"+el.telephoneRecept+"</td>"+
+                                    "<td>"+el.etat+"</td>"+
+                                    "<td>"+valLivreur+"</td>"+
+
+                                    "<td> <a href='./update/"+el.id+"'>Modifier</a></td>"+
+                                    "<td> <a href='./pdf/"+el.id+"'>Telecharger</a></td>"+
+                                    "<td> <a href='./view/"+el.id+"'>Imprimer</a></td>"+
+
+
+
+                                    "</tr>"
+                                )
+                            })
+
+
+                        },
+                    })
+
+
+
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+                $('input[type="date"]').change(function(){
+                    console.log(this.value.toString('yy-MM-dd'));
+                    var selectClientLast = $("#mylist").children("option:selected").val();
+
+
+
+                });
+
+
+
+            });
+            function testClicked()
+            {
+                $('.getDate').html($('#datePicker').val());
+            }
+
+
+        </script>
+
+        {% else %}
+        <script>
+            console.log('else here');
+        </script>
+    {% endif %}
 
     <script>
 

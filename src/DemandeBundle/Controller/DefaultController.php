@@ -98,7 +98,14 @@ class DefaultController extends Controller
 
 
 
-            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array("id_client"=>$userId), array('id' => 'DESC'));
+
+            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array("id_client"=>$userId,'archive'=>false,'quoi'=>NULL), array('id' => 'DESC'));
+
+            $listDemandesCoursier = $em->getRepository('DemandeBundle:Demande')->findBy(array("id_client"=>$userId,'archive'=>false,'titre'=>NULL), array('id' => 'DESC'));
+
+
+
+
 
 
 
@@ -168,7 +175,7 @@ class DefaultController extends Controller
 
                 $demande->setReadDemande(false);
 
-                $user_livreur = $em->getRepository("UserBundle:User")->find(33);
+                $user_livreur = $em->getRepository("UserBundle:User")->find(2);
 
                 //En Cours = Livreur = yousssef
 
@@ -276,7 +283,7 @@ class DefaultController extends Controller
 
                 $demande->setReadDemande(false);
 
-                 $user_livreur = $em->getRepository("UserBundle:User")->find(33);
+                 $user_livreur = $em->getRepository("UserBundle:User")->find(2);
 
                 //En Cours = Livreur = yousssef
 
@@ -1036,6 +1043,7 @@ foreach ($para as $p){
 
             if (($selectedClient == "all") && ($selectedClientDate=="")){
 
+
                 $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->findBy(array('archive'=>false,'titre'=>NULL), array('id' => 'DESC'));
 
 
@@ -1184,14 +1192,23 @@ foreach ($para as $p){
 
 
 
-
+/*
 
             $response = new Response(json_encode($listeClientsFiltred, JSON_UNESCAPED_UNICODE));
 
             $response->headers->set('Content-Type', 'application/json');
 
             return $response;
+*/
 
+
+            $serialzier = new Serializer(array(new ObjectNormalizer()));
+
+            $v = $serialzier->normalize($listeClientsFiltred);
+
+
+
+            return new JsonResponse($v);
 
 
 

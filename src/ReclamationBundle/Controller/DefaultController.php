@@ -148,8 +148,23 @@ public function ouvrirAction(Request $request,$id){
     $reponse = new Reponse();
     $form=$this->createForm(ReponseType::class,$reponse);
     $form->handleRequest($request);
-    if ($form->isSubmitted())
+
+    if ($this->isGranted('ROLE_ADMIN')) {
+        $reclamationSelected->setReadReclamation(true);
+        $em->persist($reclamationSelected);
+        $em->flush();
+    }
+
+    if ($this->isGranted('ROLE_SUPER_ADMIN')) {
+        $reclamationSelected->setReadReclamation(true);
+        $em->persist($reclamationSelected);
+        $em->flush();
+
+    }
+
+        if ($form->isSubmitted())
     {
+
         $reponse->setDateCreation(new \DateTime());
         $em->persist($reponse);
         $em->flush();

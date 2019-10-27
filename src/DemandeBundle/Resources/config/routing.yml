@@ -84,7 +84,6 @@ filterGlobal:
 
 filterGlobalCoursier:
     path:     /filterGlobalCoursier
-    path:     /filterGlobalCoursier
     defaults: { _controller: DemandeBundle:Default:filterGlobalCoursier }
 
 

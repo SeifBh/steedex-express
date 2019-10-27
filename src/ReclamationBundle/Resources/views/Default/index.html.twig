@@ -1,7 +1,35 @@
 {% extends 'Template.html.twig' %}
     {% block title %}Liste Reclamations {% endblock %}
 
+
 {% block body %}
+<style>
+
+    .comment-tabs {
+        background: white;
+    }
+
+    ul.nav.nav-tabs {
+        background: #ddd;
+    }
+
+    a {}
+
+    ul.nav.nav-tabs li a {
+        background: white;
+    }
+
+
+
+
+
+
+    ul.nav.nav-tabs .active a {
+        background: #3c8dbc;
+        color:whtie !important;
+    }
+
+</style>
     <ol class="breadcrumb">
         <li><a href="{{ path('admin_homepage') }}"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
         <li class="active">
@@ -28,8 +56,18 @@
                     <th>Description</th>
                     <th>Etat</th>
                     <th>#Ouv</th>
-                    <th>#Mod</th>
-                    <th>#Supp</th>
+
+                    {% if is_granted('ROLE_ADMIN') == true %}
+
+
+                        <th>#Mod</th>
+                        <th>#Supp</th>
+
+
+                    {% endif %}
+
+                    <th>#Vu</th>
+
 
 
                 </tr>
@@ -45,10 +83,20 @@
                             <td>{{ d.etat }}</td>
 
                             <td><a href="{{ path('_ouvrir_reclamation',{'id':d.id}) }}">Ouvrir</a></td>
+
+                        {% if is_granted('ROLE_ADMIN') == true %}
+
+
                             <td><a href="{{ path('_update_reclamation',{'id':d.id}) }}">Modifier</a></td>
                             <td><a href="{{ path('_remove_reclamation',{'id':d.id}) }}">Supprimer</a></td>
 
 
+                        {% endif %}
+                            <td>
+                                #
+
+
+                            </td>
 
                         </tr>
                     {% endfor %}

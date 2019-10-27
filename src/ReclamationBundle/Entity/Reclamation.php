@@ -65,7 +65,7 @@ class Reclamation
     /**
      * @ORM\Column(name="readReclamation", type="boolean",nullable=true)
      */
-    private $readReclamation;
+    public $readReclamation;
 
     /**
      * @ORM\Column(name="modifiedReclamation", type="boolean",nullable=true)

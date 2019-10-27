@@ -146,10 +146,41 @@
                         <td>{{ l.idLivreur.nom }} {{ l.idLivreur.prenom }} </td>
                         <td>{{ l.idClient.nom }} {{ l.idClient.prenom }} </td>
                         <td>{{ l.nomPrenomRecept }}</td>
-                        <td>{{ l.lieu }}</td>
+                        <td>
+
+                            {% if(l.titre == NULL) %}
+                                -
+                            {% else %}
+                                {{ l.lieu }}
+                            {% endif %}
+
+
+
+
+                        </td>
                         <td>{{ l.addresseRecept }}</td>
-                        <td>{{ l.type }}</td>
-                        <td>{{ l.note }}</td>
+                        <td>
+
+                            {% if(l.titre == NULL) %}
+                                {{ l.typeDC }}
+                            {% else %}
+                                {{ l.type }}
+                            {% endif %}
+
+
+
+                        </td>
+                        <td>
+
+                            {% if(l.titre == NULL) %}
+                                -
+                            {% else %}
+                                {{ l.note }}
+                            {% endif %}
+
+
+
+                        </td>
 
 
                     </tr>

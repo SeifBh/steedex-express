@@ -6,6 +6,7 @@ use CMEN\GoogleChartsBundle\GoogleCharts\Charts\AreaChart;
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarChart;
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
 use DemandeBundle\Enum\DemandeEtatEnum;
+use DemandeBundle\Enum\DemandeTypeDCEnum;
 use DemandeBundle\Enum\DemandeTypeEnum;
 use DemandeBundle\Form\DemandeType;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -53,9 +54,9 @@ class DefaultController extends Controller
         $area = new AreaChart();
         $area->getData()->setArrayToDataTable([
             ['Mois', 'Demandes'],
-            ['Juin',  $nbJuin],
-            ['Juillet',  $nb_Juillet],
-            ['Aout',  $nb_Aout]
+            ['Septembre',  $nbJuin],
+            ['Octobre',  $nb_Juillet],
+            ['Novembre',  $nb_Aout]
         ]);
         $area->getOptions()->setTitle('Courbe de progression des demandes');
         $area->getOptions()->getHAxis()->setTitle('Mois');
@@ -73,6 +74,14 @@ class DefaultController extends Controller
             $listRemise = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Remise));
             $listPaiement = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Paiement));
             $listRetour = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Retour));
+
+            $list_C_Remise = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Remise));
+            $list_C_Achat = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Achat));
+            $list_C_Recuperation = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Recuperation));
+            $list_C_Faire = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Faire));
+            $list_C_Versement = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Versement));
+
+
         }
         else if ($this->isGranted("ROLE_CLIENT"))
         {
@@ -81,6 +90,14 @@ class DefaultController extends Controller
             $listRemise = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Remise,'id_client'=>$this->getUser()->getId()));
             $listPaiement = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Paiement,'id_client'=>$this->getUser()->getId()));
             $listRetour = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Retour,'id_client'=>$this->getUser()->getId()));
+
+            $list_C_Remise = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Remise,'id_client'=>$this->getUser()->getId()));
+            $list_C_Achat = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Achat,'id_client'=>$this->getUser()->getId()));
+            $list_C_Recuperation = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Recuperation,'id_client'=>$this->getUser()->getId()));
+            $list_C_Faire = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Faire,'id_client'=>$this->getUser()->getId()));
+            $list_C_Versement = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Versement,'id_client'=>$this->getUser()->getId()));
+
+
         }
         else if ($this->isGranted("ROLE_LIVREUR"))
         {
@@ -88,6 +105,15 @@ class DefaultController extends Controller
             $listRemise = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Remise,'id_livreur'=>$this->getUser()->getId()));
             $listPaiement = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Paiement,'id_livreur'=>$this->getUser()->getId()));
             $listRetour = $em->getRepository("DemandeBundle:Demande")->findBy(array('type'=>DemandeTypeEnum::TYPE_Retour,'id_livreur'=>$this->getUser()->getId()));
+
+
+            $list_C_Remise = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Remise,'id_livreur'=>$this->getUser()->getId()));
+            $list_C_Achat = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Achat,'id_livreur'=>$this->getUser()->getId()));
+            $list_C_Recuperation = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Recuperation,'id_livreur'=>$this->getUser()->getId()));
+            $list_C_Faire = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Faire,'id_livreur'=>$this->getUser()->getId()));
+            $list_C_Versement = $em->getRepository("DemandeBundle:Demande")->findBy(array('typeDC'=>DemandeTypeDCEnum::TYPE_Versement,'id_livreur'=>$this->getUser()->getId()));
+
+
         }
 
 
@@ -95,8 +121,43 @@ class DefaultController extends Controller
         $r1 = 0;
         $p = 0;
         $r2 = 0;
+        $countAchat_Cousier = 0;
+        $countRemise_Cousier = 0;
+
+        $countFaire_Cousier = 0;
+        $countVersement_Cousier = 0;
+        $countReccuperation_Cousier = 0;
+
+        $countXF = 0;
+
+
+
+        foreach ($list_C_Faire as $l){
+            $countFaire_Cousier = $countFaire_Cousier + 1;
+        }
+
+
+        foreach ($list_C_Versement as $l){
+            $countVersement_Cousier = $countVersement_Cousier + 1;
+        }
+
+
+        foreach ($list_C_Recuperation as $l){
+            $countReccuperation_Cousier = $countReccuperation_Cousier + 1;
+        }
+
+
+
+        foreach ($list_C_Achat as $l){
+            $countAchat_Cousier = $countAchat_Cousier + 1;
+        }
+
         foreach ($listAchat as $l){
             $a = $a + 1;
+        }
+
+        foreach ($list_C_Remise as $l){
+            $countRemise_Cousier = $countRemise_Cousier + 1;
         }
 
         foreach ($listRemise as $l){
@@ -114,9 +175,12 @@ class DefaultController extends Controller
 
         $pieChart->getData()->setArrayToDataTable(
             [['Type Demande', 'Nombre'],
-                ['Achat',     $a],
-                ['Remise',      $r1],
+                ['Achat',     $a+$countAchat_Cousier],
+                ['Remise',      $r1+$countRemise_Cousier],
                 ['Paiement',  $p],
+                ['Faire', $countFaire_Cousier],
+                ['Versement', $countVersement_Cousier],
+                ['Reccuperation', $countReccuperation_Cousier],
                 ['Retour', $r2]
             ]
         );

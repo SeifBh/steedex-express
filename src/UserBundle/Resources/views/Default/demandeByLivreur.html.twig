@@ -183,18 +183,19 @@
                             <!-- /.box-header -->
                             <div class="box-body no-padding" id="a5">
                                 <table class="table table-condensed table-striped table-hover" id="mainTable">
-                                    <tbody><tr>
-                                        <th></th>
-                                        <th>ID</th>
-                                        <th>Date Emission</th>
-                                        <th>Titre</th>
-                                        <th>Type</th>
+                                    <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>ID</th>
+                                                <th>Date Emission</th>
+                                                <th>Titre</th>
+                                                <th>Type</th>
+                                            </tr>
+                                    </thead>
 
-
-                                    </tr>
-
+                                    <tbody>
                                     {% if listeDemandeByLivreur is empty %}
-                                        <tr><th> Aucun demande enregistré</th></tr>
+                                        <tr colspan="5"> Aucun demande enregistré</tr>
                                     {% else %}
                                         {% for d in listeDemandeByLivreur %}
                                             <tr class="{% if d.readDemande == false %} notRead {% endif %}">

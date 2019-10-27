@@ -178,7 +178,7 @@
                             <thead>
                             <tr>
                                 <th>Demande ID</th>
-                                <th>Titre</th>
+                                <th>Titre/Quoi</th>
                                 <th>Etat</th>
                                 <th>Livreur</th>
                             </tr>
@@ -191,7 +191,19 @@
                             {% for d in listedemandes %}
                             <tr>
                                 <td>{{ d.id }}</td>
-                                <td>{{ d.titre }}</td>
+
+                                <td>
+
+                                    {% if(d.titre == NULL) %}
+                                        Quoi : {{ d.quoi }}
+                                    {% else %}
+                                        Titre : {{ d.titre }}
+                                    {% endif %}
+
+
+
+
+                                </td>
                                 <td>
                                     {% if (d.etat == "EnTraitement") %}
                                         <span class="label label-info">{{ d.etat }}</span>
@@ -209,7 +221,7 @@
                                     {% if d.idLivreur == null %}
                                         null
                                         {% else %}
-                                    {{ d.idLivreur.nom }}
+                                    {{ d.idLivreur.nom }} {{ d.idLivreur.prenom }}
                                             {% endif %}
                                 </td>
 

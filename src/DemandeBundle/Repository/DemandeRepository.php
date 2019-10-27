@@ -290,10 +290,23 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
 
 
 
+    public function filterByClientsCoursier($id){
+        return $this->createQueryBuilder('d')
+            ->where('d.id_client =  :id')
+            ->andWhere('d.titre is  NULL')
+            ->andWhere('d.archive =  false')
+            ->setParameter('id',  $id )
+            ->orderBy('d.updated_date', 'DESC')
+
+            ->getQuery()
+            ->getResult();
+    }
+
 
     public function filterByClients($id){
         return $this->createQueryBuilder('d')
             ->where('d.id_client =  :id')
+            ->andWhere('d.quoi is  NULL')
             ->andWhere('d.archive =  false')
             ->setParameter('id',  $id )
             ->orderBy('d.updated_date', 'DESC')
@@ -308,6 +321,7 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
             ->where("d.date_emission")
             ->where( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
             ->andWhere('d.archive =  false')
+            ->andWhere('d.quoi is  NULL')
             ->andWhere('d.id_client =  :idclient')
             ->setParameter('date',  $date )
             ->setParameter('idclient',  $idclient )
@@ -316,12 +330,37 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
             ->getResult();
     }
 
+    public function filterByClientsDateClientCoursier($date,$idclient){
+        return $this->createQueryBuilder('d')
+            ->where("d.date_emission")
+            ->where( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
+            ->andWhere('d.archive =  false')
+            ->andWhere('d.titre is  NULL')
+            ->andWhere('d.id_client =  :idclient')
+            ->setParameter('date',  $date )
+            ->setParameter('idclient',  $idclient )
+            ->orderBy('d.updated_date', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 
+    public function filterByClientsDateCoursier($date){
+        return $this->createQueryBuilder('d')
+            ->where("d.date_emission")
+            ->where( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
+            ->andWhere('d.titre is  NULL')
+            ->andWhere('d.archive =  false')
+            ->setParameter('date',  $date )
+            ->orderBy('d.updated_date', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 
     public function filterByClientsDate($date){
         return $this->createQueryBuilder('d')
             ->where("d.date_emission")
             ->where( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
+            ->andWhere('d.quoi is  NULL')
             ->andWhere('d.archive =  false')
             ->setParameter('date',  $date )
             ->orderBy('d.updated_date', 'DESC')
@@ -330,11 +369,25 @@ class DemandeRepository extends \Doctrine\ORM\EntityRepository
     }
 
 
+    public function filterGlobalCoursier($id,$date){
+        return $this->createQueryBuilder('d')
+            ->where('d.id_client =  :id')
+            ->andWhere('d.archive =  false')
+            ->andWhere('d.titre is  NULL')
+            ->andWhere( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
+            ->setParameter('date',  $date )
+            ->setParameter('id',  $id )
+            ->orderBy('d.updated_date', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
 
     public function filterGlobal($id,$date){
         return $this->createQueryBuilder('d')
             ->where('d.id_client =  :id')
             ->andWhere('d.archive =  false')
+            ->andWhere('d.quoi is  NULL')
             ->andWhere( "DATE_FORMAT(d.date_emission, '%Y-%m-%d') = :date" )
             ->setParameter('date',  $date )
             ->setParameter('id',  $id )

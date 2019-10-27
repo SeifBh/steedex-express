@@ -123,6 +123,7 @@ fos_rest:
     body_listener: true
     format_listener: true
     view:
+        serialize_null: true
         view_response_listener: 'force'
         formats:
             xml: true
@@ -135,14 +136,15 @@ fos_rest:
         default_engine: twig
     routing_loader:
         default_format: json
+    param_fetcher_listener: force
+    serializer:
+      serialize_null: true
     disable_csrf_role: null
     access_denied_listener:
         enabled: false
         service: null
         formats:
     unauthorized_challenge: null
-    param_fetcher_listener:
-        enabled: true
 
 lexik_jwt_authentication:
     private_key_path: '%kernel.root_dir%/../var/jwt/private.pem'

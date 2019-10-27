@@ -1,0 +1,100 @@
+{% extends "Template.html.twig" %}
+{% block title %}Modification Demande Coursier{% endblock %}
+
+{% block body %}
+    <style>
+        input.form-control.input-group.a7 {
+            height: 72px;
+            background-color: #e4e4e4;
+            font-size: 24px;
+        }
+        ul li {
+            color: red !important;
+        }
+
+        .input-group7 {
+            height: 68px;
+        }
+
+        input.form-control7 {
+            height: 69px;
+        }
+
+        input.form-control.form-control7 {
+            font-size: 23px !important;
+            font-weight: 800;
+            text-align: center;
+        }
+
+
+    </style>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('admin_homepage') }}"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
+        <li class="active">
+            <a href="{{ path('_list_users') }}">
+                Utilisateurs
+            </a>
+        </li>
+        <li class="active">
+            Mise à jour Demande Coursier
+        </li>
+    </ol>
+    <div class="col-md-8">
+        <div class="box box-warning">
+
+            {{ form_start(form) }}
+            <div class="box-header with-border">
+                <h3 class="box-title">Modifier Demande Coursier </h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+
+
+
+
+
+
+                    <div class="form-group" style="">
+                        <label for="exampleInputEmail1">Quoi </label>
+                        {{ form_row(form.quoi) }}
+                    </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Destinataire</label>
+                    {{ form_row(form.nomPrenomRecept) }}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Lieu</label>
+                    {{ form_row(form.addresseRecept) }}
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Etat</label>
+                    {{ form_row(form.etat) }}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Type</label>
+                    {{ form_row(form.typeDC) }}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <input type="submit" class="btn btn-warning" value="Update">
+
+    {{ form_end(form) }}
+
+    </div>
+
+
+{% endblock %}

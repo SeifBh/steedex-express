@@ -190,11 +190,12 @@
                             <!-- /.box-header -->
                             <div class="box-body no-padding" id="a5">
                                 <table class="table table-condensed table-striped table-hover" id="mainTable">
-                                    <tbody><tr>
+                                    <thead>
+                                    <tr>
                                         <th></th>
                                         <th>ID</th>
                                         <th>Date Emission</th>
-                                        <th>Titre</th>
+                                        <th>Titre/Quoi</th>
                                         <th>Type</th>
                                         <th>Emetteur</th>
                                         <th>Destinataire</th>
@@ -205,9 +206,10 @@
 
 
                                     </tr>
-
+                                    </thead>
+                                    <tbody>
                                     {% if listeDemandeByLivreur is empty %}
-                                        <tr><th> Aucun demande enregistré</th></tr>
+                                        <tr><th style="padding:20px;" colspan="11"> <center>Aucune demande</center> </th></tr>
                                     {% else %}
                                         {% for d in listeDemandeByLivreur %}
                                             <tr class="{% if d.readDemande == false %} notRead {% endif %}">
@@ -215,8 +217,25 @@
 
                                                 <td>{{ d.id }}</td>
                                                 <td>{{ d.dateEmission | date("d/m/Y") }}</td>
-                                                <td>{{ d.titre }}</td>
-                                                <td>{{ d.type }}</td>
+                                                <td>
+                                                    {% if(d.titre == NULL) %}
+                                                    Quoi : {{ d.quoi }}
+                                                    {% else %}
+                                                        Titre : {{ d.titre }}
+                                                    {% endif %}
+
+
+                                                </td>
+                                                <td>
+
+
+                                                    {% if(d.titre == NULL) %}
+                                                         {{ d.typeDC }}
+                                                    {% else %}
+                                                        {{ d.type }}
+                                                    {% endif %}
+
+                                                </td>
                                                 <td>{{ d.idClient.nom }} {{ d.idClient.prenom }}</td>
                                                 <td>{{ d.nomPrenomRecept }} </td>
                                                 <td>{{ d.addresseRecept }}</td>
@@ -327,7 +346,7 @@
                             "            <th></th>\n" +
                             "            <th> ID </th>\n" +
                             "            <th> Date Emission </th>\n" +
-                            "            <th> Titre </th>\n" +
+                            "            <th> Titre/Quoi </th>\n" +
                             "            <th> Type </th>\n" +
                             "            <th> Emetteur </th>\n" +
                             "            <th> Destinataire </th>\n" +
@@ -379,6 +398,36 @@
 
                             }
 
+                            var type = "";
+                            var titrequoi = "";
+                            var tel = "";
+
+                            if (el.titre === null){
+                                titrequoi = "Quoi :   "+ el.quoi;
+                            }
+                            else{
+                                titrequoi = "Titre : "+ el.titre;
+
+                            }
+
+
+                            if (el.titre === null){
+                                type = el.typeDC;
+
+                            }
+                            else{
+                                type = el.type;
+
+                            }
+
+                            if (el.titre === null){
+                                tel = "-";
+
+                            }
+                            else{
+                                tel = el.telephoneRecept;
+
+                            }
 
 
 
@@ -387,12 +436,15 @@
                                 "<td><input  id='"+el.id+"' name='coffee'  name='checkbox' type='checkbox' id='"+el.id+"' value='"+el.id+"'/></td>"+
                                 "<td>"+el.id+"</td>"+
                                 "<td>"+dateEmission+"</td>"+
-                                "<td>"+el.titre+"</td>"+
-                                "<td>"+el.type+"</td>"+
+                                "<td>"+titrequoi+"</td>"+
+                                "<td>"+type+"</td>"+
+
+
+
                                 "<td>"+el.idClient.nom +" "+ el.idClient.prenom + "</td>"+
                                 "<td>"+el.nomPrenomRecept+"</td>"+
                                 "<td>"+el.addresseRecept+"</td>"+
-                                "<td>"+el.telephoneRecept+"</td>"+
+                                "<td>"+tel+"</td>"+
                                 "<td>"+el.etat+"</td>"+
                                 "<td>"+valLivreur+"</td>"+
 

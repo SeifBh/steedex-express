@@ -44,6 +44,9 @@ class DefaultController extends Controller
     }
 
 
+    
+
+
     /**
      * @Route("/getdevis", name="getdevis")
      */
@@ -62,9 +65,37 @@ class DefaultController extends Controller
 
         $this->get('mailer')->send($message);
 
+
+
+  if(!$this->captchaverify($request->get('g-recaptcha-response'))){
+                 
+            $this->addFlash(
+                'error',
+                'Captcha Require'
+              );             
+
+}
+
         return new Response("Devis envoyee avec success");
 
     }
+
+
+    function captchaverify($recaptcha){
+            $url = "https://www.google.com/recaptcha/api/siteverify";
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); 
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+                "secret"=>"6Lc2uL8UAAAAALTugfCyvzZ-gtkfAHNOvStbtRYt","response"=>$recaptcha));
+            $response = curl_exec($ch);
+            curl_close($ch);
+            $data = json_decode($response);     
+        
+        return $data->success;        
+}
 
     /**
      * @Route("/confidentialite", name="confidentialite")

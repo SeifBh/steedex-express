@@ -6,10 +6,21 @@ _create_demande:
     path:     /create
     defaults: { _controller: DemandeBundle:Default:create }
 
+_create_demande_coursier:
+    path:     /create-demande-coursier
+    defaults: { _controller: DemandeBundle:Default:createDemandeCoursier }
+
+
+
 
 _update_demande:
     path:     /update/{id}
     defaults: { _controller: DemandeBundle:Default:update }
+
+_update_demande_coursier:
+    path:     /update-demande-coursier/{id}
+    defaults: { _controller: DemandeBundle:Default:updateDemandeCoursier }
+
 
 
 _remove_demande:
@@ -70,6 +81,14 @@ filterClientsDate:
 filterGlobal:
     path:     /filterGlobal
     defaults: { _controller: DemandeBundle:Default:filterGlobal }
+
+filterGlobalCoursier:
+    path:     /filterGlobalCoursier
+    path:     /filterGlobalCoursier
+    defaults: { _controller: DemandeBundle:Default:filterGlobalCoursier }
+
+
+
 
 
 filterGlobalLivreur:

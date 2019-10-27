@@ -262,7 +262,22 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{ path('_create_demande') }}"><i class="fa fa-circle-o"></i> Ajout demande</a></li>
+
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-circle-o"></i> Ajout Demande
+                                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{ path('_create_demande_coursier') }}"><i class="fa fa-circle-o"></i> Coursier</a></li>
+                                <li><a href="{{ path('_create_demande') }}"><i class="fa fa-circle-o"></i> Livraison</a></li>
+
+                            </ul>
+                        </li>
+
+
+
                         <li><a href="{{ path('_list_demande') }}"><i class="fa fa-circle-o"></i> Afficher demandes</a></li>
                         {% if is_granted('ROLE_ADMIN') == true %}
 
@@ -271,6 +286,7 @@
                         {% endif %}
                         </ul>
                 </li>
+
                 {% if is_granted('ROLE_ADMIN') == true %}
 
 

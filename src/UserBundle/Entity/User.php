@@ -62,7 +62,7 @@ class User extends  BaseUser
      *
      * @ORM\Column(name="prenom", type="string", length=255,nullable=true)
      */
-    private $prenom ;
+    public $prenom ;
 
 
 
@@ -71,7 +71,7 @@ class User extends  BaseUser
      *
      * @ORM\Column(name="addresse", type="string", length=255,nullable=true)
      */
-    private $addresse ;
+    public $addresse ;
 
 
     /**
@@ -79,7 +79,7 @@ class User extends  BaseUser
      *
      * @ORM\Column(name="notes", type="string", length=255,nullable=true)
      */
-    private $notes ;
+    public $notes ;
 
     /**
      * @return string

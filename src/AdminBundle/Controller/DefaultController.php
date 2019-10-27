@@ -27,24 +27,24 @@ class DefaultController extends Controller
         $em=$this->getDoctrine()->getManager();
         if ($this->isGranted("ROLE_ADMIN"))
         {
-            $nbJuin = (int) $this->demandeParMoisAction("2019-06",null);
-            $nb_Juillet = (int) $this->demandeParMoisAction("2019-07",null);
-            $nb_Aout = (int) $this->demandeParMoisAction("2019-08",null);
-            $nb_September = (int) $this->demandeParMoisAction("2019-09",null);
+            $nbJuin = (int) $this->demandeParMoisAction("2019-09",null);
+            $nb_Juillet = (int) $this->demandeParMoisAction("2019-10",null);
+            $nb_Aout = (int) $this->demandeParMoisAction("2019-11",null);
+            $nb_September = (int) $this->demandeParMoisAction("2019-12",null);
         }
         else if ($this->isGranted("ROLE_CLIENT"))
         {
-            $nbJuin = (int) $this->demandeParMoisAction("2019-06",$this->getUser()->getId());
-            $nb_Juillet = (int) $this->demandeParMoisAction("2019-07",$this->getUser()->getId());
-            $nb_Aout = (int) $this->demandeParMoisAction("2019-08",$this->getUser()->getId());
-            $nb_September = (int) $this->demandeParMoisAction("2019-09",$this->getUser()->getId());
+            $nbJuin = (int) $this->demandeParMoisAction("2019-09",$this->getUser()->getId());
+            $nb_Juillet = (int) $this->demandeParMoisAction("2019-10",$this->getUser()->getId());
+            $nb_Aout = (int) $this->demandeParMoisAction("2019-11",$this->getUser()->getId());
+            $nb_September = (int) $this->demandeParMoisAction("2019-12",$this->getUser()->getId());
         }
         else if ($this->isGranted("ROLE_LIVREUR"))
         {
-            $nbJuin = (int) $this->demandeParMoisAction("2019-06",$this->getUser()->getId());
-            $nb_Juillet = (int) $this->demandeParMoisAction("2019-07",$this->getUser()->getId());
-            $nb_Aout = (int) $this->demandeParMoisAction("2019-08",$this->getUser()->getId());
-            $nb_September = (int) $this->demandeParMoisAction("2019-09",$this->getUser()->getId());
+            $nbJuin = (int) $this->demandeParMoisAction("2019-09",$this->getUser()->getId());
+            $nb_Juillet = (int) $this->demandeParMoisAction("2019-10",$this->getUser()->getId());
+            $nb_Aout = (int) $this->demandeParMoisAction("2019-11",$this->getUser()->getId());
+            $nb_September = (int) $this->demandeParMoisAction("2019-12",$this->getUser()->getId());
         }
 
 
@@ -126,11 +126,11 @@ class DefaultController extends Controller
         $pieChart->getOptions()->getTitleTextStyle()->setFontSize(20);
 
         $user = $this->getUser();
-      //  $jwtManager = $this->container->get('lexik_jwt_authentication.jwt_manager');
+        //  $jwtManager = $this->container->get('lexik_jwt_authentication.jwt_manager');
 
         $userId = $user->getId();
 
-       // $this->get('session')->set('loginUserId', $this->getUser());
+        // $this->get('session')->set('loginUserId', $this->getUser());
 
 
         $nb_users = $em->getRepository("UserBundle:User")->countAllUsers();
@@ -143,15 +143,15 @@ class DefaultController extends Controller
         else if   ($this->isGranted("ROLE_CLIENT")){
 
             $listeD = $em->getRepository("DemandeBundle:Demande")->dixDernierDemandeClient($userId);
-           $listeR = $em->getRepository("ReclamationBundle:Reclamation")->dixDernierReclamationUser($userId);
-            }
-            else if  ($this->isGranted("ROLE_LIVREUR"))
-            {
-                $listeD = $em->getRepository("DemandeBundle:Demande")->dixDernierDemandeLivreur($userId);
-                $listeR = $em->getRepository("ReclamationBundle:Reclamation")->dixDernierReclamationUser($userId);
+            $listeR = $em->getRepository("ReclamationBundle:Reclamation")->dixDernierReclamationUser($userId);
+        }
+        else if  ($this->isGranted("ROLE_LIVREUR"))
+        {
+            $listeD = $em->getRepository("DemandeBundle:Demande")->dixDernierDemandeLivreur($userId);
+            $listeR = $em->getRepository("ReclamationBundle:Reclamation")->dixDernierReclamationUser($userId);
 
 
-            }
+        }
 
         return $this->render('@Admin/Default/dahboard.html.twig', array('piechart' => $pieChart,'area' => $area,"nb_users"=>$nb_users,'listedemandes'=>$listeD,"listeRec" =>$listeR));
     }

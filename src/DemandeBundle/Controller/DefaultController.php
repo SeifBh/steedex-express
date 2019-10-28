@@ -85,8 +85,12 @@ class DefaultController extends Controller
         {
 
 
+            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array("id_livreur"=>$userId,'archive'=>false,'quoi'=>NULL), array('id' => 'DESC'));
 
-            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array("id_livreur"=>$userId), array('id' => 'DESC'));
+            $listDemandesCoursier = $em->getRepository('DemandeBundle:Demande')->findBy(array("id_livreur"=>$userId,'archive'=>false,'titre'=>NULL), array('id' => 'DESC'));
+
+
+
 
 
 
@@ -1170,6 +1174,73 @@ foreach ($para as $p){
 
 
 
+        else if ($this->isGranted("ROLE_LIVREUR"))
+
+        {
+
+
+
+            if (($selectedClient == "all") && ($selectedClientDate=="")){
+
+                $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->findBy(array('archive'=>false,'titre'=>NULL,'id_livreur'=>$this->getUser()->getId()), array('id' => 'DESC'));
+
+
+
+            }
+
+            else{
+
+                if ($selectedClientDate == "")
+
+                {
+
+                    $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByLivreurCoursier($selectedClient);
+
+
+
+
+
+
+
+                }
+
+                elseif ($selectedClient == "all")
+
+                {
+
+
+
+                    $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByLivreurDateClientCoursier($selectedClientDate,$this->getUser()->getId());
+
+
+
+                }
+
+
+
+                else{
+
+                    $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobalCoursierLivreur($selectedClient,$selectedClientDate);
+
+
+
+
+
+                }
+
+
+
+            }
+
+
+
+
+
+
+
+        }
+
+
 
 
 
@@ -1395,6 +1466,71 @@ foreach ($para as $p){
 
 
 
+       else if ($this->isGranted("ROLE_LIVREUR"))
+
+       {
+
+
+
+           if (($selectedClient == "all") && ($selectedClientDate=="")){
+
+               $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->findBy(array('archive'=>false,'quoi'=>NULL,'id_livreur'=>$this->getUser()->getId()), array('id' => 'DESC'));
+
+
+
+           }
+
+           else{
+
+               if ($selectedClientDate == "")
+
+               {
+
+                   $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByLivreur($selectedClient);
+
+
+
+
+
+
+
+               }
+
+               elseif ($selectedClient == "all")
+
+               {
+
+
+
+                   $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterByLivreurDateClient($selectedClientDate,$this->getUser()->getId());
+
+
+
+               }
+
+
+
+               else{
+
+                   $listeClientsFiltred = $em->getRepository('DemandeBundle:Demande')->filterGlobal($selectedClient,$selectedClientDate);
+
+
+
+
+
+               }
+
+
+
+           }
+
+
+
+
+
+
+
+       }
 
 
 

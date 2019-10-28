@@ -738,10 +738,11 @@
 
             $('#datebtnCoursier').click(function(){
                 $( "#imgLCoursier" ).append(" <img  src='https://www.wpfaster.org/wp-content/uploads/2013/06/circle-loading-gif.gif' width='50px'/>")
-                $( "#tab" ).html("");
+                $( "#tabCoursier" ).html("");
 
                 var selectClientLastCoursier = $("#mylistCoursier").children("option:selected").val();
                 var dateCoursier = $('#datePickerCoursier').val();
+
 
                 $.ajax({
                     url : '{{ path("filterGlobalCoursier") }}',
@@ -790,6 +791,38 @@
                             var readD = el.readDemande;
                             var classNotRead ;
                             var res = "Non";
+                            var baliseEtat  ="";
+                            var resEtat = el.etat;
+
+                            if (resEtat == "Cloture"){
+                                baliseEtat = "<span class=\"label label-danger\">"+resEtat+"</span>";
+                            }
+                            else if (resEtat == "EnTraitement"){
+                                baliseEtat = "<span class=\"label label-info\">"+resEtat+"</span>";
+
+
+                            }
+
+                            else if (resEtat == "Valide"){
+
+                                baliseEtat = "<span class=\"label label-success\">"+resEtat+"</span>";
+
+                            }
+
+                            else if (resEtat == "EnCours"){
+
+                                baliseEtat = "<span class=\"label label-warning\">"+resEtat+"</span>";
+
+                            }
+
+
+
+                            else{
+                                baliseEtat = resEtat;
+
+                            }
+
+
                             if(valLivreur==null){
                                 res = "OUI";
                                 var valLivreur = "<img src='https://image.flaticon.com/icons/png/512/291/291202.png' width='20px'>";
@@ -846,7 +879,7 @@
                                 "<td>"+el.nom_prenom_recept+"</td>"+
                                 "<td>"+el.addresse_recept +"</td>"+
                                 "<td>"+el.typeDC+"</td>"+
-                                "<td>"+el.etat+"</td>"+
+                                "<td>"+baliseEtat+"</td>"+
                                 "<td>"+el.id_livreur.nom+" "+el.id_livreur.prenom+"</td>"+
 
                                 "<td> <a href='./assign/"+el.id+"'>Affecter</a></td>"+
@@ -863,6 +896,11 @@
 
 
                     },
+
+                    error: function (xhr) {
+                        alert("erreur STD-X201");
+                    }
+
                 })
 
 
@@ -978,6 +1016,39 @@
                             var readD = el.readDemande;
                             var classNotRead ;
                             var res = "Non";
+
+                            var baliseEtat  ="";
+                            var resEtat = el.etat;
+
+                            if (resEtat == "Cloture"){
+                                baliseEtat = "<span class=\"label label-danger\">"+resEtat+"</span>";
+                            }
+                            else if (resEtat == "EnTraitement"){
+                                baliseEtat = "<span class=\"label label-info\">"+resEtat+"</span>";
+
+
+                            }
+
+                            else if (resEtat == "Valide"){
+
+                                baliseEtat = "<span class=\"label label-success\">"+resEtat+"</span>";
+
+                            }
+
+                            else if (resEtat == "EnCours"){
+
+                                baliseEtat = "<span class=\"label label-warning\">"+resEtat+"</span>";
+
+                            }
+
+
+
+                            else{
+                                baliseEtat = resEtat;
+
+                            }
+
+
                             if(valLivreur==null){
                                 res = "OUI";
                                 var valLivreur = "<img src='https://image.flaticon.com/icons/png/512/291/291202.png' width='20px'>";
@@ -1032,7 +1103,7 @@
                                 "<td>"+el.nomPrenomRecept+"</td>"+
                                 "<td>"+el.addresseRecept+"</td>"+
                                 "<td>"+el.telephoneRecept+"</td>"+
-                                "<td>"+el.etat+"</td>"+
+                                "<td>"+baliseEtat+"</td>"+
                                 "<td>"+valLivreur+"</td>"+
 
                                 "<td> <a href='./assign/"+el.id+"'>Affecter</a></td>"+
@@ -1049,6 +1120,11 @@
 
 
                     },
+
+                    error: function (xhr) {
+                        alert("erreur STD-X202");
+                    }
+
                 })
 
 
@@ -1098,7 +1174,7 @@
 
                 $('#datebtnCoursier').click(function(){
                     $( "#imgLCoursier" ).append(" <img  src='https://www.wpfaster.org/wp-content/uploads/2013/06/circle-loading-gif.gif' width='50px'/>")
-                    $( "#tab" ).html("");
+                    $( "#tabCoursier" ).html("");
 
                     var selectClientLastCoursier = $("#mylistCoursier").children("option:selected").val();
                     var dateCoursier = $('#datePickerCoursier').val();
@@ -1148,6 +1224,40 @@
                                 var readD = el.readDemande;
                                 var classNotRead ;
                                 var res = "Non";
+
+                                var baliseEtat  ="";
+                                var resEtat = el.etat;
+
+                                if (resEtat == "Cloture"){
+                                    baliseEtat = "<span class=\"label label-danger\">"+resEtat+"</span>";
+                                }
+                                else if (resEtat == "EnTraitement"){
+                                    baliseEtat = "<span class=\"label label-info\">"+resEtat+"</span>";
+
+
+                                }
+
+                                else if (resEtat == "Valide"){
+
+                                    baliseEtat = "<span class=\"label label-success\">"+resEtat+"</span>";
+
+                                }
+
+                                else if (resEtat == "EnCours"){
+
+                                    baliseEtat = "<span class=\"label label-warning\">"+resEtat+"</span>";
+
+                                }
+
+
+
+                                else{
+                                    baliseEtat = resEtat;
+
+                                }
+
+
+
                                 if(valLivreur==null){
                                     res = "OUI";
                                     var valLivreur = "<img src='https://image.flaticon.com/icons/png/512/291/291202.png' width='20px'>";
@@ -1204,7 +1314,7 @@
                                     "<td>"+el.nom_prenom_recept+"</td>"+
                                     "<td>"+el.addresse_recept +"</td>"+
                                     "<td>"+el.typeDC+"</td>"+
-                                    "<td>"+el.etat+"</td>"+
+                                    "<td>"+baliseEtat+"</td>"+
                                     "<td>"+el.id_livreur.nom+" "+el.id_livreur.prenom+"</td>"+
 
                                     "<td> <a href='./update-demande-coursier/"+el.id+"'>Modifier</a></td>"+
@@ -1219,6 +1329,11 @@
 
 
                         },
+
+                        error: function (xhr) {
+                            alert("erreur STD-X203");
+                        }
+
                     })
 
 
@@ -1332,6 +1447,38 @@
                                 var readD = el.readDemande;
                                 var classNotRead ;
                                 var res = "Non";
+                                var baliseEtat  ="";
+                                var resEtat = el.etat;
+
+                                if (resEtat == "Cloture"){
+                                    baliseEtat = "<span class=\"label label-danger\">"+resEtat+"</span>";
+                                }
+                                else if (resEtat == "EnTraitement"){
+                                    baliseEtat = "<span class=\"label label-info\">"+resEtat+"</span>";
+
+
+                                }
+
+                                else if (resEtat == "Valide"){
+
+                                    baliseEtat = "<span class=\"label label-success\">"+resEtat+"</span>";
+
+                                }
+
+                                else if (resEtat == "EnCours"){
+
+                                    baliseEtat = "<span class=\"label label-warning\">"+resEtat+"</span>";
+
+                                }
+
+
+
+                                else{
+                                    baliseEtat = resEtat;
+
+                                }
+
+
                                 if(valLivreur==null){
                                     res = "OUI";
                                     var valLivreur = "<img src='https://image.flaticon.com/icons/png/512/291/291202.png' width='20px'>";
@@ -1386,7 +1533,7 @@
                                     "<td>"+el.nomPrenomRecept+"</td>"+
                                     "<td>"+el.addresseRecept+"</td>"+
                                     "<td>"+el.telephoneRecept+"</td>"+
-                                    "<td>"+el.etat+"</td>"+
+                                    "<td>"+baliseEtat+"</td>"+
                                     "<td>"+valLivreur+"</td>"+
 
                                     "<td> <a href='./update/"+el.id+"'>Modifier</a></td>"+
@@ -1401,6 +1548,11 @@
 
 
                         },
+
+                        error: function (xhr) {
+                            alert("erreur STD-X204");
+                        }
+
                     })
 
 
@@ -1448,7 +1600,7 @@
 
                 $('#datebtnCoursier').click(function(){
                     $( "#imgLCoursier" ).append(" <img  src='https://www.wpfaster.org/wp-content/uploads/2013/06/circle-loading-gif.gif' width='50px'/>")
-                    $( "#tab" ).html("");
+                    $( "#tabCoursier" ).html("");
 
                     var selectClientLastCoursier = $("#mylistCoursier").children("option:selected").val();
                     var dateCoursier = $('#datePickerCoursier').val();
@@ -1498,6 +1650,37 @@
                                 var readD = el.readDemande;
                                 var classNotRead ;
                                 var res = "Non";
+                                var baliseEtat  ="";
+                                var resEtat = el.etat;
+
+                                if (resEtat == "Cloture"){
+                                    baliseEtat = "<span class=\"label label-danger\">"+resEtat+"</span>";
+                                }
+                                else if (resEtat == "EnTraitement"){
+                                    baliseEtat = "<span class=\"label label-info\">"+resEtat+"</span>";
+
+
+                                }
+
+                                else if (resEtat == "Valide"){
+
+                                    baliseEtat = "<span class=\"label label-success\">"+resEtat+"</span>";
+
+                                }
+
+                                else if (resEtat == "EnCours"){
+
+                                    baliseEtat = "<span class=\"label label-warning\">"+resEtat+"</span>";
+
+                                }
+
+
+
+                                else{
+                                    baliseEtat = resEtat;
+
+                                }
+
                                 if(valLivreur==null){
                                     res = "OUI";
                                     var valLivreur = "<img src='https://image.flaticon.com/icons/png/512/291/291202.png' width='20px'>";
@@ -1554,7 +1737,7 @@
                                     "<td>"+el.nom_prenom_recept+"</td>"+
                                     "<td>"+el.addresse_recept +"</td>"+
                                     "<td>"+el.typeDC+"</td>"+
-                                    "<td>"+el.etat+"</td>"+
+                                    "<td>"+baliseEtat+"</td>"+
                                     "<td>"+el.id_livreur.nom+" "+el.id_livreur.prenom+"</td>"+
 
                                     "<td> <a href='./update-demande-coursier/"+el.id+"'>Modifier</a></td>"+
@@ -1569,6 +1752,11 @@
 
 
                         },
+                        error: function (xhr) {
+                            alert("erreur STD-X205");
+                        }
+
+
                     })
 
 
@@ -1682,6 +1870,40 @@
                                 var readD = el.readDemande;
                                 var classNotRead ;
                                 var res = "Non";
+
+                                var baliseEtat  ="";
+                                var resEtat = el.etat;
+
+                                if (resEtat == "Cloture"){
+                                    baliseEtat = "<span class=\"label label-danger\">"+resEtat+"</span>";
+                                }
+                                else if (resEtat == "EnTraitement"){
+                                    baliseEtat = "<span class=\"label label-info\">"+resEtat+"</span>";
+
+
+                                }
+
+                                else if (resEtat == "Valide"){
+
+                                    baliseEtat = "<span class=\"label label-success\">"+resEtat+"</span>";
+
+                                }
+
+                                else if (resEtat == "EnCours"){
+
+                                    baliseEtat = "<span class=\"label label-warning\">"+resEtat+"</span>";
+
+                                }
+
+
+
+                                else{
+                                    baliseEtat = resEtat;
+
+                                }
+
+
+
                                 if(valLivreur==null){
                                     res = "OUI";
                                     var valLivreur = "<img src='https://image.flaticon.com/icons/png/512/291/291202.png' width='20px'>";
@@ -1736,7 +1958,7 @@
                                     "<td>"+el.nomPrenomRecept+"</td>"+
                                     "<td>"+el.addresseRecept+"</td>"+
                                     "<td>"+el.telephoneRecept+"</td>"+
-                                    "<td>"+el.etat+"</td>"+
+                                    "<td>"+baliseEtat+"</td>"+
                                     "<td>"+valLivreur+"</td>"+
 
                                     "<td> <a href='./update/"+el.id+"'>Modifier</a></td>"+
@@ -1751,6 +1973,11 @@
 
 
                         },
+
+                        error: function (xhr) {
+                            alert("erreur STD-X206");
+                        }
+
                     })
 
 

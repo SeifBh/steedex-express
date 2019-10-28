@@ -52,6 +52,7 @@ class DefaultController extends Controller
     {
         $demande = new Demande();
 
+
         $selectedUser = $this->getDoctrine()->getRepository("UserBundle:User")->findBy(['id'=>$id_livreur]);
 
         $articles = $this->getDoctrine()->getRepository('DemandeBundle:Demande')->findBy(array('id_livreur' => $selectedUser), array('updated_date' => 'DESC'));

@@ -14,8 +14,13 @@ security:
             id: fos_user.user_provider.username
 
     firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
         login:
                     pattern:  ^/api/login
+                    stateless: true
                     stateless: true
                     form_login:
                         check_path:               /api/login_check

@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 class SecurityController extends Controller
 {
 
+
+
     /**
      * @Route("/json_login", name="json_login")
      * @return Response
@@ -46,6 +48,10 @@ class SecurityController extends Controller
 
         }
     }
+
+
+
+
 
 
 

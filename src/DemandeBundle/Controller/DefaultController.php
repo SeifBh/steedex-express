@@ -45,7 +45,7 @@ use Spipu\Html2Pdf\Html2Pdf;
 use Dompdf\Dompdf;
 
 use Dompdf\Options;
-
+use UserBundle\Entity\UserToken;
 
 
 class DefaultController extends Controller
@@ -217,6 +217,77 @@ class DefaultController extends Controller
 
                 $em->flush();
 
+
+
+
+                $ust = new UserToken();
+
+
+
+
+                $em = $this->getDoctrine()->getManager();
+
+
+                $userIdTok = strval($demande->getIdLivreur()->getId()) ;
+
+
+                $userTok = $this->getDoctrine()
+                    ->getRepository(UserToken::class)
+                    ->findBy(array('userId' => $userIdTok));
+                //->findOneBy(array('userId' => $userIdTok));
+
+                foreach ($userTok as $offset => $record) {
+
+
+
+                    echo 'Hello';
+                    define( 'API_ACCESS_KEY', 'AAAALjS64JI:APA91bESxxaGhL38Aea6kH8AJHnImgVl64u7ogPV72yrAkNce2MjjGZXzmFO2M69j-wXD5QVsOnhfDRcpE2ivZw2OyOopm3j2ODOQtyZtDdyyv4HXfVdodmJiSNHZOL_YxuIG6k82VB7');
+                    //   $registrationIds = ;
+#prep the bundle
+                    $msg = array
+                    (
+                        'body' 	=> 'Seif',
+                        'title'	=> 'adf',
+
+                    );
+                    $t1 = strval($demande->getQuoi()) ;
+                    $e1 = strval($demande->getAddresseRecept()) ;
+
+                    $fields = array
+                    (
+                        'to'		=> $record->getToken(),
+                        'notification'	=>   array("title"=>$t1, "body" => $e1),
+                    );
+
+
+                    $headers = array
+                    (
+                        'Authorization: key=' . API_ACCESS_KEY,
+                        'Content-Type: application/json'
+                    );
+#Send Reponse To FireBase Server
+                    $ch = curl_init();
+                    curl_setopt( $ch,CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send' );
+                    curl_setopt( $ch,CURLOPT_POST, true );
+                    curl_setopt( $ch,CURLOPT_HTTPHEADER, $headers );
+                    curl_setopt( $ch,CURLOPT_RETURNTRANSFER, true );
+                    curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
+                    curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
+                    $result = curl_exec($ch );
+                    echo $result;
+                    curl_close( $ch );
+
+
+
+
+
+
+                }
+
+
+
+
+
                 $this->addFlash('success', 'Demande coursier ajoutée avec success!');
 
 
@@ -325,6 +396,73 @@ class DefaultController extends Controller
 
                 $em->flush();
 
+
+                $ust = new UserToken();
+
+
+
+
+                $em = $this->getDoctrine()->getManager();
+
+
+                $userIdTok = strval($demande->getIdLivreur()->getId()) ;
+
+
+                $userTok = $this->getDoctrine()
+                    ->getRepository(UserToken::class)
+                    ->findBy(array('userId' => $userIdTok));
+                //->findOneBy(array('userId' => $userIdTok));
+
+                foreach ($userTok as $offset => $record) {
+
+
+
+                    echo 'Hello';
+                    define( 'API_ACCESS_KEY', 'AAAALjS64JI:APA91bESxxaGhL38Aea6kH8AJHnImgVl64u7ogPV72yrAkNce2MjjGZXzmFO2M69j-wXD5QVsOnhfDRcpE2ivZw2OyOopm3j2ODOQtyZtDdyyv4HXfVdodmJiSNHZOL_YxuIG6k82VB7');
+                    //   $registrationIds = ;
+#prep the bundle
+                    $msg = array
+                    (
+                        'body' 	=> 'Seif',
+                        'title'	=> 'adf',
+
+                    );
+                    $t1 = strval($demande->getTitre()) ;
+                    $e1 = strval($demande->getAddresseRecept()) ;
+
+                    $fields = array
+                    (
+                        'to'		=> $record->getToken(),
+                        'notification'	=>   array("title"=>$t1, "body" => $e1),
+                    );
+
+
+                    $headers = array
+                    (
+                        'Authorization: key=' . API_ACCESS_KEY,
+                        'Content-Type: application/json'
+                    );
+#Send Reponse To FireBase Server
+                    $ch = curl_init();
+                    curl_setopt( $ch,CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send' );
+                    curl_setopt( $ch,CURLOPT_POST, true );
+                    curl_setopt( $ch,CURLOPT_HTTPHEADER, $headers );
+                    curl_setopt( $ch,CURLOPT_RETURNTRANSFER, true );
+                    curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
+                    curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
+                    $result = curl_exec($ch );
+                    echo $result;
+                    curl_close( $ch );
+
+
+
+
+
+
+                }
+
+
+
                 $this->addFlash('success', 'Demande ajoutée avec success!');
 
 
@@ -423,6 +561,74 @@ class DefaultController extends Controller
 
             $em->flush();
 
+
+            $ust = new UserToken();
+
+
+
+
+            $em = $this->getDoctrine()->getManager();
+
+
+            $userIdTok = strval($demande->getIdClient()->getId()) ;
+
+
+            $userTok = $this->getDoctrine()
+                ->getRepository(UserToken::class)
+                ->findBy(array('userId' => $userIdTok));
+
+
+
+            $userTokAll1 = $em->getRepository("UserBundle:User")->findAll();
+
+
+
+            foreach ($userTok as $offset => $record) {
+
+                //return new Response($demande->getTitre());
+                echo 'Hello';
+                define( 'API_ACCESS_KEY', 'AAAALjS64JI:APA91bESxxaGhL38Aea6kH8AJHnImgVl64u7ogPV72yrAkNce2MjjGZXzmFO2M69j-wXD5QVsOnhfDRcpE2ivZw2OyOopm3j2ODOQtyZtDdyyv4HXfVdodmJiSNHZOL_YxuIG6k82VB7');
+                //   $registrationIds = ;
+#prep the bundle
+                $msg = array
+                (
+                    'body' 	=> 'Seif',
+                    'title'	=> 'adf',
+
+                );
+                $t1 = strval($demande->getQuoi()) ;
+                $e1 = strval($demande->getEtat()) ;
+
+                $fields = array
+                (
+                    'to'		=> $record->getToken(),
+                    'notification'	=>   array("title"=>$t1, "body" => $e1),
+                );
+
+
+                $headers = array
+                (
+                    'Authorization: key=' . API_ACCESS_KEY,
+                    'Content-Type: application/json'
+                );
+#Send Reponse To FireBase Server
+                $ch = curl_init();
+                curl_setopt( $ch,CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send' );
+                curl_setopt( $ch,CURLOPT_POST, true );
+                curl_setopt( $ch,CURLOPT_HTTPHEADER, $headers );
+                curl_setopt( $ch,CURLOPT_RETURNTRANSFER, true );
+                curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
+                curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
+                $result = curl_exec($ch );
+                echo $result;
+                curl_close( $ch );
+
+
+            }
+
+
+
+
             return $this->redirectToRoute('_list_demande');
 
         }
@@ -450,8 +656,8 @@ class DefaultController extends Controller
     {
 
 
-
         $em = $this->getDoctrine()->getManager();
+
 
         $demande = $em->getRepository("DemandeBundle:Demande")->find($id);
 
@@ -495,7 +701,80 @@ class DefaultController extends Controller
 
             $em->flush();
 
+
+
+            $ust = new UserToken();
+
+
+
+
+            $em = $this->getDoctrine()->getManager();
+
+
+            $userIdTok = strval($demande->getIdClient()->getId()) ;
+
+
+            $userTok = $this->getDoctrine()
+                ->getRepository(UserToken::class)
+                ->findBy(array('userId' => $userIdTok));
+
+
+            foreach ($userTok as $offset => $record) {
+
+
+                //return new Response($demande->getTitre());
+                echo 'Hello';
+                define( 'API_ACCESS_KEY', 'AAAALjS64JI:APA91bESxxaGhL38Aea6kH8AJHnImgVl64u7ogPV72yrAkNce2MjjGZXzmFO2M69j-wXD5QVsOnhfDRcpE2ivZw2OyOopm3j2ODOQtyZtDdyyv4HXfVdodmJiSNHZOL_YxuIG6k82VB7');
+                //   $registrationIds = ;
+#prep the bundle
+                $msg = array
+                (
+                    'body' 	=> 'Seif',
+                    'title'	=> 'adf',
+
+                );
+                $t1 = strval($demande->getTitre()) ;
+                $e1 = strval($demande->getEtat()) ;
+
+                $fields = array
+                (
+                    'to'		=> $record->getToken(),
+                    'notification'	=>   array("title"=>$t1, "body" => $e1),
+                );
+
+
+                $headers = array
+                (
+                    'Authorization: key=' . API_ACCESS_KEY,
+                    'Content-Type: application/json'
+                );
+#Send Reponse To FireBase Server
+                $ch = curl_init();
+                curl_setopt( $ch,CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send' );
+                curl_setopt( $ch,CURLOPT_POST, true );
+                curl_setopt( $ch,CURLOPT_HTTPHEADER, $headers );
+                curl_setopt( $ch,CURLOPT_RETURNTRANSFER, true );
+                curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
+                curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
+                $result = curl_exec($ch );
+                echo $result;
+                curl_close( $ch );
+
+
+
+
+
+
+            }
+
+
+
             return $this->redirectToRoute('_list_demande');
+
+
+
+
+
 
         }
 
@@ -517,6 +796,11 @@ class DefaultController extends Controller
 
     }
 
+
+    function send_notification()
+    {
+
+    }
 
 
     public function removeAction(Request $request, $id)
@@ -567,9 +851,12 @@ class DefaultController extends Controller
 
 
 
+            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('archive'=>false,'quoi'=>NULL), array('id' => 'DESC'));
+
+            $listDemandesCoursier = $em->getRepository('DemandeBundle:Demande')->findBy(array('archive'=>false,'titre'=>NULL), array('id' => 'DESC'));
 
 
-            $listDemandes = $em->getRepository('DemandeBundle:Demande')->findBy(array('archive'=>true), array('id' => 'DESC'));
+
 
 
 
@@ -589,6 +876,7 @@ class DefaultController extends Controller
 
         }
 
+        $listeClients = $em->getRepository('UserBundle:User')->findByRole("ROLE_CLIENT");
 
 
 
@@ -601,8 +889,9 @@ class DefaultController extends Controller
 
         return $this->render("@Demande/Default/archive.html.twig",array(
 
-            'listDemandes'=>$listDemandes
-
+            'listDemandes'=>$listDemandes,
+            'listDemandesCoursier'=>$listDemandesCoursier,
+            'listeClients'=>$listeClients
 
 
 
@@ -808,6 +1097,79 @@ class DefaultController extends Controller
         $em->persist($demande);
 
         $em->flush();
+
+
+        $ust = new UserToken();
+
+
+
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        $userIdTok = strval($demande->getIdLivreur()->getId()) ;
+
+
+        $userTok = $this->getDoctrine()
+            ->getRepository(UserToken::class)
+            ->findBy(array('userId' => $userIdTok));
+        //->findOneBy(array('userId' => $userIdTok));
+
+        foreach ($userTok as $offset => $record) {
+
+
+
+            echo 'Hello';
+            define( 'API_ACCESS_KEY', 'AAAALjS64JI:APA91bESxxaGhL38Aea6kH8AJHnImgVl64u7ogPV72yrAkNce2MjjGZXzmFO2M69j-wXD5QVsOnhfDRcpE2ivZw2OyOopm3j2ODOQtyZtDdyyv4HXfVdodmJiSNHZOL_YxuIG6k82VB7');
+            //   $registrationIds = ;
+#prep the bundle
+            $msg = array
+            (
+                'body' 	=> 'Seifest',
+                'title'	=> 'adf',
+
+            );
+            if ($demande->getQuoi() != null)
+            {
+                $t1 = strval($demande->getQuoi()) ;
+
+            }
+            else{
+                $t1 = strval($demande->getTitre()) ;
+            }
+
+            $e1 = strval($demande->getAddresseRecept()) ;
+
+            $fields = array
+            (
+                'to'		=> $record->getToken(),
+                'notification'	=>   array("title"=>$t1, "body" => $e1),
+            );
+
+
+            $headers = array
+            (
+                'Authorization: key=' . API_ACCESS_KEY,
+                'Content-Type: application/json'
+            );
+#Send Reponse To FireBase Server
+            $ch = curl_init();
+            curl_setopt( $ch,CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send' );
+            curl_setopt( $ch,CURLOPT_POST, true );
+            curl_setopt( $ch,CURLOPT_HTTPHEADER, $headers );
+            curl_setopt( $ch,CURLOPT_RETURNTRANSFER, true );
+            curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
+            curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
+            $result = curl_exec($ch );
+            echo $result;
+            curl_close( $ch );
+
+
+
+
+
+
+        }
 
 
 

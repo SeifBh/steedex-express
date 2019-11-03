@@ -32,14 +32,22 @@ class DefaultController extends Controller
     public function loginAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
+       /* return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        ]);*/
 
         $user = $this->getUser();
         return $this->json(array(
+            'id' => $user->getId(),
             'username' => $user->getUsername(),
+            'nom' => $user->getNom(),
+            'prenom' => $user->getPrenom(),
+            'email' => $user->getEmail(),
+            'adresse' => $user->getAddresse(),
+            'frais' => $user->getFraiLiv(),
+            'tel' => $user->getTel(),
             'roles' => $user->getRoles(),
+            'fiscal' => $user->getIdFiscale(),
         ));
     }
 

@@ -14,8 +14,26 @@ _api_deamndes_livreur:
     path:     /demande_livreur/{id_livreur}
     defaults: { _controller: ApiBundle:Default:getDemandeLivreur }
 
+
+
+
 _api_update_demande:
     path:     /demande/update/{id}/{etat}
     defaults: { _controller: ApiBundle:Default:updateDemande }
     type:   PUT
+
+_api_user_token:
+    path:     /tokens
+    defaults: { _controller: ApiBundle:Default:tokens }
+
+_api_user_createtoken:
+    path:     /create_token/{id}/{tok}
+    defaults: { _controller: ApiBundle:Default:createTokens }
+    type:   POST
+
+
+_api_user_deletetoken:
+    path:     /delete_token/{tok}
+    defaults: { _controller: ApiBundle:Default:deleteTokens }
+    type:   DELETE
 

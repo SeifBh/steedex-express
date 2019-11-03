@@ -180,6 +180,150 @@
         <div class="row">
 
 
+            <div class="col-md-12">
+                <div class="box box-primary">
+
+                    <div class="box-header with-border">
+
+                        <h3 class="box-title">Liste des demandes coursier</h3>
+                        <div class="box-tools">
+                            <a href="{{ path('_create_demande_coursier') }}" type="button" class="btn btn-success">Créer une demande coursier</a>
+                        </div>
+                    </div>
+
+
+                    <div class="box-body no-padding">
+
+                        <!-- /.box-header -->
+                        <div class="box-body no-padding" id="a5Coursier">
+                            <table class="table table-condensed table-striped table-hover" id="mainTableCoursier">
+                                <tbody><tr>
+                                    <th>#</th>
+                                    <th>Id</th>
+                                    <th>Date Emission</th>
+                                    <th>Quoi</th>
+                                    <th>Emetteur</th>
+                                    <th>Destinataire</th>
+                                    <th>Lieu</th>
+                                    <th>Type</th>
+                                    <th>Etat</th>
+                                    <th>Livreur</th>
+                                    {% if is_granted('ROLE_ADMIN') == true %}
+
+
+                                        <th>#Aff</th>
+                                    {% endif %}
+
+                                    <th>#Mod</th>
+
+                                    {% if is_granted('ROLE_ADMIN') == true %}
+
+                                        <th>#Supp</th>
+
+
+                                        <th>#Arch</th>
+                                    {% endif %}
+
+                                    <th>#Telecharger</th>
+                                    <th>#Imrpimer</th>
+
+                                </tr>
+
+                                {% if listDemandesCoursier is empty %}
+                                    <tr><th style="padding:20px;" colspan="17"> Aucune demande </th></tr>
+                                {% else %}
+                                    {% for d in listDemandesCoursier %}
+                                        <tr class="{% if d.readDemande == false %} notRead {% endif %}">
+                                            <td>
+
+                                                <input name="coffee" type="checkbox" id="{{ d.id }}" value="{{ d.id }}"/> </td>
+
+                                            <td>{{ d.id }}</td>
+                                            <td>{{ d.dateEmission | date("d/m/Y") }}</td>
+                                            <td>{{ d.quoi }}</td>
+                                            <td>{{ d.idClient.nom }} {{ d.idClient.prenom }}</td>
+                                            <td>{{ d.nomPrenomRecept }}</td>
+                                            <td>{{ d.addresseRecept }}</td>
+                                            <td>{{ d.typeDC }}</td>
+
+                                            <td>
+
+                                                {% if (d.etat == "EnTraitement") %}
+                                                    <span class="label label-info">{{ d.etat }}</span>
+                                                {% elseif (d.etat == "EnCours") %}
+                                                    <span class="label label-warning">{{ d.etat }}</span>
+                                                {% elseif (d.etat == "Valide") %}
+                                                    <span class="label label-success">{{ d.etat }}</span>
+                                                {% elseif (d.etat == "Cloture") %}
+                                                    <span class="label label-danger">{{ d.etat }}</span>
+                                                {% else %}
+                                                    {{ d.etat }}
+                                                {% endif %}
+
+
+
+
+
+
+                                            </td>
+
+                                            <td>
+
+                                                {% if d.idLivreur != null %}
+                                                    {{ d.idLivreur.nom }} {{ d.idLivreur.prenom }}
+                                                {% else %}
+                                                    -
+                                                {% endif %}
+
+
+                                            </td>
+                                            {% if is_granted('ROLE_ADMIN') == true %}
+
+                                                <td>
+                                                    <a href="{{ path('_assign_demande',{'id_demande':d.id}) }}">Affecter</a>
+                                                </td>
+                                            {% endif %}
+                                            <td><a href="{{ path('_update_demande_coursier',{'id':d.id}) }}">Modifier</a></td>
+                                            {% if is_granted('ROLE_ADMIN') == true %}
+
+                                                <td><a href="{{ path('_remove_demande',{'id':d.id}) }}">Supprimer</a></td>
+                                                <td><a href="{{ path('_archive_demande',{'id':d.id}) }}">Archiver</a></td>
+
+                                            {% endif %}
+                                            <td>
+                                                <a href="{{ path('_generate_url', {'id_demande': d.id}) }}"> Telecharger</a>
+
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('view_pdf', {'id_demande': d.id}) }}"> Imrpimer</a>
+
+                                            </td>
+
+
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+
+
+
+
+
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
 
             <div class="col-md-12">
                 <div class="box box-primary">

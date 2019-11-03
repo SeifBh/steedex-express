@@ -60,7 +60,8 @@ fos_user:
 
 api_login_check:
     path: /api/login_check
-    controller : AppBundle\Controller\DefaultController:index
+    controller: AppBundle\Controller\SecurityController::api_login_check
+    methods: POST
 
 _getQuote:
     path: /getQuote

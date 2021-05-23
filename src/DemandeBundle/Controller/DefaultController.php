@@ -57,7 +57,6 @@ class DefaultController extends Controller
     public function listAction()
 
     {
-
         //return new JsonResponse($this->getUser()->getPlainPassword());
 
         $em = $this->getDoctrine()->getManager();

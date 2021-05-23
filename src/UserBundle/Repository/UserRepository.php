@@ -25,9 +25,8 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
     public function findByRole($role)
     {
         return $this->createQueryBuilder('u')
-            ->where('u.roles LIKE :roles')
-            ->setParameter('roles', '%"'.$role.'"%')
-        ->getQuery()
+
+            ->getQuery()
             ->getResult();
 
 

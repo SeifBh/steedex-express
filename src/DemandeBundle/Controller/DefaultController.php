@@ -6,6 +6,7 @@ namespace DemandeBundle\Controller;
 
 
 
+use DemandeBundle\DemandeBundle;
 use DemandeBundle\Entity\Demande;
 
 use DemandeBundle\Enum\DemandeEtatEnum;
@@ -46,6 +47,7 @@ use Dompdf\Dompdf;
 
 use Dompdf\Options;
 use UserBundle\Entity\UserToken;
+use UserBundle\UserBundle;
 
 
 class DefaultController extends Controller
@@ -159,7 +161,7 @@ class DefaultController extends Controller
 
 
 
-        $form = $this->createForm(DemandeCoursierType::class, $demande);
+        $form = $this->createForm(DemandeCoursierType::class, $demande, array('user' => $this->getUser()->getRoles()));
 
         $form->handleRequest($request); /*creation d'une session pr stocker les valeurs de l'input*/
 
@@ -179,7 +181,7 @@ class DefaultController extends Controller
 
                 $demande->setReadDemande(false);
 
-                $user_livreur = $em->getRepository("UserBundle:User")->find(2);
+                $user_livreur = $em->getRepository("UserBundle:User")->find(33);
 
                 //En Cours = Livreur = yousssef
 
@@ -256,7 +258,7 @@ class DefaultController extends Controller
                     $fields = array
                     (
                         'to'		=> $record->getToken(),
-                        'notification'	=>   array("title"=>$t1, "body" => $e1),
+                        'notification'	=>   array("title"=>"Demande - ".$t1, "body" =>"[".$demande->getIdClient()->getNom()." ".$demande->getIdClient()->getPrenom(). "]: " .$e1),
                     );
 
 
@@ -358,7 +360,7 @@ class DefaultController extends Controller
 
                 $demande->setReadDemande(false);
 
-                 $user_livreur = $em->getRepository("UserBundle:User")->find(2);
+                 $user_livreur = $em->getRepository("UserBundle:User")->find(33);
 
                 //En Cours = Livreur = yousssef
 
@@ -433,7 +435,7 @@ class DefaultController extends Controller
                     $fields = array
                     (
                         'to'		=> $record->getToken(),
-                        'notification'	=>   array("title"=>$t1, "body" => $e1),
+                        'notification'	=>   array("title"=>"Demande - ".$t1, "body" =>"[".$demande->getIdClient()->getNom()." ".$demande->getIdClient()->getPrenom(). "]: " .$e1),
                     );
 
 
@@ -598,11 +600,13 @@ class DefaultController extends Controller
                 );
                 $t1 = strval($demande->getQuoi()) ;
                 $e1 = strval($demande->getEtat()) ;
+                $e2 = strval($demande->getAddresseRecept()) ;
 
                 $fields = array
                 (
                     'to'		=> $record->getToken(),
-                    'notification'	=>   array("title"=>$t1, "body" => $e1),
+                    'notification'	=>   array("title"=>$t1." - ". $e1 , "body" =>"[".$demande->getNomPrenomRecept()."] ". $e2),
+
                 );
 
 
@@ -736,11 +740,48 @@ class DefaultController extends Controller
                 $t1 = strval($demande->getTitre()) ;
                 $e1 = strval($demande->getEtat()) ;
 
-                $fields = array
-                (
-                    'to'		=> $record->getToken(),
-                    'notification'	=>   array("title"=>$t1, "body" => $e1),
-                );
+                /*$f14 = '[{ "message":{ "token":'.$record->getToken().', "data":{ "Nick" : "Mario", "body" : "great match!", "Room" : "PortugalVSDenmark" }, "apns":{ "headers":{ "apns-expiration":"1604750400" } }, "android":{ "ttl":"4500s" }, "webpush":{ "headers":{ "TTL":"4500" } } } }]';
+                $fields = json_decode($f14, true);
+*/
+
+                if ($this->isGranted("ROLE_ADMIN"))
+
+                {
+                    $fields = array
+                    (
+                        'to'		=> $record->getToken(),
+
+                        'notification'	=>   array("title"=>$t1." - ".$demande->getIdClient()->getNom().$demande->getIdClient()->getPrenom(), "body" =>"[".$demande->getNomPrenomRecept()."] ". $e1),
+
+
+
+                        'android'   => array('ttl'=>'20s'),
+                        'webpush'   => array('headers'=>array('TTL'=>'20')),
+
+
+                    );
+                }
+                else if($this->isGranted("ROLE_CLIENT"))
+                {
+                    $fields = array
+                    (
+                        'to'		=> $record->getToken(),
+
+                        'notification'	=>   array("title"=>$t1 , "body" =>"[".$demande->getNomPrenomRecept()."] ". $e1),
+
+
+
+                        'android'   => array('ttl'=>'20s'),
+                        'webpush'   => array('headers'=>array('TTL'=>'20')),
+
+
+                    );
+
+                }
+                else{
+
+                }
+
 
 
                 $headers = array
@@ -1066,11 +1107,14 @@ class DefaultController extends Controller
 
     {
 
-
-
+        echo("ddddddddddddddddddd");
         $id_liveur = $request->get('id_livreur');
 
         $id_demande = $request->get('id_demande');
+
+
+        //return new Response("id livreur=".$id_livreur." +++ id demande =".$id_demande);
+
 
         $livreur = new User();
 
@@ -1078,11 +1122,12 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $livreur = $em->getRepository('UserBundle:User')->findOneBy(array('id' => $id_livreur));
+        $livreur = $em->getRepository('UserBundle:User',$livreur)->findOneBy(array('id' => $id_livreur));
 
-        $demande = $em->getRepository('DemandeBundle:Demande')->findOneBy(array('id' => $id_demande));
+        //return new Response("to livreur= ".$livreur->getNom());
+        $demande = $em->getRepository('DemandeBundle:Demande',$demande)->findOneBy(array('id' => $id_demande));
 
-
+       // return new Response("nom demande= ".$demande->getQuoi());
 
         $demande->setIdLivreur($livreur);
 
@@ -1090,13 +1135,12 @@ class DefaultController extends Controller
 
         $demande->setEtat(DemandeEtatEnum::ETAT_EnCours);
 
-
-
-        // $demande->setEtat("Encours");
-
         $em->persist($demande);
 
         $em->flush();
+
+
+
 
 
         $ust = new UserToken();
@@ -1109,41 +1153,34 @@ class DefaultController extends Controller
 
         $userIdTok = strval($demande->getIdLivreur()->getId()) ;
 
+        $userIdTokClient = strval($demande->getIdClient()->getId()) ;
 
         $userTok = $this->getDoctrine()
             ->getRepository(UserToken::class)
             ->findBy(array('userId' => $userIdTok));
-        //->findOneBy(array('userId' => $userIdTok));
-
-        foreach ($userTok as $offset => $record) {
 
 
+        $userTokClient = $this->getDoctrine()
+            ->getRepository(UserToken::class)
+            ->findBy(array('userId' => $userIdTokClient));
 
-            echo 'Hello';
+
+        foreach ($userTokClient as $offset => $record) {
             define( 'API_ACCESS_KEY', 'AAAALjS64JI:APA91bESxxaGhL38Aea6kH8AJHnImgVl64u7ogPV72yrAkNce2MjjGZXzmFO2M69j-wXD5QVsOnhfDRcpE2ivZw2OyOopm3j2ODOQtyZtDdyyv4HXfVdodmJiSNHZOL_YxuIG6k82VB7');
-            //   $registrationIds = ;
-#prep the bundle
-            $msg = array
-            (
-                'body' 	=> 'Seifest',
-                'title'	=> 'adf',
-
-            );
             if ($demande->getQuoi() != null)
             {
                 $t1 = strval($demande->getQuoi()) ;
-
             }
             else{
                 $t1 = strval($demande->getTitre()) ;
             }
-
             $e1 = strval($demande->getAddresseRecept()) ;
-
+            $et5 = strval($demande->getEtat()) ;
             $fields = array
             (
                 'to'		=> $record->getToken(),
-                'notification'	=>   array("title"=>$t1, "body" => $e1),
+                'collapse_key' => 'type_a',
+                'notification'	=>   array("title"=>$t1 ." - " . $et5, "body" =>"Votre demande est affecté à notre livreur: [".$demande->getIdLivreur()->getNom()."]"),
             );
 
 
@@ -1164,12 +1201,67 @@ class DefaultController extends Controller
             echo $result;
             curl_close( $ch );
 
-
-
-
-
-
         }
+
+        foreach ($userTok as $offset => $record) {
+
+
+
+            echo 'Hello';
+            define( 'API_ACCESS_KEY', 'AAAALjS64JI:APA91bESxxaGhL38Aea6kH8AJHnImgVl64u7ogPV72yrAkNce2MjjGZXzmFO2M69j-wXD5QVsOnhfDRcpE2ivZw2OyOopm3j2ODOQtyZtDdyyv4HXfVdodmJiSNHZOL_YxuIG6k82VB7');
+
+            $msg = array
+            (
+                'body' 	=> 'Seifest',
+                'title'	=> 'adf',
+
+            );
+            if ($demande->getQuoi() != null)
+            {
+                $t1 = strval($demande->getQuoi()) ;
+
+            }
+            else{
+                $t1 = strval($demande->getTitre()) ;
+            }
+
+            $e1 = strval($demande->getAddresseRecept()) ;
+
+            $fields = array
+            (
+                'to'		=> $record->getToken(),
+                'collapse_key' => 'type_a',
+
+                'notification'	=>   array("title"=>$demande->getIdClient()->getNom().$demande->getIdClient()->getPrenom()." - ".$t1, "body" =>"[".$demande->getNomPrenomRecept()."] ". $e1),
+
+            );
+
+
+            $headers = array
+            (
+                'Authorization: key=' . API_ACCESS_KEY,
+                'Content-Type: application/json'
+            );
+#Send Reponse To FireBase Server
+            $ch = curl_init();
+            curl_setopt( $ch,CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send' );
+            curl_setopt( $ch,CURLOPT_POST, true );
+            curl_setopt( $ch,CURLOPT_HTTPHEADER, $headers );
+            curl_setopt( $ch,CURLOPT_RETURNTRANSFER, true );
+            curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
+            curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
+            $result = curl_exec($ch );
+            echo $result;
+            curl_close( $ch );
+
+ }
+
+
+
+
+
+
+
 
 
 

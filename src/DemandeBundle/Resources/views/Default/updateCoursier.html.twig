@@ -71,12 +71,14 @@
                     {{ form_row(form.addresseRecept) }}
                 </div>
 
+                {% if is_granted('ROLE_ADMIN') == true %}
 
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Etat</label>
                     {{ form_row(form.etat) }}
                 </div>
+                {% endif %}
 
 
                 <div class="form-group">

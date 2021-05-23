@@ -1,10 +1,10 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: steedexekb1.mysql.db
+    database_host: u0zbt18wwjva9e0v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
     database_port: 3306
-    database_name: steedexekb1
-    database_user: steedexekb1
-    database_password: Seif1234
+    database_name: ci3u8la72tgwyian
+    database_user: fqkxv305ofb9js8w
+    database_password: op2mltht5bv1aeeb
     mailer_transport: smtp
     mailer_encryption: tls
     mailer_auth_mode: login
@@ -12,7 +12,4 @@ parameters:
     mailer_username: belhadjali.seif@gmail.com
     mailer_password: ultraS1920
     secret: seifbh
-    jwt_private_key_path: %kernel.root_dir%/var/jwt/private.pem
-    jwt_public_key_path:  %kernel.root_dir%/var/jwt/public.pem
-    jwt_key_pass_phrase:  seifbh
-    jwt_token_ttl:        86400
+    jwt_key_pass_phrase: seifbh

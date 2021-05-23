@@ -45,12 +45,15 @@
             {{ form_row(form.typeDC) }}
         </div>
 
+    {% if is_granted('ROLE_ADMIN') == true %}
+
+
 
         <div class="form-group">
             <label for="exampleInputEmail1">Etat :</label>
             {{ form_row(form.etat) }}
         </div>
-
+    {% endif %}
 
 
         <center>    <button type="submit" class="btn btn-lg btn-primary">Envoyer</button>

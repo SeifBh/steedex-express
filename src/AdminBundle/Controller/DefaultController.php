@@ -28,24 +28,24 @@ class DefaultController extends Controller
         $em=$this->getDoctrine()->getManager();
         if ($this->isGranted("ROLE_ADMIN"))
         {
-            $nbJuin = (int) $this->demandeParMoisAction("2019-09",null);
-            $nb_Juillet = (int) $this->demandeParMoisAction("2019-10",null);
-            $nb_Aout = (int) $this->demandeParMoisAction("2019-11",null);
-            $nb_September = (int) $this->demandeParMoisAction("2019-12",null);
+            $nbJuin = 4;
+            $nb_Juillet = 5;
+            $nb_Aout = 6;
+            $nb_September = 7;
         }
         else if ($this->isGranted("ROLE_CLIENT"))
         {
-            $nbJuin = (int) $this->demandeParMoisAction("2019-09",$this->getUser()->getId());
-            $nb_Juillet = (int) $this->demandeParMoisAction("2019-10",$this->getUser()->getId());
-            $nb_Aout = (int) $this->demandeParMoisAction("2019-11",$this->getUser()->getId());
-            $nb_September = (int) $this->demandeParMoisAction("2019-12",$this->getUser()->getId());
+            $nbJuin = 4;
+            $nb_Juillet = 5;
+            $nb_Aout = 6;
+            $nb_September = 7;
         }
         else if ($this->isGranted("ROLE_LIVREUR"))
         {
-            $nbJuin = (int) $this->demandeParMoisAction("2019-09",$this->getUser()->getId());
-            $nb_Juillet = (int) $this->demandeParMoisAction("2019-10",$this->getUser()->getId());
-            $nb_Aout = (int) $this->demandeParMoisAction("2019-11",$this->getUser()->getId());
-            $nb_September = (int) $this->demandeParMoisAction("2019-12",$this->getUser()->getId());
+            $nbJuin = (int) $this->demandeParMoisAction("2021-05",$this->getUser()->getId());
+            $nb_Juillet = (int) $this->demandeParMoisAction("2021-06",$this->getUser()->getId());
+            $nb_Aout = (int) $this->demandeParMoisAction("2021-07",$this->getUser()->getId());
+            $nb_September = (int) $this->demandeParMoisAction("2021-08",$this->getUser()->getId());
         }
 
 

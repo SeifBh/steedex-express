@@ -52,8 +52,10 @@
       <path value="$PROJECT_DIR$/../../stdeex/symfony_heroku/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/../../stdeex/symfony_heroku/vendor/symfony/symfony" />
       <path value="" />
-      <path value="C:\php\pear" />
+      <path value="$PROJECT_DIR$/../../php/pear" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.2">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
 </project>

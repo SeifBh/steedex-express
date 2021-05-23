@@ -125,13 +125,20 @@ class DefaultController extends Controller
                 'title'	=> 'adf',
 
             );
-            $t1 = strval($selectedDemande->getTitre()) ;
+            if ($selectedDemande->getTitre() != null){
+                $t1 = strval($selectedDemande->getTitre()) ;
+
+            }
+            else{
+                $t1 = strval($selectedDemande->getQuoi()) ;
+
+            }
             $e1 = strval($selectedDemande->getEtat()) ;
 
             $fields = array
             (
                 'to'		=> $record->getToken(),
-                'notification'	=>   array("title"=>$t1, "body" => $e1),
+                'notification'	=>   array("title"=>$t1 ." - " . $e1, "body" =>"[".$selectedDemande->getAddresseRecept()."] "),
             );
 
 

@@ -14,11 +14,16 @@
 
     <style>
 
-        table {
-            display: block !important;
-            overflow-x: auto !important;
-            /* white-space: nowrap; */
-        }
+
+        @media (max-width:740px) and (max-height:740px){
+
+            table {
+                display: block !important;
+                overflow-x: auto !important;
+                /* white-space: nowrap; */
+            }
+            }
+
 
     body.skin-blue.sidebar-mini.active.menu-open {
         padding: 0px !important;
@@ -131,47 +136,44 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
+                    {% if is_granted('ROLE_ADMIN') == true %}
 
-                    <!-- Notifications: style can be found in dropdown.less -->
-                    <li class="dropdown notifications-menu" id="unread_msg">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            {% set aspx =
-                            render(controller(
-                            'AppBundle:Default:countUnreadMessages',
-                            { 'max': 3 }
-                            )) %}
-                            {% if aspx != 0 %}
-
-                            <span class="label label-warning" id="textunread">
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown notifications-menu" id="unread_msg">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
 
 
 
-                                   {{ aspx }}
+                                    <span class="label label-warning" id="textunread">
+
+
+
+                                  1
 
 
 
                             </span>
-                            {% endif %}
-                        </a>
 
-                        <ul class="dropdown-menu">
-                            <li class="header">Vous avez  {{ render(controller(
-                                'AppBundle:Default:countUnreadMessages',
-                                { 'max': 3 }
-                                )) }} notification(s)
+                            </a>
 
-                            </li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
+                            <ul class="dropdown-menu">
+                                <li class="header">Vous avez  0  notification(s)
+
+                                </li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
 
 
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="{{ path('_list_demande') }}">View all</a></li>
-                        </ul>
-                    </li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="{{ path('_list_demande') }}">View all</a></li>
+                            </ul>
+                        </li>
+
+                    {% endif %}
+
                     <!-- Tasks: style can be found in dropdown.less -->
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
@@ -429,8 +431,21 @@
         <div class="tab-content">
             <!-- Home tab content -->
             <div class="tab-pane" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Recent Activity</h3>
+                <h3 class="control-sidebar-heading">App Info</h3>
                 <ul class="control-sidebar-menu">
+
+
+                    <li>
+                        <a href="tel:+21690312037">
+                            <i class="menu-icon fa fa-tel"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">SeifEddine BelHadjAli</h4>
+
+                                <p>+21690312037</p>
+                            </div>
+                        </a>
+                    </li>
 
 
                     <li>
@@ -438,7 +453,7 @@
                             <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
 
                             <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">developped by</h4>
+                                <h4 class="control-sidebar-subheading">developed by</h4>
 
                                 <p>belhadjali.seif@gmail.com</p>
                             </div>
@@ -523,54 +538,17 @@
                     </div>
                     <!-- /.form-group -->
 
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Allow mail redirect
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
 
-                        <p>
-                            Other sets of options are available
-                        </p>
-                    </div>
                     <!-- /.form-group -->
 
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Expose author name in posts
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Allow the user to show his name in blog posts
-                        </p>
-                    </div>
                     <!-- /.form-group -->
 
-                    <h3 class="control-sidebar-heading">Chat Settings</h3>
 
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Show me as online
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-                    </div>
+
                     <!-- /.form-group -->
 
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Turn off notifications
-                            <input type="checkbox" class="pull-right">
-                        </label>
-                    </div>
                     <!-- /.form-group -->
 
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Delete chat history
-                            <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                        </label>
-                    </div>
                     <!-- /.form-group -->
                 </form>
             </div>

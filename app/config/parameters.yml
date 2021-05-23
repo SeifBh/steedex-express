@@ -9,8 +9,8 @@ parameters:
     mailer_encryption: tls
     mailer_auth_mode: login
     mailer_host: smtp.gmail.com
-    mailer_username: belhadjali.seif@gmail.com
-    mailer_password: ultraS1920
+    mailer_username: changeme@gmail.com
+    mailer_password: changeme
     secret: seifbh
     jwt_private_key_path: '%kernel.root_dir%/var/jwt/private.pem'
     jwt_public_key_path: '%kernel.root_dir%/var/jwt/public.pem'

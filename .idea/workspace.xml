@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="remove database credentials">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/parameters.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml" afterDir="false" />
+    <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="Add changeme">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -716,7 +715,7 @@
       <workItem from="1621722033981" duration="1655000" />
       <workItem from="1621723755655" duration="10695000" />
       <workItem from="1621787993576" duration="1826000" />
-      <workItem from="1621800604379" duration="2319000" />
+      <workItem from="1621800604379" duration="2400000" />
     </task>
     <task id="LOCAL-00001" summary="Without JWT">
       <created>1572815742848</created>
@@ -753,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621802823770</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add changeme">
+      <created>1621802959277</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1621802959277</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -870,7 +876,8 @@
     <MESSAGE value="Update README.md" />
     <MESSAGE value="fix reclamation bug" />
     <MESSAGE value="remove database credentials" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove database credentials" />
+    <MESSAGE value="Add changeme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add changeme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

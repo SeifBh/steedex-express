@@ -7,13 +7,13 @@ DEMO
 
 TOOLS
 --------------
-1. Symfony
-2. Firebase
-3. JWT
-4. SECURITY
-5. Doctrine
-6. PrintPDF
-7. FCM
+- Symfony
+- Firebase
+- JWT
+- SECURITY
+- Doctrine
+- PrintPDF
+- FCM
 
 Requirements
 --------------

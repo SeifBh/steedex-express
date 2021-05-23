@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="Update README.md">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+    <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="fix reclamation bug">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -717,7 +715,7 @@
       <workItem from="1621722033981" duration="1655000" />
       <workItem from="1621723755655" duration="10695000" />
       <workItem from="1621787993576" duration="1826000" />
-      <workItem from="1621800604379" duration="2133000" />
+      <workItem from="1621800604379" duration="2172000" />
     </task>
     <task id="LOCAL-00001" summary="Without JWT">
       <created>1572815742848</created>
@@ -740,7 +738,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621802485672</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix reclamation bug">
+      <created>1621802769480</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1621802769480</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -855,7 +860,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Without JWT" />
     <MESSAGE value="Update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
+    <MESSAGE value="fix reclamation bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix reclamation bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

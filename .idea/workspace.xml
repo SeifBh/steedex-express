@@ -5,29 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10da9308-40bb-4601-8e32-4ac70cfb2bc1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/AppBundle/EventListener/AuthenticationSuccessListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_28_07_19_18_44_c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_27_10_19_19_57_s.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_27_10_19_19_57_s.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony_heroku.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony_heroku.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/Template.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/Template.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/partials/homeslider.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/partials/homeslider.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config_dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config_dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/parameters.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ApiBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DemandeBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DemandeBundle/Form/DemandeCoursierType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DemandeBundle/Form/DemandeCoursierType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/create_demandeCoursier.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/create_demandeCoursier.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/updateCoursier.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/DemandeBundle/Resources/views/Default/updateCoursier.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.phar" beforeDir="false" afterPath="$PROJECT_DIR$/composer.phar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -735,7 +717,7 @@
       <workItem from="1621719750828" duration="1840000" />
       <workItem from="1621721625502" duration="390000" />
       <workItem from="1621722033981" duration="1655000" />
-      <workItem from="1621723755655" duration="5768000" />
+      <workItem from="1621723755655" duration="6865000" />
     </task>
     <task id="LOCAL-00001" summary="Without JWT">
       <created>1572815742848</created>

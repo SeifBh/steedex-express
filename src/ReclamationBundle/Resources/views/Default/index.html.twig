@@ -77,7 +77,14 @@
                 {% else %}
                     {% for d in listeReclamations %}
                         <tr class="{% if d.readReclamation == false %} notRead {% endif %}">
-                            <td>{{ d.idUser.nom }} {{ d.idUser.prenom }}</td>
+                            <td>
+
+                                {% if d.idUser.nom is defined and d.idUser.nom is not null %}
+                                    {{ d.idUser.nom }} {{ d.idUser.prenom }}
+
+                                {% endif %}
+
+                            </td>
                             <td>{{ d.sujet }}</td>
                             <td>{{ d.description }}</td>
                             <td>{{ d.etat }}</td>

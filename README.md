@@ -5,12 +5,21 @@ DEMO
 - WEB : http://steedex.herokuapp.com/
 - MOBILE : https://play.google.com/store/apps/details?id=tn.seif.steedex&hl=fr&gl=US
 
-Required
+TOOLS
 --------------
-1. Symfony 3.4
-2. Composer
-3. PHP 5.6
-4. MySQL
+1. Symfony
+2. Firebase
+3. JWT
+4. SECURITY
+5. Doctrine
+6. PrintPDF
+7. FCM
+
+Requirements
+--------------
+1. Composer
+2. PHP >= 5.6 
+6. MySQL
 
 Clone
 --------------
